@@ -1,0 +1,45 @@
+{
+  "home": {
+    "roulette": {
+      "title": "랜덤 룰렛",
+      "description": "누가 걸릴지 아무도 모른다! 운명의 룰렛을 돌려보세요"
+    },
+    "dice": {
+      "title": "주사위 굴리기",
+      "description": "주사위를 던져 최고 점수를 겨뤄보세요!"
+    }
+  },
+  "header": {
+    "backToList": "목록으로"
+  },
+  "common": {
+    "participants": "참가자 이름 입력",
+    "placeholder": "이름을 콤마(,) 또는 엔터로 구분해서 입력하세요\n예시: 예리, 서윤, 보리",
+    "minMax": "최소 2명, 최대 100명까지 가능합니다",
+    "start": "게임 시작하기",
+    "error": {
+      "min": "최소 2명 이상 입력해주세요",
+      "max": "최대 100명까지 가능합니다",
+      "duplicate": "중복된 이름이 있습니다"
+    },
+    "playAgain": "다시 하기",
+    "reset": "처음으로"
+  },
+  "dice": {
+    "title": "주사위 굴리기",
+    "rolling": "주사위 굴리기",
+    "turnOf": "{{name}}님 차례!",
+    "allComplete": "모두 완료! 결과를 확인하세요",
+    "roll": "주사위 굴리기",
+    "rollingInProgress": "굴리는 중...",
+    "showResult": "결과 보기",
+    "results": "굴린 결과",
+    "noResults": "아직 아무도 굴리지 않았습니다",
+    "completed": "{{count}} / {{total}}명 완료",
+    "result": {
+      "win": "승리!",
+      "tie": "공동 우승!",
+      "points": "{{value}}점"
+    }
+  }
+}

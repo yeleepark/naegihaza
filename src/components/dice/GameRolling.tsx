@@ -5,6 +5,7 @@ import Card from '@/components/ui/Card';
 import { Participant, DiceRollConfig } from '@/types/dice';
 import { SEGMENT_COLORS } from '@/utils/dice';
 import DiceScene from './DiceScene';
+import { useTranslation } from 'react-i18next';
 
 type GameRollingProps = {
   participants: Participant[];
@@ -25,6 +26,7 @@ export default function GameRolling({
   onRollComplete,
   onShowResult,
 }: GameRollingProps) {
+  const { t } = useTranslation();
   const allRolled = participants.every((p) => p.totalValue !== undefined);
   const currentParticipant = participants[currentRollingIndex];
   const rolledParticipants = participants
@@ -39,16 +41,16 @@ export default function GameRolling({
           <div className="flex-1 flex flex-col items-center justify-center">
             <div className="text-center mb-6">
               <h2 className="font-game text-2xl font-black text-black mb-2">
-                주사위 굴리기
+                {t('dice.rolling')}
               </h2>
               {!allRolled && currentParticipant && (
                 <p className="font-game text-xl text-black">
-                  {currentParticipant.name}님 차례!
+                  {t('dice.turnOf', { name: currentParticipant.name })}
                 </p>
               )}
               {allRolled && (
                 <p className="font-game text-xl text-black">
-                  모두 완료! 결과를 확인하세요
+                  {t('dice.allComplete')}
                 </p>
               )}
             </div>
@@ -87,7 +89,7 @@ export default function GameRolling({
                 className="w-full max-w-xs lowercase"
                 disabled={isRolling}
               >
-                {isRolling ? '굴리는 중...' : '주사위 굴리기'}
+                {isRolling ? t('dice.rollingInProgress') : t('dice.roll')}
               </Button>
             ) : (
               <Button
@@ -95,7 +97,7 @@ export default function GameRolling({
                 variant="primary"
                 className="w-full max-w-xs lowercase"
               >
-                결과 보기
+                {t('dice.showResult')}
               </Button>
             )}
           </div>
@@ -103,12 +105,12 @@ export default function GameRolling({
           {/* Results List */}
           <div className="lg:w-80 flex flex-col">
             <h3 className="font-game text-lg font-black text-black mb-3">
-              굴린 결과
+              {t('dice.results')}
             </h3>
             <div className="flex-1 bg-white rounded-lg border-4 border-black p-4 max-h-[400px] overflow-y-auto">
               {rolledParticipants.length === 0 ? (
                 <p className="font-game text-sm text-black/50 text-center">
-                  아직 아무도 굴리지 않았습니다
+                  {t('dice.noResults')}
                 </p>
               ) : (
                 <div className="space-y-2">
@@ -136,7 +138,7 @@ export default function GameRolling({
               )}
             </div>
             <p className="font-game text-sm text-black/70 mt-2 text-center">
-              {rolledParticipants.length} / {participants.length}명 완료
+              {t('dice.completed', { count: rolledParticipants.length, total: participants.length })}
             </p>
           </div>
         </div>

@@ -45,14 +45,14 @@ export function validateParticipantNames(names: string[]): {
   if (names.length < 2) {
     return {
       valid: false,
-      error: '최소 2명 이상 입력해주세요',
+      error: 'common.error.min',
     };
   }
 
   if (names.length > 100) {
     return {
       valid: false,
-      error: '최대 100명까지 가능합니다',
+      error: 'common.error.max',
     };
   }
 
@@ -61,7 +61,7 @@ export function validateParticipantNames(names: string[]): {
   if (uniqueNames.size !== names.length) {
     return {
       valid: false,
-      error: '중복된 이름이 있습니다',
+      error: 'common.error.duplicate',
     };
   }
 

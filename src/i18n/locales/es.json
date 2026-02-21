@@ -1,0 +1,45 @@
+{
+  "home": {
+    "roulette": {
+      "title": "Ruleta Aleatoria",
+      "description": "¡Nadie sabe quién será elegido! Gira la rueda del destino"
+    },
+    "dice": {
+      "title": "Lanzar Dados",
+      "description": "¡Lanza los dados y compite por la puntuación más alta!"
+    }
+  },
+  "header": {
+    "backToList": "Volver a la Lista"
+  },
+  "common": {
+    "participants": "Ingrese Nombres de Participantes",
+    "placeholder": "Separe los nombres con comas (,) o saltos de línea\nEjemplo: Ana, Carlos, María",
+    "minMax": "Mín 2, Máx 100 participantes",
+    "start": "Comenzar Juego",
+    "error": {
+      "min": "Por favor ingrese al menos 2 participantes",
+      "max": "Máximo 100 participantes permitidos",
+      "duplicate": "Se encontraron nombres duplicados"
+    },
+    "playAgain": "Jugar de Nuevo",
+    "reset": "Volver al Inicio"
+  },
+  "dice": {
+    "title": "Lanzar Dados",
+    "rolling": "Lanzar Dados",
+    "turnOf": "¡Turno de {{name}}!",
+    "allComplete": "¡Todo Completo! Ver Resultados",
+    "roll": "Lanzar Dados",
+    "rollingInProgress": "Lanzando...",
+    "showResult": "Mostrar Resultados",
+    "results": "Resultados de Lanzamiento",
+    "noResults": "Nadie ha lanzado todavía",
+    "completed": "{{count}} / {{total}} Completo",
+    "result": {
+      "win": "¡Ganador!",
+      "tie": "¡Empate!",
+      "points": "{{value}} pts"
+    }
+  }
+}

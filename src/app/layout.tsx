@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Press_Start_2P, Jua } from "next/font/google";
 import "./globals.css";
+import I18nProvider from "@/components/I18nProvider";
 
 const pressStart2P = Press_Start_2P({
   variable: "--font-pixel",
@@ -30,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="ko" className="h-full overflow-hidden">
       <body className={`${pressStart2P.variable} ${jua.variable} h-full overflow-hidden antialiased`}>
-        {children}
+        <I18nProvider>
+          {children}
+        </I18nProvider>
       </body>
     </html>
   );

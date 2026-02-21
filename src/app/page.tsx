@@ -4,8 +4,11 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WaveCurtain from '@/components/layout/WaveCurtain';
 import GameCard from '@/components/GameCard';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen w-screen flex flex-col bg-[#fef3e2]">
       <Header />
@@ -18,15 +21,15 @@ export default function Home() {
             {/* Games Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <GameCard
-                title="랜덤 룰렛"
-                description="누가 걸릴지 아무도 모른다! 운명의 룰렛을 돌려보세요"
+                title={t('home.roulette.title')}
+                description={t('home.roulette.description')}
                 icon="🎰"
                 bgColor="bg-yellow-300"
                 href="/games/roulette"
               />
               <GameCard
-                title="주사위 굴리기"
-                description="주사위를 던져 최고 점수를 겨뤄보세요!"
+                title={t('home.dice.title')}
+                description={t('home.dice.description')}
                 icon="🎲"
                 bgColor="bg-blue-300"
                 href="/games/dice"

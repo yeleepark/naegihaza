@@ -1,0 +1,45 @@
+{
+  "home": {
+    "roulette": {
+      "title": "随机轮盘",
+      "description": "谁都不知道会选中谁！转动命运之轮"
+    },
+    "dice": {
+      "title": "掷骰子",
+      "description": "掷骰子，争夺最高分！"
+    }
+  },
+  "header": {
+    "backToList": "返回列表"
+  },
+  "common": {
+    "participants": "输入参与者姓名",
+    "placeholder": "用逗号(,)或换行分隔姓名\n例如：小明, 小红, 小刚",
+    "minMax": "最少2人，最多100人",
+    "start": "开始游戏",
+    "error": {
+      "min": "请至少输入2名参与者",
+      "max": "最多允许100名参与者",
+      "duplicate": "发现重复姓名"
+    },
+    "playAgain": "再玩一次",
+    "reset": "返回开始"
+  },
+  "dice": {
+    "title": "掷骰子",
+    "rolling": "掷骰子",
+    "turnOf": "{{name}}的回合！",
+    "allComplete": "全部完成！查看结果",
+    "roll": "掷骰子",
+    "rollingInProgress": "掷骰中...",
+    "showResult": "显示结果",
+    "results": "掷骰结果",
+    "noResults": "还没有人掷骰",
+    "completed": "{{count}} / {{total}}人完成",
+    "result": {
+      "win": "获胜！",
+      "tie": "平局！",
+      "points": "{{value}}分"
+    }
+  }
+}

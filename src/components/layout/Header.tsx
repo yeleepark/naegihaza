@@ -2,10 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const { t } = useTranslation();
 
   return (
     <header className="relative z-10 bg-black text-white py-4 px-6 md:px-8">
@@ -21,7 +23,7 @@ export default function Header() {
             href="/"
             className="font-game text-sm hover:text-pink-400 transition-colors"
           >
-            ← 목록으로
+            ← {t('backToList')}
           </Link>
         )}
       </div>

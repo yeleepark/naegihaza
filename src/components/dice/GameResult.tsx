@@ -6,6 +6,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { DiceResult } from '@/types/dice';
 import { SEGMENT_COLORS } from '@/utils/dice';
+import { useTranslation } from 'react-i18next';
 
 type GameResultProps = {
   result: DiceResult;
@@ -57,6 +58,8 @@ export default function GameResult({
   onPlayAgain,
   onReset,
 }: GameResultProps) {
+  const { t } = useTranslation();
+
   useEffect(() => {
     fireConfetti();
 
@@ -73,7 +76,7 @@ export default function GameResult({
       <Card className="max-w-md w-full relative z-10">
         <div className="text-center">
           <h2 className="font-game text-2xl font-black text-black mb-6">
-            {isTie ? '공동 우승!' : '승리!'}
+            {isTie ? t('dice.result.tie') : t('dice.result.win')}
           </h2>
 
           <div
@@ -103,7 +106,7 @@ export default function GameResult({
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-white rounded-lg border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
               <span className="text-4xl">🎲🎲</span>
               <span className="font-game text-3xl font-black text-black">
-                {result.winningValue}점
+                {t('dice.result.points', { value: result.winningValue })}
               </span>
             </div>
           </div>
@@ -114,14 +117,14 @@ export default function GameResult({
               variant="primary"
               className="w-full lowercase"
             >
-              다시 하기
+              {t('common.playAgain')}
             </Button>
             <Button
               onClick={onReset}
               variant="secondary"
               className="w-full lowercase"
             >
-              처음으로
+              {t('common.reset')}
             </Button>
           </div>
         </div>

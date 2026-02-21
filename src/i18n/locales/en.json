@@ -1,0 +1,45 @@
+{
+  "home": {
+    "roulette": {
+      "title": "Random Roulette",
+      "description": "Nobody knows who will be chosen! Spin the wheel of fate"
+    },
+    "dice": {
+      "title": "Dice Roll",
+      "description": "Roll the dice and compete for the highest score!"
+    }
+  },
+  "header": {
+    "backToList": "Back to List"
+  },
+  "common": {
+    "participants": "Enter Participant Names",
+    "placeholder": "Separate names with commas (,) or newlines\nExample: Alice, Bob, Carol",
+    "minMax": "Min 2, Max 100 participants",
+    "start": "Start Game",
+    "error": {
+      "min": "Please enter at least 2 participants",
+      "max": "Maximum 100 participants allowed",
+      "duplicate": "Duplicate names found"
+    },
+    "playAgain": "Play Again",
+    "reset": "Back to Start"
+  },
+  "dice": {
+    "title": "Dice Roll",
+    "rolling": "Dice Roll",
+    "turnOf": "{{name}}'s Turn!",
+    "allComplete": "All Complete! Check Results",
+    "roll": "Roll Dice",
+    "rollingInProgress": "Rolling...",
+    "showResult": "Show Results",
+    "results": "Roll Results",
+    "noResults": "No one has rolled yet",
+    "completed": "{{count}} / {{total}} Complete",
+    "result": {
+      "win": "Winner!",
+      "tie": "Tie!",
+      "points": "{{value}} pts"
+    }
+  }
+}
