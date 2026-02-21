@@ -7,7 +7,8 @@
     "dice": {
       "title": "掷骰子",
       "description": "掷骰子，争夺最高分！"
-    }
+    },
+    "randomGame": "开始随机游戏"
   },
   "header": {
     "backToList": "返回列表"

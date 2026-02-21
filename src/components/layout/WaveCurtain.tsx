@@ -1,6 +1,6 @@
 export default function WaveCurtain() {
   return (
-    <div className="absolute top-0 left-0 w-full z-0 pointer-events-none" style={{ marginTop: '-1px' }}>
+    <div className="hidden md:block absolute top-0 left-0 w-full z-0 pointer-events-none" style={{ marginTop: '-1px' }}>
       {/* Pink curtain body */}
       <div className="bg-pink-400 h-16 md:h-24" />
 

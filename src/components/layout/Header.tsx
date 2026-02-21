@@ -23,7 +23,7 @@ export default function Header() {
             href="/"
             className="font-game text-sm hover:text-pink-400 transition-colors"
           >
-            ← {t('backToList')}
+            ← {t('header.backToList')}
           </Link>
         )}
       </div>

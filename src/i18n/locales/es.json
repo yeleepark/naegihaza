@@ -7,7 +7,8 @@
     "dice": {
       "title": "Lanzar Dados",
       "description": "¡Lanza los dados y compite por la puntuación más alta!"
-    }
+    },
+    "randomGame": "Iniciar Juego Aleatorio"
   },
   "header": {
     "backToList": "Volver a la Lista"
