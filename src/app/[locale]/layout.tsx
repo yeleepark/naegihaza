@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { locales, type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
 import I18nProvider from '@/components/I18nProvider';
+import { Analytics } from "@vercel/analytics/next"
 
 type Props = {
   children: React.ReactNode;
@@ -35,5 +36,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LocaleLayout({ children, params }: Props) {
   await params; // Ensure params is resolved
-  return <I18nProvider>{children}</I18nProvider>;
+  return <I18nProvider>
+    {children}
+    <Analytics />
+    </I18nProvider>;
 }
