@@ -12,6 +12,10 @@
       "title": "사다리타기",
       "description": "누가 어떤 결과에 걸릴지 몰라! 사다리를 타고 운명을 결정하세요"
     },
+    "bomb": {
+      "title": "폭탄 뽑기",
+      "description": "카드 중 폭탄을 뽑으면 벌칙!"
+    },
     "randomGame": "랜덤 게임 시작"
   },
   "header": {
@@ -54,6 +58,20 @@
       "prize": "결과",
       "playAgain": "같은 인원으로 다시",
       "reset": "처음으로"
+    }
+  },
+  "bomb": {
+    "title": "폭탄 뽑기",
+    "minMax": "최소 2명, 최대 10명까지 가능합니다",
+    "turnOf": "{{name}}의 차례!",
+    "clickCard": "카드를 클릭하세요",
+    "safe": "안전! 😮‍💨",
+    "bomb": "펑! 💥",
+    "cardsLeft": "남은 카드: {{count}}장",
+    "result": {
+      "loser": "💣 폭탄 당첨!",
+      "penalty": "벌칙을 받아라!",
+      "winners": "안전한 사람들"
     }
   },
   "dice": {

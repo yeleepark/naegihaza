@@ -12,6 +12,10 @@
       "title": "Juego de Escalera",
       "description": "¿Quién obtendrá qué resultado? ¡Sube la escalera y que el destino decida!"
     },
+    "bomb": {
+      "title": "Bomba",
+      "description": "¡Si sacas la bomba, recibes el castigo!"
+    },
     "randomGame": "Iniciar Juego Aleatorio"
   },
   "header": {
@@ -54,6 +58,20 @@
       "prize": "Resultado",
       "playAgain": "Jugar de nuevo (mismos jugadores)",
       "reset": "Volver al Inicio"
+    }
+  },
+  "bomb": {
+    "title": "Bomba",
+    "minMax": "Mín 2, Máx 10 participantes",
+    "turnOf": "¡Turno de {{name}}!",
+    "clickCard": "Haz clic en una carta",
+    "safe": "¡Seguro! 😮‍💨",
+    "bomb": "¡BOOM! 💥",
+    "cardsLeft": "Cartas restantes: {{count}}",
+    "result": {
+      "loser": "💣 ¡Bomba!",
+      "penalty": "¡Acepta el castigo!",
+      "winners": "Jugadores seguros"
     }
   },
   "dice": {

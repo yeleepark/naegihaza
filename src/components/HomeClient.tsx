@@ -4,7 +4,7 @@ import GameCard from '@/components/GameCard';
 import { useTranslation } from 'react-i18next';
 import { useParams, useRouter } from 'next/navigation';
 
-const GAMES = ['roulette', 'dice', 'ladder'];
+const GAMES = ['roulette', 'dice', 'ladder', 'bomb'];
 
 export default function HomeClient() {
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ export default function HomeClient() {
   return (
     <div className="flex flex-col items-center gap-8 w-full md:pt-12">
       {/* Games Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl w-full">
         <GameCard
           title={t('home.roulette.title')}
           description={t('home.roulette.description')}
@@ -41,6 +41,13 @@ export default function HomeClient() {
           icon="🪜"
           bgColor="bg-green-300"
           href={`/${locale}/games/ladder`}
+        />
+        <GameCard
+          title={t('home.bomb.title')}
+          description={t('home.bomb.description')}
+          icon="💣"
+          bgColor="bg-red-300"
+          href={`/${locale}/games/bomb`}
         />
       </div>
 

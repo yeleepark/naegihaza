@@ -61,5 +61,15 @@ export function getMetadata(locale: Locale) {
                    locale === 'zh' ? '谁会得到什么结果？爬梯决定命运！与朋友一起享受的公平爬梯游戏。' :
                    '¿Quién obtendrá qué resultado? ¡Sube la escalera y que el destino decida! Un juego de escalera justo para disfrutar con amigos.',
     },
+    bomb: {
+      title: locale === 'ko' ? '폭탄 뽑기 | Naegihaza' :
+             locale === 'en' ? 'Bomb Draw | Naegihaza' :
+             locale === 'zh' ? '炸弹抽取 | Naegihaza' :
+             'Bomba | Naegihaza',
+      description: locale === 'ko' ? '12장의 카드 중 폭탄을 뽑은 사람이 벌칙! 친구들과 함께 즐기는 긴장감 넘치는 폭탄 뽑기 게임.' :
+                   locale === 'en' ? 'Draw the bomb card and take the penalty! A thrilling bomb draw game to enjoy with friends.' :
+                   locale === 'zh' ? '抽到炸弹牌就接受惩罚！与朋友一起享受的紧张刺激炸弹抽取游戏。' :
+                   '¡Saca la carta bomba y acepta el castigo! Un emocionante juego de bomba para disfrutar con amigos.',
+    },
   };
 }

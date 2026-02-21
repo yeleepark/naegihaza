@@ -1,0 +1,125 @@
+'use client';
+
+import { useEffect } from 'react';
+import confetti from 'canvas-confetti';
+import Card from '@/components/ui/Card';
+import Button from '@/components/ui/Button';
+import { BombResult } from '@/types/bomb';
+import { useTranslation } from 'react-i18next';
+
+type GameResultProps = {
+  result: BombResult;
+  onPlayAgain: () => void;
+  onReset: () => void;
+};
+
+function fireExplosion() {
+  // Dark explosion colors
+  const colors = ['#dc2626', '#ea580c', '#1f2937', '#b45309', '#7f1d1d'];
+
+  // Central burst
+  confetti({
+    particleCount: 120,
+    spread: 120,
+    origin: { x: 0.5, y: 0.5 },
+    colors,
+    gravity: 1.2,
+    scalar: 1.1,
+  });
+
+  // Side bursts with delay
+  setTimeout(() => {
+    confetti({
+      particleCount: 40,
+      angle: 60,
+      spread: 70,
+      origin: { x: 0, y: 0.7 },
+      colors,
+    });
+    confetti({
+      particleCount: 40,
+      angle: 120,
+      spread: 70,
+      origin: { x: 1, y: 0.7 },
+      colors,
+    });
+  }, 200);
+}
+
+export default function GameResult({
+  result,
+  onPlayAgain,
+  onReset,
+}: GameResultProps) {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    fireExplosion();
+
+    return () => {
+      confetti.reset();
+    };
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center h-full relative">
+      <Card className="max-w-md w-full relative z-10">
+        <div className="text-center">
+          <h2 className="font-game text-2xl font-black text-black mb-2">
+            {t('bomb.result.loser')}
+          </h2>
+          <p className="font-game text-sm font-bold text-black/60 mb-6">
+            {t('bomb.result.penalty')}
+          </p>
+
+          {/* Loser */}
+          <div
+            className="rounded-xl p-8 mb-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            style={{ backgroundColor: result.loserColor }}
+          >
+            <div className="text-5xl mb-3">💣</div>
+            <p className="font-game text-4xl md:text-5xl font-black text-black break-words">
+              {result.loserName}
+            </p>
+          </div>
+
+          {/* Winners */}
+          {result.winnerNames.length > 0 && (
+            <div className="mb-6">
+              <p className="font-game text-sm font-bold text-black/60 mb-3">
+                {t('bomb.result.winners')}
+              </p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {result.winnerNames.map((name) => (
+                  <span
+                    key={name}
+                    className="font-game text-sm font-bold px-3 py-1 bg-green-100 text-black border-2 border-black rounded-full"
+                  >
+                    {name} 😮‍💨
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="space-y-3">
+            <Button
+              onClick={onPlayAgain}
+              variant="primary"
+              className="w-full lowercase"
+            >
+              {t('common.playAgain')}
+            </Button>
+            <Button
+              onClick={onReset}
+              variant="secondary"
+              className="w-full lowercase"
+            >
+              {t('common.reset')}
+            </Button>
+          </div>
+        </div>
+      </Card>
+    </div>
+  );
+}

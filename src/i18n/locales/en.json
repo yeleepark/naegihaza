@@ -12,6 +12,10 @@
       "title": "Ladder Game",
       "description": "Who gets what? Climb the ladder and let fate decide!"
     },
+    "bomb": {
+      "title": "Bomb Draw",
+      "description": "Draw a card — if it's the bomb, you get the penalty!"
+    },
     "randomGame": "Start Random Game"
   },
   "header": {
@@ -54,6 +58,20 @@
       "prize": "Result",
       "playAgain": "Play Again (same players)",
       "reset": "Back to Start"
+    }
+  },
+  "bomb": {
+    "title": "Bomb Draw",
+    "minMax": "Min 2, Max 10 participants",
+    "turnOf": "{{name}}'s Turn!",
+    "clickCard": "Click a card",
+    "safe": "Safe! 😮‍💨",
+    "bomb": "BOOM! 💥",
+    "cardsLeft": "Cards left: {{count}}",
+    "result": {
+      "loser": "💣 Bomb!",
+      "penalty": "Take the penalty!",
+      "winners": "Safe players"
     }
   },
   "dice": {
