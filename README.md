@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍀 내기하자 (Naegihaza)
 
-## Getting Started
+친구들과 함께 즐기는 무료 온라인 랜덤 게임 플랫폼입니다.
+룰렛, 주사위, 사다리타기로 순서를 정하거나 내기를 즐겨보세요.
 
-First, run the development server:
+**[naegihaza.com](https://naegihaza.com)**
+
+---
+
+## 게임 소개
+
+### 🎡 랜덤 룰렛
+참가자 이름을 입력하고 룰렛을 돌려 당첨자를 결정합니다.
+누가 걸릴지 아무도 모르는 운명의 룰렛!
+
+### 🎲 주사위 굴리기
+참가자별로 주사위를 굴려 최고 점수를 겨룹니다.
+3D 애니메이션으로 생동감 있게 즐길 수 있습니다.
+
+### 🪜 사다리타기
+참가자 이름과 결과 항목을 입력하면 자동으로 사다리를 생성합니다.
+이름을 클릭해 경로를 공개하거나 한번에 모두 공개할 수 있습니다.
+
+---
+
+## 기술 스택
+
+| 분류 | 기술 |
+|------|------|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19, Tailwind CSS 3 |
+| Language | TypeScript |
+| 다국어 | i18next, react-i18next (한국어 · English · 中文 · Español) |
+| 3D / 애니메이션 | Three.js, canvas-confetti |
+| 분석 | Vercel Analytics |
+| 패키지 매니저 | Yarn 4 |
+| 배포 | Vercel |
+
+---
+
+## 시작하기
 
 ```bash
-npm run dev
-# or
+yarn install
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) 에서 확인하세요.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 빌드
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+yarn build
+yarn start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 지원 언어
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 한국어 (`/ko`)
+- English (`/en`)
+- 中文 (`/zh`)
+- Español (`/es`)
