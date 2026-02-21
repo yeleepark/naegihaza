@@ -815,6 +815,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/canvas-confetti@npm:^1.9.0":
+  version: 1.9.0
+  resolution: "@types/canvas-confetti@npm:1.9.0"
+  checksum: 10c0/ffe2c674d466b8e13472c81ab2a97056f3433fd40a3513dbc1bb76764e4e7c3ff0a2a58d37b16ea6a245c831077c553db321b069dda6572eab59f2be61137b2e
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:^1.0.6":
   version: 1.0.8
   resolution: "@types/estree@npm:1.0.8"
@@ -1565,6 +1572,13 @@ __metadata:
   version: 1.0.30001757
   resolution: "caniuse-lite@npm:1.0.30001757"
   checksum: 10c0/3ccb71fa2bf1f8c96ff1bf9b918b08806fed33307e20a3ce3259155fda131eaf96cfcd88d3d309c8fd7f8285cc71d89a3b93648a1c04814da31c301f98508d42
+  languageName: node
+  linkType: hard
+
+"canvas-confetti@npm:^1.9.4":
+  version: 1.9.4
+  resolution: "canvas-confetti@npm:1.9.4"
+  checksum: 10c0/08f11b5fa20b365922108828d7488f9b3eac2afdf39bc478339268c1250b5215df82682d7074520a3f0f72f4728f9703bbc937dcfe793f196b44e6e8ac0b1f7b
   languageName: node
   linkType: hard
 
@@ -3467,6 +3481,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"naegihaza@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "naegihaza@workspace:."
+  dependencies:
+    "@types/canvas-confetti": "npm:^1.9.0"
+    "@types/node": "npm:^20"
+    "@types/react": "npm:^19"
+    "@types/react-dom": "npm:^19"
+    "@types/three": "npm:^0.181.0"
+    autoprefixer: "npm:^10.4.22"
+    canvas-confetti: "npm:^1.9.4"
+    eslint: "npm:^9"
+    eslint-config-next: "npm:16.0.5"
+    eslint-config-prettier: "npm:^10.1.8"
+    eslint-plugin-prettier: "npm:^5.5.4"
+    next: "npm:16.0.5"
+    postcss: "npm:^8.5.6"
+    prettier: "npm:^3.7.3"
+    react: "npm:19.2.0"
+    react-dom: "npm:19.2.0"
+    tailwindcss: "npm:3.4.14"
+    three: "npm:^0.181.2"
+    typescript: "npm:^5"
+  languageName: unknown
+  linkType: soft
+
 "nanoid@npm:^3.3.11, nanoid@npm:^3.3.6":
   version: 3.3.11
   resolution: "nanoid@npm:3.3.11"
@@ -4972,30 +5012,6 @@ __metadata:
   checksum: 10c0/41a5bdd214df2f6c3ecf8622745e4a366c4adced864bc3c833739791aeeeb1838119af7daed4ba36428114b5c67dcda034a79c882e97e43c03e66a4dd7389942
   languageName: node
   linkType: hard
-
-"wanna-bet@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "wanna-bet@workspace:."
-  dependencies:
-    "@types/node": "npm:^20"
-    "@types/react": "npm:^19"
-    "@types/react-dom": "npm:^19"
-    "@types/three": "npm:^0.181.0"
-    autoprefixer: "npm:^10.4.22"
-    eslint: "npm:^9"
-    eslint-config-next: "npm:16.0.5"
-    eslint-config-prettier: "npm:^10.1.8"
-    eslint-plugin-prettier: "npm:^5.5.4"
-    next: "npm:16.0.5"
-    postcss: "npm:^8.5.6"
-    prettier: "npm:^3.7.3"
-    react: "npm:19.2.0"
-    react-dom: "npm:19.2.0"
-    tailwindcss: "npm:3.4.14"
-    three: "npm:^0.181.2"
-    typescript: "npm:^5"
-  languageName: unknown
-  linkType: soft
 
 "which-boxed-primitive@npm:^1.1.0, which-boxed-primitive@npm:^1.1.1":
   version: 1.1.1

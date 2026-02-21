@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Press_Start_2P } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
+const pressStart2P = Press_Start_2P({
+  variable: "--font-pixel",
+  weight: "400",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Naegihaza - 내기하자",
-  description: "운과 선택의 순간을 즐기는 플랫폼",
+  description: "내기하자! 친구들과 함께 즐기는 내기 게임 플랫폼",
+  icons: {
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍀</text></svg>",
+  },
 };
 
 export default function RootLayout({
@@ -24,8 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full overflow-hidden">
-      <body className={`${playfair.variable} ${inter.variable} h-full overflow-hidden antialiased`}>
+    <html lang="ko" className="h-full overflow-hidden">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css"
+        />
+      </head>
+      <body className={`${pressStart2P.variable} h-full overflow-hidden antialiased`}>
         {children}
       </body>
     </html>

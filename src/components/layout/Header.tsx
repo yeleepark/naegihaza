@@ -1,23 +1,29 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+
   return (
-    <header className="bg-black text-white py-4 px-6 md:px-8">
+    <header className="relative z-10 bg-black text-white py-4 px-6 md:px-8">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <span className="font-[family-name:var(--font-inter)] text-xl font-black lowercase">
+        <Link href="/" className="flex items-center gap-2 w-fit hover:opacity-80 transition-opacity">
+          <span className="font-pixel text-sm font-black lowercase tracking-wider">
             naegihaza
           </span>
         </Link>
 
-        <nav className="flex items-center gap-6">
+        {!isHome && (
           <Link
             href="/"
-            className="font-[family-name:var(--font-inter)] text-sm font-medium hover:text-pink-400 transition-colors"
+            className="font-pixel-kr text-xs hover:text-pink-400 transition-colors"
           >
-            Games
+            ← 목록으로
           </Link>
-        </nav>
+        )}
       </div>
     </header>
   );

@@ -7,7 +7,12 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        pixel: ['var(--font-pixel)', '"Press Start 2P"', 'monospace'],
+        'pixel-kr': ['"Galmuri11"', 'var(--font-pixel)', '"Press Start 2P"', 'monospace'],
+      },
+    },
   },
   plugins: [],
 };

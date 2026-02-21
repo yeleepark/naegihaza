@@ -1,0 +1,73 @@
+'use client';
+
+import { useState } from 'react';
+import Card from '@/components/ui/Card';
+import Button from '@/components/ui/Button';
+import { parseNames, validateParticipantNames } from '@/utils/roulette';
+
+type GameSetupProps = {
+  onStart: (names: string[]) => void;
+};
+
+export default function GameSetup({ onStart }: GameSetupProps) {
+  const [input, setInput] = useState<string>('');
+  const [error, setError] = useState<string>('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const names = parseNames(input);
+    const validation = validateParticipantNames(names);
+
+    if (!validation.valid) {
+      setError(validation.error || '잘못된 입력입니다');
+      return;
+    }
+
+    setError('');
+    onStart(names);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+    setError(''); // Clear error on input change
+  };
+
+  return (
+    <div className="flex items-center justify-center h-full">
+      <Card className="max-w-md w-full">
+        <div className="text-center mb-8">
+          <div className="text-6xl mb-4">🎰</div>
+          <h2 className="font-pixel-kr text-xl font-black text-black mb-2 lowercase">
+            랜덤 룰렛
+          </h2>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="font-pixel-kr block text-xs font-bold text-black mb-2">
+              참가자 이름 입력
+            </label>
+            <textarea
+              value={input}
+              onChange={handleInputChange}
+              placeholder={"이름을 콤마(,) 또는 엔터로 구분해서 입력하세요\n예시: 예리, 서윤, 보리"}
+              className="font-pixel-kr w-full px-4 py-3 rounded-lg bg-white border-2 border-black text-black placeholder-neutral-400 focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-xs resize-none"
+              rows={6}
+            />
+            {error && (
+              <p className="text-red-500 text-sm font-bold mt-2">{error}</p>
+            )}
+            <p className="font-pixel-kr text-black/50 text-[10px] mt-2">
+              최소 2명, 최대 100명까지 가능합니다
+            </p>
+          </div>
+
+          <Button type="submit" variant="primary" className="w-full lowercase">
+            룰렛 시작하기
+          </Button>
+        </form>
+      </Card>
+    </div>
+  );
+}

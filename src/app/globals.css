@@ -29,15 +29,12 @@
 
   body {
     font-family:
-      var(--font-geist-sans),
-      "Inter",
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      sans-serif;
+      "Galmuri11",
+      var(--font-pixel),
+      "Press Start 2P",
+      monospace;
     color: var(--foreground);
-    background: radial-gradient(circle at 20% 20%, #0f1a3c 0%, #030617 45%, #010314 100%);
+    background: #030617;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -45,5 +42,40 @@
   a {
     color: inherit;
     text-decoration: none;
+  }
+}
+
+@layer utilities {
+  .font-pixel {
+    font-family: var(--font-pixel), "Press Start 2P", monospace;
+  }
+
+  .font-pixel-kr {
+    font-family: "Galmuri11", var(--font-pixel), "Press Start 2P", monospace;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-fall {
+    animation: fall linear forwards;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-bounce {
+    animation: bounce 1s ease-in-out infinite;
   }
 }
