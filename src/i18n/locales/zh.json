@@ -8,6 +8,10 @@
       "title": "掷骰子",
       "description": "掷骰子，争夺最高分！"
     },
+    "ladder": {
+      "title": "爬梯游戏",
+      "description": "谁会得到什么结果？爬梯决定命运！"
+    },
     "randomGame": "开始随机游戏"
   },
   "header": {
@@ -25,6 +29,32 @@
     },
     "playAgain": "再玩一次",
     "reset": "返回开始"
+  },
+  "ladder": {
+    "title": "爬梯游戏",
+    "setup": {
+      "participants": "参与者姓名",
+      "results": "结果项目",
+      "participantsPlaceholder": "用逗号或换行分隔\n例：小明, 小红, 小刚",
+      "resultsPlaceholder": "用逗号或换行分隔\n例：付款, 免费, 惩罚",
+      "start": "开始爬梯",
+      "minMax": "2~10人（参与者数量须与结果数量相同）",
+      "errorMin": "请至少输入2名参与者",
+      "errorMax": "最多允许10名参与者",
+      "errorMismatch": "参与者数量必须与结果数量相同"
+    },
+    "game": {
+      "clickHint": "点击名字查看结果",
+      "revealAll": "全部揭晓",
+      "seeResult": "查看结果"
+    },
+    "result": {
+      "title": "结果公布",
+      "name": "姓名",
+      "prize": "结果",
+      "playAgain": "相同人员再玩",
+      "reset": "返回开始"
+    }
   },
   "dice": {
     "title": "掷骰子",

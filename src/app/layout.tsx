@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Press_Start_2P, Jua } from "next/font/google";
 import "./globals.css";
-import I18nProvider from "@/components/I18nProvider";
 import StructuredData from "@/components/StructuredData";
 
 const pressStart2P = Press_Start_2P({

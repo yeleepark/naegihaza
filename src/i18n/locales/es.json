@@ -8,6 +8,10 @@
       "title": "Lanzar Dados",
       "description": "¡Lanza los dados y compite por la puntuación más alta!"
     },
+    "ladder": {
+      "title": "Juego de Escalera",
+      "description": "¿Quién obtendrá qué resultado? ¡Sube la escalera y que el destino decida!"
+    },
     "randomGame": "Iniciar Juego Aleatorio"
   },
   "header": {
@@ -25,6 +29,32 @@
     },
     "playAgain": "Jugar de Nuevo",
     "reset": "Volver al Inicio"
+  },
+  "ladder": {
+    "title": "Juego de Escalera",
+    "setup": {
+      "participants": "Nombres de Participantes",
+      "results": "Elementos de Resultado",
+      "participantsPlaceholder": "Separa con comas o saltos de línea\nEj: Ana, Carlos, María",
+      "resultsPlaceholder": "Separa con comas o saltos de línea\nEj: Pagar, Gratis, Penitencia",
+      "start": "Iniciar Escalera",
+      "minMax": "2–10 participantes (debe coincidir con el número de resultados)",
+      "errorMin": "Ingresa al menos 2 participantes",
+      "errorMax": "Máximo 10 participantes permitidos",
+      "errorMismatch": "El número de participantes debe coincidir con el de resultados"
+    },
+    "game": {
+      "clickHint": "Haz clic en un nombre para revelar el resultado",
+      "revealAll": "Revelar Todo",
+      "seeResult": "Ver Resultados"
+    },
+    "result": {
+      "title": "Resultados",
+      "name": "Nombre",
+      "prize": "Resultado",
+      "playAgain": "Jugar de nuevo (mismos jugadores)",
+      "reset": "Volver al Inicio"
+    }
   },
   "dice": {
     "title": "Lanzar Dados",

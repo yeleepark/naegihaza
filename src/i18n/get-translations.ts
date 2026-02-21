@@ -51,5 +51,15 @@ export function getMetadata(locale: Locale) {
                    locale === 'zh' ? '谁都不知道会选中谁！转动命运之轮。与朋友一起使用这个公平的随机轮盘游戏来决定顺序或打赌。' :
                    '¡Nadie sabe quién será elegido! Gira la rueda del destino. Usa este juego de ruleta aleatoria justo con amigos para decidir el orden o hacer apuestas.',
     },
+    ladder: {
+      title: locale === 'ko' ? '사다리타기 | Naegihaza' :
+             locale === 'en' ? 'Ladder Game | Naegihaza' :
+             locale === 'zh' ? '爬梯游戏 | Naegihaza' :
+             'Juego de Escalera | Naegihaza',
+      description: locale === 'ko' ? '누가 어떤 결과에 걸릴지 몰라! 사다리를 타고 운명을 결정하세요. 친구들과 함께 즐기는 공정한 사다리타기 게임.' :
+                   locale === 'en' ? 'Who gets what? Climb the ladder and let fate decide! A fair ladder game to enjoy with friends.' :
+                   locale === 'zh' ? '谁会得到什么结果？爬梯决定命运！与朋友一起享受的公平爬梯游戏。' :
+                   '¿Quién obtendrá qué resultado? ¡Sube la escalera y que el destino decida! Un juego de escalera justo para disfrutar con amigos.',
+    },
   };
 }

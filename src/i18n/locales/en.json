@@ -8,6 +8,10 @@
       "title": "Dice Roll",
       "description": "Roll the dice and compete for the highest score!"
     },
+    "ladder": {
+      "title": "Ladder Game",
+      "description": "Who gets what? Climb the ladder and let fate decide!"
+    },
     "randomGame": "Start Random Game"
   },
   "header": {
@@ -25,6 +29,32 @@
     },
     "playAgain": "Play Again",
     "reset": "Back to Start"
+  },
+  "ladder": {
+    "title": "Ladder Game",
+    "setup": {
+      "participants": "Participant Names",
+      "results": "Result Items",
+      "participantsPlaceholder": "Separate with commas or newlines\nEx: Alice, Bob, Carol",
+      "resultsPlaceholder": "Separate with commas or newlines\nEx: Pay, Free, Penalty",
+      "start": "Start Ladder",
+      "minMax": "2–10 participants allowed (must match result count)",
+      "errorMin": "Please enter at least 2 participants",
+      "errorMax": "Maximum 10 participants allowed",
+      "errorMismatch": "Participant count must match result count"
+    },
+    "game": {
+      "clickHint": "Click a name to reveal the result",
+      "revealAll": "Reveal All",
+      "seeResult": "See Results"
+    },
+    "result": {
+      "title": "Results",
+      "name": "Name",
+      "prize": "Result",
+      "playAgain": "Play Again (same players)",
+      "reset": "Back to Start"
+    }
   },
   "dice": {
     "title": "Dice Roll",
