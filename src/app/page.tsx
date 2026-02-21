@@ -24,6 +24,13 @@ export default function Home() {
                 bgColor="bg-yellow-300"
                 href="/games/roulette"
               />
+              <GameCard
+                title="주사위 굴리기"
+                description="주사위를 던져 최고 점수를 겨뤄보세요!"
+                icon="🎲"
+                bgColor="bg-blue-300"
+                href="/games/dice"
+              />
             </div>
           </div>
         </main>
