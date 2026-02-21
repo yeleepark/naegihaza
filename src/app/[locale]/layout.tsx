@@ -35,9 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
-  await params; // Ensure params is resolved
-  return <I18nProvider>
-    {children}
-    <Analytics />
-    </I18nProvider>;
+  const { locale } = await params;
+  return (
+    <I18nProvider locale={locale}>
+      {children}
+      <Analytics />
+    </I18nProvider>
+  );
 }
