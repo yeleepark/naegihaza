@@ -2,12 +2,20 @@
 
 import GameCard from '@/components/GameCard';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
+
+const GAMES = ['roulette', 'dice', 'ladder'];
 
 export default function HomeClient() {
   const { t } = useTranslation();
   const params = useParams();
   const locale = params.locale as string;
+  const router = useRouter();
+
+  const handleRandomGame = () => {
+    const game = GAMES[Math.floor(Math.random() * GAMES.length)];
+    router.push(`/${locale}/games/${game}`);
+  };
 
   return (
     <div className="flex flex-col items-center gap-8 w-full md:pt-12">
@@ -36,15 +44,13 @@ export default function HomeClient() {
         />
       </div>
 
-      {/* Random Game Switch Button */}
-      <a
-        href={`/${locale}/games/roulette`}
-        className="group flex items-center gap-3 bg-purple-400 hover:bg-purple-500 px-8 py-4 rounded-full border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all duration-200"
+      {/* Random Game Button */}
+      <button
+        onClick={handleRandomGame}
+        className="font-game text-lg font-black text-black bg-purple-400 hover:bg-purple-500 px-8 py-4 rounded-full border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all duration-200"
       >
-        <span className="font-game text-lg font-black text-black">
-          {t('home.randomGame')}
-        </span>
-      </a>
+        {t('home.randomGame')}
+      </button>
     </div>
   );
 }
