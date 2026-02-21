@@ -61,7 +61,7 @@ export default function GameSpinning({
 
         {isSpinning && (
           <div className="bg-white border-4 border-black rounded-xl px-8 py-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <p className="font-pixel-kr font-black text-black text-sm lowercase">
+            <p className="font-game font-black text-black text-lg">
               돌아가는 중...
             </p>
           </div>

@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Press_Start_2P } from "next/font/google";
+import { Press_Start_2P, Jua } from "next/font/google";
 import "./globals.css";
 
 const pressStart2P = Press_Start_2P({
   variable: "--font-pixel",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const jua = Jua({
+  variable: "--font-jua",
   weight: "400",
   subsets: ["latin"],
 });
@@ -23,13 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="h-full overflow-hidden">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css"
-        />
-      </head>
-      <body className={`${pressStart2P.variable} h-full overflow-hidden antialiased`}>
+      <body className={`${pressStart2P.variable} ${jua.variable} h-full overflow-hidden antialiased`}>
         {children}
       </body>
     </html>

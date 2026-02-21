@@ -23,6 +23,7 @@ export interface SpinConfig {
 export interface RouletteResult {
   winnerId: number;
   winnerName: string;
+  winnerColor: string;
   winnerNumber: number;
   totalParticipants: number;
   timestamp: Date;

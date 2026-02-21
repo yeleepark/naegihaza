@@ -32,10 +32,10 @@ export default function GameCard({
       `}
     >
       <div className="text-7xl mb-4">{icon}</div>
-      <h3 className="font-pixel-kr text-lg font-black text-black mb-2">
+      <h3 className="font-game text-2xl font-black text-black mb-2">
         {title}
       </h3>
-      <p className="font-pixel-kr text-xs text-black/80 leading-relaxed">
+      <p className="font-game text-sm text-black/80 leading-relaxed">
         {description}
       </p>
       {disabled && (

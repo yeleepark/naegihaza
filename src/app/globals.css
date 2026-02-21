@@ -29,10 +29,10 @@
 
   body {
     font-family:
-      "Galmuri11",
-      var(--font-pixel),
-      "Press Start 2P",
-      monospace;
+      var(--font-jua),
+      "Jua",
+      system-ui,
+      sans-serif;
     color: var(--foreground);
     background: #030617;
     -webkit-font-smoothing: antialiased;
@@ -50,8 +50,8 @@
     font-family: var(--font-pixel), "Press Start 2P", monospace;
   }
 
-  .font-pixel-kr {
-    font-family: "Galmuri11", var(--font-pixel), "Press Start 2P", monospace;
+  .font-game {
+    font-family: var(--font-jua), "Jua", system-ui, sans-serif;
   }
 
   @keyframes fall {
@@ -66,10 +66,12 @@
   }
 
   @keyframes bounce {
+
     0%,
     100% {
       transform: translateY(0);
     }
+
     50% {
       transform: translateY(-20px);
     }

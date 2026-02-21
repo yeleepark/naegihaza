@@ -19,7 +19,7 @@ export default function Header() {
         {!isHome && (
           <Link
             href="/"
-            className="font-pixel-kr text-xs hover:text-pink-400 transition-colors"
+            className="font-game text-sm hover:text-pink-400 transition-colors"
           >
             ← 목록으로
           </Link>

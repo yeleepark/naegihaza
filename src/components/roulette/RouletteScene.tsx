@@ -154,7 +154,7 @@ export default function RouletteScene({
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
           ctx.fillStyle = '#000000';
-          ctx.font = `bold ${Math.max(12, radius / 10)}px Galmuri11, "Press Start 2P", monospace`;
+          ctx.font = `bold ${Math.max(14, radius / 8)}px Jua, sans-serif`;
 
           // Draw text
           ctx.fillText(participant.name, textRadius, 0);
@@ -241,7 +241,7 @@ export default function RouletteScene({
     <canvas
       ref={canvasRef}
       className="w-full h-full rounded-2xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
-      style={{ backgroundColor: '#f9a8d4' }}
+      style={{ backgroundColor: '#fef9c3' }}
     />
   );
 }

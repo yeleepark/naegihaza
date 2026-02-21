@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         pixel: ['var(--font-pixel)', '"Press Start 2P"', 'monospace'],
-        'pixel-kr': ['"Galmuri11"', 'var(--font-pixel)', '"Press Start 2P"', 'monospace'],
+        game: ['var(--font-jua)', '"Jua"', 'system-ui', 'sans-serif'],
       },
     },
   },

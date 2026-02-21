@@ -155,9 +155,11 @@ export function createRouletteResult(
   participants: Participant[]
 ): RouletteResult {
   const winner = participants[winnerIndex];
+  const winnerColor = SEGMENT_COLORS[winnerIndex % SEGMENT_COLORS.length];
   return {
     winnerId: winnerIndex,
     winnerName: winner.name,
+    winnerColor,
     winnerNumber: winnerIndex + 1,
     totalParticipants: participants.length,
     timestamp: new Date(),
