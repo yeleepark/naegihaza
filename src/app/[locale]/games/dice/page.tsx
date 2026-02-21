@@ -7,14 +7,14 @@ import { type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
 
 type Props = {
-  params: { locale: Locale };
+  params: Promise<{ locale: string }>;
 };
 
 export const dynamic = 'force-static';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
-  const meta = getMetadata(locale);
+  const { locale } = await params;
+  const meta = getMetadata(locale as Locale);
   const baseUrl = 'https://naegihaza.com';
 
   return {
@@ -39,7 +39,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function DicePage({ params }: Props) {
+export default async function DicePage({ params }: Props) {
+  await params; // Ensure params is resolved
   return (
     <div className="min-h-screen md:h-screen w-screen flex flex-col bg-[#fef3e2] overflow-auto md:overflow-hidden">
       <Header />

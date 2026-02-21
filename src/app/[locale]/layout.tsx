@@ -5,7 +5,7 @@ import I18nProvider from '@/components/I18nProvider';
 
 type Props = {
   children: React.ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: string }>;
 };
 
 export async function generateStaticParams() {
@@ -13,8 +13,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
-  const meta = getMetadata(locale);
+  const { locale } = await params;
+  const meta = getMetadata(locale as Locale);
   const baseUrl = 'https://naegihaza.com';
 
   return {
@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function LocaleLayout({ children, params }: Props) {
+export default async function LocaleLayout({ children, params }: Props) {
+  await params; // Ensure params is resolved
   return <I18nProvider>{children}</I18nProvider>;
 }
