@@ -20,8 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = 'https://naegihaza.com';
 
   return {
-    title: '홈',
+    title: meta.home.title,
     description: meta.home.description,
+    keywords: meta.home.keywords,
     alternates: {
       canonical: `${baseUrl}/${locale}`,
       languages: {
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         'en': `${baseUrl}/en`,
         'zh': `${baseUrl}/zh`,
         'es': `${baseUrl}/es`,
-        'x-default': `${baseUrl}/ko`,
+        'x-default': `${baseUrl}/en`,
       },
     },
     openGraph: {
@@ -40,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       alternateLocale: locales.filter(l => l !== locale).map(l =>
         l === 'ko' ? 'ko_KR' : l === 'en' ? 'en_US' : l === 'zh' ? 'zh_CN' : 'es_ES'
       ),
+      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
     },
   };
 }

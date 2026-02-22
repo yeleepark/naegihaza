@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: meta.ladder.title,
     description: meta.ladder.description,
+    keywords: meta.ladder.keywords,
     alternates: {
       canonical: `${baseUrl}/${locale}/games/ladder`,
       languages: {
@@ -41,6 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             : locale === 'zh'
               ? 'zh_CN'
               : 'es_ES',
+      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
     },
   };
 }

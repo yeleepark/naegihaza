@@ -17,8 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = 'https://naegihaza.com';
 
   return {
-    title: '랜덤 룰렛',
+    title: meta.roulette.title,
     description: meta.roulette.description,
+    keywords: meta.roulette.keywords,
     alternates: {
       canonical: `${baseUrl}/${locale}/games/roulette`,
       languages: {
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: meta.roulette.description,
       url: `${baseUrl}/${locale}/games/roulette`,
       locale: locale === 'ko' ? 'ko_KR' : locale === 'en' ? 'en_US' : locale === 'zh' ? 'zh_CN' : 'es_ES',
+      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
     },
   };
 }

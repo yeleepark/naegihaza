@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: meta.bomb.title,
     description: meta.bomb.description,
+    keywords: meta.bomb.keywords,
     alternates: {
       canonical: `${baseUrl}/${locale}/games/bomb`,
       languages: {
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: meta.bomb.description,
       url: `${baseUrl}/${locale}/games/bomb`,
       locale: locale === 'ko' ? 'ko_KR' : locale === 'en' ? 'en_US' : locale === 'zh' ? 'zh_CN' : 'es_ES',
+      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
     },
   };
 }

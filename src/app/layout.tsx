@@ -18,11 +18,14 @@ const jua = Jua({
 export const metadata: Metadata = {
   metadataBase: new URL('https://naegihaza.com'),
   title: {
-    default: "Naegihaza - Let's Bet | Random Games with Friends",
+    default: "랜덤 선택기 · 룰렛 · 사다리타기 · 팀 나누기 무료 온라인 도구",
     template: "%s | Naegihaza"
   },
-  description: "Free online betting game platform to enjoy with friends. Use random roulette and dice rolling to fairly decide order and make bets. Supports Korean, English, Chinese, and Spanish.",
-  keywords: ["betting", "game", "roulette", "dice", "random", "friends", "online game", "free game", "decision maker", "naegihaza", "내기", "룰렛", "주사위"],
+  description: "친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.",
+  keywords: [
+    "betting", "game", "roulette", "dice", "random", "friends", "online game", "free game", "decision maker", "naegihaza", "내기", "룰렛", "주사위",
+    "랜덤 선택기", "랜덤 추첨기", "룰렛 돌리기", "온라인 룰렛", "사다리타기", "벌칙 정하기", "술게임 정하기", "점심 메뉴 정하기", "내기 정하기", "친구 게임", "파티 게임", "랜덤 게임 사이트", "이름 추첨", "당번 뽑기", "팀 나누기", "제비뽑기", "운빨 게임", "주사위 굴리기", "폭탄 게임",
+  ],
   authors: [{ name: "Seoyoon Park" }],
   creator: "Seoyoon Park",
   publisher: "Naegihaza",
@@ -40,11 +43,11 @@ export const metadata: Metadata = {
     alternateLocale: ['ko_KR', 'zh_CN', 'es_ES'],
     url: 'https://naegihaza.com',
     siteName: 'Naegihaza',
-    title: 'Naegihaza - Let\'s Bet | Random Games',
-    description: 'Free online betting game platform to enjoy with friends. Random roulette and dice rolling games.',
+    title: '랜덤 선택기 · 룰렛 · 사다리타기 · 팀 나누기 무료 온라인 도구',
+    description: '친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://naegihaza.com',
         width: 1200,
         height: 630,
         alt: 'Naegihaza - 내기하자',
@@ -53,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Naegihaza - Let\'s Bet',
-    description: 'Free online betting game platform with random roulette and dice rolling',
-    images: ['/og-image.png'],
+    title: '랜덤 선택기 · 룰렛 · 사다리타기 · 팀 나누기 무료 온라인 도구',
+    description: '친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
+    images: ['https://naegihaza.com'],
   },
   robots: {
     index: true,
@@ -79,7 +82,7 @@ const structuredData = {
   name: 'Naegihaza',
   alternateName: '내기하자',
   url: 'https://naegihaza.com',
-  description: '친구들과 함께 즐기는 무료 온라인 내기 게임 플랫폼. 랜덤 룰렛과 주사위 굴리기',
+  description: '친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
   applicationCategory: 'GameApplication',
   operatingSystem: 'Web Browser',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },

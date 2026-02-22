@@ -17,8 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = 'https://naegihaza.com';
 
   return {
-    title: '주사위 굴리기',
+    title: meta.dice.title,
     description: meta.dice.description,
+    keywords: meta.dice.keywords,
     alternates: {
       canonical: `${baseUrl}/${locale}/games/dice`,
       languages: {
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: meta.dice.description,
       url: `${baseUrl}/${locale}/games/dice`,
       locale: locale === 'ko' ? 'ko_KR' : locale === 'en' ? 'en_US' : locale === 'zh' ? 'zh_CN' : 'es_ES',
+      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
     },
   };
 }
