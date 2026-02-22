@@ -2,93 +2,111 @@
   "home": {
     "roulette": {
       "title": "转盘",
-      "description": "随机选出一人。"
+      "description": "随机选择一个人。"
     },
     "dice": {
       "title": "骰子",
-      "description": "掷骰并比较分数。"
+      "description": "每位参与者掷两个骰子，总点数最高的人被选中。"
     },
     "ladder": {
-      "title": "爬梯",
-      "description": "沿路径查看结果。"
+      "title": "抽签梯",
+      "description": "点击名字，沿路径查看结果。"
     },
     "bomb": {
       "title": "抽炸弹",
-      "description": "抽到炸弹则执行惩罚。"
+      "description": "抽到炸弹卡的人被选中。"
     },
-    "randomGame": "开始随机游戏",
+    "randomGame": "随机开始游戏",
     "about": {
-      "title": "关于内基哈杂",
+      "title": "关于 Naegihaja",
       "sections": {
         "intro": {
-          "title": "内基哈杂介绍",
-          "p1": "内基哈杂是与朋友、恋人、家人、同事一起，在决定顺序、惩罚、谁请客、谁当值时，能公平得出结果的免费网页游戏服务。",
-          "p2": "无需安装应用或注册，只要有浏览器即可使用，手机、平板、电脑都能同样使用。",
-          "p3": "转盘、骰子、爬梯、抽炸弹等日常决策工具集中在一处，让「谁来做？」的烦恼用最简单有趣的方式解决。"
+          "title": "什么是 Naegihaja？",
+          "p1": "Naegihaja 是一个帮助朋友、情侣、家人或同事公平决定顺序、惩罚或付款人的免费网页小游戏服务。",
+          "p2": "“Naegihaja”在韩语中意为“来打个赌吧”。",
+          "p3": "无需安装或注册，只要打开浏览器即可在手机、平板或电脑上立即使用。",
+          "p4": "将转盘、骰子、抽签梯和抽炸弹集中在一个地方，让“该谁来？”这个问题变得简单又有趣。"
         },
         "birth": {
           "title": "诞生背景",
-          "p1": "内基哈杂源于和同事每天重复的「谁请咖啡」「甜品谁请」「午饭谁值班」。",
-          "p2": "猜拳老是平局、互相说再来一次，时间拖长，还常觉得结果不公平。",
-          "p3": "于是需要一个人人都觉得公平、能快速决定的工具，与其每次搜不同网站，不如做一个能一次搞定所有决定的空间。",
-          "p4": "就这样诞生了内基哈杂。"
+          "p1": "Naegihaja 源自日常生活中反复出现的场景——决定谁买咖啡、甜点或轮流付午餐。",
+          "p2": "石头剪刀布经常打平，耗时又不够公平。",
+          "p3": "于是我们需要一个快速且透明的方式来决定，而不是每次都去找不同工具。",
+          "p4": "于是 Naegihaja 诞生了。"
         },
         "features": {
-          "title": "内基哈杂的特点",
+          "title": "特点",
           "items": [
-            "无需登录即可使用",
-            "手机/电脑体验一致",
-            "公平的随机算法结果",
-            "简洁界面快速操作",
-            "大屏结果适合一起看",
+            "无需登录",
+            "支持手机与电脑",
+            "公平随机算法",
+            "简单快速的界面",
+            "适合多人一起观看",
             "完全免费"
           ],
-          "closing": "不单是游戏，更是为辅助日常决策而设计。"
+          "closing": "不仅是游戏，更是帮助日常决策的工具。"
         },
         "games": {
-          "title": "游戏种类",
+          "title": "游戏类型",
           "roulette": {
             "title": "🎡 转盘",
-            "desc": "从多人中选一人或从多个选项中选一个时最直观。输入名字或选项即可均等随机选择。",
-            "recommendTitle": "推荐场景",
-            "recommend": ["谁请咖啡", "选菜单", "惩罚对象", "选发言人"]
+            "desc": "最直观的选择方式。输入名字或选项后以均等概率随机选择。",
+            "recommendTitle": "适用场景",
+            "recommend": [
+              "决定谁买咖啡",
+              "选择菜单",
+              "惩罚对象",
+              "选发言人"
+            ]
           },
           "dice": {
             "title": "🎲 骰子",
-            "desc": "用数字公平定顺序时使用。可按最大、最小等规则使用。",
-            "recommendTitle": "推荐场景",
-            "recommend": ["定顺序", "游戏回合", "分数内基"]
+            "desc": "每位参与者掷两个骰子比较总点数，总点数最高者被选中。",
+            "recommendTitle": "适用场景",
+            "recommend": [
+              "决定顺序",
+              "游戏回合",
+              "积分对赌"
+            ]
           },
           "ladder": {
-            "title": "🪜 爬梯",
-            "desc": "多人同时参与时最常用。结果事先未知，紧张又有趣。",
-            "recommendTitle": "推荐场景",
-            "recommend": ["分队", "值班", "惩罚分配"]
+            "title": "🪜 抽签梯",
+            "desc": "点击名字沿路径查看结果，结果揭晓前无法预知，充满紧张与乐趣。",
+            "recommendTitle": "适用场景",
+            "recommend": [
+              "分组",
+              "分配任务",
+              "分配惩罚"
+            ]
           },
           "bomb": {
             "title": "💣 抽炸弹",
-            "desc": "最紧张的游戏，随机选人，谁中招谁也不知道。",
-            "recommendTitle": "推荐场景",
-            "recommend": ["选一名惩罚对象", "酒桌游戏", "紧张内基"]
+            "desc": "选择卡片，抽到炸弹的人将接受惩罚，充满刺激感。",
+            "recommendTitle": "适用场景",
+            "recommend": [
+              "选一个人受罚",
+              "聚会游戏",
+              "紧张对赌"
+            ]
           }
         },
         "randomStart": {
-          "title": "随机游戏开始",
-          "p1": "不知道玩哪个？按「随机游戏开始」即可。",
-          "p2": "会根据情境推荐游戏，不用纠结就能开始。"
+          "title": "随机游戏",
+          "p1": "不知道玩什么？点击随机开始游戏。",
+          "p2": "系统会自动推荐适合的游戏，让你马上开始。"
         },
         "useCases": {
-          "title": "适合这些场景",
+          "title": "使用场景",
           "items": [
-            "公司午饭谁请",
+            "决定谁付午餐",
             "旅行分工",
-            "酒桌惩罚",
-            "聚会游戏",
+            "聚会惩罚",
+            "团体活动",
             "分队",
             "发言顺序"
           ]
         },
-        "outro": "内基哈杂不只是游戏站，而是把日常小决定变得又快又有趣的工具。"
+        "outro": "Naegihaja 不只是游戏网站，而是让日常小决定变得快速又有趣的工具。"
       }
     }
   },
@@ -97,55 +115,55 @@
   },
   "common": {
     "participants": "参与者",
-    "placeholder": "用逗号或换行分隔\n示例: Alex, Jamie, Chris",
-    "minMax": "支持 2–100 人",
+    "placeholder": "用逗号或换行分隔\n例：小明，小美，小杰",
+    "minMax": "2–100人",
     "start": "开始",
     "error": {
-      "min": "至少输入 2 人",
-      "max": "最多 100 人",
-      "duplicate": "存在重复名称"
+      "min": "至少输入2人",
+      "max": "最多100人",
+      "duplicate": "存在重复名字"
     },
     "playAgain": "再来一次",
     "reset": "重置"
   },
   "ladder": {
-    "title": "爬梯",
+    "title": "抽签梯",
     "setup": {
       "participants": "参与者",
       "results": "结果",
-      "participantsPlaceholder": "逗号或换行分隔\n示例: Alex, Jamie, Chris",
-      "resultsPlaceholder": "逗号或换行分隔\n示例: Win, Lose, Penalty",
+      "participantsPlaceholder": "逗号或换行\n例：小明，小美",
+      "resultsPlaceholder": "逗号或换行\n例：成功，失败，惩罚",
       "start": "开始",
-      "minMax": "2–10 人（数量需一致）",
-      "errorMin": "至少输入 2 人",
-      "errorMax": "最多 10 人",
-      "errorMismatch": "参与者与结果数量需一致"
+      "minMax": "2–10人（数量一致）",
+      "errorMin": "至少输入2人",
+      "errorMax": "最多10人",
+      "errorMismatch": "参与者与结果数量必须一致"
     },
     "game": {
-      "clickHint": "点击名称查看",
+      "clickHint": "点击名字查看",
       "revealAll": "全部显示",
       "seeResult": "查看"
     },
     "result": {
       "title": "结果",
-      "name": "姓名",
+      "name": "名字",
       "prize": "结果",
-      "playAgain": "相同成员",
+      "playAgain": "相同人员",
       "reset": "重置"
     }
   },
   "bomb": {
     "title": "抽炸弹",
-    "minMax": "支持 2–10 人",
+    "minMax": "2–10人",
     "turnOf": "{{name}} 的回合",
-    "clickCard": "选择卡片",
+    "clickCard": "请选择卡片",
     "safe": "安全",
     "bomb": "炸弹",
     "cardsLeft": "剩余 {{count}} 张",
     "result": {
       "loser": "抽到炸弹",
       "penalty": "执行惩罚",
-      "winners": "安全成员"
+      "winners": "安全人员"
     }
   },
   "dice": {
@@ -160,9 +178,9 @@
     "noResults": "暂无结果",
     "completed": "{{count}} / {{total}} 完成",
     "result": {
-      "win": "胜者",
+      "win": "最高点数",
       "tie": "平局",
-      "points": "{{value}} 分"
+      "points": "{{value}} 点"
     }
   },
   "roulette": {
@@ -177,7 +195,7 @@
     },
     "result": {
       "title": "结果",
-      "playAgain": "相同成员",
+      "playAgain": "相同人员",
       "reset": "重置"
     }
   }

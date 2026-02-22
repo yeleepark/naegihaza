@@ -2,92 +2,111 @@
   "home": {
     "roulette": {
       "title": "Roulette",
-      "description": "Spin to pick a random person."
+      "description": "Randomly selects one person."
     },
     "dice": {
       "title": "Dice",
-      "description": "Roll and compare scores."
+      "description": "Each participant rolls two dice and the highest total score is selected."
     },
     "ladder": {
       "title": "Ladder",
-      "description": "Follow the path to your result."
+      "description": "Tap a name and follow the path to reveal the result."
     },
     "bomb": {
-      "title": "Bomb Draw",
-      "description": "One card triggers the penalty."
+      "title": "Bomb Pick",
+      "description": "The person who picks the bomb card is selected."
     },
     "randomGame": "Start Random Game",
     "about": {
-      "title": "About Naegihaza",
+      "title": "About Naegihaja",
       "sections": {
         "intro": {
-          "title": "About Naegihaza",
-          "p1": "Naegihaza is a free web game service that helps you fairly decide order, penalties, who pays, or who’s on duty with friends, partners, family, or coworkers.",
-          "p2": "No app install or sign-up required—anyone can use it right in the browser on phone, tablet, or PC.",
-          "p3": "Roulette, dice, ladder, and bomb draw—everyday decision tools in one place—so you can quickly and funly answer “Who’s gonna do it?”"
+          "title": "What is Naegihaja?",
+          "p1": "Naegihaja is a free web game service that helps friends, couples, family, and coworkers fairly decide order, penalties, or who pays.",
+          "p2": "The name \"Naegihaja\" means \"let’s make a bet\" in Korean.",
+          "p3": "No installation or signup is required. You can use it instantly in any browser on mobile, tablet, or desktop.",
+          "p4": "Roulette, dice, ladder game, and bomb pick are gathered in one place to solve the simple question — \"Who should do it?\" — in the easiest and most fun way."
         },
         "birth": {
           "title": "How It Started",
-          "p1": "Naegihaza started from daily routines with coworkers: “Who pays for coffee?”, “Who gets dessert?”, “Who’s on lunch duty?”",
-          "p2": "Rock-paper-scissors kept tying, “Let’s go again” dragged on, and it often felt unfair.",
-          "p3": "We wanted a tool that was clearly fair and quick, and one place for all kinds of decisions instead of searching different sites each time.",
-          "p4": "That’s how Naegihaza was born."
+          "p1": "Naegihaja was born from everyday moments at work — deciding who buys coffee, desserts, or takes turns paying for lunch.",
+          "p2": "Rock-paper-scissors kept ending in ties, took too long, and sometimes didn’t feel fair.",
+          "p3": "We needed a fast and transparent way to decide, so instead of searching different tools every time, we created one place with all decision games.",
+          "p4": "That became Naegihaja."
         },
         "features": {
-          "title": "What Naegihaza Offers",
+          "title": "Features",
           "items": [
-            "Use right away, no login",
-            "Same experience on mobile and PC",
-            "Fair random results",
-            "Simple interface for quick use",
-            "Big, easy-to-read results for groups",
-            "Free to use"
+            "No login required",
+            "Works on mobile and desktop",
+            "Fair random algorithm",
+            "Simple and fast interface",
+            "Easy to view together on one screen",
+            "Completely free"
           ],
-          "closing": "It’s not just a game—it’s designed as a tool to help you make everyday decisions."
+          "closing": "Not just a game — a tool that helps make everyday decisions."
         },
         "games": {
-          "title": "Games",
+          "title": "Game Types",
           "roulette": {
             "title": "🎡 Roulette",
-            "desc": "Pick one person or one option in an intuitive way. Enter names or options and get an even random choice.",
-            "recommendTitle": "Good for",
-            "recommend": ["Who pays for coffee", "Choosing menu", "Who gets the penalty", "Choosing presenter"]
+            "desc": "The most intuitive way to pick one person or option. Enter names or items and it selects one with equal probability.",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Choosing who buys coffee",
+              "Picking a menu",
+              "Selecting a penalty",
+              "Choosing a presenter"
+            ]
           },
           "dice": {
             "title": "🎲 Dice",
-            "desc": "When you need a fair order by numbers. Use highest, lowest, or other rules.",
-            "recommendTitle": "Good for",
-            "recommend": ["Order", "Game turns", "Score-based bets"]
+            "desc": "Each participant rolls two dice and compares the total score. The highest total is selected.",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Turn order",
+              "Game turns",
+              "Score-based bets"
+            ]
           },
           "ladder": {
-            "title": "🪜 Ladder",
-            "desc": "Popular when many join at once. Results are unknown until the end for suspense and fun.",
-            "recommendTitle": "Good for",
-            "recommend": ["Team split", "Duty", "Sharing penalties"]
+            "title": "🪜 Ladder Game",
+            "desc": "Tap a name and follow the path to see the result. The outcome is unknown until revealed, creating fun tension.",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Team splitting",
+              "Assigning roles",
+              "Distributing penalties"
+            ]
           },
           "bomb": {
-            "title": "💣 Bomb Draw",
-            "desc": "High tension—random pick so no one knows who’s chosen.",
-            "recommendTitle": "Good for",
-            "recommend": ["One penalty target", "Drinking games", "Tense bets"]
+            "title": "💣 Bomb Pick",
+            "desc": "Choose a card — if it’s the bomb, you’re selected. A suspenseful random game.",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Selecting one person for a penalty",
+              "Party games",
+              "High tension bets"
+            ]
           }
         },
         "randomStart": {
-          "title": "Start Random Game",
-          "p1": "Not sure which game to play? Tap Start Random Game.",
-          "p2": "We suggest a game for the situation so you can start without overthinking."
+          "title": "Random Game",
+          "p1": "Not sure which game to play? Press the Random Game button.",
+          "p2": "A suitable game will be selected automatically so you can start immediately."
         },
         "useCases": {
-          "title": "Try it in these situations",
+          "title": "Use It When",
           "items": [
-            "Lunch bill at work",
-            "Trip roles",
-            "Drinking game penalties",
-            "Party games",
-            "Team split",
-            "Presentation order"]
+            "Deciding who pays for lunch",
+            "Travel role assignments",
+            "Party penalties",
+            "Group activities",
+            "Splitting teams",
+            "Presentation order"
+          ]
         },
-        "outro": "Naegihaza is a tool to make small everyday decisions quickly and fun—not just a game site."
+        "outro": "Naegihaja isn’t just a game site — it’s a fun way to make small daily decisions quickly."
       }
     }
   },
@@ -96,15 +115,15 @@
   },
   "common": {
     "participants": "Participants",
-    "placeholder": "Separate with comma or line break\nExample: Alex, Jamie, Chris",
-    "minMax": "2–100 participants allowed",
+    "placeholder": "Separate with comma or line break\nex: Alex, Mina, Joon, Hana",
+    "minMax": "2–100 people",
     "start": "Start",
     "error": {
-      "min": "Enter at least 2 participants",
-      "max": "Up to 100 participants allowed",
+      "min": "Enter at least 2 people",
+      "max": "Up to 100 people allowed",
       "duplicate": "Duplicate names found"
     },
-    "playAgain": "Play Again",
+    "playAgain": "Again",
     "reset": "Reset"
   },
   "ladder": {
@@ -112,21 +131,21 @@
     "setup": {
       "participants": "Participants",
       "results": "Results",
-      "participantsPlaceholder": "Comma or line break\nExample: Alex, Jamie, Chris",
-      "resultsPlaceholder": "Comma or line break\nExample: Win, Lose, Penalty",
+      "participantsPlaceholder": "Comma or line break\nex: Alex, Mina, Joon",
+      "resultsPlaceholder": "Comma or line break\nex: Win, Lose, Penalty",
       "start": "Start",
-      "minMax": "2–10 players (count must match)",
-      "errorMin": "Enter at least 2 participants",
-      "errorMax": "Up to 10 participants allowed",
+      "minMax": "2–10 people (must match)",
+      "errorMin": "Enter at least 2 people",
+      "errorMax": "Up to 10 people allowed",
       "errorMismatch": "Participants and results must match"
     },
     "game": {
-      "clickHint": "Tap a name to reveal",
+      "clickHint": "Tap a name",
       "revealAll": "Reveal All",
       "seeResult": "Reveal"
     },
     "result": {
-      "title": "Results",
+      "title": "Result",
       "name": "Name",
       "prize": "Result",
       "playAgain": "Same Players",
@@ -134,13 +153,13 @@
     }
   },
   "bomb": {
-    "title": "Bomb Draw",
-    "minMax": "2–10 players allowed",
+    "title": "Bomb Pick",
+    "minMax": "2–10 people",
     "turnOf": "{{name}}'s turn",
-    "clickCard": "Select a card",
+    "clickCard": "Pick a card",
     "safe": "Safe",
     "bomb": "Bomb",
-    "cardsLeft": "{{count}} cards left",
+    "cardsLeft": "{{count}} left",
     "result": {
       "loser": "Bomb selected",
       "penalty": "Apply penalty",
@@ -151,15 +170,15 @@
     "title": "Dice",
     "rolling": "Rolling",
     "turnOf": "{{name}}'s turn",
-    "allComplete": "All players finished",
+    "allComplete": "All done",
     "roll": "Roll",
     "rollingInProgress": "Rolling...",
-    "showResult": "Show Results",
+    "showResult": "Show result",
     "results": "Results",
-    "noResults": "No rolls yet",
-    "completed": "{{count}} / {{total}} finished",
+    "noResults": "No results yet",
+    "completed": "{{count}} / {{total}} completed",
     "result": {
-      "win": "Winner",
+      "win": "Highest score",
       "tie": "Tie",
       "points": "{{value}} pts"
     }
@@ -175,8 +194,8 @@
       "spinning": "Spinning..."
     },
     "result": {
-      "title": "Winner",
-      "playAgain": "Same Players",
+      "title": "Result",
+      "playAgain": "Same players",
       "reset": "Reset"
     }
   }

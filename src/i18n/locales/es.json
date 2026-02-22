@@ -2,149 +2,167 @@
   "home": {
     "roulette": {
       "title": "Ruleta",
-      "description": "Elige una persona al azar."
+      "description": "Selecciona a una persona al azar."
     },
     "dice": {
       "title": "Dados",
-      "description": "Lanza y compara puntajes."
+      "description": "Cada participante lanza dos dados y se selecciona el puntaje total más alto."
     },
     "ladder": {
       "title": "Escalera",
-      "description": "Sigue la ruta para ver el resultado."
+      "description": "Toca un nombre y sigue el camino para ver el resultado."
     },
     "bomb": {
       "title": "Bomba",
-      "description": "Una carta activa la penalización."
+      "description": "La persona que saque la carta bomba es seleccionada."
     },
-    "randomGame": "Iniciar juego aleatorio",
+    "randomGame": "Juego Aleatorio",
     "about": {
-      "title": "Sobre Naegihaza",
+      "title": "Acerca de Naegihaja",
       "sections": {
         "intro": {
-          "title": "Sobre Naegihaza",
-          "p1": "Naegihaza es un servicio gratuito de juegos web para decidir de forma justa el orden, penitencias, quién paga o quién toca con amigos, pareja, familia o compañeros.",
-          "p2": "Sin instalar app ni registrarse: solo abre el navegador en móvil, tablet o PC.",
-          "p3": "Ruleta, dados, escalera y bomba en un solo sitio para resolver \"¿quién lo hace?\" de forma rápida y divertida."
+          "title": "¿Qué es Naegihaja?",
+          "p1": "Naegihaja es un servicio web gratuito que ayuda a amigos, parejas, familia o compañeros de trabajo a decidir de forma justa turnos, penalizaciones o quién paga.",
+          "p2": "“Naegihaja” en coreano significa “hagamos una apuesta”.",
+          "p3": "No requiere instalación ni registro. Funciona directamente en cualquier navegador móvil, tablet o PC.",
+          "p4": "Reúne ruleta, dados, escalera y bomba en un solo lugar para resolver la pregunta: “¿A quién le toca?” de la forma más fácil y divertida."
         },
         "birth": {
-          "title": "Origen",
-          "p1": "Naegihaza nació de \"quién paga el café\", \"apuesta del postre\" y \"quién toca comer\" con los compañeros.",
-          "p2": "El piedra-papel-tijera seguía en empate, \"otra vez\" alargaba todo y a veces no parecía justo.",
-          "p3": "Hacía falta una herramienta clara y rápida, y un solo sitio para todo en vez de buscar cada vez.",
-          "p4": "Así nació Naegihaza."
+          "title": "Cómo empezó",
+          "p1": "Naegihaja nació de situaciones cotidianas: decidir quién compra el café, el postre o paga el almuerzo.",
+          "p2": "Piedra, papel o tijera terminaba en empate demasiadas veces y tomaba tiempo.",
+          "p3": "Necesitábamos una forma rápida y transparente, así que creamos un solo lugar con todos los juegos de decisión.",
+          "p4": "Así nació Naegihaja."
         },
         "features": {
-          "title": "Qué ofrece Naegihaza",
+          "title": "Características",
           "items": [
-            "Uso inmediato, sin login",
-            "Misma experiencia en móvil y PC",
-            "Resultados aleatorios justos",
-            "Interfaz sencilla",
-            "Resultados grandes para ver en grupo",
-            "Gratis"
+            "Sin registro",
+            "Funciona en móvil y PC",
+            "Algoritmo aleatorio justo",
+            "Interfaz simple y rápida",
+            "Fácil de ver en grupo",
+            "Totalmente gratis"
           ],
-          "closing": "No es solo un juego: está pensado como herramienta para decidir en el día a día."
+          "closing": "No es solo un juego, es una herramienta para tomar decisiones diarias."
         },
         "games": {
-          "title": "Juegos",
+          "title": "Tipos de juegos",
           "roulette": {
             "title": "🎡 Ruleta",
-            "desc": "Elegir una persona u opción de forma intuitiva. Escribe nombres u opciones y elige al azar.",
+            "desc": "La forma más intuitiva de elegir una persona u opción. Probabilidad uniforme.",
             "recommendTitle": "Ideal para",
-            "recommend": ["Quién paga el café", "Elegir menú", "Penitencia", "Elegir presentador"]
+            "recommend": [
+              "Quién paga el café",
+              "Elegir comida",
+              "Elegir castigo",
+              "Elegir presentador"
+            ]
           },
           "dice": {
             "title": "🎲 Dados",
-            "desc": "Cuando hace falta un orden justo por números. Por mayor, menor u otras reglas.",
+            "desc": "Cada participante lanza dos dados y se compara la suma. El total más alto es seleccionado.",
             "recommendTitle": "Ideal para",
-            "recommend": ["Orden", "Turnos", "Apuestas por puntos"]
+            "recommend": [
+              "Orden de turnos",
+              "Turnos de juego",
+              "Apuestas por puntos"
+            ]
           },
           "ladder": {
             "title": "🪜 Escalera",
-            "desc": "Muy usado cuando participan varios. El resultado no se sabe hasta el final.",
+            "desc": "Toca un nombre y sigue el camino hasta el resultado. Suspenso hasta el final.",
             "recommendTitle": "Ideal para",
-            "recommend": ["Repartir equipos", "Turnos", "Repartir penitencias"]
+            "recommend": [
+              "Dividir equipos",
+              "Asignar tareas",
+              "Repartir castigos"
+            ]
           },
           "bomb": {
             "title": "💣 Bomba",
-            "desc": "Máxima tensión: elección al azar, nadie sabe quién sale.",
+            "desc": "Elige una carta. Si es la bomba, te toca a ti.",
             "recommendTitle": "Ideal para",
-            "recommend": ["Una penitencia", "Juegos de bebida", "Apuestas con tensión"]
+            "recommend": [
+              "Elegir una persona",
+              "Juegos de fiesta",
+              "Apuestas tensas"
+            ]
           }
         },
         "randomStart": {
-          "title": "Iniciar juego aleatorio",
-          "p1": "¿No sabes qué juego usar? Pulsa Iniciar juego aleatorio.",
-          "p2": "Sugerimos un juego según la situación para empezar sin dudar."
+          "title": "Juego aleatorio",
+          "p1": "¿No sabes cuál jugar? Pulsa el botón de juego aleatorio.",
+          "p2": "Se seleccionará automáticamente un juego adecuado."
         },
         "useCases": {
-          "title": "Pruébalo en estas situaciones",
+          "title": "Cuándo usarlo",
           "items": [
             "Quién paga el almuerzo",
-            "Roles en viaje",
-            "Penitencias de copas",
-            "Juegos en grupo",
-            "Repartir equipos",
-            "Orden de presentaciones"
+            "Organizar viajes",
+            "Castigos de fiesta",
+            "Actividades grupales",
+            "Dividir equipos",
+            "Orden de presentación"
           ]
         },
-        "outro": "Naegihaza es una herramienta para decidir cosas del día a día de forma rápida y divertida, no solo un sitio de juegos."
+        "outro": "Naegihaja no es solo un sitio de juegos: es una forma divertida de decidir rápidamente."
       }
     }
   },
   "header": {
-    "backToList": "Volver"
+    "backToList": "Atrás"
   },
   "common": {
     "participants": "Participantes",
-    "placeholder": "Separar con coma o salto de línea\nEjemplo: Alex, Jamie, Chris",
-    "minMax": "2–100 participantes permitidos",
+    "placeholder": "Separar por coma o salto de línea\nEj: Ana, Luis, Marta",
+    "minMax": "2–100 personas",
     "start": "Iniciar",
     "error": {
-      "min": "Ingresa al menos 2 participantes",
-      "max": "Máximo 100 participantes",
-      "duplicate": "Nombres duplicados"
+      "min": "Ingresa al menos 2 personas",
+      "max": "Máximo 100 personas",
+      "duplicate": "Hay nombres duplicados"
     },
-    "playAgain": "Repetir",
-    "reset": "Restablecer"
+    "playAgain": "Otra vez",
+    "reset": "Reiniciar"
   },
   "ladder": {
     "title": "Escalera",
     "setup": {
       "participants": "Participantes",
       "results": "Resultados",
-      "participantsPlaceholder": "Coma o salto de línea\nEjemplo: Alex, Jamie, Chris",
-      "resultsPlaceholder": "Coma o salto de línea\nEjemplo: Ganar, Perder, Penalización",
+      "participantsPlaceholder": "Comas o líneas\nEj: Ana, Luis",
+      "resultsPlaceholder": "Comas o líneas\nEj: Gana, Pierde, Castigo",
       "start": "Iniciar",
-      "minMax": "2–10 jugadores (deben coincidir)",
-      "errorMin": "Ingresa al menos 2 participantes",
-      "errorMax": "Máximo 10 participantes",
+      "minMax": "2–10 personas",
+      "errorMin": "Mínimo 2 personas",
+      "errorMax": "Máximo 10 personas",
       "errorMismatch": "Participantes y resultados deben coincidir"
     },
     "game": {
-      "clickHint": "Pulsa un nombre para revelar",
+      "clickHint": "Toca un nombre",
       "revealAll": "Mostrar todo",
       "seeResult": "Ver"
     },
     "result": {
-      "title": "Resultados",
+      "title": "Resultado",
       "name": "Nombre",
       "prize": "Resultado",
       "playAgain": "Mismos jugadores",
-      "reset": "Restablecer"
+      "reset": "Reiniciar"
     }
   },
   "bomb": {
     "title": "Bomba",
-    "minMax": "2–10 jugadores permitidos",
+    "minMax": "2–10 personas",
     "turnOf": "Turno de {{name}}",
-    "clickCard": "Selecciona una carta",
+    "clickCard": "Elige una carta",
     "safe": "Seguro",
     "bomb": "Bomba",
-    "cardsLeft": "{{count}} cartas restantes",
+    "cardsLeft": "{{count}} restantes",
     "result": {
-      "loser": "Bomba seleccionada",
-      "penalty": "Aplicar penalización",
+      "loser": "Sacó la bomba",
+      "penalty": "Aplicar castigo",
       "winners": "Jugadores seguros"
     }
   },
@@ -152,15 +170,15 @@
     "title": "Dados",
     "rolling": "Lanzando",
     "turnOf": "Turno de {{name}}",
-    "allComplete": "Todos completados",
+    "allComplete": "Completado",
     "roll": "Lanzar",
     "rollingInProgress": "En progreso...",
-    "showResult": "Ver resultados",
+    "showResult": "Ver resultado",
     "results": "Resultados",
-    "noResults": "Sin resultados aún",
+    "noResults": "Sin resultados",
     "completed": "{{count}} / {{total}} completados",
     "result": {
-      "win": "Ganador",
+      "win": "Puntaje más alto",
       "tie": "Empate",
       "points": "{{value}} pts"
     }
@@ -176,9 +194,9 @@
       "spinning": "Girando..."
     },
     "result": {
-      "title": "Ganador",
+      "title": "Resultado",
       "playAgain": "Mismos jugadores",
-      "reset": "Restablecer"
+      "reset": "Reiniciar"
     }
   }
 }
