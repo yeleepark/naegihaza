@@ -16,7 +16,11 @@
       "title": "Bomb Draw",
       "description": "One card triggers the penalty."
     },
-    "randomGame": "Start Random Game"
+    "randomGame": "Start Random Game",
+    "about": {
+      "title": "About Naegihaza",
+      "description": "A free web app to fairly pick order, decide penalties, or settle bets with friends using roulette, dice, ladder, and bomb draw. No install needed—just open in your browser."
+    }
   },
   "header": {
     "backToList": "Back"

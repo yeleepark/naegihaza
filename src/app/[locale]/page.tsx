@@ -3,6 +3,8 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WaveCurtain from '@/components/layout/WaveCurtain';
 import HomeClient from '@/components/HomeClient';
+import HomeAbout from '@/components/home/HomeAbout';
+import HomeScrollAnimations from '@/components/home/HomeScrollAnimations';
 import { type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
 
@@ -50,14 +52,21 @@ export default async function Home({ params }: Props) {
     <div className="min-h-screen w-screen flex flex-col bg-[#fef3e2]">
       <Header />
 
-      <div className="relative flex-1 flex flex-col">
+      <div className="relative flex-1 flex flex-col min-h-0">
         <WaveCurtain />
 
-        <main className="relative z-10 flex-1 flex items-center justify-center p-8 md:p-12">
-          <HomeClient />
+        <main
+          data-scroll-root
+          className="relative z-10 flex-1 min-h-0 overflow-y-auto overflow-x-hidden scroll-smooth snap-y snap-mandatory"
+        >
+          <HomeScrollAnimations>
+            <section className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center p-8 md:p-12 snap-start snap-always sa-animation sa-fade-up">
+              <HomeClient />
+            </section>
+            <HomeAbout />
+            <Footer />
+          </HomeScrollAnimations>
         </main>
-
-        <Footer />
       </div>
     </div>
   );

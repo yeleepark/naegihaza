@@ -16,7 +16,11 @@
       "title": "Bomba",
       "description": "Una carta activa la penalización."
     },
-    "randomGame": "Iniciar juego aleatorio"
+    "randomGame": "Iniciar juego aleatorio",
+    "about": {
+      "title": "Sobre Naegihaza",
+      "description": "Web gratuita para elegir turnos, penitencias o apuestas con amigos con ruleta, dados, escalera y bomba. Sin instalación, solo abre el navegador."
+    }
   },
   "header": {
     "backToList": "Volver"

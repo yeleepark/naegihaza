@@ -16,7 +16,11 @@
       "title": "抽炸弹",
       "description": "抽到炸弹则执行惩罚。"
     },
-    "randomGame": "开始随机游戏"
+    "randomGame": "开始随机游戏",
+    "about": {
+      "title": "关于内基哈杂",
+      "description": "与朋友一起用转盘、骰子、爬梯、抽炸弹公平决定顺序、惩罚或打赌的免费网页游戏。无需安装，打开浏览器即可使用。"
+    }
   },
   "header": {
     "backToList": "返回"
