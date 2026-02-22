@@ -1,10 +1,37 @@
 'use client';
 
-import GameCard from '@/components/GameCard';
 import { useTranslation } from 'react-i18next';
 import { useParams, useRouter } from 'next/navigation';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, A11y } from 'swiper/modules';
+import GameCard from '@/components/GameCard';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const GAMES = ['roulette', 'dice', 'ladder', 'bomb'];
+
+const GAME_ITEMS = [
+  {
+    key: 'roulette',
+    icon: '🎰',
+    bgColor: 'bg-yellow-300',
+  },
+  {
+    key: 'dice',
+    icon: '🎲',
+    bgColor: 'bg-blue-300',
+  },
+  {
+    key: 'ladder',
+    icon: '🪜',
+    bgColor: 'bg-green-300',
+  },
+  {
+    key: 'bomb',
+    icon: '💣',
+    bgColor: 'bg-red-300',
+  },
+] as const;
 
 export default function HomeClient() {
   const { t } = useTranslation();
@@ -18,37 +45,37 @@ export default function HomeClient() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full md:pt-12">
-      {/* Games Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl w-full">
-        <GameCard
-          title={t('home.roulette.title')}
-          description={t('home.roulette.description')}
-          icon="🎰"
-          bgColor="bg-yellow-300"
-          href={`/${locale}/games/roulette`}
-        />
-        <GameCard
-          title={t('home.dice.title')}
-          description={t('home.dice.description')}
-          icon="🎲"
-          bgColor="bg-blue-300"
-          href={`/${locale}/games/dice`}
-        />
-        <GameCard
-          title={t('home.ladder.title')}
-          description={t('home.ladder.description')}
-          icon="🪜"
-          bgColor="bg-green-300"
-          href={`/${locale}/games/ladder`}
-        />
-        <GameCard
-          title={t('home.bomb.title')}
-          description={t('home.bomb.description')}
-          icon="💣"
-          bgColor="bg-red-300"
-          href={`/${locale}/games/bomb`}
-        />
+    <div className="flex flex-col items-center gap-8 w-full pt-4 md:pt-16 lg:pt-20">
+      {/* Games Swiper - full width on desktop */}
+      <div className="w-full px-2 py-4 md:px-6 lg:px-8">
+        <Swiper
+          modules={[Pagination, A11y]}
+          spaceBetween={16}
+          slidesPerView={1.15}
+          breakpoints={{
+            640: { slidesPerView: 1.5 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 4, spaceBetween: 24 },
+          }}
+          pagination={{ clickable: true }}
+          a11y={{
+            prevSlideMessage: 'Previous slide',
+            nextSlideMessage: 'Next slide',
+          }}
+          className="!pb-10"
+        >
+          {GAME_ITEMS.map((item) => (
+            <SwiperSlide key={item.key} className="!py-4 !px-3">
+              <GameCard
+                title={t(`home.${item.key}.title`)}
+                description={t(`home.${item.key}.description`)}
+                icon={item.icon}
+                bgColor={item.bgColor}
+                href={`/${locale}/games/${item.key}`}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       {/* Random Game Button */}

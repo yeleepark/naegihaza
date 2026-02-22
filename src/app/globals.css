@@ -80,4 +80,14 @@
   .animate-bounce {
     animation: bounce 1s ease-in-out infinite;
   }
+
+  /* Swiper pagination: match site style */
+  .swiper-pagination-bullet {
+    background: rgba(248, 250, 252, 0.5);
+    opacity: 1;
+  }
+  .swiper-pagination-bullet-active {
+    background: var(--foreground);
+    transform: scale(1.2);
+  }
 }
