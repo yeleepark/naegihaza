@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WaveCurtain from '@/components/layout/WaveCurtain';
 import BombGameClient from '@/components/bomb/BombGameClient';
 import { type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
@@ -42,13 +41,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BombPage({ params }: Props) {
   await params;
   return (
-    <div className="min-h-screen md:h-screen w-screen flex flex-col bg-[#fef3e2] overflow-auto md:overflow-hidden">
+    <div className="h-screen max-h-[100dvh] w-screen flex flex-col bg-[#fef3e2] overflow-hidden">
       <Header />
 
-      <div className="relative flex-1 min-h-0 flex flex-col">
-        <WaveCurtain />
-
-        <main className="relative z-10 flex-1 min-h-0 flex items-center justify-center p-4 md:p-8">
+      <div className="relative flex-1 min-h-0 flex flex-col overflow-hidden">
+        <main className="relative z-10 flex-1 min-h-0 flex flex-col items-center justify-center p-2 md:p-4 overflow-hidden">
           <BombGameClient />
         </main>
 

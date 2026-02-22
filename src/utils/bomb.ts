@@ -51,9 +51,10 @@ export function validateParticipantNames(names: string[]): {
 }
 
 /**
- * Generates 12 cards with one bomb, then shuffles the visual order (Fisher-Yates)
+ * Generates `count` cards with one bomb, then shuffles the visual order (Fisher-Yates).
+ * Typically count = participants.length * 2 so each participant flips exactly 2 cards.
  */
-export function generateCards(count = 12): Card[] {
+export function generateCards(count: number): Card[] {
   const bombIndex = Math.floor(Math.random() * count);
 
   const cards: Card[] = Array.from({ length: count }, (_, i) => ({

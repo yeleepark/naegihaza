@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WaveCurtain from '@/components/layout/WaveCurtain';
 import LadderGameClient from '@/components/ladder/LadderGameClient';
 import { type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
@@ -53,8 +52,6 @@ export default async function LadderPage({ params }: Props) {
       <Header />
 
       <div className="relative flex-1 flex flex-col">
-        <WaveCurtain />
-
         <main className="relative z-10 flex-1 flex items-start justify-center p-4 md:p-8">
           <LadderGameClient />
         </main>

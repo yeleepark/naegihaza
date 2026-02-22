@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import WaveCurtain from '@/components/layout/WaveCurtain';
 import RouletteGameClient from '@/components/roulette/RouletteGameClient';
 import { type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
@@ -46,8 +45,6 @@ export default async function RoulettePage({ params }: Props) {
       <Header />
 
       <div className="relative flex-1 min-h-0 flex flex-col">
-        <WaveCurtain />
-
         <main className="relative z-10 flex-1 min-h-0 flex items-center justify-center p-4 md:p-8">
           <RouletteGameClient />
         </main>

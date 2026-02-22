@@ -83,25 +83,6 @@ export default function GameResult({
             </p>
           </div>
 
-          {/* Winners */}
-          {result.winnerNames.length > 0 && (
-            <div className="mb-6">
-              <p className="font-game text-sm font-bold text-black/60 mb-3">
-                {t('bomb.result.winners')}
-              </p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {result.winnerNames.map((name) => (
-                  <span
-                    key={name}
-                    className="font-game text-sm font-bold px-3 py-1 bg-green-100 text-black border-2 border-black rounded-full"
-                  >
-                    {name} 😮‍💨
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
           <div className="space-y-3">
             <Button
               onClick={onPlayAgain}

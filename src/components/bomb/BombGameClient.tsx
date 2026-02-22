@@ -15,9 +15,13 @@ export default function BombGameClient() {
   const [result, setResult] = useState<BombResult | null>(null);
   const [flippingCardId, setFlippingCardId] = useState<number | null>(null);
 
+  const FLIPS_PER_PERSON = 2;
+  const getCardCount = (participantCount: number) => participantCount * FLIPS_PER_PERSON;
+
   const handleStart = useCallback((names: string[]) => {
+    const count = getCardCount(names.length);
     setParticipants(names);
-    setCards(generateCards(12));
+    setCards(generateCards(count));
     setCurrentTurnIndex(0);
     setResult(null);
     setFlippingCardId(null);
@@ -47,18 +51,19 @@ export default function BombGameClient() {
             const loserColor =
               PARTICIPANT_COLORS[currentTurnIndex % PARTICIPANT_COLORS.length];
             const winnerNames = participants.filter((_, i) => i !== currentTurnIndex);
+            const totalCards = getCardCount(participants.length);
 
             setResult({
               loserName,
               loserColor,
               winnerNames,
-              totalCards: 12,
+              totalCards,
               timestamp: new Date(),
             });
             setGameState('result');
           }, 800);
         } else {
-          // Advance to next participant
+          // Round-robin: next participant flips one card
           setCurrentTurnIndex((prev) => (prev + 1) % participants.length);
         }
       }, 500);
@@ -67,12 +72,13 @@ export default function BombGameClient() {
   );
 
   const handlePlayAgain = useCallback(() => {
-    setCards(generateCards(12));
+    const count = getCardCount(participants.length);
+    setCards(generateCards(count));
     setCurrentTurnIndex(0);
     setResult(null);
     setFlippingCardId(null);
     setGameState('playing');
-  }, []);
+  }, [participants.length]);
 
   const handleReset = useCallback(() => {
     setGameState('setup');
@@ -84,11 +90,11 @@ export default function BombGameClient() {
   }, []);
 
   return (
-    <div className="max-w-2xl w-full h-full">
+    <div className="w-full h-full min-h-0 flex flex-col max-w-2xl mx-auto">
       {gameState === 'setup' && <GameSetup onStart={handleStart} />}
 
       {gameState === 'playing' && (
-        <div className="flex items-start justify-center py-4 md:py-8">
+        <div className="flex-1 min-h-0 flex flex-col py-2 md:py-4">
           <GamePlay
             participants={participants}
             cards={cards}
