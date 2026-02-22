@@ -90,5 +90,21 @@
       "tie": "平局！",
       "points": "{{value}}分"
     }
+  },
+  "roulette": {
+    "title": "随机轮盘",
+    "setup": {
+      "start": "开始转盘"
+    },
+    "spinning": {
+      "shuffle": "洗牌",
+      "spin": "转动轮盘",
+      "spinning": "转动中..."
+    },
+    "result": {
+      "title": "中奖者公布",
+      "playAgain": "相同人员再玩",
+      "reset": "返回开始"
+    }
   }
 }

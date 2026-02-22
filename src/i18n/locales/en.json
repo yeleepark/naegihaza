@@ -90,5 +90,21 @@
       "tie": "Tie!",
       "points": "{{value}} pts"
     }
+  },
+  "roulette": {
+    "title": "Random Roulette",
+    "setup": {
+      "start": "Start Roulette"
+    },
+    "spinning": {
+      "shuffle": "Shuffle",
+      "spin": "Spin Roulette",
+      "spinning": "Spinning..."
+    },
+    "result": {
+      "title": "Winner",
+      "playAgain": "Play Again (same players)",
+      "reset": "Back to Start"
+    }
   }
 }

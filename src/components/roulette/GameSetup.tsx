@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { parseNames, validateParticipantNames } from '@/utils/roulette';
@@ -10,6 +11,7 @@ type GameSetupProps = {
 };
 
 export default function GameSetup({ onStart }: GameSetupProps) {
+  const { t } = useTranslation();
   const [input, setInput] = useState<string>('');
   const [error, setError] = useState<string>('');
 
@@ -20,7 +22,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
     const validation = validateParticipantNames(names);
 
     if (!validation.valid) {
-      setError(validation.error || '잘못된 입력입니다');
+      setError(validation.error ? t(`common.error.${validation.error}`) : '');
       return;
     }
 
@@ -39,19 +41,19 @@ export default function GameSetup({ onStart }: GameSetupProps) {
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">🎰</div>
           <h2 className="font-game text-3xl font-black text-black mb-2">
-            랜덤 룰렛
+            {t('roulette.title')}
           </h2>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="font-game block text-sm font-bold text-black mb-2">
-              참가자 이름 입력
+              {t('common.participants')}
             </label>
             <textarea
               value={input}
               onChange={handleInputChange}
-              placeholder={"이름을 콤마(,) 또는 엔터로 구분해서 입력하세요\n예시: 예리, 서윤, 보리"}
+              placeholder={t('common.placeholder')}
               className="font-game w-full px-4 py-3 rounded-lg bg-white border-2 border-black text-black placeholder-neutral-400 focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-sm resize-none"
               rows={6}
             />
@@ -59,12 +61,12 @@ export default function GameSetup({ onStart }: GameSetupProps) {
               <p className="text-red-500 text-sm font-bold mt-2">{error}</p>
             )}
             <p className="font-game text-black/50 text-xs mt-2">
-              최소 2명, 최대 100명까지 가능합니다
+              {t('common.minMax')}
             </p>
           </div>
 
           <Button type="submit" variant="primary" className="w-full lowercase">
-            룰렛 시작하기
+            {t('roulette.setup.start')}
           </Button>
         </form>
       </Card>

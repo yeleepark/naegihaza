@@ -39,7 +39,7 @@
     "setup": {
       "participants": "참가자 이름",
       "results": "결과 항목",
-      "participantsPlaceholder": "이름을 콤마(,) 또는 엔터로 구분\n예: 철수, 영희, 민수",
+      "participantsPlaceholder": "이름을 콤마(,) 또는 엔터로 구분\n예: 예리, 서윤, 보리",
       "resultsPlaceholder": "결과를 콤마(,) 또는 엔터로 구분\n예: 꽝, 당첨, 벌칙",
       "start": "사다리 시작",
       "minMax": "2~10명까지 가능합니다 (참가자 수 = 결과 수)",
@@ -89,6 +89,22 @@
       "win": "승리!",
       "tie": "공동 우승!",
       "points": "{{value}}점"
+    }
+  },
+  "roulette": {
+    "title": "랜덤 룰렛",
+    "setup": {
+      "start": "룰렛 시작하기"
+    },
+    "spinning": {
+      "shuffle": "셔플",
+      "spin": "룰렛 돌리기",
+      "spinning": "돌아가는 중..."
+    },
+    "result": {
+      "title": "당첨자 발표",
+      "playAgain": "같은 인원으로 다시 하기",
+      "reset": "처음으로 돌아가기"
     }
   }
 }

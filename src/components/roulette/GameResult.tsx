@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import confetti from 'canvas-confetti';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -56,6 +57,7 @@ export default function GameResult({
   onPlayAgain,
   onReset,
 }: GameResultProps) {
+  const { t } = useTranslation();
   useEffect(() => {
     fireConfetti();
 
@@ -69,7 +71,7 @@ export default function GameResult({
       <Card className="max-w-md w-full relative z-10">
         <div className="text-center">
           <h2 className="font-game text-2xl font-black text-black mb-6">
-            당첨자 발표
+            {t('roulette.result.title')}
           </h2>
 
           <div
@@ -87,14 +89,14 @@ export default function GameResult({
               variant="primary"
               className="w-full lowercase"
             >
-              같은 인원으로 다시 하기
+              {t('roulette.result.playAgain')}
             </Button>
             <Button
               onClick={onReset}
               variant="secondary"
               className="w-full lowercase"
             >
-              처음으로 돌아가기
+              {t('roulette.result.reset')}
             </Button>
           </div>
         </div>

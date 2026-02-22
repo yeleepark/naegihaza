@@ -90,5 +90,21 @@
       "tie": "¡Empate!",
       "points": "{{value}} pts"
     }
+  },
+  "roulette": {
+    "title": "Ruleta Aleatoria",
+    "setup": {
+      "start": "Girar Ruleta"
+    },
+    "spinning": {
+      "shuffle": "Barajar",
+      "spin": "Girar Ruleta",
+      "spinning": "Girando..."
+    },
+    "result": {
+      "title": "Ganador",
+      "playAgain": "Jugar de nuevo (mismos jugadores)",
+      "reset": "Volver al Inicio"
+    }
   }
 }
