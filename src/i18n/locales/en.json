@@ -1,110 +1,110 @@
 {
   "home": {
     "roulette": {
-      "title": "Random Roulette",
-      "description": "Nobody knows who will be chosen! Spin the wheel of fate"
+      "title": "Roulette",
+      "description": "Spin to pick a random person."
     },
     "dice": {
-      "title": "Dice Roll",
-      "description": "Roll the dice and compete for the highest score!"
+      "title": "Dice",
+      "description": "Roll and compare scores."
     },
     "ladder": {
-      "title": "Ladder Game",
-      "description": "Who gets what? Climb the ladder and let fate decide!"
+      "title": "Ladder",
+      "description": "Follow the path to your result."
     },
     "bomb": {
       "title": "Bomb Draw",
-      "description": "Draw a card — if it's the bomb, you get the penalty!"
+      "description": "One card triggers the penalty."
     },
     "randomGame": "Start Random Game"
   },
   "header": {
-    "backToList": "Back to List"
+    "backToList": "Back"
   },
   "common": {
-    "participants": "Enter Participant Names",
-    "placeholder": "Separate names with commas (,) or newlines\nExample: Alice, Bob, Carol",
-    "minMax": "Min 2, Max 100 participants",
-    "start": "Start Game",
+    "participants": "Participants",
+    "placeholder": "Separate with comma or line break\nExample: Alex, Jamie, Chris",
+    "minMax": "2–100 participants allowed",
+    "start": "Start",
     "error": {
-      "min": "Please enter at least 2 participants",
-      "max": "Maximum 100 participants allowed",
+      "min": "Enter at least 2 participants",
+      "max": "Up to 100 participants allowed",
       "duplicate": "Duplicate names found"
     },
     "playAgain": "Play Again",
-    "reset": "Back to Start"
+    "reset": "Reset"
   },
   "ladder": {
-    "title": "Ladder Game",
+    "title": "Ladder",
     "setup": {
-      "participants": "Participant Names",
-      "results": "Result Items",
-      "participantsPlaceholder": "Separate with commas or newlines\nEx: Alice, Bob, Carol",
-      "resultsPlaceholder": "Separate with commas or newlines\nEx: Pay, Free, Penalty",
-      "start": "Start Ladder",
-      "minMax": "2–10 participants allowed (must match result count)",
-      "errorMin": "Please enter at least 2 participants",
-      "errorMax": "Maximum 10 participants allowed",
-      "errorMismatch": "Participant count must match result count"
+      "participants": "Participants",
+      "results": "Results",
+      "participantsPlaceholder": "Comma or line break\nExample: Alex, Jamie, Chris",
+      "resultsPlaceholder": "Comma or line break\nExample: Win, Lose, Penalty",
+      "start": "Start",
+      "minMax": "2–10 players (count must match)",
+      "errorMin": "Enter at least 2 participants",
+      "errorMax": "Up to 10 participants allowed",
+      "errorMismatch": "Participants and results must match"
     },
     "game": {
-      "clickHint": "Click a name to reveal the result",
+      "clickHint": "Tap a name to reveal",
       "revealAll": "Reveal All",
-      "seeResult": "See Results"
+      "seeResult": "Reveal"
     },
     "result": {
       "title": "Results",
       "name": "Name",
       "prize": "Result",
-      "playAgain": "Play Again (same players)",
-      "reset": "Back to Start"
+      "playAgain": "Same Players",
+      "reset": "Reset"
     }
   },
   "bomb": {
     "title": "Bomb Draw",
-    "minMax": "Min 2, Max 10 participants",
-    "turnOf": "{{name}}'s Turn!",
-    "clickCard": "Click a card",
-    "safe": "Safe! 😮‍💨",
-    "bomb": "BOOM! 💥",
-    "cardsLeft": "Cards left: {{count}}",
+    "minMax": "2–10 players allowed",
+    "turnOf": "{{name}}'s turn",
+    "clickCard": "Select a card",
+    "safe": "Safe",
+    "bomb": "Bomb",
+    "cardsLeft": "{{count}} cards left",
     "result": {
-      "loser": "💣 Bomb!",
-      "penalty": "Take the penalty!",
+      "loser": "Bomb selected",
+      "penalty": "Apply penalty",
       "winners": "Safe players"
     }
   },
   "dice": {
-    "title": "Dice Roll",
-    "rolling": "Dice Roll",
-    "turnOf": "{{name}}'s Turn!",
-    "allComplete": "All Complete! Check Results",
-    "roll": "Roll Dice",
+    "title": "Dice",
+    "rolling": "Rolling",
+    "turnOf": "{{name}}'s turn",
+    "allComplete": "All players finished",
+    "roll": "Roll",
     "rollingInProgress": "Rolling...",
     "showResult": "Show Results",
-    "results": "Roll Results",
-    "noResults": "No one has rolled yet",
-    "completed": "{{count}} / {{total}} Complete",
+    "results": "Results",
+    "noResults": "No rolls yet",
+    "completed": "{{count}} / {{total}} finished",
     "result": {
-      "win": "Winner!",
-      "tie": "Tie!",
+      "win": "Winner",
+      "tie": "Tie",
       "points": "{{value}} pts"
     }
   },
   "roulette": {
-    "title": "Random Roulette",
+    "title": "Roulette",
     "setup": {
-      "start": "Start Roulette"
+      "start": "Start"
     },
     "spinning": {
       "shuffle": "Shuffle",
-      "spin": "Spin Roulette",
+      "spin": "Spin",
       "spinning": "Spinning..."
     },
     "result": {
       "title": "Winner",
-      "playAgain": "Play Again (same players)",
-      "reset": "Back to Start"
+      "playAgain": "Same Players",
+      "reset": "Reset"
     }
   }
 }

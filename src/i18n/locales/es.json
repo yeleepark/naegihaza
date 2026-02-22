@@ -1,110 +1,110 @@
 {
   "home": {
     "roulette": {
-      "title": "Ruleta Aleatoria",
-      "description": "¡Nadie sabe quién será elegido! Gira la rueda del destino"
+      "title": "Ruleta",
+      "description": "Elige una persona al azar."
     },
     "dice": {
-      "title": "Lanzar Dados",
-      "description": "¡Lanza los dados y compite por la puntuación más alta!"
+      "title": "Dados",
+      "description": "Lanza y compara puntajes."
     },
     "ladder": {
-      "title": "Juego de Escalera",
-      "description": "¿Quién obtendrá qué resultado? ¡Sube la escalera y que el destino decida!"
+      "title": "Escalera",
+      "description": "Sigue la ruta para ver el resultado."
     },
     "bomb": {
       "title": "Bomba",
-      "description": "¡Si sacas la bomba, recibes el castigo!"
+      "description": "Una carta activa la penalización."
     },
-    "randomGame": "Iniciar Juego Aleatorio"
+    "randomGame": "Iniciar juego aleatorio"
   },
   "header": {
-    "backToList": "Volver a la Lista"
+    "backToList": "Volver"
   },
   "common": {
-    "participants": "Ingrese Nombres de Participantes",
-    "placeholder": "Separe los nombres con comas (,) o saltos de línea\nEjemplo: Ana, Carlos, María",
-    "minMax": "Mín 2, Máx 100 participantes",
-    "start": "Comenzar Juego",
+    "participants": "Participantes",
+    "placeholder": "Separar con coma o salto de línea\nEjemplo: Alex, Jamie, Chris",
+    "minMax": "2–100 participantes permitidos",
+    "start": "Iniciar",
     "error": {
-      "min": "Por favor ingrese al menos 2 participantes",
-      "max": "Máximo 100 participantes permitidos",
-      "duplicate": "Se encontraron nombres duplicados"
+      "min": "Ingresa al menos 2 participantes",
+      "max": "Máximo 100 participantes",
+      "duplicate": "Nombres duplicados"
     },
-    "playAgain": "Jugar de Nuevo",
-    "reset": "Volver al Inicio"
+    "playAgain": "Repetir",
+    "reset": "Restablecer"
   },
   "ladder": {
-    "title": "Juego de Escalera",
+    "title": "Escalera",
     "setup": {
-      "participants": "Nombres de Participantes",
-      "results": "Elementos de Resultado",
-      "participantsPlaceholder": "Separa con comas o saltos de línea\nEj: Ana, Carlos, María",
-      "resultsPlaceholder": "Separa con comas o saltos de línea\nEj: Pagar, Gratis, Penitencia",
-      "start": "Iniciar Escalera",
-      "minMax": "2–10 participantes (debe coincidir con el número de resultados)",
+      "participants": "Participantes",
+      "results": "Resultados",
+      "participantsPlaceholder": "Coma o salto de línea\nEjemplo: Alex, Jamie, Chris",
+      "resultsPlaceholder": "Coma o salto de línea\nEjemplo: Ganar, Perder, Penalización",
+      "start": "Iniciar",
+      "minMax": "2–10 jugadores (deben coincidir)",
       "errorMin": "Ingresa al menos 2 participantes",
-      "errorMax": "Máximo 10 participantes permitidos",
-      "errorMismatch": "El número de participantes debe coincidir con el de resultados"
+      "errorMax": "Máximo 10 participantes",
+      "errorMismatch": "Participantes y resultados deben coincidir"
     },
     "game": {
-      "clickHint": "Haz clic en un nombre para revelar el resultado",
-      "revealAll": "Revelar Todo",
-      "seeResult": "Ver Resultados"
+      "clickHint": "Pulsa un nombre para revelar",
+      "revealAll": "Mostrar todo",
+      "seeResult": "Ver"
     },
     "result": {
       "title": "Resultados",
       "name": "Nombre",
       "prize": "Resultado",
-      "playAgain": "Jugar de nuevo (mismos jugadores)",
-      "reset": "Volver al Inicio"
+      "playAgain": "Mismos jugadores",
+      "reset": "Restablecer"
     }
   },
   "bomb": {
     "title": "Bomba",
-    "minMax": "Mín 2, Máx 10 participantes",
-    "turnOf": "¡Turno de {{name}}!",
-    "clickCard": "Haz clic en una carta",
-    "safe": "¡Seguro! 😮‍💨",
-    "bomb": "¡BOOM! 💥",
-    "cardsLeft": "Cartas restantes: {{count}}",
+    "minMax": "2–10 jugadores permitidos",
+    "turnOf": "Turno de {{name}}",
+    "clickCard": "Selecciona una carta",
+    "safe": "Seguro",
+    "bomb": "Bomba",
+    "cardsLeft": "{{count}} cartas restantes",
     "result": {
-      "loser": "💣 ¡Bomba!",
-      "penalty": "¡Acepta el castigo!",
+      "loser": "Bomba seleccionada",
+      "penalty": "Aplicar penalización",
       "winners": "Jugadores seguros"
     }
   },
   "dice": {
-    "title": "Lanzar Dados",
-    "rolling": "Lanzar Dados",
-    "turnOf": "¡Turno de {{name}}!",
-    "allComplete": "¡Todo Completo! Ver Resultados",
-    "roll": "Lanzar Dados",
-    "rollingInProgress": "Lanzando...",
-    "showResult": "Mostrar Resultados",
-    "results": "Resultados de Lanzamiento",
-    "noResults": "Nadie ha lanzado todavía",
-    "completed": "{{count}} / {{total}} Completo",
+    "title": "Dados",
+    "rolling": "Lanzando",
+    "turnOf": "Turno de {{name}}",
+    "allComplete": "Todos completados",
+    "roll": "Lanzar",
+    "rollingInProgress": "En progreso...",
+    "showResult": "Ver resultados",
+    "results": "Resultados",
+    "noResults": "Sin resultados aún",
+    "completed": "{{count}} / {{total}} completados",
     "result": {
-      "win": "¡Ganador!",
-      "tie": "¡Empate!",
+      "win": "Ganador",
+      "tie": "Empate",
       "points": "{{value}} pts"
     }
   },
   "roulette": {
-    "title": "Ruleta Aleatoria",
+    "title": "Ruleta",
     "setup": {
-      "start": "Girar Ruleta"
+      "start": "Iniciar"
     },
     "spinning": {
-      "shuffle": "Barajar",
-      "spin": "Girar Ruleta",
+      "shuffle": "Mezclar",
+      "spin": "Girar",
       "spinning": "Girando..."
     },
     "result": {
       "title": "Ganador",
-      "playAgain": "Jugar de nuevo (mismos jugadores)",
-      "reset": "Volver al Inicio"
+      "playAgain": "Mismos jugadores",
+      "reset": "Restablecer"
     }
   }
 }
