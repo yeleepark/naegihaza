@@ -49,15 +49,15 @@ const locales = ['ko', 'en', 'zh', 'es'];
 export default async function Home({ params }: Props) {
   await params; // Ensure params is resolved
   return (
-    <div className="min-h-screen w-screen flex flex-col bg-[#fef3e2]">
+    <div className="h-screen h-[100dvh] w-screen flex flex-col overflow-hidden bg-[#fef3e2]">
       <Header />
 
-      <div className="relative flex-1 flex flex-col min-h-0">
+      <div className="relative flex-1 flex flex-col min-h-0 min-w-0">
         <WaveCurtain />
 
         <main
           data-scroll-root
-          className="relative z-10 flex-1 min-h-0 overflow-y-auto overflow-x-hidden scroll-smooth snap-y snap-mandatory"
+          className="home-scroll-main relative z-10 flex-1 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden scroll-smooth"
         >
           <HomeScrollAnimations>
             <section className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center p-8 md:p-12 snap-start snap-always sa-animation sa-fade-up">

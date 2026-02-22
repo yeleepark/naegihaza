@@ -19,7 +19,77 @@
     "randomGame": "Iniciar juego aleatorio",
     "about": {
       "title": "Sobre Naegihaza",
-      "description": "Web gratuita para elegir turnos, penitencias o apuestas con amigos con ruleta, dados, escalera y bomba. Sin instalación, solo abre el navegador."
+      "sections": {
+        "intro": {
+          "title": "Sobre Naegihaza",
+          "p1": "Naegihaza es un servicio gratuito de juegos web para decidir de forma justa el orden, penitencias, quién paga o quién toca con amigos, pareja, familia o compañeros.",
+          "p2": "Sin instalar app ni registrarse: solo abre el navegador en móvil, tablet o PC.",
+          "p3": "Ruleta, dados, escalera y bomba en un solo sitio para resolver \"¿quién lo hace?\" de forma rápida y divertida."
+        },
+        "birth": {
+          "title": "Origen",
+          "p1": "Naegihaza nació de \"quién paga el café\", \"apuesta del postre\" y \"quién toca comer\" con los compañeros.",
+          "p2": "El piedra-papel-tijera seguía en empate, \"otra vez\" alargaba todo y a veces no parecía justo.",
+          "p3": "Hacía falta una herramienta clara y rápida, y un solo sitio para todo en vez de buscar cada vez.",
+          "p4": "Así nació Naegihaza."
+        },
+        "features": {
+          "title": "Qué ofrece Naegihaza",
+          "items": [
+            "Uso inmediato, sin login",
+            "Misma experiencia en móvil y PC",
+            "Resultados aleatorios justos",
+            "Interfaz sencilla",
+            "Resultados grandes para ver en grupo",
+            "Gratis"
+          ],
+          "closing": "No es solo un juego: está pensado como herramienta para decidir en el día a día."
+        },
+        "games": {
+          "title": "Juegos",
+          "roulette": {
+            "title": "🎡 Ruleta",
+            "desc": "Elegir una persona u opción de forma intuitiva. Escribe nombres u opciones y elige al azar.",
+            "recommendTitle": "Ideal para",
+            "recommend": ["Quién paga el café", "Elegir menú", "Penitencia", "Elegir presentador"]
+          },
+          "dice": {
+            "title": "🎲 Dados",
+            "desc": "Cuando hace falta un orden justo por números. Por mayor, menor u otras reglas.",
+            "recommendTitle": "Ideal para",
+            "recommend": ["Orden", "Turnos", "Apuestas por puntos"]
+          },
+          "ladder": {
+            "title": "🪜 Escalera",
+            "desc": "Muy usado cuando participan varios. El resultado no se sabe hasta el final.",
+            "recommendTitle": "Ideal para",
+            "recommend": ["Repartir equipos", "Turnos", "Repartir penitencias"]
+          },
+          "bomb": {
+            "title": "💣 Bomba",
+            "desc": "Máxima tensión: elección al azar, nadie sabe quién sale.",
+            "recommendTitle": "Ideal para",
+            "recommend": ["Una penitencia", "Juegos de bebida", "Apuestas con tensión"]
+          }
+        },
+        "randomStart": {
+          "title": "Iniciar juego aleatorio",
+          "p1": "¿No sabes qué juego usar? Pulsa Iniciar juego aleatorio.",
+          "p2": "Sugerimos un juego según la situación para empezar sin dudar."
+        },
+        "useCases": {
+          "title": "Pruébalo en estas situaciones",
+          "items": [
+            "Quién paga el almuerzo",
+            "Roles en viaje",
+            "Penitencias de copas",
+            "Juegos en grupo",
+            "Repartir equipos",
+            "Orden de presentaciones"
+          ]
+        },
+        "outro": "Naegihaza es una herramienta para decidir cosas del día a día de forma rápida y divertida, no solo un sitio de juegos."
+      }
     }
   },
   "header": {

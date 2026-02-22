@@ -19,7 +19,76 @@
     "randomGame": "Start Random Game",
     "about": {
       "title": "About Naegihaza",
-      "description": "A free web app to fairly pick order, decide penalties, or settle bets with friends using roulette, dice, ladder, and bomb draw. No install needed—just open in your browser."
+      "sections": {
+        "intro": {
+          "title": "About Naegihaza",
+          "p1": "Naegihaza is a free web game service that helps you fairly decide order, penalties, who pays, or who’s on duty with friends, partners, family, or coworkers.",
+          "p2": "No app install or sign-up required—anyone can use it right in the browser on phone, tablet, or PC.",
+          "p3": "Roulette, dice, ladder, and bomb draw—everyday decision tools in one place—so you can quickly and funly answer “Who’s gonna do it?”"
+        },
+        "birth": {
+          "title": "How It Started",
+          "p1": "Naegihaza started from daily routines with coworkers: “Who pays for coffee?”, “Who gets dessert?”, “Who’s on lunch duty?”",
+          "p2": "Rock-paper-scissors kept tying, “Let’s go again” dragged on, and it often felt unfair.",
+          "p3": "We wanted a tool that was clearly fair and quick, and one place for all kinds of decisions instead of searching different sites each time.",
+          "p4": "That’s how Naegihaza was born."
+        },
+        "features": {
+          "title": "What Naegihaza Offers",
+          "items": [
+            "Use right away, no login",
+            "Same experience on mobile and PC",
+            "Fair random results",
+            "Simple interface for quick use",
+            "Big, easy-to-read results for groups",
+            "Free to use"
+          ],
+          "closing": "It’s not just a game—it’s designed as a tool to help you make everyday decisions."
+        },
+        "games": {
+          "title": "Games",
+          "roulette": {
+            "title": "🎡 Roulette",
+            "desc": "Pick one person or one option in an intuitive way. Enter names or options and get an even random choice.",
+            "recommendTitle": "Good for",
+            "recommend": ["Who pays for coffee", "Choosing menu", "Who gets the penalty", "Choosing presenter"]
+          },
+          "dice": {
+            "title": "🎲 Dice",
+            "desc": "When you need a fair order by numbers. Use highest, lowest, or other rules.",
+            "recommendTitle": "Good for",
+            "recommend": ["Order", "Game turns", "Score-based bets"]
+          },
+          "ladder": {
+            "title": "🪜 Ladder",
+            "desc": "Popular when many join at once. Results are unknown until the end for suspense and fun.",
+            "recommendTitle": "Good for",
+            "recommend": ["Team split", "Duty", "Sharing penalties"]
+          },
+          "bomb": {
+            "title": "💣 Bomb Draw",
+            "desc": "High tension—random pick so no one knows who’s chosen.",
+            "recommendTitle": "Good for",
+            "recommend": ["One penalty target", "Drinking games", "Tense bets"]
+          }
+        },
+        "randomStart": {
+          "title": "Start Random Game",
+          "p1": "Not sure which game to play? Tap Start Random Game.",
+          "p2": "We suggest a game for the situation so you can start without overthinking."
+        },
+        "useCases": {
+          "title": "Try it in these situations",
+          "items": [
+            "Lunch bill at work",
+            "Trip roles",
+            "Drinking game penalties",
+            "Party games",
+            "Team split",
+            "Presentation order"]
+        },
+        "outro": "Naegihaza is a tool to make small everyday decisions quickly and fun—not just a game site."
+      }
     }
   },
   "header": {
