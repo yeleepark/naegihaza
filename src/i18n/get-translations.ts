@@ -87,5 +87,19 @@ export function getMetadata(locale: Locale) {
           locale === 'zh' ? ['惩罚选择', '酒局惩罚', '抽惩罚', '随机惩罚选择'] :
             ['elegir castigo', 'castigo juego bebida', 'sorteo castigo', 'castigo aleatorio'],
     },
+    scratch: {
+      title: locale === 'ko' ? '복권 긁기 게임 – 당첨자 뽑기 스크래치 복권' :
+        locale === 'en' ? 'Scratch Lottery | Naegihaza' :
+          locale === 'zh' ? '刮刮乐 | Naegihaza' :
+            'Rasca y Gana | Naegihaza',
+      description: locale === 'ko' ? '참가자 수만큼 복권이 생기고 당첨자 수만큼 당첨 복권이 있어요. 긁어서 당첨 여부를 확인하세요!' :
+        locale === 'en' ? 'Each participant gets a scratch lottery ticket. Scratch to reveal if you won!' :
+          locale === 'zh' ? '每位参与者获得一张刮刮乐彩票，刮开即可查看是否中奖！' :
+            '¡Cada participante recibe un boleto rasca y gana. Rasca para saber si ganaste!',
+      keywords: locale === 'ko' ? ['복권 긁기', '스크래치 복권', '당첨자 뽑기', '랜덤 당첨', '제비뽑기'] :
+        locale === 'en' ? ['scratch lottery', 'scratch card game', 'winner picker', 'random winner', 'lottery game'] :
+          locale === 'zh' ? ['刮刮乐', '刮彩票', '抽奖', '随机中奖', '彩票游戏'] :
+            ['rasca y gana', 'lotería rasca', 'elegir ganador', 'ganador aleatorio', 'juego lotería'],
+    },
   };
 }

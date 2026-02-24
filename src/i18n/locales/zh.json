@@ -16,6 +16,10 @@
       "title": "抽炸弹",
       "description": "抽到炸弹卡的人被选中。"
     },
+    "scratch": {
+      "title": "刮刮乐",
+      "description": "每位参与者获得一张彩票，刮开即可查看是否中奖！"
+    },
     "randomGame": "随机开始游戏",
     "about": {
       "title": "关于 Naegihaja",
@@ -197,6 +201,25 @@
       "title": "结果",
       "playAgain": "相同人员",
       "reset": "重置"
+    }
+  },
+  "scratch": {
+    "title": "刮刮乐",
+    "winnerCount": "中奖人数",
+    "minMax": "2–100人，至少1名中奖者",
+    "winnerCountLabel": "{{count}} 名中奖者",
+    "scratchedCount": "已刮 {{done}} / {{total}}",
+    "win": "中奖！",
+    "lose": "未中奖",
+    "showResult": "查看结果",
+    "error": {
+      "winnerMin": "中奖人数至少为1",
+      "winnerMax": "中奖人数必须少于参与者人数"
+    },
+    "result": {
+      "title": "结果",
+      "winners": "中奖者",
+      "losers": "未中奖"
     }
   }
 }

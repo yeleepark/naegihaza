@@ -16,6 +16,10 @@
       "title": "Bomb Pick",
       "description": "The person who picks the bomb card is selected."
     },
+    "scratch": {
+      "title": "Scratch Lottery",
+      "description": "Each participant gets a lottery ticket. Scratch to reveal winners!"
+    },
     "randomGame": "Start Random Game",
     "about": {
       "title": "About Naegihaja",
@@ -197,6 +201,25 @@
       "title": "Result",
       "playAgain": "Same players",
       "reset": "Reset"
+    }
+  },
+  "scratch": {
+    "title": "Scratch Lottery",
+    "winnerCount": "Number of winners",
+    "minMax": "2–100 participants, at least 1 winner",
+    "winnerCountLabel": "{{count}} winner(s)",
+    "scratchedCount": "{{done}} / {{total}} scratched",
+    "win": "Winner!",
+    "lose": "No luck",
+    "showResult": "Show result",
+    "error": {
+      "winnerMin": "At least 1 winner required",
+      "winnerMax": "Winners must be fewer than participants"
+    },
+    "result": {
+      "title": "Results",
+      "winners": "Winners",
+      "losers": "No luck"
     }
   }
 }

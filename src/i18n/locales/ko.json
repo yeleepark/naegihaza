@@ -16,6 +16,10 @@
       "title": "폭탄 뽑기",
       "description": "무작위 카드 중 폭탄을 뽑은 사람이 선택됩니다."
     },
+    "scratch": {
+      "title": "복권 긁기",
+      "description": "참가자 수만큼 복권이 생기고 당첨자 수만큼 당첨 복권이 있어요."
+    },
     "randomGame": "랜덤 게임 시작",
     "about": {
       "title": "내기하자 소개",
@@ -196,6 +200,25 @@
       "title": "결과",
       "playAgain": "같은 인원",
       "reset": "초기화"
+    }
+  },
+  "scratch": {
+    "title": "복권 긁기",
+    "winnerCount": "당첨자 수",
+    "minMax": "참가자 2–100명, 당첨자 1명 이상",
+    "winnerCountLabel": "당첨자 {{count}}명",
+    "scratchedCount": "{{done}} / {{total}} 긁음",
+    "win": "당첨!",
+    "lose": "꽝",
+    "showResult": "결과 보기",
+    "error": {
+      "winnerMin": "당첨자 수는 1명 이상이어야 해요",
+      "winnerMax": "당첨자 수는 참가자 수보다 적어야 해요"
+    },
+    "result": {
+      "title": "결과 발표",
+      "winners": "당첨자",
+      "losers": "꽝"
     }
   }
 }

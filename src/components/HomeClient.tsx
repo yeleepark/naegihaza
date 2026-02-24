@@ -8,7 +8,7 @@ import GameCard from '@/components/GameCard';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const GAMES = ['roulette', 'dice', 'ladder', 'bomb'];
+const GAMES = ['roulette', 'dice', 'ladder', 'bomb', 'scratch'];
 
 const GAME_ITEMS = [
   {
@@ -30,6 +30,11 @@ const GAME_ITEMS = [
     key: 'bomb',
     icon: '💣',
     bgColor: 'bg-red-300',
+  },
+  {
+    key: 'scratch',
+    icon: '🎟️',
+    bgColor: 'bg-pink-300',
   },
 ] as const;
 

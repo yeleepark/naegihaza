@@ -16,6 +16,10 @@
       "title": "Bomba",
       "description": "La persona que saque la carta bomba es seleccionada."
     },
+    "scratch": {
+      "title": "Rasca y Gana",
+      "description": "Cada participante recibe un boleto. ¡Rasca para ver si ganaste!"
+    },
     "randomGame": "Juego Aleatorio",
     "about": {
       "title": "Acerca de Naegihaja",
@@ -197,6 +201,25 @@
       "title": "Resultado",
       "playAgain": "Mismos jugadores",
       "reset": "Reiniciar"
+    }
+  },
+  "scratch": {
+    "title": "Rasca y Gana",
+    "winnerCount": "Número de ganadores",
+    "minMax": "2–100 participantes, al menos 1 ganador",
+    "winnerCountLabel": "{{count}} ganador(es)",
+    "scratchedCount": "{{done}} / {{total}} raspados",
+    "win": "¡Ganador!",
+    "lose": "Sin suerte",
+    "showResult": "Ver resultado",
+    "error": {
+      "winnerMin": "Se necesita al menos 1 ganador",
+      "winnerMax": "Los ganadores deben ser menos que los participantes"
+    },
+    "result": {
+      "title": "Resultados",
+      "winners": "Ganadores",
+      "losers": "Sin suerte"
     }
   }
 }
