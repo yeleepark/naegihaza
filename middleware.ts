@@ -55,10 +55,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Redirect to locale-prefixed URL
+  // Rewrite to locale-prefixed URL (no redirect, keeps original URL for SEO)
   const locale = getLocale(request);
   const newUrl = new URL(`/${locale}${pathname}`, request.url);
-  return NextResponse.redirect(newUrl);
+  return NextResponse.rewrite(newUrl);
 }
 
 export const config = {
