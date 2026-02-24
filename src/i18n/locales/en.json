@@ -20,6 +20,10 @@
       "title": "Scratch Lottery",
       "description": "Each participant gets a lottery ticket. Scratch to reveal winners!"
     },
+    "breakout": {
+      "title": "Breakout",
+      "description": "Break the blocks! The last block standing is the winner!"
+    },
     "randomGame": "Start Random Game",
     "about": {
       "title": "About Naegihaja",
@@ -101,6 +105,16 @@
               "Picking multiple winners",
               "Prize events",
               "Team assignment"
+            ]
+          },
+          "breakout": {
+            "title": "🧱 Breakout",
+            "desc": "Each participant gets as many blocks as possible and the ball breaks them.\nThe last block standing is the winner!",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Picking a winner in a fun way",
+              "Visual and exciting bets",
+              "Livening up parties"
             ]
           }
         },
@@ -495,6 +509,70 @@
       "title": "Result",
       "playAgain": "Same players",
       "reset": "Reset"
+    }
+  },
+  "breakout": {
+    "title": "Breakout",
+    "description": {
+      "intro": {
+        "title": "What is Breakout?",
+        "p1": "Breakout is a random winner game using the classic arcade game. Enter participant names and one block per person is created, each labeled with a participant's name.",
+        "p2": "The ball breaks blocks as it bounces around, and the name on the last surviving block becomes the winner. The suspense of not knowing whose block will survive makes it exciting."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names (2 to 40 people).",
+          "One block per participant is automatically created.",
+          "Each participant's name appears on an equal number of blocks.",
+          "Press Play and the ball bounces off walls, breaking blocks automatically.",
+          "The name on the last remaining block is the winner."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "When you want to pick a winner in a fun way",
+          "When you want visual effects with your bet",
+          "When you want retro arcade vibes for decisions",
+          "When you want to liven up a party or gathering"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "How does the ball move?",
+            "a": "Press Play and the ball moves automatically, bouncing off walls and blocks. Just sit back and watch!"
+          },
+          {
+            "q": "How is the number of blocks determined?",
+            "a": "One block is created per participant. For example, 5 people get 5 blocks, 30 people get 30 blocks."
+          },
+          {
+            "q": "Are the results fair?",
+            "a": "Block positions are randomly shuffled and the ball physics engine determines the outcome, producing unpredictable and fair results."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Press Start",
+        "Press Play to start the game",
+        "🧱 The last block standing is the winner"
+      ]
+    },
+    "minMax": "2–40 people",
+    "play": "Play",
+    "speed": "Speed",
+    "error": {
+      "max": "Up to 40 people allowed"
+    },
+    "result": {
+      "winner": "Winner",
+      "lastBlock": "The last block standing!"
     }
   },
   "scratch": {

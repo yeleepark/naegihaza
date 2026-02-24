@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 
 const SECTION_INTRO_KEYS = ['p1', 'p2', 'p3'] as const;
 const SECTION_BIRTH_KEYS = ['p1', 'p2', 'p3', 'p4'] as const;
-const GAME_KEYS = ['roulette', 'dice', 'ladder', 'bomb', 'scratch'] as const;
+const GAME_KEYS = ['breakout', 'roulette', 'dice', 'ladder', 'bomb', 'scratch'] as const;
 
 const SECTION_BGS = [
   '#e8f4f8', // intro - light blue

@@ -20,6 +20,10 @@
       "title": "Rasca y Gana",
       "description": "Cada participante recibe un boleto. ¡Rasca para ver si ganaste!"
     },
+    "breakout": {
+      "title": "Breakout",
+      "description": "¡Rompe los bloques! ¡El último bloque en pie es el ganador!"
+    },
     "randomGame": "Juego Aleatorio",
     "about": {
       "title": "Acerca de Naegihaja",
@@ -101,6 +105,16 @@
               "Elegir varios ganadores",
               "Eventos de premios",
               "Asignación de equipos"
+            ]
+          },
+          "breakout": {
+            "title": "🧱 Breakout",
+            "desc": "Cada participante recibe la mayor cantidad de bloques posible y la pelota los rompe.\n¡El último bloque en pie es el ganador!",
+            "recommendTitle": "Ideal para",
+            "recommend": [
+              "Elegir un ganador de forma divertida",
+              "Apuestas visuales y emocionantes",
+              "Animar fiestas"
             ]
           }
         },
@@ -495,6 +509,70 @@
       "title": "Resultado",
       "playAgain": "Mismos jugadores",
       "reset": "Reiniciar"
+    }
+  },
+  "breakout": {
+    "title": "Breakout",
+    "description": {
+      "intro": {
+        "title": "¿Qué es Breakout?",
+        "p1": "Breakout es un juego de ganador aleatorio que usa el clásico juego arcade. Ingresa los nombres de los participantes y se crea un bloque por persona, cada uno con el nombre del participante.",
+        "p2": "La pelota rompe bloques al rebotar, y el nombre del último bloque que sobreviva es el ganador. La emoción de no saber qué bloque sobrevivirá lo hace muy emocionante."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres de participantes (2 a 40 personas).",
+          "Se crea automáticamente un bloque por participante.",
+          "El nombre de cada participante aparece en un número igual de bloques.",
+          "Pulsa Jugar y la pelota rebota en las paredes rompiendo bloques automáticamente.",
+          "El nombre del último bloque restante es el ganador."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarlo",
+        "items": [
+          "Cuando quieres elegir un ganador de forma divertida",
+          "Cuando quieres efectos visuales con tu apuesta",
+          "Cuando quieres el estilo retro arcade para decisiones",
+          "Cuando quieres animar una fiesta o reunión"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Cómo se mueve la pelota?",
+            "a": "Pulsa Jugar y la pelota se mueve automáticamente, rebotando en las paredes y los bloques. ¡Solo mira!"
+          },
+          {
+            "q": "¿Cómo se determina el número de bloques?",
+            "a": "Se crea un bloque por participante. Por ejemplo, 5 personas tienen 5 bloques, 30 personas tienen 30 bloques."
+          },
+          {
+            "q": "¿Los resultados son justos?",
+            "a": "Las posiciones de los bloques se mezclan aleatoriamente y el motor de física de la pelota determina el resultado, produciendo resultados impredecibles y justos."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Pulsa Iniciar",
+        "Pulsa Jugar para iniciar el juego",
+        "🧱 El último bloque en pie es el ganador"
+      ]
+    },
+    "minMax": "2–40 personas",
+    "play": "Jugar",
+    "speed": "Velocidad",
+    "error": {
+      "max": "Máximo 40 personas"
+    },
+    "result": {
+      "winner": "Ganador",
+      "lastBlock": "¡El último bloque en pie!"
     }
   },
   "scratch": {

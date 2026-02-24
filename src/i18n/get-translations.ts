@@ -101,6 +101,20 @@ export function getMetadata(locale: Locale) {
           locale === 'zh' ? ['刮刮乐', '刮彩票', '抽奖', '随机中奖', '彩票游戏'] :
             ['rasca y gana', 'lotería rasca', 'elegir ganador', 'ganador aleatorio', 'juego lotería'],
     },
+    breakout: {
+      title: locale === 'ko' ? '내기하자 벽돌깨기 – 마지막 블럭 당첨 랜덤 게임' :
+        locale === 'en' ? 'Breakout | Naegihaza' :
+          locale === 'zh' ? '打砖块 | Naegihaza' :
+            'Breakout | Naegihaza',
+      description: locale === 'ko' ? '내기하자 벽돌깨기에서 블럭을 깨고 마지막까지 남은 블럭이 당첨자! 참가자 수의 2배만큼 블럭이 생성됩니다.' :
+        locale === 'en' ? 'Break the blocks! The last block standing wins. A fun breakout game to decide winners with friends.' :
+          locale === 'zh' ? '打碎砖块！最后剩下的砖块获胜。与朋友一起玩的有趣打砖块决定游戏。' :
+            '¡Rompe los bloques! El último bloque en pie gana. Un divertido juego de breakout para decidir ganadores con amigos.',
+      keywords: locale === 'ko' ? ['내기하자 벽돌깨기', '벽돌깨기 게임', '블럭깨기', '랜덤 당첨', '내기 게임'] :
+        locale === 'en' ? ['breakout game', 'block breaker', 'brick breaker', 'random winner', 'party game'] :
+          locale === 'zh' ? ['打砖块', '消除方块', '随机中奖', '派对游戏'] :
+            ['breakout', 'rompe bloques', 'ganador aleatorio', 'juego fiesta'],
+    },
     privacy: {
       title: locale === 'ko' ? '개인정보처리방침 | 내기하자' :
         locale === 'en' ? 'Privacy Policy | Naegihaza' :

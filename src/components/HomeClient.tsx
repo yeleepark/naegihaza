@@ -10,9 +10,14 @@ import GameCard from '@/components/GameCard';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import 'swiper/css';
 
-const GAMES = ['roulette', 'dice', 'ladder', 'bomb', 'scratch'];
+const GAMES = ['breakout', 'roulette', 'dice', 'ladder', 'bomb', 'scratch'];
 
 const GAME_ITEMS = [
+  {
+    key: 'breakout',
+    icon: '🧱',
+    bgColor: 'bg-cyan-300',
+  },
   {
     key: 'roulette',
     icon: '🎰',
