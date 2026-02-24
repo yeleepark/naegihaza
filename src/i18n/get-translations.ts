@@ -101,5 +101,25 @@ export function getMetadata(locale: Locale) {
           locale === 'zh' ? ['刮刮乐', '刮彩票', '抽奖', '随机中奖', '彩票游戏'] :
             ['rasca y gana', 'lotería rasca', 'elegir ganador', 'ganador aleatorio', 'juego lotería'],
     },
+    privacy: {
+      title: locale === 'ko' ? '개인정보처리방침 | 내기하자' :
+        locale === 'en' ? 'Privacy Policy | Naegihaza' :
+          locale === 'zh' ? '隐私政策 | Naegihaza' :
+            'Política de Privacidad | Naegihaza',
+      description: locale === 'ko' ? '내기하자의 개인정보처리방침입니다. 개인정보 수집, 쿠키 사용, 데이터 저장에 대한 정책을 안내합니다.' :
+        locale === 'en' ? 'Naegihaza\'s privacy policy. Learn about our data collection, cookie usage, and data storage practices.' :
+          locale === 'zh' ? 'Naegihaza的隐私政策。了解我们的数据收集、Cookie使用和数据存储做法。' :
+            'Política de privacidad de Naegihaza. Conozca nuestras prácticas de recopilación de datos, uso de cookies y almacenamiento.',
+    },
+    terms: {
+      title: locale === 'ko' ? '이용약관 | 내기하자' :
+        locale === 'en' ? 'Terms of Service | Naegihaza' :
+          locale === 'zh' ? '服务条款 | Naegihaza' :
+            'Términos de Servicio | Naegihaza',
+      description: locale === 'ko' ? '내기하자의 이용약관입니다. 서비스 이용 조건과 이용자 책임에 대해 안내합니다.' :
+        locale === 'en' ? 'Naegihaza\'s terms of service. Learn about our service conditions and user responsibilities.' :
+          locale === 'zh' ? 'Naegihaza的服务条款。了解我们的服务条件和用户责任。' :
+            'Términos de servicio de Naegihaza. Conozca nuestras condiciones de servicio y responsabilidades del usuario.',
+    },
   };
 }

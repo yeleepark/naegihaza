@@ -5,6 +5,8 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { parseNames, validateParticipantNames } from '@/utils/bomb';
 import { useTranslation } from 'react-i18next';
+import HowToPlay from '@/components/ui/HowToPlay';
+import GameDescription from '@/components/ui/GameDescription';
 
 type GameSetupProps = {
   onStart: (names: string[]) => void;
@@ -36,7 +38,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
   };
 
   return (
-    <div className="flex items-center justify-center h-full">
+    <div className="flex flex-col items-center gap-8 w-full py-8">
       <Card className="max-w-md w-full">
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">💣</div>
@@ -69,7 +71,11 @@ export default function GameSetup({ onStart }: GameSetupProps) {
             {t('common.start')}
           </Button>
         </form>
+
+        <HowToPlay stepsKey="bomb.howToPlay.steps" />
       </Card>
+
+      <GameDescription gameKey="bomb" />
     </div>
   );
 }

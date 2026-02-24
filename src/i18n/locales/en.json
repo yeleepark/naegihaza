@@ -138,10 +138,62 @@
       "duplicate": "Duplicate names found"
     },
     "playAgain": "Again",
-    "reset": "Reset"
+    "reset": "Reset",
+    "howToPlay": "How to Play"
   },
   "ladder": {
     "title": "Ladder",
+    "description": {
+      "intro": {
+        "title": "What is the Ladder Game?",
+        "p1": "The ladder game is a traditional Korean drawing method used for ages. Enter participant names and result items, and randomly connected ladder paths determine who gets which result.",
+        "p2": "In Naegihaza's ladder game, participants click their own name to follow the path and discover their result — creating suspense and fun until the very end. Supports 2 to 10 participants."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names and result items separately.",
+          "The number of participants and results must be equal.",
+          "Minimum 2 and maximum 10 participants allowed.",
+          "Press Start to automatically generate the ladder.",
+          "Click a name to follow its path and reveal the result."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "Splitting into teams or forming groups",
+          "Assigning duties like cleaning or dishes",
+          "Distributing different penalties among participants",
+          "Allocating prizes or rewards to participants"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "Can the number of participants and results differ?",
+            "a": "No, due to the nature of the ladder game, participants and results must be equal. Each participant corresponds to exactly one result."
+          },
+          {
+            "q": "Can I reveal all results at once?",
+            "a": "Yes, press the 'Reveal All' button to see all participants' paths and results simultaneously."
+          },
+          {
+            "q": "Are ladder paths generated differently each time?",
+            "a": "Yes, new ladder paths are randomly generated for each game, making results unpredictable."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Enter result labels (e.g. Win, Lose)",
+        "Press Start",
+        "🪜 Tap a name to follow the ladder path"
+      ]
+    },
     "setup": {
       "participants": "Participants",
       "results": "Results",
@@ -168,6 +220,57 @@
   },
   "bomb": {
     "title": "Bomb Pick",
+    "description": {
+      "intro": {
+        "title": "What is Bomb Pick?",
+        "p1": "Bomb Pick is a thrilling game where players take turns choosing from face-down cards to find the hidden bomb. The person who picks the bomb card becomes the penalty target.",
+        "p2": "Since no one knows the result until the card is flipped, every participant stays on edge throughout the game. It's perfect for livening up parties, gatherings, and drinking sessions."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names (2 to 10 people).",
+          "When started, cards equal to twice the number of participants are generated.",
+          "One bomb is hidden among the cards.",
+          "Participants take turns choosing one card each.",
+          "The participant who picks the bomb gets the penalty."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "Selecting one person for a penalty with suspense",
+          "Livening up a drinking session",
+          "Playing penalty games at parties or gatherings",
+          "When you want a simple but thrilling bet"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "Is there always only one bomb?",
+            "a": "Yes, there is always exactly one bomb per game, and its position is completely random."
+          },
+          {
+            "q": "How is the number of cards determined?",
+            "a": "The card count is automatically set to twice the number of participants. For example, 5 participants means 10 cards."
+          },
+          {
+            "q": "Isn't the selection order unfair?",
+            "a": "Since the bomb's position is completely random, equal probability applies to all participants regardless of selection order."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Press Start",
+        "Take turns picking one card each",
+        "💣 Whoever picks the bomb gets the penalty"
+      ]
+    },
     "minMax": "2–10 people",
     "turnOf": "{{name}}'s turn",
     "clickCard": "Pick a card",
@@ -182,6 +285,57 @@
   },
   "dice": {
     "title": "Dice",
+    "description": {
+      "intro": {
+        "title": "What is the Dice Game?",
+        "p1": "The dice game is a fair random game where each participant rolls two dice and compares total scores. The participant with the highest score is selected, and ties are also displayed.",
+        "p2": "Naegihaza's dice game provides realistic rolling animations for an immersive experience. It's ideal for determining order or making score-based bets."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names (2 to 100 people).",
+          "Press Start to go to the dice game screen.",
+          "Each participant presses Roll on their turn.",
+          "Rankings are determined by the sum of two dice (2–12 points).",
+          "After all participants roll, the highest scorer is selected."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "Deciding order (highest score goes first)",
+          "Making score-based bets",
+          "Determining game turns",
+          "Getting quick results without physical dice"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "What happens if there's a tie?",
+            "a": "Ties are shown on the result screen. You can play again with the same participants if needed."
+          },
+          {
+            "q": "Are the dice results fair?",
+            "a": "Yes, each die is designed to produce values 1–6 with equal probability. It follows the same probability distribution as real dice."
+          },
+          {
+            "q": "Does rolling order affect the results?",
+            "a": "No, each dice roll is an independent random event, so equal probability applies to all participants regardless of order."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Press Start",
+        "Each participant presses Roll on their turn",
+        "🏆 The highest total score wins"
+      ]
+    },
     "rolling": "Rolling",
     "turnOf": "{{name}}'s turn",
     "allComplete": "All done",
@@ -197,8 +351,138 @@
       "points": "{{value}} pts"
     }
   },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: February 2026",
+      "sections": [
+        {
+          "title": "Information We Collect",
+          "content": "Naegihaza does not require sign-up or login and does not directly collect personally identifiable information. Participant names entered in games are processed only within your browser and are not stored on our servers. However, we may collect anonymized usage statistics (page visits, browser type, device type, etc.) for service improvement and analytics."
+        },
+        {
+          "title": "Cookies and Tracking",
+          "content": "Naegihaza may use cookies for service operation and advertising. Third-party advertising services such as Google AdSense may use their own cookies to provide personalized ads. You can disable cookies in your browser settings, but some features may be limited."
+        },
+        {
+          "title": "Third-Party Services",
+          "content": "Naegihaza may use third-party services such as Google AdSense (advertising) and Google Analytics (traffic analysis). These services collect and process data according to their own privacy policies. Please refer to the respective service's privacy policy for details."
+        },
+        {
+          "title": "Data Storage",
+          "content": "Naegihaza does not store your game data on servers. All game processing occurs within your browser, and data is automatically deleted when you close the page. Some user preferences such as language settings may be stored in your browser's local storage."
+        },
+        {
+          "title": "Children's Privacy",
+          "content": "Naegihaza is not intended for children under 13 and does not intentionally collect personal information from children. If we become aware that a child under 13 has provided personal information, we will promptly delete such information."
+        },
+        {
+          "title": "Policy Changes",
+          "content": "This privacy policy may be updated due to legal changes or service updates. Significant changes will be announced on this page. Continued use of the service after policy changes constitutes acceptance of the updated policy."
+        },
+        {
+          "title": "Contact",
+          "content": "If you have questions about this privacy policy, please contact us at dev.yelee@gmail.com."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last updated: February 2026",
+      "sections": [
+        {
+          "title": "Acceptance of Terms",
+          "content": "By using the Naegihaza website (the 'Service'), you agree to these Terms of Service. If you do not agree, please discontinue use of the Service."
+        },
+        {
+          "title": "Service Description",
+          "content": "Naegihaza is a web service providing various free random games including roulette, dice, ladder game, bomb draw, and scratch lottery. The Service is provided for entertainment and decision-making assistance purposes and has no connection to actual gambling or monetary rewards."
+        },
+        {
+          "title": "User Responsibilities",
+          "content": "Users must use the Service only for lawful purposes. Activities that harm others, such as defamation, discrimination, or harassment through the Service, are prohibited. Actions that disrupt normal service operation (hacking, DDoS attacks, etc.) are prohibited."
+        },
+        {
+          "title": "Intellectual Property",
+          "content": "All intellectual property rights in Naegihaza's design, code, and content belong to the service operator. Unauthorized reproduction, distribution, or modification of service content is prohibited."
+        },
+        {
+          "title": "Disclaimer",
+          "content": "Naegihaza is provided 'as is' without warranties of fitness for a particular purpose or error-free operation. Game results are randomly generated, and the Service assumes no legal liability for the fairness of results. The Service may be changed or discontinued without prior notice."
+        },
+        {
+          "title": "Limitation of Liability",
+          "content": "The service operator shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of Naegihaza, to the extent permitted by law."
+        },
+        {
+          "title": "Changes to Terms",
+          "content": "These Terms of Service may be changed as needed. Updated terms take effect upon posting on this page. Continued use of the Service after changes constitutes acceptance of the updated terms."
+        },
+        {
+          "title": "Contact",
+          "content": "If you have questions about these Terms of Service, please contact us at dev.yelee@gmail.com."
+        }
+      ]
+    }
+  },
   "roulette": {
     "title": "Roulette",
+    "description": {
+      "intro": {
+        "title": "What is Roulette?",
+        "p1": "Roulette is the most intuitive and fun way to fairly select one person from a group. Enter participant names and they'll be evenly placed on a spinning wheel — the name where the arrow stops is selected.",
+        "p2": "Naegihaza's roulette uses a completely random algorithm to guarantee equal selection probability for all participants. No app installation required — use it directly in your browser with 2 to 100 participants."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names separated by commas or line breaks.",
+          "You can enter between 2 and 100 participants.",
+          "Press Start to go to the roulette wheel screen.",
+          "Press Spin and the wheel rotates at a random speed.",
+          "When the wheel stops, the participant the arrow points to is selected."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "Deciding who pays for lunch or coffee",
+          "Choosing a presenter or meeting facilitator",
+          "Fairly selecting someone for a penalty",
+          "Picking one option from multiple choices like menus or places"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "Are the results truly random?",
+            "a": "Yes, Naegihaza's roulette uses a cryptographically secure random number generator to ensure completely random results. Equal probability is applied to all participants."
+          },
+          {
+            "q": "Can I play again with the same participants?",
+            "a": "Yes, on the result screen, press the 'Same players' button to spin again with the same participants without re-entering names."
+          },
+          {
+            "q": "Does it work on mobile?",
+            "a": "Yes, Naegihaza is built with responsive design and works identically on smartphones, tablets, and PCs."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Press Start",
+        "Press Spin to spin the roulette",
+        "🎯 The person it lands on is selected"
+      ]
+    },
     "setup": {
       "start": "Start"
     },
@@ -215,6 +499,57 @@
   },
   "scratch": {
     "title": "Scratch Lottery",
+    "description": {
+      "intro": {
+        "title": "What is Scratch Lottery?",
+        "p1": "Scratch Lottery is a game where you scratch tickets to reveal results, just like real scratch cards. Each participant gets a ticket, and the number of winning tickets matches the winner count you set.",
+        "p2": "Unlike other games that select only one person, Scratch Lottery can pick multiple winners simultaneously — perfect for prize drawings, team assignments, and role distribution. The interactive scratching adds extra fun and engagement."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names (2 to 100 people).",
+          "Set the number of winners (at least 1, fewer than total participants).",
+          "When started, lottery tickets are generated for each participant.",
+          "Touch or drag each participant's ticket to scratch it.",
+          "Once all tickets are scratched, winners and losers are revealed."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "Picking multiple winners at once",
+          "Drawing for prizes or rewards",
+          "Splitting people into two groups",
+          "When you want to enjoy the fun of scratching together"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "Can I freely set the number of winners?",
+            "a": "Yes, you can set anywhere from 1 to one fewer than the total number of participants."
+          },
+          {
+            "q": "How do I scratch the tickets?",
+            "a": "On mobile, touch and drag with your finger. On PC, click and drag with the mouse to scratch the ticket."
+          },
+          {
+            "q": "Are winning ticket positions random?",
+            "a": "Yes, winning ticket positions are completely randomized each game and cannot be predicted."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Set the number of winners",
+        "Press Start",
+        "🎟️ Scratch each ticket to reveal the result"
+      ]
+    },
     "winnerCount": "Number of winners",
     "minMax": "2–100 participants, at least 1 winner",
     "winnerCountLabel": "{{count}} winner(s)",

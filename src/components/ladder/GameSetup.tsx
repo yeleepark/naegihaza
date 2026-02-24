@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import HowToPlay from '@/components/ui/HowToPlay';
+import GameDescription from '@/components/ui/GameDescription';
 import { parseNames, validateLadderInput } from '@/utils/ladder';
 
 type GameSetupProps = {
@@ -33,7 +35,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
   };
 
   return (
-    <div className="flex items-center justify-center h-full py-8">
+    <div className="flex flex-col items-center gap-8 w-full py-8">
       <Card className="w-full max-w-2xl">
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">🪜</div>
@@ -88,7 +90,11 @@ export default function GameSetup({ onStart }: GameSetupProps) {
             {t('ladder.setup.start')}
           </Button>
         </form>
+
+        <HowToPlay stepsKey="ladder.howToPlay.steps" />
       </Card>
+
+      <GameDescription gameKey="ladder" />
     </div>
   );
 }

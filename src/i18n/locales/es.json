@@ -27,9 +27,9 @@
         "intro": {
           "title": "¿Qué es Naegihaja?",
           "p1": "Naegihaja es un servicio web gratuito que ayuda a amigos, parejas, familia o compañeros de trabajo a decidir de forma justa turnos, penalizaciones o quién paga.",
-          "p2": "“Naegihaja” en coreano significa “hagamos una apuesta”.",
+          "p2": "«Naegihaja» en coreano significa «hagamos una apuesta».",
           "p3": "No requiere instalación ni registro. Funciona directamente en cualquier navegador móvil, tablet o PC.",
-          "p4": "Reúne ruleta, dados, escalera y bomba en un solo lugar para resolver la pregunta: “¿A quién le toca?” de la forma más fácil y divertida."
+          "p4": "Reúne ruleta, dados, escalera y bomba en un solo lugar para resolver la pregunta: «¿A quién le toca?» de la forma más fácil y divertida."
         },
         "birth": {
           "title": "Cómo empezó",
@@ -138,10 +138,62 @@
       "duplicate": "Hay nombres duplicados"
     },
     "playAgain": "Otra vez",
-    "reset": "Reiniciar"
+    "reset": "Reiniciar",
+    "howToPlay": "Cómo jugar"
   },
   "ladder": {
     "title": "Escalera",
+    "description": {
+      "intro": {
+        "title": "¿Qué es el Juego de Escalera?",
+        "p1": "El juego de escalera es un método tradicional coreano de sorteo. Ingresa los nombres de los participantes y los resultados, y las rutas de escalera conectadas aleatoriamente determinan quién obtiene qué resultado.",
+        "p2": "En el juego de escalera de Naegihaza, los participantes hacen clic en su nombre para seguir la ruta y descubrir su resultado, creando suspenso y diversión hasta el final. Soporta de 2 a 10 participantes."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres de participantes y los resultados por separado.",
+          "El número de participantes y resultados debe ser igual.",
+          "Mínimo 2 y máximo 10 participantes.",
+          "Pulsa Iniciar para generar la escalera automáticamente.",
+          "Haz clic en un nombre para seguir su ruta y ver el resultado."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarlo",
+        "items": [
+          "Dividir en equipos o formar grupos",
+          "Asignar tareas como limpieza o cocina",
+          "Distribuir diferentes castigos entre participantes",
+          "Repartir premios o recompensas"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Pueden diferir el número de participantes y resultados?",
+            "a": "No, por la naturaleza del juego de escalera, participantes y resultados deben ser iguales. Cada participante corresponde a exactamente un resultado."
+          },
+          {
+            "q": "¿Puedo ver todos los resultados a la vez?",
+            "a": "Sí, pulsa el botón 'Mostrar todo' para ver todas las rutas y resultados simultáneamente."
+          },
+          {
+            "q": "¿Las rutas se generan diferente cada vez?",
+            "a": "Sí, se generan nuevas rutas aleatoriamente en cada juego, haciendo los resultados impredecibles."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Escribe los resultados (ej: Gana, Pierde)",
+        "Pulsa Iniciar",
+        "🪜 Toca un nombre para seguir el camino"
+      ]
+    },
     "setup": {
       "participants": "Participantes",
       "results": "Resultados",
@@ -168,6 +220,57 @@
   },
   "bomb": {
     "title": "Bomba",
+    "description": {
+      "intro": {
+        "title": "¿Qué es Bomba?",
+        "p1": "Bomba es un emocionante juego donde los jugadores eligen cartas boca abajo para encontrar la bomba oculta. Quien saque la carta bomba recibe el castigo.",
+        "p2": "Nadie conoce el resultado hasta voltear la carta, manteniendo a todos los participantes en suspenso durante todo el juego. Perfecto para animar fiestas, reuniones y veladas."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres de participantes (2 a 10 personas).",
+          "Al iniciar, se generan cartas equivalentes al doble del número de participantes.",
+          "Una bomba está oculta entre las cartas.",
+          "Los participantes eligen una carta por turno.",
+          "Quien saque la bomba recibe el castigo."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarlo",
+        "items": [
+          "Seleccionar a una persona para el castigo con suspenso",
+          "Animar una reunión o fiesta",
+          "Jugar juegos de castigo en reuniones",
+          "Cuando quieres una apuesta simple pero emocionante"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Siempre hay solo una bomba?",
+            "a": "Sí, siempre hay exactamente una bomba por juego, y su posición es completamente aleatoria."
+          },
+          {
+            "q": "¿Cómo se determina el número de cartas?",
+            "a": "El número de cartas es automáticamente el doble de participantes. Por ejemplo, 5 participantes significa 10 cartas."
+          },
+          {
+            "q": "¿El orden de selección es injusto?",
+            "a": "Como la posición de la bomba es completamente aleatoria, la misma probabilidad se aplica a todos los participantes sin importar el orden."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Pulsa Iniciar",
+        "Cada uno elige una carta por turno",
+        "💣 Quien saque la bomba recibe el castigo"
+      ]
+    },
     "minMax": "2–10 personas",
     "turnOf": "Turno de {{name}}",
     "clickCard": "Elige una carta",
@@ -182,6 +285,57 @@
   },
   "dice": {
     "title": "Dados",
+    "description": {
+      "intro": {
+        "title": "¿Qué es el Juego de Dados?",
+        "p1": "El juego de dados es un juego aleatorio justo donde cada participante lanza dos dados y compara los totales. El participante con la puntuación más alta es seleccionado, y los empates también se muestran.",
+        "p2": "El juego de dados de Naegihaza ofrece animaciones realistas de lanzamiento para una experiencia inmersiva. Ideal para determinar el orden o hacer apuestas basadas en puntos."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres de participantes (2 a 100 personas).",
+          "Pulsa Iniciar para ir a la pantalla del juego de dados.",
+          "Cada participante pulsa Lanzar en su turno.",
+          "La clasificación se determina por la suma de dos dados (2-12 puntos).",
+          "Después de que todos lancen, el que tenga la puntuación más alta es seleccionado."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarlo",
+        "items": [
+          "Decidir el orden (la puntuación más alta primero)",
+          "Hacer apuestas basadas en puntuación",
+          "Determinar turnos de juego",
+          "Obtener resultados rápidos sin dados físicos"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Qué pasa si hay empate?",
+            "a": "Los empates se muestran en la pantalla de resultados. Puedes jugar de nuevo con los mismos participantes si es necesario."
+          },
+          {
+            "q": "¿Los resultados de los dados son justos?",
+            "a": "Sí, cada dado produce valores del 1 al 6 con igual probabilidad, siguiendo la misma distribución que los dados reales."
+          },
+          {
+            "q": "¿El orden de lanzamiento afecta los resultados?",
+            "a": "No, cada lanzamiento es un evento aleatorio independiente, por lo que la misma probabilidad se aplica a todos sin importar el orden."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Pulsa Iniciar",
+        "Cada participante pulsa Lanzar en su turno",
+        "🏆 El puntaje total más alto es el ganador"
+      ]
+    },
     "rolling": "Lanzando",
     "turnOf": "Turno de {{name}}",
     "allComplete": "Completado",
@@ -197,8 +351,138 @@
       "points": "{{value}} pts"
     }
   },
+  "footer": {
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "contact": "Contacto"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de Privacidad",
+      "lastUpdated": "Última actualización: febrero de 2026",
+      "sections": [
+        {
+          "title": "Información que recopilamos",
+          "content": "Naegihaza no requiere registro ni inicio de sesión y no recopila directamente información de identificación personal. Los nombres de participantes ingresados en los juegos se procesan solo en su navegador y no se almacenan en nuestros servidores. Sin embargo, podemos recopilar estadísticas de uso anónimas (visitas a páginas, tipo de navegador, tipo de dispositivo, etc.) para mejorar el servicio y análisis."
+        },
+        {
+          "title": "Cookies y seguimiento",
+          "content": "Naegihaza puede usar cookies para la operación del servicio y publicidad. Servicios de publicidad de terceros como Google AdSense pueden usar sus propias cookies para proporcionar anuncios personalizados. Puede desactivar las cookies en la configuración de su navegador, pero algunas funciones pueden verse limitadas."
+        },
+        {
+          "title": "Servicios de terceros",
+          "content": "Naegihaza puede utilizar servicios de terceros como Google AdSense (publicidad) y Google Analytics (análisis de tráfico). Estos servicios recopilan y procesan datos según sus propias políticas de privacidad. Consulte la política de privacidad del servicio respectivo para más detalles."
+        },
+        {
+          "title": "Almacenamiento de datos",
+          "content": "Naegihaza no almacena datos de juegos en servidores. Todo el procesamiento del juego ocurre dentro de su navegador y los datos se eliminan automáticamente al cerrar la página. Algunas preferencias como la configuración de idioma pueden almacenarse en el almacenamiento local de su navegador."
+        },
+        {
+          "title": "Privacidad de menores",
+          "content": "Naegihaza no está dirigido a menores de 13 años y no recopila intencionalmente información personal de niños. Si descubrimos que un menor de 13 años ha proporcionado información personal, eliminaremos dicha información de inmediato."
+        },
+        {
+          "title": "Cambios en la política",
+          "content": "Esta política de privacidad puede actualizarse debido a cambios legales o actualizaciones del servicio. Los cambios significativos se anunciarán en esta página. El uso continuado del servicio después de los cambios constituye la aceptación de la política actualizada."
+        },
+        {
+          "title": "Contacto",
+          "content": "Si tiene preguntas sobre esta política de privacidad, contáctenos en dev.yelee@gmail.com."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Términos de Servicio",
+      "lastUpdated": "Última actualización: febrero de 2026",
+      "sections": [
+        {
+          "title": "Aceptación de términos",
+          "content": "Al usar el sitio web Naegihaza (el 'Servicio'), acepta estos Términos de Servicio. Si no está de acuerdo, deje de usar el Servicio."
+        },
+        {
+          "title": "Descripción del servicio",
+          "content": "Naegihaza es un servicio web que ofrece varios juegos aleatorios gratuitos, incluyendo ruleta, dados, escalera, bomba y rasca y gana. El Servicio se proporciona con fines de entretenimiento y asistencia en la toma de decisiones, sin relación con apuestas reales o recompensas monetarias."
+        },
+        {
+          "title": "Responsabilidades del usuario",
+          "content": "Los usuarios deben usar el Servicio solo para fines legales. Están prohibidas las actividades que perjudiquen a otros, como difamación, discriminación o acoso a través del Servicio. Están prohibidas las acciones que interrumpan la operación normal del servicio (hackeo, ataques DDoS, etc.)."
+        },
+        {
+          "title": "Propiedad intelectual",
+          "content": "Todos los derechos de propiedad intelectual del diseño, código y contenido de Naegihaza pertenecen al operador del servicio. La reproducción, distribución o modificación no autorizada del contenido está prohibida."
+        },
+        {
+          "title": "Descargo de responsabilidad",
+          "content": "Naegihaza se proporciona 'tal cual' sin garantías de idoneidad para un propósito particular u operación sin errores. Los resultados del juego se generan aleatoriamente y el Servicio no asume responsabilidad legal por la equidad de los resultados. El Servicio puede cambiar o interrumpirse sin previo aviso."
+        },
+        {
+          "title": "Limitación de responsabilidad",
+          "content": "El operador del servicio no será responsable de daños directos, indirectos, incidentales o consecuentes derivados del uso de Naegihaza, en la medida permitida por la ley."
+        },
+        {
+          "title": "Cambios en los términos",
+          "content": "Estos Términos de Servicio pueden modificarse según sea necesario. Los términos actualizados entran en vigor al publicarse en esta página. El uso continuado del Servicio después de los cambios constituye la aceptación de los términos actualizados."
+        },
+        {
+          "title": "Contacto",
+          "content": "Si tiene preguntas sobre estos Términos de Servicio, contáctenos en dev.yelee@gmail.com."
+        }
+      ]
+    }
+  },
   "roulette": {
     "title": "Ruleta",
+    "description": {
+      "intro": {
+        "title": "¿Qué es la Ruleta?",
+        "p1": "La ruleta es la forma más intuitiva y divertida de seleccionar justamente a una persona de un grupo. Ingresa los nombres de los participantes y se distribuirán uniformemente en la rueda giratoria — el nombre donde se detiene la flecha es el seleccionado.",
+        "p2": "La ruleta de Naegihaza utiliza un algoritmo completamente aleatorio que garantiza la misma probabilidad de selección para todos los participantes. Sin instalación de apps — úsala directamente en tu navegador con 2 a 100 participantes."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres separados por comas o saltos de línea.",
+          "Puedes ingresar entre 2 y 100 participantes.",
+          "Pulsa Iniciar para ir a la pantalla de la ruleta.",
+          "Pulsa Girar y la rueda gira a velocidad aleatoria.",
+          "Cuando la rueda se detiene, el participante señalado por la flecha es seleccionado."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarla",
+        "items": [
+          "Decidir quién paga el almuerzo o el café",
+          "Elegir un presentador o moderador de reunión",
+          "Seleccionar justamente a alguien para un castigo",
+          "Elegir una opción entre múltiples opciones como menús o lugares"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Los resultados son realmente aleatorios?",
+            "a": "Sí, la ruleta de Naegihaza usa un generador de números aleatorios criptográficamente seguro para garantizar resultados completamente aleatorios. Se aplica la misma probabilidad a todos los participantes."
+          },
+          {
+            "q": "¿Puedo jugar de nuevo con los mismos participantes?",
+            "a": "Sí, en la pantalla de resultados, pulsa el botón 'Mismos jugadores' para girar de nuevo con los mismos participantes sin reingresar nombres."
+          },
+          {
+            "q": "¿Funciona en móvil?",
+            "a": "Sí, Naegihaza está diseñado con diseño responsivo y funciona igual en smartphones, tablets y PCs."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Pulsa Iniciar",
+        "Pulsa Girar para hacer girar la ruleta",
+        "🎯 El nombre donde se detenga es el elegido"
+      ]
+    },
     "setup": {
       "start": "Iniciar"
     },
@@ -215,6 +499,57 @@
   },
   "scratch": {
     "title": "Rasca y Gana",
+    "description": {
+      "intro": {
+        "title": "¿Qué es Rasca y Gana?",
+        "p1": "Rasca y Gana es un juego donde rascas boletos para revelar resultados, igual que tarjetas de rasca reales. Cada participante recibe un boleto, y el número de boletos ganadores coincide con la cantidad que configures.",
+        "p2": "A diferencia de otros juegos que seleccionan solo a una persona, Rasca y Gana puede elegir múltiples ganadores simultáneamente — perfecto para sorteos de premios, asignación de equipos y distribución de roles. La interacción de rascar añade diversión y participación."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres de participantes (2 a 100 personas).",
+          "Establece el número de ganadores (al menos 1, menos que el total de participantes).",
+          "Al iniciar, se generan boletos para cada participante.",
+          "Toca o arrastra el boleto de cada participante para rascarlo.",
+          "Una vez rascados todos los boletos, se revelan ganadores y perdedores."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarlo",
+        "items": [
+          "Elegir múltiples ganadores a la vez",
+          "Sortear premios o recompensas",
+          "Dividir personas en dos grupos",
+          "Cuando quieres disfrutar juntos la diversión de rascar"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Puedo configurar libremente el número de ganadores?",
+            "a": "Sí, puedes configurar desde 1 hasta uno menos que el número total de participantes."
+          },
+          {
+            "q": "¿Cómo se rascan los boletos?",
+            "a": "En móvil, toca y arrastra con el dedo. En PC, haz clic y arrastra con el ratón para rascar el boleto."
+          },
+          {
+            "q": "¿Las posiciones de los boletos ganadores son aleatorias?",
+            "a": "Sí, las posiciones de los boletos ganadores son completamente aleatorias en cada juego y no se pueden predecir."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Establece el número de ganadores",
+        "Pulsa Iniciar",
+        "🎟️ Rasca cada boleto para ver el resultado"
+      ]
+    },
     "winnerCount": "Número de ganadores",
     "minMax": "2–100 participantes, al menos 1 ganador",
     "winnerCountLabel": "{{count}} ganador(es)",
