@@ -67,6 +67,7 @@ export default function ScratchGameClient() {
       {gameState === 'result' && result && (
         <GameResult result={result} onPlayAgain={handlePlayAgain} onReset={handleReset} />
       )}
+
     </div>
   );
 }

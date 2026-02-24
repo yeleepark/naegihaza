@@ -89,6 +89,7 @@ export default function LadderGameClient() {
           onReset={handleReset}
         />
       )}
+
     </div>
   );
 }

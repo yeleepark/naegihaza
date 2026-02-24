@@ -101,6 +101,7 @@ export default function RouletteGameClient() {
           onReset={handleReset}
         />
       )}
+
     </div>
   );
 }

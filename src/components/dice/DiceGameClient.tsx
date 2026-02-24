@@ -130,6 +130,7 @@ export default function DiceGameClient() {
           onReset={handleReset}
         />
       )}
+
     </div>
   );
 }

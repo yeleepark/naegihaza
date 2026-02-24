@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import DiceGameClient from '@/components/dice/DiceGameClient';
+import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
 
@@ -43,16 +44,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DicePage({ params }: Props) {
   await params; // Ensure params is resolved
   return (
-    <div className="min-h-screen w-screen flex flex-col bg-[#fef3e2]">
+    <div className="h-screen h-[100dvh] w-screen flex flex-col overflow-hidden bg-[#fef3e2]">
       <Header />
 
-      <div className="relative flex-1 min-h-0 flex flex-col">
-        <main className="relative z-10 flex-1 min-h-0 flex items-center justify-center p-4 md:p-8">
+      <main className="relative flex-1 min-h-0 overflow-y-auto">
+        <div className="h-[calc(100dvh-3.25rem)] flex items-start justify-center p-4 md:p-8">
           <DiceGameClient />
-        </main>
-
+        </div>
+        <GameDescription gameKey="dice" />
         <Footer />
-      </div>
+      </main>
     </div>
   );
 }

@@ -112,6 +112,7 @@ export default function BombGameClient() {
           onReset={handleReset}
         />
       )}
+
     </div>
   );
 }
