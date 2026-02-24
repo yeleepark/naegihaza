@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'next/navigation';
 
 const SECTION_INTRO_KEYS = ['p1', 'p2', 'p3'] as const;
 const SECTION_BIRTH_KEYS = ['p1', 'p2', 'p3', 'p4'] as const;
@@ -18,6 +19,8 @@ const SECTION_BGS = [
 
 export default function HomeAbout() {
   const { t } = useTranslation();
+  const params = useParams();
+  const locale = params?.locale || 'ko';
 
   const featuresItems = t('home.about.sections.features.items', { returnObjects: true }) as string[];
   const useCasesItems = t('home.about.sections.useCases.items', { returnObjects: true }) as string[];
@@ -103,9 +106,9 @@ export default function HomeAbout() {
                   key={gameKey}
                   className="flex-shrink-0 w-64 snap-start border-l-4 border-black/20 pl-3 pr-2"
                 >
-                  <h3 className="font-game text-base font-black text-black mb-2">
+                  <a href={`/${locale}/games/${gameKey}`} className="font-game text-base font-black text-black mb-2 block hover:text-pink-600 transition-colors underline underline-offset-2">
                     {t(`home.about.sections.games.${gameKey}.title`)}
-                  </h3>
+                  </a>
                   <p className="font-game text-sm text-black/85 leading-relaxed whitespace-pre-line mb-3">
                     {t(`home.about.sections.games.${gameKey}.desc`)}
                   </p>
