@@ -50,11 +50,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ScratchPage({ params }: Props) {
   await params;
   return (
-    <div className="h-screen h-[100dvh] w-screen flex flex-col bg-[#fef3e2] overflow-y-auto snap-y snap-proximity">
+    <div className="min-h-screen w-screen flex flex-col bg-[#fef3e2]">
       <Header />
 
       <div className="relative flex-1 min-h-0 flex flex-col">
-        <main className="relative z-10 flex-1 min-h-0 flex flex-col items-center justify-center p-2 md:p-4">
+        <main className="relative z-10 flex-1 min-h-0 flex items-center justify-center p-4 md:p-8">
           <ScratchGameClient />
         </main>
 
