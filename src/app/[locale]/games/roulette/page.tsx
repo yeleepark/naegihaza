@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function RoulettePage({ params }: Props) {
   await params; // Ensure params is resolved
   return (
-    <div className="min-h-screen w-screen flex flex-col bg-[#fef3e2]">
+    <div className="h-screen h-[100dvh] w-screen flex flex-col bg-[#fef3e2] overflow-y-auto snap-y snap-proximity">
       <Header />
 
       <div className="relative flex-1 min-h-0 flex flex-col">

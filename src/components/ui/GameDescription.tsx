@@ -28,7 +28,8 @@ export default function GameDescription({ gameKey }: GameDescriptionProps) {
   const faqItems = t(`${gameKey}.description.faq.items`, { returnObjects: true }) as FaqItem[];
 
   return (
-    <article className="w-full max-w-2xl mx-auto px-4 pb-8">
+    <article className="w-full min-h-[100dvh] snap-start snap-always bg-white flex items-center">
+      <div className="w-full max-w-2xl mx-auto px-6 py-12">
       <section className="mb-8">
         <h2 className="font-game text-xl font-black text-black mb-4">{introTitle}</h2>
         <p className="font-game text-sm text-black/85 leading-relaxed mb-3">{introP1}</p>
@@ -72,6 +73,7 @@ export default function GameDescription({ gameKey }: GameDescriptionProps) {
           ))}
         </dl>
       </section>
+      </div>
     </article>
   );
 }

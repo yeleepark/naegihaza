@@ -35,7 +35,8 @@ export default function GameSetup({ onStart }: GameSetupProps) {
   };
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full py-8">
+    <div className="flex flex-col w-full">
+      <div className="min-h-[100dvh] snap-start snap-always flex items-center justify-center p-4 md:p-8">
       <Card className="max-w-md w-full">
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">🎟️</div>
@@ -85,6 +86,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
 
         <HowToPlay stepsKey="scratch.howToPlay.steps" />
       </Card>
+      </div>
 
       <GameDescription gameKey="scratch" />
     </div>
