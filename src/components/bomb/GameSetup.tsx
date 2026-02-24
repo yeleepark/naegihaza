@@ -73,11 +73,11 @@ export default function GameSetup({ onStart }: GameSetupProps) {
           </Button>
         </form>
 
-        <HowToPlay stepsKey="bomb.howToPlay.steps" />
       </Card>
       </div>
 
       <GameDescription gameKey="bomb" />
+      <HowToPlay stepsKey="bomb.howToPlay.steps" />
     </div>
   );
 }

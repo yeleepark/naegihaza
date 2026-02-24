@@ -73,11 +73,11 @@ export default function GameSetup({ onStart }: GameSetupProps) {
           </Button>
         </form>
 
-        <HowToPlay stepsKey="roulette.howToPlay.steps" />
       </Card>
       </div>
 
       <GameDescription gameKey="roulette" />
+      <HowToPlay stepsKey="roulette.howToPlay.steps" />
     </div>
   );
 }

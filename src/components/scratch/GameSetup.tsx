@@ -84,11 +84,11 @@ export default function GameSetup({ onStart }: GameSetupProps) {
           </Button>
         </form>
 
-        <HowToPlay stepsKey="scratch.howToPlay.steps" />
       </Card>
       </div>
 
       <GameDescription gameKey="scratch" />
+      <HowToPlay stepsKey="scratch.howToPlay.steps" />
     </div>
   );
 }

@@ -73,11 +73,11 @@ export default function GameSetup({ onStart }: GameSetupProps) {
           </Button>
         </form>
 
-        <HowToPlay stepsKey="dice.howToPlay.steps" />
       </Card>
       </div>
 
       <GameDescription gameKey="dice" />
+      <HowToPlay stepsKey="dice.howToPlay.steps" />
     </div>
   );
 }
