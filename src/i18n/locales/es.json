@@ -92,6 +92,16 @@
               "Juegos de fiesta",
               "Apuestas tensas"
             ]
+          },
+          "scratch": {
+            "title": "🎟️ Rasca y Gana",
+            "desc": "Cada participante recibe un boleto con ganadores predefinidos.\n¡Rasca para descubrir si ganaste!",
+            "recommendTitle": "Ideal para",
+            "recommend": [
+              "Elegir varios ganadores",
+              "Eventos de premios",
+              "Asignación de equipos"
+            ]
           }
         },
         "randomStart": {

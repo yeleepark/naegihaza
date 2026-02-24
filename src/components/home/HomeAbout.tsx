@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const SECTION_INTRO_KEYS = ['p1', 'p2', 'p3'] as const;
 const SECTION_BIRTH_KEYS = ['p1', 'p2', 'p3', 'p4'] as const;
-const GAME_KEYS = ['roulette', 'dice', 'ladder', 'bomb'] as const;
+const GAME_KEYS = ['roulette', 'dice', 'ladder', 'bomb', 'scratch'] as const;
 
 const SECTION_BGS = [
   '#e8f4f8', // intro - light blue
@@ -92,17 +92,21 @@ export default function HomeAbout() {
           <h2 className="font-game text-xl md:text-2xl font-black text-black mb-6">
             {t('home.about.sections.games.title')}
           </h2>
-          <div className="space-y-8">
+          {/* Horizontal scroll row */}
+          <div className="flex gap-4 overflow-x-auto pb-3 -mx-2 px-2 snap-x snap-mandatory">
             {GAME_KEYS.map((gameKey) => {
               const recommend = t(`home.about.sections.games.${gameKey}.recommend`, {
                 returnObjects: true,
               }) as string[];
               return (
-                <div key={gameKey} className="pl-2 border-l-4 border-black/20">
-                  <h3 className="font-game text-lg font-black text-black mb-2">
+                <div
+                  key={gameKey}
+                  className="flex-shrink-0 w-64 snap-start border-l-4 border-black/20 pl-3 pr-2"
+                >
+                  <h3 className="font-game text-base font-black text-black mb-2">
                     {t(`home.about.sections.games.${gameKey}.title`)}
                   </h3>
-                  <p className="font-game text-sm md:text-base text-black/85 leading-relaxed whitespace-pre-line mb-3">
+                  <p className="font-game text-sm text-black/85 leading-relaxed whitespace-pre-line mb-3">
                     {t(`home.about.sections.games.${gameKey}.desc`)}
                   </p>
                   <p className="font-game text-xs font-bold text-black/70 uppercase tracking-wide mb-1">

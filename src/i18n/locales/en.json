@@ -92,6 +92,16 @@
               "Party games",
               "High tension bets"
             ]
+          },
+          "scratch": {
+            "title": "🎟️ Scratch Lottery",
+            "desc": "Each participant gets a scratch card. The number of winners is set in advance.\nScratch to reveal if you won!",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Picking multiple winners",
+              "Prize events",
+              "Team assignment"
+            ]
           }
         },
         "randomStart": {
