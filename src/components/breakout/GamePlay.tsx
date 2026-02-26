@@ -188,10 +188,10 @@ export default function GamePlay({ participants, onResult }: Props) {
   }
 
   return (
-    <div className="flex flex-col h-full w-full gap-2">
+    <div className="flex flex-col h-full w-full gap-8">
       <div
         ref={wrapRef}
-        className="flex-1 min-h-0 relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+        className="flex-1 min-h-0 max-h-[55vh] relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
       >
         <canvas ref={canvasRef} className="block w-full h-full" />
         {showStart && (

@@ -26,7 +26,6 @@ export default function DiceGameClient() {
   );
   const [isRolling, setIsRolling] = useState(false);
   const [result, setResult] = useState<DiceResult | null>(null);
-
   const handleStart = useCallback((names: string[]) => {
     const newParticipants = generateParticipants(names);
     setParticipants(newParticipants);

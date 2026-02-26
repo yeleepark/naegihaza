@@ -120,6 +120,7 @@ export default function HomeClient() {
       >
         {t('home.randomGame')}
       </button>
+
     </div>
   );
 }

@@ -139,7 +139,8 @@
     },
     "playAgain": "Again",
     "reset": "Reset",
-    "howToPlay": "How to Play"
+    "howToPlay": "How to Play",
+    "installApp": "Add to Home Screen"
   },
   "ladder": {
     "title": "Ladder",
@@ -555,8 +556,7 @@
       "max": "Up to 40 people allowed"
     },
     "result": {
-      "winner": "Winner",
-      "lastBlock": "The last block standing!"
+      "winner": "Winner"
     }
   }
 }

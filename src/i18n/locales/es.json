@@ -139,7 +139,8 @@
     },
     "playAgain": "Otra vez",
     "reset": "Reiniciar",
-    "howToPlay": "Cómo jugar"
+    "howToPlay": "Cómo jugar",
+    "installApp": "Agregar a pantalla"
   },
   "ladder": {
     "title": "Escalera",
@@ -555,8 +556,7 @@
       "max": "Máximo 40 personas"
     },
     "result": {
-      "winner": "Ganador",
-      "lastBlock": "¡El último bloque en pie!"
+      "winner": "Ganador"
     }
   }
 }

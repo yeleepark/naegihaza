@@ -62,18 +62,14 @@ export default function GameResult({
     <div className="flex items-center justify-center h-full relative">
       <Card className="max-w-md w-full relative z-10">
         <div className="text-center">
-          <h2 className="font-game text-2xl font-black text-black mb-2">
+          <h2 className="font-game text-2xl font-black text-black mb-6">
             {t('breakout.result.winner')}
           </h2>
-          <p className="font-game text-sm font-bold text-black/60 mb-6">
-            {t('breakout.result.lastBlock')}
-          </p>
 
           <div
             className="rounded-xl p-8 mb-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             style={{ backgroundColor: result.winnerColor }}
           >
-            <div className="text-5xl mb-3">🏆</div>
             <p className="font-game text-4xl md:text-5xl font-black text-black break-words">
               {result.winnerName}
             </p>

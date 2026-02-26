@@ -138,7 +138,8 @@
     },
     "playAgain": "다시",
     "reset": "초기화",
-    "howToPlay": "사용법"
+    "howToPlay": "사용법",
+    "installApp": "홈 화면에 추가"
   },
   "ladder": {
     "title": "사다리",
@@ -554,8 +555,7 @@
       "max": "최대 40명까지 입력할 수 있어요"
     },
     "result": {
-      "winner": "당첨",
-      "lastBlock": "마지막까지 살아남은 블럭!"
+      "winner": "당첨"
     }
   }
 }

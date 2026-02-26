@@ -139,7 +139,8 @@
     },
     "playAgain": "再来一次",
     "reset": "重置",
-    "howToPlay": "使用说明"
+    "howToPlay": "使用说明",
+    "installApp": "添加到主屏幕"
   },
   "ladder": {
     "title": "抽签梯",
@@ -555,8 +556,7 @@
       "max": "最多40人"
     },
     "result": {
-      "winner": "赢家",
-      "lastBlock": "最后剩下的砖块！"
+      "winner": "赢家"
     }
   }
 }

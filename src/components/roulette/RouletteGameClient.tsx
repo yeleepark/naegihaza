@@ -28,7 +28,6 @@ export default function RouletteGameClient() {
   );
   const [isSpinning, setIsSpinning] = useState(false);
   const [result, setResult] = useState<RouletteResult | null>(null);
-
   const handleStart = useCallback((names: string[]) => {
     const newParticipants = generateParticipants(names);
     setParticipants(newParticipants);

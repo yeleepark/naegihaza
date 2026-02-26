@@ -14,7 +14,6 @@ export default function LadderGameClient() {
   const [ladder, setLadder] = useState<LadderData | null>(null);
   const [revealedPaths, setRevealedPaths] = useState<Set<number>>(new Set());
   const revealTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
-
   const clearTimers = () => {
     revealTimers.current.forEach(clearTimeout);
     revealTimers.current = [];

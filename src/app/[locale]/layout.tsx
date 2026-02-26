@@ -3,6 +3,8 @@ import { locales, type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
 import I18nProvider from '@/components/I18nProvider';
 import { Analytics } from "@vercel/analytics/next"
+import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
+import InstallPrompt from '@/components/ui/InstallPrompt';
 
 type Props = {
   children: React.ReactNode;
@@ -41,6 +43,8 @@ export default async function LocaleLayout({ children, params }: Props) {
     <I18nProvider locale={locale}>
       {children}
       <Analytics />
+      <ServiceWorkerRegistration />
+      <InstallPrompt />
     </I18nProvider>
   );
 }

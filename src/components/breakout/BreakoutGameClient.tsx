@@ -10,7 +10,6 @@ export default function BreakoutGameClient() {
   const [gameState, setGameState] = useState<GameState>('setup');
   const [participants, setParticipants] = useState<string[]>([]);
   const [result, setResult] = useState<BreakoutResult | null>(null);
-
   const handleStart = useCallback((names: string[]) => {
     setParticipants(names);
     setResult(null);

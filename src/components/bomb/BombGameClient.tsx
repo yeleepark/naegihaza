@@ -14,7 +14,6 @@ export default function BombGameClient() {
   const [currentTurnIndex, setCurrentTurnIndex] = useState(0);
   const [result, setResult] = useState<BombResult | null>(null);
   const [flippingCardId, setFlippingCardId] = useState<number | null>(null);
-
   const FLIPS_PER_PERSON = 2;
   const getCardCount = (participantCount: number) => participantCount * FLIPS_PER_PERSON;
 
