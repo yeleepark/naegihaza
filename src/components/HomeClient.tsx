@@ -78,11 +78,12 @@ export default function HomeClient() {
             <Swiper
               modules={[Navigation, A11y]}
               spaceBetween={16}
-              slidesPerView={1.15}
+              slidesPerView={1}
+              centeredSlides={true}
               breakpoints={{
-                640: { slidesPerView: 1.5 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 4, spaceBetween: 24 },
+                640: { slidesPerView: 1.5, centeredSlides: false },
+                768: { slidesPerView: 2, centeredSlides: false },
+                1024: { slidesPerView: 4, spaceBetween: 24, centeredSlides: false },
               }}
               a11y={{
                 prevSlideMessage: 'Previous slide',
