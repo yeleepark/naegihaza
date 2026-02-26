@@ -57,7 +57,7 @@
         "games": {
           "title": "Tipos de juegos",
           "roulette": {
-            "title": "🎡 Ruleta",
+            "title": "Ruleta",
             "desc": "La forma más intuitiva de elegir una persona u opción. Probabilidad uniforme.",
             "recommendTitle": "Ideal para",
             "recommend": [
@@ -68,7 +68,7 @@
             ]
           },
           "dice": {
-            "title": "🎲 Dados",
+            "title": "Dados",
             "desc": "Cada participante lanza dos dados y se compara la suma. El total más alto es seleccionado.",
             "recommendTitle": "Ideal para",
             "recommend": [
@@ -78,7 +78,7 @@
             ]
           },
           "ladder": {
-            "title": "🪜 Escalera",
+            "title": "Escalera",
             "desc": "Toca un nombre y sigue el camino hasta el resultado. Suspenso hasta el final.",
             "recommendTitle": "Ideal para",
             "recommend": [
@@ -88,7 +88,7 @@
             ]
           },
           "bomb": {
-            "title": "💣 Bomba",
+            "title": "Bomba",
             "desc": "Elige una carta. Si es la bomba, te toca a ti.",
             "recommendTitle": "Ideal para",
             "recommend": [
@@ -98,7 +98,7 @@
             ]
           },
           "scratch": {
-            "title": "🎟️ Rasca y Gana",
+            "title": "Rasca y Gana",
             "desc": "Cada participante recibe un boleto con ganadores predefinidos.\n¡Rasca para descubrir si ganaste!",
             "recommendTitle": "Ideal para",
             "recommend": [
@@ -108,7 +108,7 @@
             ]
           },
           "breakout": {
-            "title": "🧱 Breakout",
+            "title": "Breakout",
             "desc": "Cada participante recibe la mayor cantidad de bloques posible y la pelota los rompe.\n¡El último bloque en pie es el ganador!",
             "recommendTitle": "Ideal para",
             "recommend": [

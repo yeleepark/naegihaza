@@ -57,7 +57,7 @@
         "games": {
           "title": "Game Types",
           "roulette": {
-            "title": "🎡 Roulette",
+            "title": "Roulette",
             "desc": "The most intuitive way to pick one person or option. Enter names or items and it selects one with equal probability.",
             "recommendTitle": "Best For",
             "recommend": [
@@ -68,7 +68,7 @@
             ]
           },
           "dice": {
-            "title": "🎲 Dice",
+            "title": "Dice",
             "desc": "Each participant rolls two dice and compares the total score. The highest total is selected.",
             "recommendTitle": "Best For",
             "recommend": [
@@ -78,7 +78,7 @@
             ]
           },
           "ladder": {
-            "title": "🪜 Ladder Game",
+            "title": "Ladder Game",
             "desc": "Tap a name and follow the path to see the result. The outcome is unknown until revealed, creating fun tension.",
             "recommendTitle": "Best For",
             "recommend": [
@@ -88,7 +88,7 @@
             ]
           },
           "bomb": {
-            "title": "💣 Bomb Pick",
+            "title": "Bomb Pick",
             "desc": "Choose a card — if it’s the bomb, you’re selected. A suspenseful random game.",
             "recommendTitle": "Best For",
             "recommend": [
@@ -98,7 +98,7 @@
             ]
           },
           "scratch": {
-            "title": "🎟️ Scratch Lottery",
+            "title": "Scratch Lottery",
             "desc": "Each participant gets a scratch card. The number of winners is set in advance.\nScratch to reveal if you won!",
             "recommendTitle": "Best For",
             "recommend": [
@@ -108,7 +108,7 @@
             ]
           },
           "breakout": {
-            "title": "🧱 Breakout",
+            "title": "Breakout",
             "desc": "Each participant gets as many blocks as possible and the ball breaks them.\nThe last block standing is the winner!",
             "recommendTitle": "Best For",
             "recommend": [

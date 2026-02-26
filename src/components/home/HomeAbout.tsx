@@ -1,11 +1,22 @@
 'use client';
 
+import { type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'next/navigation';
+import { BrickWall, Target, Dices, WavesLadder, Bomb, Ticket } from 'lucide-react';
 
 const SECTION_INTRO_KEYS = ['p1', 'p2', 'p3'] as const;
 const SECTION_BIRTH_KEYS = ['p1', 'p2', 'p3', 'p4'] as const;
 const GAME_KEYS = ['breakout', 'roulette', 'dice', 'ladder', 'bomb', 'scratch'] as const;
+
+const GAME_ICONS: Record<string, ReactNode> = {
+  breakout: <BrickWall className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
+  roulette: <Target className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
+  dice: <Dices className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
+  ladder: <WavesLadder className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
+  bomb: <Bomb className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
+  scratch: <Ticket className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
+};
 
 const SECTION_BGS = [
   '#e8f4f8', // intro - light blue
@@ -107,7 +118,7 @@ export default function HomeAbout() {
                   className="flex-shrink-0 w-64 snap-start border-l-4 border-black/20 pl-3 pr-2"
                 >
                   <a href={`/${locale}/games/${gameKey}`} className="font-game text-base font-black text-black mb-2 block hover:text-pink-600 transition-colors underline underline-offset-2">
-                    {t(`home.about.sections.games.${gameKey}.title`)}
+                    {GAME_ICONS[gameKey]}{t(`home.about.sections.games.${gameKey}.title`)}
                   </a>
                   <p className="font-game text-sm text-black/85 leading-relaxed whitespace-pre-line mb-3">
                     {t(`home.about.sections.games.${gameKey}.desc`)}

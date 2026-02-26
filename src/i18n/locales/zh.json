@@ -57,7 +57,7 @@
         "games": {
           "title": "游戏类型",
           "roulette": {
-            "title": "🎡 转盘",
+            "title": "转盘",
             "desc": "最直观的选择方式。输入名字或选项后以均等概率随机选择。",
             "recommendTitle": "适用场景",
             "recommend": [
@@ -68,7 +68,7 @@
             ]
           },
           "dice": {
-            "title": "🎲 骰子",
+            "title": "骰子",
             "desc": "每位参与者掷两个骰子比较总点数，总点数最高者被选中。",
             "recommendTitle": "适用场景",
             "recommend": [
@@ -78,7 +78,7 @@
             ]
           },
           "ladder": {
-            "title": "🪜 抽签梯",
+            "title": "抽签梯",
             "desc": "点击名字沿路径查看结果，结果揭晓前无法预知，充满紧张与乐趣。",
             "recommendTitle": "适用场景",
             "recommend": [
@@ -88,7 +88,7 @@
             ]
           },
           "bomb": {
-            "title": "💣 抽炸弹",
+            "title": "抽炸弹",
             "desc": "选择卡片，抽到炸弹的人将接受惩罚，充满刺激感。",
             "recommendTitle": "适用场景",
             "recommend": [
@@ -98,7 +98,7 @@
             ]
           },
           "scratch": {
-            "title": "🎟️ 刮刮乐",
+            "title": "刮刮乐",
             "desc": "每位参与者获得一张彩票，事先设定中奖人数。\n刮开即可查看是否中奖！",
             "recommendTitle": "适用场景",
             "recommend": [
@@ -108,7 +108,7 @@
             ]
           },
           "breakout": {
-            "title": "🧱 打砖块",
+            "title": "打砖块",
             "desc": "每位参与者获得尽可能多的砖块，球打碎砖块。\n最后剩下的砖块就是赢家！",
             "recommendTitle": "适用场景",
             "recommend": [
