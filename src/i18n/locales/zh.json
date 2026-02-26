@@ -290,10 +290,8 @@
     "clickCard": "请选择卡片",
     "safe": "安全",
     "bomb": "炸弹",
-    "cardsLeft": "剩余 {{count}} 张",
     "result": {
       "loser": "抽到炸弹",
-      "penalty": "执行惩罚",
       "winners": "安全人员"
     }
   },

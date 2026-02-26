@@ -290,10 +290,8 @@
     "clickCard": "Elige una carta",
     "safe": "Seguro",
     "bomb": "Bomba",
-    "cardsLeft": "{{count}} restantes",
     "result": {
       "loser": "Sacó la bomba",
-      "penalty": "Aplicar castigo",
       "winners": "Jugadores seguros"
     }
   },

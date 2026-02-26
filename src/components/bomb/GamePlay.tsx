@@ -3,6 +3,7 @@
 import { Card as CardType } from '@/types/bomb';
 import { PARTICIPANT_COLORS } from '@/utils/bomb';
 import { useTranslation } from 'react-i18next';
+import { Bomb, CircleCheck } from 'lucide-react';
 
 type GamePlayProps = {
   participants: string[];
@@ -23,20 +24,15 @@ function CardItem({ card, flippingCardId, onCardFlip }: CardItemProps) {
   const isDisabled = card.isFlipped || flippingCardId !== null;
 
   return (
-    <div
-      className="relative w-full h-full min-h-0 flex items-center justify-center"
-      style={{ perspective: '1000px' }}
-    >
+    <div className="w-full h-full flex items-center justify-center" style={{ perspective: '1000px' }}>
       <div
         className={`
-          relative h-full w-auto max-w-full cursor-pointer flex-shrink-0
-          transition-transform duration-500
-          [transform-style:preserve-3d]
-          ${card.isFlipped || isFlipping ? '[transform:rotateY(180deg)]' : ''}
+          relative h-full cursor-pointer
           ${card.isBomb && card.isFlipped ? 'animate-[shake_0.4s_ease-in-out]' : ''}
         `}
         style={{
           aspectRatio: '3/4',
+          maxWidth: '100%',
           transformStyle: 'preserve-3d',
           transform: card.isFlipped || isFlipping ? 'rotateY(180deg)' : 'rotateY(0deg)',
           transition: 'transform 0.5s',
@@ -61,9 +57,10 @@ function CardItem({ card, flippingCardId, onCardFlip }: CardItemProps) {
             transform: 'rotateY(180deg)',
           }}
         >
-          <span className="text-2xl md:text-3xl select-none">
-            {card.isBomb ? '💣' : card.safeIcon}
-          </span>
+          {card.isBomb
+            ? <Bomb className="w-8 h-8 md:w-10 md:h-10 text-white stroke-[2.5]" />
+            : <CircleCheck className="w-8 h-8 md:w-10 md:h-10 text-white stroke-[2.5]" />
+          }
         </div>
       </div>
     </div>
@@ -80,7 +77,9 @@ export default function GamePlay({
   const { t } = useTranslation();
   const currentPlayer = participants[currentTurnIndex];
   const playerColor = PARTICIPANT_COLORS[currentTurnIndex % PARTICIPANT_COLORS.length];
-  const remainingCards = cards.filter((c) => !c.isFlipped).length;
+
+  const cols = cards.length <= 6 ? 3 : cards.length <= 12 ? 4 : 5;
+  const rows = Math.ceil(cards.length / cols);
 
   return (
     <div className="flex flex-col items-center gap-2 md:gap-3 w-full h-full min-h-0 flex-1">
@@ -94,23 +93,18 @@ export default function GamePlay({
             {t('bomb.turnOf', { name: currentPlayer })}
           </p>
         </div>
-        <p className="font-game text-xs md:text-sm font-bold text-black/60">
+        <p className="font-game text-xs md:text-sm font-bold text-black/60 my-2 md:my-4">
           {t('bomb.clickCard')}
         </p>
       </div>
 
-      {/* Cards remaining */}
-      <p className="font-game text-xs md:text-sm font-bold text-black/60 shrink-0">
-        {t('bomb.cardsLeft', { count: remainingCards })}
-      </p>
-
-      {/* Card grid: fills remaining height, no scroll — cards scale to fit */}
-      <div className="flex-1 min-h-0 w-full flex items-center justify-center overflow-hidden">
+      {/* Card grid — fills remaining height, cards scale to fit */}
+      <div className="flex-1 min-h-0 w-full flex items-center justify-center px-4">
         <div
-          className="grid w-full h-full max-w-2xl gap-1.5 sm:gap-2 md:gap-3 p-1"
+          className="grid h-full w-full max-w-lg gap-2 md:gap-3"
           style={{
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gridAutoRows: '1fr',
+            gridTemplateColumns: `repeat(${cols}, 1fr)`,
+            gridTemplateRows: `repeat(${rows}, 1fr)`,
           }}
         >
           {cards.map((card) => (

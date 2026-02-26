@@ -1,9 +1,5 @@
 import { Card } from '@/types/bomb';
 
-export const SAFE_ICONS = [
-  '💎', '⭐', '🍀', '🎁', '🌟', '💰', '🎀', '🎊', '🌈', '🏆', '🎯',
-];
-
 export const PARTICIPANT_COLORS = [
   '#fb923c', // orange-400
   '#fbbf24', // amber-400
@@ -61,7 +57,6 @@ export function generateCards(count: number): Card[] {
     id: i,
     isBomb: i === bombIndex,
     isFlipped: false,
-    safeIcon: SAFE_ICONS[i % SAFE_ICONS.length],
   }));
 
   // Shuffle so the bomb's grid position is independent of its id

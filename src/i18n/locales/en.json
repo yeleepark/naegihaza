@@ -290,10 +290,8 @@
     "clickCard": "Pick a card",
     "safe": "Safe",
     "bomb": "Bomb",
-    "cardsLeft": "{{count}} left",
     "result": {
       "loser": "Bomb selected",
-      "penalty": "Apply penalty",
       "winners": "Safe players"
     }
   },

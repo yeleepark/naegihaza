@@ -289,10 +289,8 @@
     "clickCard": "카드를 선택하세요",
     "safe": "안전",
     "bomb": "폭탄",
-    "cardsLeft": "{{count}}장 남음",
     "result": {
       "loser": "폭탄 선택",
-      "penalty": "벌칙 적용",
       "winners": "안전 인원"
     }
   },

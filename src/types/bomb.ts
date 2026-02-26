@@ -4,7 +4,6 @@ export interface Card {
   id: number;
   isBomb: boolean;
   isFlipped: boolean;
-  safeIcon: string;
 }
 
 export interface BombResult {

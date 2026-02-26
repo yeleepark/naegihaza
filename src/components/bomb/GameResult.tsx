@@ -6,6 +6,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { BombResult } from '@/types/bomb';
 import { useTranslation } from 'react-i18next';
+import { Bomb } from 'lucide-react';
 
 type GameResultProps = {
   result: BombResult;
@@ -65,19 +66,16 @@ export default function GameResult({
     <div className="flex items-center justify-center h-full relative">
       <Card className="max-w-md w-full relative z-10">
         <div className="text-center">
-          <h2 className="font-game text-2xl font-black text-black mb-2">
+          <h2 className="font-game text-2xl font-black text-black mb-6">
             {t('bomb.result.loser')}
           </h2>
-          <p className="font-game text-sm font-bold text-black/60 mb-6">
-            {t('bomb.result.penalty')}
-          </p>
 
           {/* Loser */}
           <div
             className="rounded-xl p-8 mb-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             style={{ backgroundColor: result.loserColor }}
           >
-            <div className="text-5xl mb-3">💣</div>
+            <Bomb className="w-12 h-12 text-black stroke-[2.5] mx-auto mb-3" />
             <p className="font-game text-4xl md:text-5xl font-black text-black break-words">
               {result.loserName}
             </p>
