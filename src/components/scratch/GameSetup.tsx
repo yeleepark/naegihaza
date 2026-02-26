@@ -40,7 +40,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
       <div className="flex-1 flex items-center justify-center w-full">
       <Card className="max-w-md w-full">
         <div className="text-center mb-8">
-          <Ticket className="w-14 h-14 stroke-[2.5] mx-auto" />
+          <Ticket className="w-14 h-14 stroke-[2.5] mx-auto mb-4 text-pink-800" />
           <h2 className="font-game text-3xl font-black text-black mb-2">
             {t('scratch.title')}
           </h2>

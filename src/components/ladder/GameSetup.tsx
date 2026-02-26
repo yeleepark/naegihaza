@@ -40,7 +40,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
       <div className="flex-1 flex items-center justify-center w-full">
       <Card className="w-full max-w-2xl">
         <div className="text-center mb-8">
-          <WavesLadder className="w-14 h-14 stroke-[2.5] mx-auto" />
+          <WavesLadder className="w-14 h-14 stroke-[2.5] mx-auto mb-4 text-green-800" />
           <h2 className="font-game text-3xl font-black text-black mb-2">
             {t('ladder.title')}
           </h2>
