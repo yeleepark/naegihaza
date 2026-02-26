@@ -7,6 +7,7 @@ import Button from '@/components/ui/Button';
 import HowToPlay from '@/components/ui/HowToPlay';
 import { parseNames, validateLadderInput } from '@/utils/ladder';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { WavesLadder } from 'lucide-react';
 
 type GameSetupProps = {
   onStart: (participants: string[], results: string[]) => void;
@@ -39,7 +40,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
       <div className="flex-1 flex items-center justify-center w-full">
       <Card className="w-full max-w-2xl">
         <div className="text-center mb-8">
-          <div className="text-6xl mb-4">🪜</div>
+          <WavesLadder className="w-14 h-14 stroke-[2.5] mx-auto" />
           <h2 className="font-game text-3xl font-black text-black mb-2">
             {t('ladder.title')}
           </h2>

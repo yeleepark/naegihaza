@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { type ReactNode } from 'react';
 
 type GameCardProps = {
   title: string;
   description: string;
-  icon: string;
+  icon: ReactNode;
   bgColor: string;
   href: string;
   disabled?: boolean;
@@ -31,7 +32,7 @@ export default function GameCard({
         }
       `}
     >
-      <div className="text-7xl mb-4">{icon}</div>
+      <div className="mb-4">{icon}</div>
       <h3 className="font-game text-2xl font-black text-black mb-2">
         {title}
       </h3>

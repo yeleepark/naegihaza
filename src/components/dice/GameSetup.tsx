@@ -7,6 +7,7 @@ import { parseNames, validateParticipantNames } from '@/utils/dice';
 import { useTranslation } from 'react-i18next';
 import HowToPlay from '@/components/ui/HowToPlay';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { Dices } from 'lucide-react';
 
 type GameSetupProps = {
   onStart: (names: string[]) => void;
@@ -42,7 +43,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
       <div className="flex-1 flex items-center justify-center w-full">
       <Card className="max-w-md w-full">
         <div className="text-center mb-8">
-          <div className="text-6xl mb-4">🎲</div>
+          <Dices className="w-14 h-14 stroke-[2.5] mx-auto" />
           <h2 className="font-game text-3xl font-black text-black mb-2">
             {t('dice.title')}
           </h2>
