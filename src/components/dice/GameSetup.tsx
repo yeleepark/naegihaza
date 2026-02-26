@@ -6,13 +6,14 @@ import Button from '@/components/ui/Button';
 import { parseNames, validateParticipantNames } from '@/utils/dice';
 import { useTranslation } from 'react-i18next';
 import HowToPlay from '@/components/ui/HowToPlay';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 type GameSetupProps = {
   onStart: (names: string[]) => void;
 };
 
 export default function GameSetup({ onStart }: GameSetupProps) {
-  const [input, setInput] = useState<string>('');
+  const [input, setInput] = useLocalStorage('participants');
   const [error, setError] = useState<string>('');
   const { t } = useTranslation();
 

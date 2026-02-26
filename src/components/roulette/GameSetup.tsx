@@ -6,6 +6,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import HowToPlay from '@/components/ui/HowToPlay';
 import { parseNames, validateParticipantNames } from '@/utils/roulette';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 type GameSetupProps = {
   onStart: (names: string[]) => void;
@@ -13,7 +14,7 @@ type GameSetupProps = {
 
 export default function GameSetup({ onStart }: GameSetupProps) {
   const { t } = useTranslation();
-  const [input, setInput] = useState<string>('');
+  const [input, setInput] = useLocalStorage('participants');
   const [error, setError] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent) => {

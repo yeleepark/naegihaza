@@ -6,6 +6,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import HowToPlay from '@/components/ui/HowToPlay';
 import { parseNames, validateLadderInput } from '@/utils/ladder';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 type GameSetupProps = {
   onStart: (participants: string[], results: string[]) => void;
@@ -13,8 +14,8 @@ type GameSetupProps = {
 
 export default function GameSetup({ onStart }: GameSetupProps) {
   const { t } = useTranslation();
-  const [participantsInput, setParticipantsInput] = useState('');
-  const [resultsInput, setResultsInput] = useState('');
+  const [participantsInput, setParticipantsInput] = useLocalStorage('participants');
+  const [resultsInput, setResultsInput] = useLocalStorage('ladder-results');
   const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {

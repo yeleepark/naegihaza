@@ -6,13 +6,14 @@ import Button from '@/components/ui/Button';
 import { parseParticipantNames, validateScratchSetup } from '@/utils/scratch';
 import { useTranslation } from 'react-i18next';
 import HowToPlay from '@/components/ui/HowToPlay';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 type GameSetupProps = {
   onStart: (names: string[], winnerCount: number) => void;
 };
 
 export default function GameSetup({ onStart }: GameSetupProps) {
-  const [input, setInput] = useState<string>('');
+  const [input, setInput] = useLocalStorage('participants');
   const [winnerCount, setWinnerCount] = useState<string>('1');
   const [error, setError] = useState<string>('');
   const { t } = useTranslation();
