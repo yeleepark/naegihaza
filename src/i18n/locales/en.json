@@ -140,7 +140,10 @@
     "playAgain": "Again",
     "reset": "Reset",
     "howToPlay": "How to Play",
-    "installApp": "Add to Home Screen"
+    "installApp": "Add to Home Screen",
+    "installDesc": "Use it like an app",
+    "iosInstallStep1": "Tap the Share button below",
+    "iosInstallStep2": "Select 'Add to Home Screen'"
   },
   "ladder": {
     "title": "Ladder",

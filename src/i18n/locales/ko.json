@@ -139,7 +139,10 @@
     "playAgain": "다시",
     "reset": "초기화",
     "howToPlay": "사용법",
-    "installApp": "홈 화면에 추가"
+    "installApp": "홈 화면에 추가",
+    "installDesc": "앱처럼 빠르게 사용하세요",
+    "iosInstallStep1": "하단의 공유 버튼을 누르세요",
+    "iosInstallStep2": "'홈 화면에 추가'를 선택하세요"
   },
   "ladder": {
     "title": "사다리",

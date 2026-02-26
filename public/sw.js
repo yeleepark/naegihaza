@@ -1,4 +1,4 @@
-const CACHE_NAME = 'naegihaza-v1';
+const CACHE_NAME = 'naegihaza-v2';
 
 const PRECACHE_URLS = [
   '/',
@@ -27,6 +27,29 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
+  const url = new URL(event.request.url);
+
+  // Static assets (JS, CSS, fonts, images) — cache first
+  if (
+    url.pathname.startsWith('/_next/static/') ||
+    url.pathname.match(/\.(js|css|woff2?|ttf|otf|png|jpg|jpeg|svg|webp|ico)$/)
+  ) {
+    event.respondWith(
+      caches.match(event.request).then((cached) => {
+        if (cached) return cached;
+        return fetch(event.request).then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          }
+          return response;
+        });
+      })
+    );
+    return;
+  }
+
+  // HTML pages — network first, fallback to cache
   event.respondWith(
     fetch(event.request)
       .then((response) => {
@@ -34,6 +57,8 @@ self.addEventListener('fetch', (event) => {
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         return response;
       })
-      .catch(() => caches.match(event.request))
+      .catch(() =>
+        caches.match(event.request).then((cached) => cached || caches.match('/'))
+      )
   );
 });
