@@ -16,10 +16,6 @@
       "title": "Bomba",
       "description": "La persona que saque la carta bomba es seleccionada."
     },
-    "scratch": {
-      "title": "Rasca y Gana",
-      "description": "Cada participante recibe un boleto. ¡Rasca para ver si ganaste!"
-    },
     "breakout": {
       "title": "Breakout",
       "description": "¡Rompe los bloques! ¡El último bloque en pie es el ganador!"
@@ -95,16 +91,6 @@
               "Elegir una persona",
               "Juegos de fiesta",
               "Apuestas tensas"
-            ]
-          },
-          "scratch": {
-            "title": "Rasca y Gana",
-            "desc": "Cada participante recibe un boleto con ganadores predefinidos.\n¡Rasca para descubrir si ganaste!",
-            "recommendTitle": "Ideal para",
-            "recommend": [
-              "Elegir varios ganadores",
-              "Eventos de premios",
-              "Asignación de equipos"
             ]
           },
           "breakout": {
@@ -413,7 +399,7 @@
         },
         {
           "title": "Descripción del servicio",
-          "content": "Naegihaza es un servicio web que ofrece varios juegos aleatorios gratuitos, incluyendo ruleta, dados, escalera, bomba y rasca y gana. El Servicio se proporciona con fines de entretenimiento y asistencia en la toma de decisiones, sin relación con apuestas reales o recompensas monetarias."
+          "content": "Naegihaza es un servicio web que ofrece varios juegos aleatorios gratuitos, incluyendo ruleta, dados, escalera y bomba. El Servicio se proporciona con fines de entretenimiento y asistencia en la toma de decisiones, sin relación con apuestas reales o recompensas monetarias."
         },
         {
           "title": "Responsabilidades del usuario",
@@ -571,76 +557,6 @@
     "result": {
       "winner": "Ganador",
       "lastBlock": "¡El último bloque en pie!"
-    }
-  },
-  "scratch": {
-    "title": "Rasca y Gana",
-    "description": {
-      "intro": {
-        "title": "¿Qué es Rasca y Gana?",
-        "p1": "Rasca y Gana es un juego donde rascas boletos para revelar resultados, igual que tarjetas de rasca reales. Cada participante recibe un boleto, y el número de boletos ganadores coincide con la cantidad que configures.",
-        "p2": "A diferencia de otros juegos que seleccionan solo a una persona, Rasca y Gana puede elegir múltiples ganadores simultáneamente — perfecto para sorteos de premios, asignación de equipos y distribución de roles. La interacción de rascar añade diversión y participación."
-      },
-      "rules": {
-        "title": "Reglas detalladas",
-        "items": [
-          "Ingresa los nombres de participantes (2 a 100 personas).",
-          "Establece el número de ganadores (al menos 1, menos que el total de participantes).",
-          "Al iniciar, se generan boletos para cada participante.",
-          "Toca o arrastra el boleto de cada participante para rascarlo.",
-          "Una vez rascados todos los boletos, se revelan ganadores y perdedores."
-        ]
-      },
-      "tips": {
-        "title": "Cuándo usarlo",
-        "items": [
-          "Elegir múltiples ganadores a la vez",
-          "Sortear premios o recompensas",
-          "Dividir personas en dos grupos",
-          "Cuando quieres disfrutar juntos la diversión de rascar"
-        ]
-      },
-      "faq": {
-        "title": "Preguntas frecuentes",
-        "items": [
-          {
-            "q": "¿Puedo configurar libremente el número de ganadores?",
-            "a": "Sí, puedes configurar desde 1 hasta uno menos que el número total de participantes."
-          },
-          {
-            "q": "¿Cómo se rascan los boletos?",
-            "a": "En móvil, toca y arrastra con el dedo. En PC, haz clic y arrastra con el ratón para rascar el boleto."
-          },
-          {
-            "q": "¿Las posiciones de los boletos ganadores son aleatorias?",
-            "a": "Sí, las posiciones de los boletos ganadores son completamente aleatorias en cada juego y no se pueden predecir."
-          }
-        ]
-      }
-    },
-    "howToPlay": {
-      "steps": [
-        "Escribe los nombres de los participantes",
-        "Establece el número de ganadores",
-        "Pulsa Iniciar",
-        "🎟️ Rasca cada boleto para ver el resultado"
-      ]
-    },
-    "winnerCount": "Número de ganadores",
-    "minMax": "2–100 participantes, al menos 1 ganador",
-    "winnerCountLabel": "{{count}} ganador(es)",
-    "scratchedCount": "{{done}} / {{total}} raspados",
-    "win": "¡Ganador!",
-    "lose": "Sin suerte",
-    "showResult": "Ver resultado",
-    "error": {
-      "winnerMin": "Se necesita al menos 1 ganador",
-      "winnerMax": "Los ganadores deben ser menos que los participantes"
-    },
-    "result": {
-      "title": "Resultados",
-      "winners": "Ganadores",
-      "losers": "Sin suerte"
     }
   }
 }

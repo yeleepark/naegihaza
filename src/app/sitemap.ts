@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://naegihaza.com';
   const currentDate = new Date();
 
-  const gameRoutes = ['', '/games/roulette', '/games/dice', '/games/ladder', '/games/bomb', '/games/scratch', '/games/breakout'];
+  const gameRoutes = ['', '/games/roulette', '/games/dice', '/games/ladder', '/games/bomb', '/games/breakout'];
   const legalRoutes = ['/privacy', '/terms'];
 
   const sitemap: MetadataRoute.Sitemap = [];

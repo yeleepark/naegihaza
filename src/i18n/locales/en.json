@@ -16,10 +16,6 @@
       "title": "Bomb Pick",
       "description": "The person who picks the bomb card is selected."
     },
-    "scratch": {
-      "title": "Scratch Lottery",
-      "description": "Each participant gets a lottery ticket. Scratch to reveal winners!"
-    },
     "breakout": {
       "title": "Breakout",
       "description": "Break the blocks! The last block standing is the winner!"
@@ -95,16 +91,6 @@
               "Selecting one person for a penalty",
               "Party games",
               "High tension bets"
-            ]
-          },
-          "scratch": {
-            "title": "Scratch Lottery",
-            "desc": "Each participant gets a scratch card. The number of winners is set in advance.\nScratch to reveal if you won!",
-            "recommendTitle": "Best For",
-            "recommend": [
-              "Picking multiple winners",
-              "Prize events",
-              "Team assignment"
             ]
           },
           "breakout": {
@@ -413,7 +399,7 @@
         },
         {
           "title": "Service Description",
-          "content": "Naegihaza is a web service providing various free random games including roulette, dice, ladder game, bomb draw, and scratch lottery. The Service is provided for entertainment and decision-making assistance purposes and has no connection to actual gambling or monetary rewards."
+          "content": "Naegihaza is a web service providing various free random games including roulette, dice, ladder game, and bomb draw. The Service is provided for entertainment and decision-making assistance purposes and has no connection to actual gambling or monetary rewards."
         },
         {
           "title": "User Responsibilities",
@@ -571,76 +557,6 @@
     "result": {
       "winner": "Winner",
       "lastBlock": "The last block standing!"
-    }
-  },
-  "scratch": {
-    "title": "Scratch Lottery",
-    "description": {
-      "intro": {
-        "title": "What is Scratch Lottery?",
-        "p1": "Scratch Lottery is a game where you scratch tickets to reveal results, just like real scratch cards. Each participant gets a ticket, and the number of winning tickets matches the winner count you set.",
-        "p2": "Unlike other games that select only one person, Scratch Lottery can pick multiple winners simultaneously — perfect for prize drawings, team assignments, and role distribution. The interactive scratching adds extra fun and engagement."
-      },
-      "rules": {
-        "title": "Detailed Rules",
-        "items": [
-          "Enter participant names (2 to 100 people).",
-          "Set the number of winners (at least 1, fewer than total participants).",
-          "When started, lottery tickets are generated for each participant.",
-          "Touch or drag each participant's ticket to scratch it.",
-          "Once all tickets are scratched, winners and losers are revealed."
-        ]
-      },
-      "tips": {
-        "title": "When to Use",
-        "items": [
-          "Picking multiple winners at once",
-          "Drawing for prizes or rewards",
-          "Splitting people into two groups",
-          "When you want to enjoy the fun of scratching together"
-        ]
-      },
-      "faq": {
-        "title": "Frequently Asked Questions",
-        "items": [
-          {
-            "q": "Can I freely set the number of winners?",
-            "a": "Yes, you can set anywhere from 1 to one fewer than the total number of participants."
-          },
-          {
-            "q": "How do I scratch the tickets?",
-            "a": "On mobile, touch and drag with your finger. On PC, click and drag with the mouse to scratch the ticket."
-          },
-          {
-            "q": "Are winning ticket positions random?",
-            "a": "Yes, winning ticket positions are completely randomized each game and cannot be predicted."
-          }
-        ]
-      }
-    },
-    "howToPlay": {
-      "steps": [
-        "Enter participant names",
-        "Set the number of winners",
-        "Press Start",
-        "🎟️ Scratch each ticket to reveal the result"
-      ]
-    },
-    "winnerCount": "Number of winners",
-    "minMax": "2–100 participants, at least 1 winner",
-    "winnerCountLabel": "{{count}} winner(s)",
-    "scratchedCount": "{{done}} / {{total}} scratched",
-    "win": "Winner!",
-    "lose": "No luck",
-    "showResult": "Show result",
-    "error": {
-      "winnerMin": "At least 1 winner required",
-      "winnerMax": "Winners must be fewer than participants"
-    },
-    "result": {
-      "title": "Results",
-      "winners": "Winners",
-      "losers": "No luck"
     }
   }
 }

@@ -18,15 +18,15 @@ export function getTranslations(locale: Locale) {
 export function getMetadata(locale: Locale) {
   return {
     home: {
-      title: locale === 'ko' ? '내기하자 – 룰렛 · 사다리타기 · 주사위 · 복권 무료 랜덤 게임' :
+      title: locale === 'ko' ? '내기하자 – 룰렛 · 사다리타기 · 주사위 무료 랜덤 게임' :
         locale === 'en' ? 'Naegihaza - Let\'s Bet | Random Games with Friends' :
           locale === 'zh' ? 'Naegihaza - 打赌吧 | 与朋友一起玩随机游戏' :
             'Naegihaza - ¡Apostemos! | Juegos Aleatorios con Amigos',
-      description: locale === 'ko' ? '내기하자에서 친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 복권 긁기, 폭탄 뽑기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.' :
+      description: locale === 'ko' ? '내기하자에서 친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 폭탄 뽑기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.' :
         locale === 'en' ? 'Let\'s bet! Free online betting game platform to enjoy with friends. Use random roulette and dice rolling to fairly decide order and make bets.' :
           locale === 'zh' ? '打赌吧！与朋友一起享受的免费在线打赌游戏平台。使用随机轮盘和掷骰子公平地决定顺序和打赌。' :
             '¡Apostemos! Plataforma de juegos de apuestas en línea gratuita para disfrutar con amigos. Usa la ruleta aleatoria y lanzamiento de dados para decidir el orden de manera justa.',
-      keywords: locale === 'ko' ? ['내기하자', '내기하자 사이트', '내기하자 게임', '랜덤 게임', '랜덤 선택기', '랜덤 추첨기', '룰렛 돌리기', '사다리타기', '주사위 굴리기', '복권 긁기', '벌칙 정하기', '제비뽑기', '당번 뽑기', '이름 추첨기', '팀 나누기', '메뉴 정하기', '누가 계산', '술게임 정하기', '파티 게임', '무료 랜덤 선택 사이트'] :
+      keywords: locale === 'ko' ? ['내기하자', '내기하자 사이트', '내기하자 게임', '랜덤 게임', '랜덤 선택기', '랜덤 추첨기', '룰렛 돌리기', '사다리타기', '주사위 굴리기', '벌칙 정하기', '제비뽑기', '당번 뽑기', '이름 추첨기', '팀 나누기', '메뉴 정하기', '누가 계산', '술게임 정하기', '파티 게임', '무료 랜덤 선택 사이트'] :
         locale === 'en' ? ['random game', 'random selector', 'random picker', 'spin roulette', 'ladder game', 'roll dice', 'penalty picker', 'draw lots', 'duty picker', 'name picker', 'team split', 'menu picker', 'who pays', 'drinking game picker', 'party game', 'friends game', 'choice paralysis solver', 'online random tool', 'free random pick site', 'random decision tool'] :
         locale === 'zh' ? ['随机游戏', '随机选择器', '随机抽奖', '转盘', '梯子游戏', '掷骰子', '惩罚选择', '抽签', '当值抽选', '名字抽选', '分队', '选菜单', '谁请客', '酒局选择', '派对游戏', '朋友游戏', '选择困难解决', '在线随机工具', '免费随机选择网站', '随机决定工具'] :
         ['juego aleatorio', 'selector aleatorio', 'sorteo aleatorio', 'ruleta', 'juego escalera', 'dados', 'elegir castigo', 'sorteo', 'sorteo turno', 'sorteo nombres', 'dividir equipos', 'elegir menú', 'quién paga', 'juego bebida', 'juego fiesta', 'juego amigos', 'resolver indecisión', 'herramienta aleatoria online', 'sitio gratis sorteo', 'herramienta decisión aleatoria'],
@@ -86,20 +86,6 @@ export function getMetadata(locale: Locale) {
         locale === 'en' ? ['penalty picker', 'drinking game penalty', 'penalty draw', 'random penalty pick'] :
           locale === 'zh' ? ['惩罚选择', '酒局惩罚', '抽惩罚', '随机惩罚选择'] :
             ['elegir castigo', 'castigo juego bebida', 'sorteo castigo', 'castigo aleatorio'],
-    },
-    scratch: {
-      title: locale === 'ko' ? '내기하자 복권 긁기 – 당첨자 뽑기 스크래치 게임' :
-        locale === 'en' ? 'Scratch Lottery | Naegihaza' :
-          locale === 'zh' ? '刮刮乐 | Naegihaza' :
-            'Rasca y Gana | Naegihaza',
-      description: locale === 'ko' ? '내기하자 복권 긁기에서 참가자 수만큼 복권이 생기고 당첨자 수만큼 당첨 복권이 있어요. 긁어서 당첨 여부를 확인하세요!' :
-        locale === 'en' ? 'Each participant gets a scratch lottery ticket. Scratch to reveal if you won!' :
-          locale === 'zh' ? '每位参与者获得一张刮刮乐彩票，刮开即可查看是否中奖！' :
-            '¡Cada participante recibe un boleto rasca y gana. Rasca para saber si ganaste!',
-      keywords: locale === 'ko' ? ['내기하자 복권', '복권 긁기', '스크래치 복권', '당첨자 뽑기', '랜덤 당첨', '제비뽑기'] :
-        locale === 'en' ? ['scratch lottery', 'scratch card game', 'winner picker', 'random winner', 'lottery game'] :
-          locale === 'zh' ? ['刮刮乐', '刮彩票', '抽奖', '随机中奖', '彩票游戏'] :
-            ['rasca y gana', 'lotería rasca', 'elegir ganador', 'ganador aleatorio', 'juego lotería'],
     },
     breakout: {
       title: locale === 'ko' ? '내기하자 벽돌깨기 – 마지막 블럭 당첨 랜덤 게임' :
