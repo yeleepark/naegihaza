@@ -7,43 +7,45 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import GameCard from '@/components/GameCard';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { BrickWall, Target, Dices, WavesLadder, Bomb, Ticket, ChevronLeft, ChevronRight } from 'lucide-react';
 import 'swiper/css';
 
 const GAMES = ['breakout', 'roulette', 'dice', 'ladder', 'bomb', 'scratch'];
 
+const ICON_BASE = 'w-16 h-16 stroke-[2.5]';
+
 const GAME_ITEMS = [
   {
     key: 'breakout',
-    icon: '🧱',
+    icon: <BrickWall className={`${ICON_BASE} text-cyan-800`} />,
     bgColor: 'bg-cyan-300',
   },
   {
     key: 'roulette',
-    icon: '🎰',
+    icon: <Target className={`${ICON_BASE} text-yellow-800`} />,
     bgColor: 'bg-yellow-300',
   },
   {
     key: 'dice',
-    icon: '🎲',
+    icon: <Dices className={`${ICON_BASE} text-blue-800`} />,
     bgColor: 'bg-blue-300',
   },
   {
     key: 'ladder',
-    icon: '🪜',
+    icon: <WavesLadder className={`${ICON_BASE} text-green-800`} />,
     bgColor: 'bg-green-300',
   },
   {
     key: 'bomb',
-    icon: '💣',
+    icon: <Bomb className={`${ICON_BASE} text-red-800`} />,
     bgColor: 'bg-red-300',
   },
   {
     key: 'scratch',
-    icon: '🎟️',
+    icon: <Ticket className={`${ICON_BASE} text-pink-800`} />,
     bgColor: 'bg-pink-300',
   },
-] as const;
+];
 
 export default function HomeClient() {
   const { t } = useTranslation();
