@@ -3,7 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import PrivacyContent from '@/components/legal/PrivacyContent';
 import { type Locale } from '@/i18n/settings';
-import { getMetadata } from '@/i18n/get-translations';
+import { createPageMetadata } from '@/lib/metadata';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -13,23 +13,7 @@ export const dynamic = 'force-static';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const meta = getMetadata(locale as Locale);
-  const baseUrl = 'https://naegihaza.com';
-
-  return {
-    title: meta.privacy.title,
-    description: meta.privacy.description,
-    alternates: {
-      canonical: `${baseUrl}/${locale}/privacy`,
-      languages: {
-        ko: `${baseUrl}/ko/privacy`,
-        en: `${baseUrl}/en/privacy`,
-        zh: `${baseUrl}/zh/privacy`,
-        es: `${baseUrl}/es/privacy`,
-        'x-default': `${baseUrl}/ko/privacy`,
-      },
-    },
-  };
+  return createPageMetadata(locale as Locale, 'privacy', '/privacy');
 }
 
 export default async function PrivacyPage({ params }: Props) {

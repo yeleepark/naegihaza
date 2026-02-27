@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import BombGameClient from '@/components/bomb/BombGameClient';
 import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
-import { getMetadata } from '@/i18n/get-translations';
+import { createPageMetadata } from '@/lib/metadata';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -14,31 +14,7 @@ export const dynamic = 'force-static';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const meta = getMetadata(locale as Locale);
-  const baseUrl = 'https://naegihaza.com';
-
-  return {
-    title: meta.bomb.title,
-    description: meta.bomb.description,
-    keywords: meta.bomb.keywords,
-    alternates: {
-      canonical: `${baseUrl}/${locale}/games/bomb`,
-      languages: {
-        'ko': `${baseUrl}/ko/games/bomb`,
-        'en': `${baseUrl}/en/games/bomb`,
-        'zh': `${baseUrl}/zh/games/bomb`,
-        'es': `${baseUrl}/es/games/bomb`,
-        'x-default': `${baseUrl}/ko/games/bomb`,
-      },
-    },
-    openGraph: {
-      title: meta.bomb.title,
-      description: meta.bomb.description,
-      url: `${baseUrl}/${locale}/games/bomb`,
-      locale: locale === 'ko' ? 'ko_KR' : locale === 'en' ? 'en_US' : locale === 'zh' ? 'zh_CN' : 'es_ES',
-      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
-    },
-  };
+  return createPageMetadata(locale as Locale, 'bomb', '/games/bomb', { openGraph: true });
 }
 
 export default async function BombPage({ params }: Props) {

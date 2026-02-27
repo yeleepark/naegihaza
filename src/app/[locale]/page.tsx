@@ -6,7 +6,7 @@ import HomeClient from '@/components/HomeClient';
 import HomeAbout from '@/components/home/HomeAbout';
 import HomeScrollAnimations from '@/components/home/HomeScrollAnimations';
 import { type Locale } from '@/i18n/settings';
-import { getMetadata } from '@/i18n/get-translations';
+import { createPageMetadata } from '@/lib/metadata';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -16,37 +16,8 @@ export const dynamic = 'force-static';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const meta = getMetadata(locale as Locale);
-  const baseUrl = 'https://naegihaza.com';
-
-  return {
-    title: meta.home.title,
-    description: meta.home.description,
-    keywords: meta.home.keywords,
-    alternates: {
-      canonical: `${baseUrl}/${locale}`,
-      languages: {
-        'ko': `${baseUrl}/ko`,
-        'en': `${baseUrl}/en`,
-        'zh': `${baseUrl}/zh`,
-        'es': `${baseUrl}/es`,
-        'x-default': `${baseUrl}/en`,
-      },
-    },
-    openGraph: {
-      title: meta.home.title,
-      description: meta.home.description,
-      url: `${baseUrl}/${locale}`,
-      locale: locale === 'ko' ? 'ko_KR' : locale === 'en' ? 'en_US' : locale === 'zh' ? 'zh_CN' : 'es_ES',
-      alternateLocale: locales.filter(l => l !== locale).map(l =>
-        l === 'ko' ? 'ko_KR' : l === 'en' ? 'en_US' : l === 'zh' ? 'zh_CN' : 'es_ES'
-      ),
-      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
-    },
-  };
+  return createPageMetadata(locale as Locale, 'home', '', { xDefault: 'en', openGraph: true, alternateLocale: true });
 }
-
-const locales = ['ko', 'en', 'zh', 'es'];
 
 export default async function Home({ params }: Props) {
   await params; // Ensure params is resolved

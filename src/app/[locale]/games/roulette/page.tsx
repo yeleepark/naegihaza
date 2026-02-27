@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import RouletteGameClient from '@/components/roulette/RouletteGameClient';
 import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
-import { getMetadata } from '@/i18n/get-translations';
+import { createPageMetadata } from '@/lib/metadata';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -14,31 +14,7 @@ export const dynamic = 'force-static';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const meta = getMetadata(locale as Locale);
-  const baseUrl = 'https://naegihaza.com';
-
-  return {
-    title: meta.roulette.title,
-    description: meta.roulette.description,
-    keywords: meta.roulette.keywords,
-    alternates: {
-      canonical: `${baseUrl}/${locale}/games/roulette`,
-      languages: {
-        'ko': `${baseUrl}/ko/games/roulette`,
-        'en': `${baseUrl}/en/games/roulette`,
-        'zh': `${baseUrl}/zh/games/roulette`,
-        'es': `${baseUrl}/es/games/roulette`,
-        'x-default': `${baseUrl}/ko/games/roulette`,
-      },
-    },
-    openGraph: {
-      title: meta.roulette.title,
-      description: meta.roulette.description,
-      url: `${baseUrl}/${locale}/games/roulette`,
-      locale: locale === 'ko' ? 'ko_KR' : locale === 'en' ? 'en_US' : locale === 'zh' ? 'zh_CN' : 'es_ES',
-      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
-    },
-  };
+  return createPageMetadata(locale as Locale, 'roulette', '/games/roulette', { openGraph: true });
 }
 
 export default async function RoulettePage({ params }: Props) {

@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import BreakoutGameClient from '@/components/breakout/BreakoutGameClient';
 import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
-import { getMetadata } from '@/i18n/get-translations';
+import { createPageMetadata } from '@/lib/metadata';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -14,31 +14,7 @@ export const dynamic = 'force-static';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const meta = getMetadata(locale as Locale);
-  const baseUrl = 'https://naegihaza.com';
-
-  return {
-    title: meta.breakout.title,
-    description: meta.breakout.description,
-    keywords: meta.breakout.keywords,
-    alternates: {
-      canonical: `${baseUrl}/${locale}/games/breakout`,
-      languages: {
-        'ko': `${baseUrl}/ko/games/breakout`,
-        'en': `${baseUrl}/en/games/breakout`,
-        'zh': `${baseUrl}/zh/games/breakout`,
-        'es': `${baseUrl}/es/games/breakout`,
-        'x-default': `${baseUrl}/ko/games/breakout`,
-      },
-    },
-    openGraph: {
-      title: meta.breakout.title,
-      description: meta.breakout.description,
-      url: `${baseUrl}/${locale}/games/breakout`,
-      locale: locale === 'ko' ? 'ko_KR' : locale === 'en' ? 'en_US' : locale === 'zh' ? 'zh_CN' : 'es_ES',
-      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
-    },
-  };
+  return createPageMetadata(locale as Locale, 'breakout', '/games/breakout', { openGraph: true });
 }
 
 export default async function BreakoutPage({ params }: Props) {
