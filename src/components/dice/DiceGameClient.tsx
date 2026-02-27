@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/dice/GameSetup';
 import GameRolling from '@/components/dice/GameRolling';
 import GameResult from '@/components/dice/GameResult';
@@ -107,29 +108,30 @@ export default function DiceGameClient() {
   }, []);
 
   return (
-    <div className="max-w-5xl w-full h-full">
-      {gameState === 'setup' && <GameSetup onStart={handleStart} />}
-
-      {gameState === 'rolling' && (
-        <GameRolling
-          participants={participants}
-          currentRollingIndex={currentRollingIndex}
-          rollConfig={rollConfig}
-          isRolling={isRolling}
-          onRollNext={handleRollNext}
-          onRollComplete={handleRollComplete}
-          onShowResult={handleShowResult}
-        />
-      )}
-
-      {gameState === 'result' && result && (
-        <GameResult
-          result={result}
-          onPlayAgain={handlePlayAgain}
-          onReset={handleReset}
-        />
-      )}
-
-    </div>
+    <GameClientLayout
+      setup={gameState === 'setup' ? <GameSetup onStart={handleStart} /> : null}
+      gameplay={
+        gameState === 'rolling' ? (
+          <GameRolling
+            participants={participants}
+            currentRollingIndex={currentRollingIndex}
+            rollConfig={rollConfig}
+            isRolling={isRolling}
+            onRollNext={handleRollNext}
+            onRollComplete={handleRollComplete}
+            onShowResult={handleShowResult}
+          />
+        ) : null
+      }
+      result={
+        gameState === 'result' && result ? (
+          <GameResult
+            result={result}
+            onPlayAgain={handlePlayAgain}
+            onReset={handleReset}
+          />
+        ) : null
+      }
+    />
   );
 }

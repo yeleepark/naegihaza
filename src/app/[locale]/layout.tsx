@@ -3,7 +3,6 @@ import { locales, type Locale } from '@/i18n/settings';
 import I18nProvider from '@/components/I18nProvider';
 import { Analytics } from "@vercel/analytics/next"
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
-import InstallPrompt from '@/components/ui/InstallPrompt';
 import { createPageMetadata } from '@/lib/metadata';
 
 type Props = {
@@ -27,7 +26,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       {children}
       <Analytics />
       <ServiceWorkerRegistration />
-      <InstallPrompt />
     </I18nProvider>
   );
 }

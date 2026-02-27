@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/bomb/GameSetup';
 import GamePlay from '@/components/bomb/GamePlay';
 import GameResult from '@/components/bomb/GameResult';
@@ -89,29 +90,30 @@ export default function BombGameClient() {
   }, []);
 
   return (
-    <div className="w-full h-full min-h-0 flex flex-col max-w-2xl mx-auto">
-      {gameState === 'setup' && <GameSetup onStart={handleStart} />}
-
-      {gameState === 'playing' && (
-        <div className="flex-1 min-h-0 flex flex-col py-2 md:py-4">
-          <GamePlay
-            participants={participants}
-            cards={cards}
-            currentTurnIndex={currentTurnIndex}
-            flippingCardId={flippingCardId}
-            onCardFlip={handleCardFlip}
+    <GameClientLayout
+      setup={gameState === 'setup' ? <GameSetup onStart={handleStart} /> : null}
+      gameplay={
+        gameState === 'playing' ? (
+          <div className="h-full min-h-0 flex flex-col py-2 md:py-4">
+            <GamePlay
+              participants={participants}
+              cards={cards}
+              currentTurnIndex={currentTurnIndex}
+              flippingCardId={flippingCardId}
+              onCardFlip={handleCardFlip}
+            />
+          </div>
+        ) : null
+      }
+      result={
+        gameState === 'result' && result ? (
+          <GameResult
+            result={result}
+            onPlayAgain={handlePlayAgain}
+            onReset={handleReset}
           />
-        </div>
-      )}
-
-      {gameState === 'result' && result && (
-        <GameResult
-          result={result}
-          onPlayAgain={handlePlayAgain}
-          onReset={handleReset}
-        />
-      )}
-
-    </div>
+        ) : null
+      }
+    />
   );
 }

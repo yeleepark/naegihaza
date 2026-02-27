@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/roulette/GameSetup';
 import GameSpinning from '@/components/roulette/GameSpinning';
 import GameResult from '@/components/roulette/GameResult';
@@ -78,29 +79,30 @@ export default function RouletteGameClient() {
   }, []);
 
   return (
-    <div className="max-w-5xl w-full h-full">
-      {gameState === 'setup' && <GameSetup onStart={handleStart} />}
-
-      {gameState === 'spinning' && (
-        <GameSpinning
-          segments={segments}
-          participants={participants}
-          spinConfig={spinConfig}
-          isSpinning={isSpinning}
-          onSpin={handleSpin}
-          onShuffle={handleShuffle}
-          onSpinComplete={handleSpinComplete}
-        />
-      )}
-
-      {gameState === 'result' && result && (
-        <GameResult
-          result={result}
-          onPlayAgain={handlePlayAgain}
-          onReset={handleReset}
-        />
-      )}
-
-    </div>
+    <GameClientLayout
+      setup={gameState === 'setup' ? <GameSetup onStart={handleStart} /> : null}
+      gameplay={
+        gameState === 'spinning' ? (
+          <GameSpinning
+            segments={segments}
+            participants={participants}
+            spinConfig={spinConfig}
+            isSpinning={isSpinning}
+            onSpin={handleSpin}
+            onShuffle={handleShuffle}
+            onSpinComplete={handleSpinComplete}
+          />
+        ) : null
+      }
+      result={
+        gameState === 'result' && result ? (
+          <GameResult
+            result={result}
+            onPlayAgain={handlePlayAgain}
+            onReset={handleReset}
+          />
+        ) : null
+      }
+    />
   );
 }

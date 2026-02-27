@@ -188,7 +188,7 @@ export default function GamePlay({ participants, onResult }: Props) {
   }
 
   return (
-    <div className="flex flex-col h-full w-full gap-8">
+    <div className="flex flex-col h-full w-full max-w-[600px] mx-auto gap-8">
       <div
         ref={wrapRef}
         className="flex-1 min-h-0 max-h-[55vh] relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
@@ -363,13 +363,6 @@ function render(ctx: CanvasRenderingContext2D, s: GameState) {
   ctx.shadowColor = 'transparent';
   ctx.shadowBlur = 0;
 
-  // HUD: remaining blocks
-  const alive = blocks.filter((b) => b.alive).length;
-  ctx.fillStyle = 'rgba(255,255,255,0.4)';
-  ctx.font = 'bold 12px "Jua", sans-serif';
-  ctx.textAlign = 'right';
-  ctx.textBaseline = 'top';
-  ctx.fillText(`${alive} / ${blocks.length}`, W - 10, 4);
 }
 
 function highlightWinner(

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/breakout/GameSetup';
 import GamePlay from '@/components/breakout/GamePlay';
 import GameResult from '@/components/breakout/GameResult';
@@ -10,6 +11,7 @@ export default function BreakoutGameClient() {
   const [gameState, setGameState] = useState<GameState>('setup');
   const [participants, setParticipants] = useState<string[]>([]);
   const [result, setResult] = useState<BreakoutResult | null>(null);
+  
   const handleStart = useCallback((names: string[]) => {
     setParticipants(names);
     setResult(null);
@@ -41,22 +43,25 @@ export default function BreakoutGameClient() {
   }, []);
 
   return (
-    <div className="w-full h-full min-h-0 flex flex-col max-w-2xl mx-auto">
-      {gameState === 'setup' && <GameSetup onStart={handleStart} />}
+    <GameClientLayout
+      setup={gameState === 'setup' ? <GameSetup onStart={handleStart} /> : null}
+      gameplay={
+        gameState === 'playing' ? (
+          <div className="h-full min-h-0 flex flex-col py-2 md:py-4">
 
-      {gameState === 'playing' && (
-        <div className="flex-1 min-h-0 flex flex-col py-2 md:py-4">
-          <GamePlay participants={participants} onResult={handleResult} />
-        </div>
-      )}
-
-      {gameState === 'result' && result && (
-        <GameResult
-          result={result}
-          onPlayAgain={handlePlayAgain}
-          onReset={handleReset}
-        />
-      )}
-    </div>
+            <GamePlay participants={participants} onResult={handleResult} />
+          </div>
+        ) : null
+      }
+      result={
+        gameState === 'result' && result ? (
+          <GameResult
+            result={result}
+            onPlayAgain={handlePlayAgain}
+            onReset={handleReset}
+          />
+        ) : null
+      }
+    />
   );
 }

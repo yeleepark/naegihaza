@@ -139,11 +139,7 @@
     },
     "playAgain": "Otra vez",
     "reset": "Reiniciar",
-    "howToPlay": "Cómo jugar",
-    "installApp": "Agregar a pantalla",
-    "installDesc": "Usa como una aplicación",
-    "iosInstallStep1": "Toca el botón Compartir abajo",
-    "iosInstallStep2": "Selecciona 'Agregar a pantalla de inicio'"
+    "howToPlay": "Cómo jugar"
   },
   "ladder": {
     "title": "Escalera",

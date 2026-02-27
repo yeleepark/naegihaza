@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback, useRef } from 'react';
+import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/ladder/GameSetup';
 import LadderScene from '@/components/ladder/LadderScene';
 import GameResult from '@/components/ladder/GameResult';
@@ -64,31 +65,32 @@ export default function LadderGameClient() {
   }, []);
 
   return (
-    <div className="max-w-4xl w-full">
-      {gameState === 'setup' && <GameSetup onStart={handleStart} />}
-
-      {gameState === 'game' && ladder && (
-        <LadderScene
-          participants={participants}
-          resultItems={resultItems}
-          ladder={ladder}
-          revealedPaths={revealedPaths}
-          onReveal={handleReveal}
-          onRevealAll={handleRevealAll}
-          onShowResult={handleShowResult}
-        />
-      )}
-
-      {gameState === 'result' && ladder && (
-        <GameResult
-          participants={participants}
-          resultItems={resultItems}
-          resultMap={ladder.resultMap}
-          onPlayAgain={handlePlayAgain}
-          onReset={handleReset}
-        />
-      )}
-
-    </div>
+    <GameClientLayout
+      setup={gameState === 'setup' ? <GameSetup onStart={handleStart} /> : null}
+      gameplay={
+        gameState === 'game' && ladder ? (
+          <LadderScene
+            participants={participants}
+            resultItems={resultItems}
+            ladder={ladder}
+            revealedPaths={revealedPaths}
+            onReveal={handleReveal}
+            onRevealAll={handleRevealAll}
+            onShowResult={handleShowResult}
+          />
+        ) : null
+      }
+      result={
+        gameState === 'result' && ladder ? (
+          <GameResult
+            participants={participants}
+            resultItems={resultItems}
+            resultMap={ladder.resultMap}
+            onPlayAgain={handlePlayAgain}
+            onReset={handleReset}
+          />
+        ) : null
+      }
+    />
   );
 }
