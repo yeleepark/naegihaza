@@ -40,7 +40,7 @@ export default function HomeAbout() {
     <>
       {/* intro */}
       <section
-        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 snap-start snap-always sa-animation sa-fade-up"
+        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 md:snap-start md:snap-always sa-animation sa-fade-up"
         style={{ backgroundColor: SECTION_BGS[0] }}
       >
         <div className="max-w-2xl w-full">
@@ -59,7 +59,7 @@ export default function HomeAbout() {
 
       {/* birth */}
       <section
-        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 snap-start snap-always sa-animation sa-fade-up"
+        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 md:snap-start md:snap-always sa-animation sa-fade-up"
         style={{ backgroundColor: SECTION_BGS[1] }}
       >
         <div className="max-w-2xl w-full">
@@ -78,7 +78,7 @@ export default function HomeAbout() {
 
       {/* features */}
       <section
-        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 snap-start snap-always sa-animation sa-fade-up overflow-y-auto"
+        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 md:snap-start md:snap-always sa-animation sa-fade-up overflow-y-auto"
         style={{ backgroundColor: SECTION_BGS[2] }}
       >
         <div className="max-w-2xl w-full my-auto">
@@ -99,7 +99,7 @@ export default function HomeAbout() {
 
       {/* games */}
       <section
-        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 snap-start snap-always sa-animation sa-fade-up overflow-y-auto"
+        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 md:snap-start md:snap-always sa-animation sa-fade-up overflow-y-auto"
         style={{ backgroundColor: SECTION_BGS[3] }}
       >
         <div className="max-w-2xl w-full my-auto">
@@ -141,7 +141,7 @@ export default function HomeAbout() {
 
       {/* random start */}
       <section
-        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 snap-start snap-always sa-animation sa-fade-up"
+        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 md:snap-start md:snap-always sa-animation sa-fade-up"
         style={{ backgroundColor: SECTION_BGS[4] }}
       >
         <div className="max-w-2xl w-full">
@@ -157,7 +157,7 @@ export default function HomeAbout() {
 
       {/* use cases */}
       <section
-        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 snap-start snap-always sa-animation sa-fade-up"
+        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 md:snap-start md:snap-always sa-animation sa-fade-up"
         style={{ backgroundColor: SECTION_BGS[5] }}
       >
         <div className="max-w-2xl w-full">
@@ -175,7 +175,7 @@ export default function HomeAbout() {
 
       {/* outro */}
       <section
-        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 snap-start snap-always sa-animation sa-fade-up"
+        className="min-h-screen min-h-[100dvh] h-screen h-[100dvh] flex items-center justify-center px-6 py-12 md:py-16 md:snap-start md:snap-always sa-animation sa-fade-up"
         style={{ backgroundColor: SECTION_BGS[6] }}
       >
         <p className="font-game text-base md:text-lg text-black/90 leading-relaxed whitespace-pre-line text-center max-w-2xl">

@@ -92,15 +92,17 @@
     transform: scale(1.2);
   }
 
-  /* Home scroll snap: container must have fixed height and explicit snap type */
-  .home-scroll-main {
-    scroll-snap-type: y mandatory;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
-  }
+  /* Home scroll snap: desktop only (md: 768px+) */
+  @media (min-width: 768px) {
+    .home-scroll-main {
+      scroll-snap-type: y mandatory;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-y: contain;
+    }
 
-  .home-scroll-main>* {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+    .home-scroll-main>* {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
   }
 }
