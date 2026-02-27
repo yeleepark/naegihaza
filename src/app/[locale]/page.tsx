@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Home({ params }: Props) {
-  await params; // Ensure params is resolved
-  const siteNavSchema = generateSiteNavSchema();
+  const { locale } = await params;
+  const siteNavSchema = generateSiteNavSchema(locale);
   return (
     <div className="md:h-screen md:h-[100dvh] w-screen flex flex-col md:overflow-hidden bg-[#fef3e2]">
       <script

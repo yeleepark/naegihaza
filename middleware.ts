@@ -52,13 +52,28 @@ export function middleware(request: NextRequest) {
   );
 
   if (pathnameHasLocale) {
-    return NextResponse.next();
+    const locale = locales.find(
+      (l) => pathname.startsWith(`/${l}/`) || pathname === `/${l}`
+    )!;
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set('x-locale', locale);
+    const response = NextResponse.next({
+      request: { headers: requestHeaders },
+    });
+    response.headers.set('Content-Language', locale);
+    return response;
   }
 
   // Rewrite to locale-prefixed URL (no redirect, keeps original URL for SEO)
   const locale = getLocale(request);
   const newUrl = new URL(`/${locale}${pathname}`, request.url);
-  return NextResponse.rewrite(newUrl);
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-locale', locale);
+  const response = NextResponse.rewrite(newUrl, {
+    request: { headers: requestHeaders },
+  });
+  response.headers.set('Content-Language', locale);
+  return response;
 }
 
 export const config = {
