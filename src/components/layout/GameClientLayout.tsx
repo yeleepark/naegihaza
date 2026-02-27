@@ -14,7 +14,7 @@ export default function GameClientLayout({
   result,
 }: GameClientLayoutProps) {
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full overflow-y-auto">
       {gameState === 'setup' && setup}
       {gameState !== 'setup' && gameState !== 'result' && gameplay}
       {gameState === 'result' && result}

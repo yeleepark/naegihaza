@@ -39,14 +39,14 @@ export default function GameSetup({ onStart }: GameSetupProps) {
     <div className="flex flex-col items-center w-full h-full">
       <div className="flex-1 flex items-center justify-center w-full">
       <Card className="w-full max-w-2xl">
-        <div className="text-center mb-8">
-          <WavesLadder className="w-14 h-14 stroke-[2.5] mx-auto mb-4 text-green-800" />
+        <div className="text-center mb-4 md:mb-8">
+          <WavesLadder className="w-10 h-10 md:w-14 md:h-14 stroke-[2.5] mx-auto mb-2 md:mb-4 text-green-800" />
           <h2 className="font-game text-3xl font-black text-black mb-2">
             {t('ladder.title')}
           </h2>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="font-game block text-sm font-bold text-black mb-2">
