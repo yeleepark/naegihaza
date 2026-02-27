@@ -12,7 +12,7 @@ const translations = {
 };
 
 export function getTranslations(locale: Locale) {
-  return translations[locale] || translations.ko;
+  return translations[locale] || translations.en;
 }
 
 export function getMetadata(locale: Locale) {
