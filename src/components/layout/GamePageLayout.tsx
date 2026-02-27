@@ -1,15 +1,15 @@
-import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 type GamePageLayoutProps = {
+  header: React.ReactNode;
   game: React.ReactNode;
   description: React.ReactNode;
 };
 
-export default function GamePageLayout({ game, description }: GamePageLayoutProps) {
+export default function GamePageLayout({ header, game, description }: GamePageLayoutProps) {
   return (
     <div className="h-screen h-[100dvh] w-screen flex flex-col overflow-hidden bg-[#fef3e2]">
-      <Header />
+      {header}
 
       <main className="relative flex-1 min-h-0 overflow-y-auto">
         <section className="h-[calc(100dvh-3.25rem)] flex items-start justify-center p-4 md:p-8">

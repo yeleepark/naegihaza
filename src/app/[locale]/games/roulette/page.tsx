@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import GamePageLayout from '@/components/layout/GamePageLayout';
+import Header from '@/components/layout/Header';
 import RouletteGameClient from '@/components/roulette/RouletteGameClient';
 import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
@@ -20,6 +21,7 @@ export default async function RoulettePage({ params }: Props) {
   await params;
   return (
     <GamePageLayout
+      header={<Header />}
       game={<RouletteGameClient />}
       description={<GameDescription gameKey="roulette" />}
     />
