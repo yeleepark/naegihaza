@@ -37,7 +37,7 @@ export default async function Home({ params }: Props) {
           className="home-scroll-main relative z-10 flex-1 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden scroll-smooth"
         >
           <HomeScrollAnimations>
-            <section className="md:min-h-screen md:min-h-[100dvh] md:h-screen md:h-[100dvh] flex items-center justify-center p-4 md:p-12 md:snap-start md:snap-always sa-animation sa-fade-up">
+            <section className="min-h-[100dvh] md:h-screen md:h-[100dvh] flex items-center justify-center p-4 md:p-12 md:snap-start md:snap-always sa-animation sa-fade-up">
               <HomeClient />
             </section>
             <HomeAbout />
