@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import GamePageLayout from '@/components/layout/GamePageLayout';
 import BreakoutGameClient from '@/components/breakout/BreakoutGameClient';
+import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
 import { createPageMetadata } from '@/lib/metadata';
 
@@ -18,8 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BreakoutPage({ params }: Props) {
   await params;
   return (
-    <GamePageLayout gameKey="breakout">
-      <BreakoutGameClient />
-    </GamePageLayout>
+    <GamePageLayout
+      game={<BreakoutGameClient />}
+      description={<GameDescription gameKey="breakout" />}
+    />
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import GamePageLayout from '@/components/layout/GamePageLayout';
 import LadderGameClient from '@/components/ladder/LadderGameClient';
+import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
 import { createPageMetadata } from '@/lib/metadata';
 
@@ -18,8 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function LadderPage({ params }: Props) {
   await params;
   return (
-    <GamePageLayout gameKey="ladder">
-      <LadderGameClient />
-    </GamePageLayout>
+    <GamePageLayout
+      game={<LadderGameClient />}
+      description={<GameDescription gameKey="ladder" />}
+    />
   );
 }
