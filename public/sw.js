@@ -1,4 +1,4 @@
-const CACHE_NAME = 'naegihaza-v2';
+const CACHE_NAME = 'naegihaza-v3';
 
 const PRECACHE_URLS = [
   '/',
@@ -10,7 +10,15 @@ const PRECACHE_URLS = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS))
+    caches.open(CACHE_NAME).then((cache) =>
+      Promise.all(
+        PRECACHE_URLS.map((url) =>
+          cache.add(url).catch(() => {
+            /* skip URLs that fail to fetch */
+          })
+        )
+      )
+    )
   );
   self.skipWaiting();
 });
