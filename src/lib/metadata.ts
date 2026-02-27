@@ -11,7 +11,7 @@ const OG_LOCALE_MAP: Record<string, string> = {
   es: 'es_ES',
 };
 
-type MetaKey = 'home' | 'dice' | 'roulette' | 'ladder' | 'bomb' | 'breakout' | 'privacy' | 'terms';
+type MetaKey = 'home' | 'dice' | 'roulette' | 'ladder' | 'bomb' | 'breakout' | 'slot' | 'privacy' | 'terms';
 
 export function createPageMetadata(
   locale: Locale,

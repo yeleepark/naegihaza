@@ -7,10 +7,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import GameCard from '@/components/GameCard';
-import { BrickWall, Target, Dices, WavesLadder, Bomb, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BrickWall, Target, Dices, WavesLadder, Bomb, Cherry, ChevronLeft, ChevronRight } from 'lucide-react';
 import 'swiper/css';
 
-const GAMES = ['breakout', 'roulette', 'dice', 'ladder', 'bomb'];
+const GAMES = ['breakout', 'slot', 'roulette', 'dice', 'ladder', 'bomb'];
 
 const ICON_BASE = 'w-16 h-16 stroke-[2.5]';
 
@@ -19,6 +19,11 @@ const GAME_ITEMS = [
     key: 'breakout',
     icon: <BrickWall className={`${ICON_BASE} text-cyan-800`} />,
     bgColor: 'bg-cyan-300',
+  },
+  {
+    key: 'slot',
+    icon: <Cherry className={`${ICON_BASE} text-purple-800`} />,
+    bgColor: 'bg-purple-300',
   },
   {
     key: 'roulette',

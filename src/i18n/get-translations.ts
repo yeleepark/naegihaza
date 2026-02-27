@@ -101,6 +101,20 @@ export function getMetadata(locale: Locale) {
           locale === 'zh' ? ['打砖块', '消除方块', '随机中奖', '派对游戏'] :
             ['breakout', 'rompe bloques', 'ganador aleatorio', 'juego fiesta'],
     },
+    slot: {
+      title: locale === 'ko' ? '내기하자 슬롯머신 – 릴 돌리기 랜덤 당첨 게임' :
+        locale === 'en' ? 'Slot Machine | Naegihaza' :
+          locale === 'zh' ? '老虎机 | Naegihaza' :
+            'Tragamonedas | Naegihaza',
+      description: locale === 'ko' ? '내기하자 슬롯머신에서 3개의 릴을 돌려 당첨자를 선정하세요. 릴이 하나씩 멈추며 긴장감 넘치는 랜덤 선택 게임입니다.' :
+        locale === 'en' ? 'Spin the reels and find the winner! A fun slot machine game to select someone randomly with friends.' :
+          locale === 'zh' ? '转动转轮找出赢家！与朋友一起玩的有趣老虎机随机选人游戏。' :
+            '¡Gira los carretes y encuentra al ganador! Un divertido juego de tragamonedas para seleccionar a alguien al azar con amigos.',
+      keywords: locale === 'ko' ? ['내기하자 슬롯머신', '슬롯머신 게임', '릴 돌리기', '랜덤 당첨', '내기 게임'] :
+        locale === 'en' ? ['slot machine game', 'spin reels', 'random winner', 'party game'] :
+          locale === 'zh' ? ['老虎机游戏', '转轮', '随机中奖', '派对游戏'] :
+            ['tragamonedas', 'girar carretes', 'ganador aleatorio', 'juego fiesta'],
+    },
     privacy: {
       title: locale === 'ko' ? '개인정보처리방침 | 내기하자' :
         locale === 'en' ? 'Privacy Policy | Naegihaza' :

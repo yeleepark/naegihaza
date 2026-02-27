@@ -20,6 +20,10 @@
       "title": "Breakout",
       "description": "¡Rompe los bloques! ¡El último bloque en pie es el ganador!"
     },
+    "slot": {
+      "title": "Tragamonedas",
+      "description": "Un carrete gira para seleccionar un ganador."
+    },
     "randomGame": "Juego Aleatorio",
     "about": {
       "title": "Acerca de Naegihaja",
@@ -101,6 +105,16 @@
               "Elegir un ganador de forma divertida",
               "Apuestas visuales y emocionantes",
               "Animar fiestas"
+            ]
+          },
+          "slot": {
+            "title": "Tragamonedas",
+            "desc": "Un carrete gira con los nombres de los participantes.\n¡El carrete se detiene gradualmente para revelar al ganador!",
+            "recommendTitle": "Ideal para",
+            "recommend": [
+              "Apuestas divertidas estilo casino",
+              "Animar fiestas",
+              "Selección de ganador con suspenso"
             ]
           }
         },
@@ -554,6 +568,66 @@
     "error": {
       "max": "Máximo 40 personas"
     },
+    "result": {
+      "winner": "Ganador"
+    }
+  },
+  "slot": {
+    "title": "Tragamonedas",
+    "description": {
+      "intro": {
+        "title": "¿Qué es la Tragamonedas?",
+        "p1": "La Tragamonedas es un juego de selección aleatoria donde un carrete gira con nombres de participantes. Los nombres se desplazan rápidamente y se van frenando hasta detenerse en el ganador.",
+        "p2": "El carrete se desacelera gradualmente, creando suspenso hasta que el nombre final es revelado. Soporta de 2 a 100 participantes."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres de participantes (2 a 100 personas).",
+          "Pulsa Iniciar para ir a la pantalla de la tragamonedas.",
+          "Pulsa Girar y el carrete comienza a girar.",
+          "Los nombres se desplazan rápidamente y luego se desaceleran hasta detenerse.",
+          "Cuando el carrete se detiene, se anuncia el ganador."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarlo",
+        "items": [
+          "Cuando quieres elegir a alguien con estilo casino",
+          "Cuando quieres animar una fiesta o reunión",
+          "Cuando quieres seleccionar un objetivo de castigo con suspenso",
+          "Cuando quieres emoción visual con tu apuesta"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Los resultados de los carretes son justos?",
+            "a": "Sí, el ganador se selecciona completamente al azar antes de que comience el giro. Se aplica la misma probabilidad a todos los participantes."
+          },
+          {
+            "q": "¿Puedo jugar de nuevo con los mismos participantes?",
+            "a": "Sí, pulsa el botón 'Otra vez' en la pantalla de resultados para girar de nuevo con los mismos participantes."
+          },
+          {
+            "q": "¿Cómo se detiene el carrete?",
+            "a": "El carrete gira rápidamente y luego se desacelera gradualmente hasta detenerse de forma natural. El resultado es desconocido hasta que se detiene por completo, manteniendo el suspenso."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Pulsa Iniciar",
+        "Pulsa Girar para girar el carrete",
+        "🎰 El ganador se revela cuando el carrete se detiene"
+      ]
+    },
+    "minMax": "2–100 personas",
+    "spin": "¡Girar!",
+    "spinning": "Girando...",
     "result": {
       "winner": "Ganador"
     }

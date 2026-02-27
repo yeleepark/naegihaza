@@ -20,6 +20,10 @@
       "title": "Breakout",
       "description": "Break the blocks! The last block standing is the winner!"
     },
+    "slot": {
+      "title": "Slot Machine",
+      "description": "A reel spins to select a winner."
+    },
     "randomGame": "Start Random Game",
     "about": {
       "title": "About Naegihaja",
@@ -101,6 +105,16 @@
               "Picking a winner in a fun way",
               "Visual and exciting bets",
               "Livening up parties"
+            ]
+          },
+          "slot": {
+            "title": "Slot Machine",
+            "desc": "A reel spins with participant names.\nThe reel slows down and stops to reveal the winner!",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Casino-style fun bets",
+              "Livening up parties",
+              "Suspenseful winner selection"
             ]
           }
         },
@@ -554,6 +568,66 @@
     "error": {
       "max": "Up to 40 people allowed"
     },
+    "result": {
+      "winner": "Winner"
+    }
+  },
+  "slot": {
+    "title": "Slot Machine",
+    "description": {
+      "intro": {
+        "title": "What is the Slot Machine?",
+        "p1": "The Slot Machine is a random selection game where a reel spins with participant names. Names scroll rapidly and gradually slow down until the reel stops on the winner.",
+        "p2": "The reel gradually slows and stops, building suspense until the final name is revealed. Supports 2 to 100 participants."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names (2 to 100 people).",
+          "Press Start to go to the slot machine screen.",
+          "Press Spin and the reel starts spinning.",
+          "Names scroll rapidly then gradually slow down until the reel stops.",
+          "Once the reel stops, the winner is announced."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "When you want a casino-style fun way to pick someone",
+          "When you want to liven up a party or gathering",
+          "When you want a suspenseful way to select a penalty target",
+          "When you want visual excitement with your bet"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "Are the reel results fair?",
+            "a": "Yes, the winner is selected completely at random before the spin begins. Equal probability is applied to all participants."
+          },
+          {
+            "q": "Can I play again with the same participants?",
+            "a": "Yes, press the 'Again' button on the result screen to spin again with the same participants."
+          },
+          {
+            "q": "How does the reel stop?",
+            "a": "The reel spins quickly then gradually slows to a natural stop. The result is unknown until the reel fully stops, keeping the suspense high."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Press Start",
+        "Press Spin to spin the reel",
+        "🎰 The winner is revealed when the reel stops"
+      ]
+    },
+    "minMax": "2–100 people",
+    "spin": "Spin!",
+    "spinning": "Spinning...",
     "result": {
       "winner": "Winner"
     }
