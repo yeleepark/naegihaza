@@ -18,7 +18,7 @@
     },
     "breakout": {
       "title": "Breakout",
-      "description": "¡Rompe los bloques! ¡El último bloque en pie es el ganador!"
+      "description": "Elige al último en pie."
     },
     "slot": {
       "title": "Tragamonedas",
@@ -569,8 +569,12 @@
       "max": "Máximo 40 personas"
     },
     "mode": {
-      "penalty": "🚨 Penalización",
-      "winner": "🏆 Ganador"
+      "penalty": "Penalización",
+      "winner": "Ganador"
+    },
+    "notice": {
+      "penalty": "El último en pie recibe la penalización",
+      "winner": "El último en pie es el ganador"
     },
     "result": {
       "penalty": "¡Te tocó!",

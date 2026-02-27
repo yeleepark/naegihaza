@@ -18,7 +18,7 @@
     },
     "breakout": {
       "title": "Breakout",
-      "description": "Break the blocks! The last block standing is the winner!"
+      "description": "Picks the last one standing."
     },
     "slot": {
       "title": "Slot Machine",
@@ -569,8 +569,12 @@
       "max": "Up to 40 people allowed"
     },
     "mode": {
-      "penalty": "🚨 Penalty Pick",
-      "winner": "🏆 Winner Pick"
+      "penalty": "Penalty Pick",
+      "winner": "Winner Pick"
+    },
+    "notice": {
+      "penalty": "The last one standing gets the penalty",
+      "winner": "The last one standing is the winner"
     },
     "result": {
       "penalty": "You're It!",

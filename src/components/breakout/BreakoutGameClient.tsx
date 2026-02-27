@@ -51,7 +51,7 @@ export default function BreakoutGameClient() {
       setup={<GameSetup onStart={handleStart} />}
       gameplay={
         <div className="h-full min-h-0 flex flex-col py-2 md:py-4">
-          <GamePlay participants={participants} onResult={handleResult} />
+          <GamePlay participants={participants} onResult={handleResult} mode={mode} />
         </div>
       }
       result={

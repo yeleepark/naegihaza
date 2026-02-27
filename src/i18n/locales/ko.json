@@ -18,7 +18,7 @@
     },
     "breakout": {
       "title": "벽돌깨기",
-      "description": "블럭을 깨고 마지막까지 남은 블럭이 당첨자!"
+      "description": "최후의 1인을 뽑습니다."
     },
     "slot": {
       "title": "슬롯머신",
@@ -568,8 +568,12 @@
       "max": "최대 40명까지 입력할 수 있어요"
     },
     "mode": {
-      "penalty": "🚨 벌칙자 뽑기",
-      "winner": "🏆 우승자 뽑기"
+      "penalty": "벌칙자 뽑기",
+      "winner": "우승자 뽑기"
+    },
+    "notice": {
+      "penalty": "최후의 1인이 벌칙 당첨입니다",
+      "winner": "최후의 1인이 우승자입니다"
     },
     "result": {
       "penalty": "당첨",

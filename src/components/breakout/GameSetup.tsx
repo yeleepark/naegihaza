@@ -7,7 +7,7 @@ import { parseNames, validateParticipantNames } from '@/utils/breakout';
 import { useTranslation } from 'react-i18next';
 import HowToPlay from '@/components/ui/HowToPlay';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { BrickWall } from 'lucide-react';
+import { BrickWall, Siren, Trophy } from 'lucide-react';
 import { BreakoutMode } from '@/types/breakout';
 
 type GameSetupProps = {
@@ -61,6 +61,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
                   : 'border-2 border-black/20 bg-white text-black/40'
               }`}
             >
+              <Siren className="w-4 h-4 inline-block mr-1 -mt-0.5" />
               {t('breakout.mode.penalty')}
             </button>
             <button
@@ -72,6 +73,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
                   : 'border-2 border-black/20 bg-white text-black/40'
               }`}
             >
+              <Trophy className="w-4 h-4 inline-block mr-1 -mt-0.5" />
               {t('breakout.mode.winner')}
             </button>
           </div>
