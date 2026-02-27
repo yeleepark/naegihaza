@@ -1,11 +1,12 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 type CardProps = {
   children: ReactNode;
   className?: string;
+  style?: CSSProperties;
 };
 
-export default function Card({ children, className = '' }: CardProps) {
+export default function Card({ children, className = '', style }: CardProps) {
   return (
     <div
       className={`
@@ -16,6 +17,7 @@ export default function Card({ children, className = '' }: CardProps) {
         shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]
         ${className}
       `}
+      style={style}
     >
       {children}
     </div>

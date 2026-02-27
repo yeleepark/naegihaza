@@ -568,7 +568,12 @@
     "error": {
       "max": "Máximo 40 personas"
     },
+    "mode": {
+      "penalty": "🚨 Penalización",
+      "winner": "🏆 Ganador"
+    },
     "result": {
+      "penalty": "¡Te tocó!",
       "winner": "Ganador"
     }
   },

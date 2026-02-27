@@ -568,7 +568,12 @@
     "error": {
       "max": "Up to 40 people allowed"
     },
+    "mode": {
+      "penalty": "🚨 Penalty Pick",
+      "winner": "🏆 Winner Pick"
+    },
     "result": {
+      "penalty": "You're It!",
       "winner": "Winner"
     }
   },

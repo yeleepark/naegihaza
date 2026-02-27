@@ -5,15 +5,17 @@ import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/breakout/GameSetup';
 import GamePlay from '@/components/breakout/GamePlay';
 import GameResult from '@/components/breakout/GameResult';
-import { GameState, BreakoutResult } from '@/types/breakout';
+import { GameState, BreakoutResult, BreakoutMode } from '@/types/breakout';
 
 export default function BreakoutGameClient() {
   const [gameState, setGameState] = useState<GameState>('setup');
   const [participants, setParticipants] = useState<string[]>([]);
   const [result, setResult] = useState<BreakoutResult | null>(null);
-  
-  const handleStart = useCallback((names: string[]) => {
+  const [mode, setMode] = useState<BreakoutMode>('penalty');
+
+  const handleStart = useCallback((names: string[], selectedMode: BreakoutMode) => {
     setParticipants(names);
+    setMode(selectedMode);
     setResult(null);
     setGameState('playing');
   }, []);
@@ -25,10 +27,11 @@ export default function BreakoutGameClient() {
         winnerColor,
         participants,
         timestamp: new Date(),
+        mode,
       });
       setGameState('result');
     },
-    [participants]
+    [participants, mode]
   );
 
   const handlePlayAgain = useCallback(() => {
