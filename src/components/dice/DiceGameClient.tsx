@@ -109,22 +109,21 @@ export default function DiceGameClient() {
 
   return (
     <GameClientLayout
-      setup={gameState === 'setup' ? <GameSetup onStart={handleStart} /> : null}
+      gameState={gameState}
+      setup={<GameSetup onStart={handleStart} />}
       gameplay={
-        gameState === 'rolling' ? (
-          <GameRolling
-            participants={participants}
-            currentRollingIndex={currentRollingIndex}
-            rollConfig={rollConfig}
-            isRolling={isRolling}
-            onRollNext={handleRollNext}
-            onRollComplete={handleRollComplete}
-            onShowResult={handleShowResult}
-          />
-        ) : null
+        <GameRolling
+          participants={participants}
+          currentRollingIndex={currentRollingIndex}
+          rollConfig={rollConfig}
+          isRolling={isRolling}
+          onRollNext={handleRollNext}
+          onRollComplete={handleRollComplete}
+          onShowResult={handleShowResult}
+        />
       }
       result={
-        gameState === 'result' && result ? (
+        result ? (
           <GameResult
             result={result}
             onPlayAgain={handlePlayAgain}

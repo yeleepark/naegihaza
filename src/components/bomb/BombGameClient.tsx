@@ -91,22 +91,21 @@ export default function BombGameClient() {
 
   return (
     <GameClientLayout
-      setup={gameState === 'setup' ? <GameSetup onStart={handleStart} /> : null}
+      gameState={gameState}
+      setup={<GameSetup onStart={handleStart} />}
       gameplay={
-        gameState === 'playing' ? (
-          <div className="h-full min-h-0 flex flex-col py-2 md:py-4">
-            <GamePlay
-              participants={participants}
-              cards={cards}
-              currentTurnIndex={currentTurnIndex}
-              flippingCardId={flippingCardId}
-              onCardFlip={handleCardFlip}
-            />
-          </div>
-        ) : null
+        <div className="h-full min-h-0 flex flex-col py-2 md:py-4">
+          <GamePlay
+            participants={participants}
+            cards={cards}
+            currentTurnIndex={currentTurnIndex}
+            flippingCardId={flippingCardId}
+            onCardFlip={handleCardFlip}
+          />
+        </div>
       }
       result={
-        gameState === 'result' && result ? (
+        result ? (
           <GameResult
             result={result}
             onPlayAgain={handlePlayAgain}

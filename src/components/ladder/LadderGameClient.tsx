@@ -66,9 +66,10 @@ export default function LadderGameClient() {
 
   return (
     <GameClientLayout
-      setup={gameState === 'setup' ? <GameSetup onStart={handleStart} /> : null}
+      gameState={gameState}
+      setup={<GameSetup onStart={handleStart} />}
       gameplay={
-        gameState === 'game' && ladder ? (
+        ladder ? (
           <LadderScene
             participants={participants}
             resultItems={resultItems}
@@ -81,7 +82,7 @@ export default function LadderGameClient() {
         ) : null
       }
       result={
-        gameState === 'result' && ladder ? (
+        ladder ? (
           <GameResult
             participants={participants}
             resultItems={resultItems}

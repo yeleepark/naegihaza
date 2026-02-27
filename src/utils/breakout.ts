@@ -1,15 +1,7 @@
-export const BLOCK_COLORS = [
-  '#fb923c', // orange-400
-  '#fbbf24', // amber-400
-  '#f472b6', // pink-400
-  '#a78bfa', // violet-400
-  '#60a5fa', // blue-400
-  '#34d399', // emerald-400
-  '#fde047', // yellow-300
-  '#fb7185', // rose-400
-  '#4ade80', // green-400
-  '#38bdf8', // sky-400
-];
+export const BLOCK_COLORS = Array.from({ length: 100 }, (_, i) => {
+  const h = Math.round((i * 137.508) % 360);
+  return `hsl(${h}, 75%, 65%)`;
+});
 
 export function parseNames(input: string): string[] {
   return input
@@ -26,7 +18,7 @@ export function validateParticipantNames(names: string[]): {
     return { valid: false, error: 'common.error.min' };
   }
 
-  if (names.length > 40) {
+  if (names.length > 100) {
     return { valid: false, error: 'breakout.error.max' };
   }
 

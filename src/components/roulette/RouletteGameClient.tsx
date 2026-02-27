@@ -80,22 +80,21 @@ export default function RouletteGameClient() {
 
   return (
     <GameClientLayout
-      setup={gameState === 'setup' ? <GameSetup onStart={handleStart} /> : null}
+      gameState={gameState}
+      setup={<GameSetup onStart={handleStart} />}
       gameplay={
-        gameState === 'spinning' ? (
-          <GameSpinning
-            segments={segments}
-            participants={participants}
-            spinConfig={spinConfig}
-            isSpinning={isSpinning}
-            onSpin={handleSpin}
-            onShuffle={handleShuffle}
-            onSpinComplete={handleSpinComplete}
-          />
-        ) : null
+        <GameSpinning
+          segments={segments}
+          participants={participants}
+          spinConfig={spinConfig}
+          isSpinning={isSpinning}
+          onSpin={handleSpin}
+          onShuffle={handleShuffle}
+          onSpinComplete={handleSpinComplete}
+        />
       }
       result={
-        gameState === 'result' && result ? (
+        result ? (
           <GameResult
             result={result}
             onPlayAgain={handlePlayAgain}

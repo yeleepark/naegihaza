@@ -20,7 +20,7 @@ type Props = {
   onResult: (name: string, color: string) => void;
 };
 
-const BASE_SPEED = 6;
+const BASE_SPEED = 10;
 const SPEED_MIN = 0.5;
 const SPEED_MAX = 3;
 const SPEED_STEP = 0.1;
@@ -66,47 +66,68 @@ export default function GamePlay({ participants, onResult }: Props) {
     s.W = W;
     s.H = H;
 
-    // Build blocks — 1 block per participant, smaller blocks for ≤10 people
+    // Build blocks — size adapts to name length and participant count
     const total = participants.length;
-    const isSmall = total <= 10;
-    const blockW = isSmall
-      ? Math.min(80, Math.max(50, W * 0.14))
-      : Math.min(120, Math.max(70, W * 0.22));
-    const blockH = isSmall
-      ? Math.min(26, Math.max(18, H * 0.04))
-      : Math.min(36, Math.max(26, H * 0.06));
+    const half = total >= 50 ? 0.8 : 1;
+    const blockH = (total <= 10
+      ? Math.min(36, Math.max(26, H * 0.06))
+      : Math.min(26, Math.max(18, H * 0.04))) * half;
+    const fontSize = Math.min(13, blockH * 0.45);
+    ctx.font = `bold ${fontSize}px "Jua", sans-serif`;
+    const maxTextW = Math.max(...participants.map((n) => ctx.measureText(n).width));
+    const nameBasedW = maxTextW + 16;
+    const blockW = Math.min(W * 0.4, Math.max(50, nameBasedW)) * half;
     const margin = 6;
 
-    // Generate random non-overlapping positions in the upper 60% of the canvas
-    const placementArea = { x: margin, y: margin, w: W - margin * 2, h: H * 0.6 };
+    const ballY = H - 20;
+    const maxBottom = ballY - 100;
     const positions: { x: number; y: number }[] = [];
 
-    for (let i = 0; i < total; i++) {
-      let placed = false;
-      for (let attempt = 0; attempt < 300; attempt++) {
-        const px = placementArea.x + Math.random() * (placementArea.w - blockW);
-        const py = placementArea.y + Math.random() * (placementArea.h - blockH);
-        const overlaps = positions.some(
-          (pos) =>
-            px < pos.x + blockW + margin &&
-            px + blockW + margin > pos.x &&
-            py < pos.y + blockH + margin &&
-            py + blockH + margin > pos.y
-        );
-        if (!overlaps) {
-          positions.push({ x: px, y: py });
-          placed = true;
-          break;
+    if (total <= 20) {
+      // Random non-overlapping placement
+      const areaX = margin;
+      const areaY = margin;
+      const areaW = W - margin * 2 - blockW;
+      const areaH = maxBottom - margin - blockH;
+      for (let i = 0; i < total; i++) {
+        let placed = false;
+        for (let attempt = 0; attempt < 500; attempt++) {
+          const px = areaX + Math.random() * areaW;
+          const py = areaY + Math.random() * areaH;
+          const overlaps = positions.some(
+            (pos) =>
+              px < pos.x + blockW + margin &&
+              px + blockW + margin > pos.x &&
+              py < pos.y + blockH + margin &&
+              py + blockH + margin > pos.y,
+          );
+          if (!overlaps) {
+            positions.push({ x: px, y: py });
+            placed = true;
+            break;
+          }
+        }
+        if (!placed) {
+          positions.push({
+            x: margin + (i % 3) * (blockW + margin),
+            y: margin + Math.floor(i / 3) * (blockH + margin),
+          });
         }
       }
-      // Fallback: grid placement if random fails
-      if (!placed) {
-        const cols = Math.ceil(Math.sqrt(total));
+    } else {
+      // Grid placement
+      const cols = Math.max(1, Math.floor((W - margin) / (blockW + margin)));
+      const rows = Math.ceil(total / cols);
+      const gridW = cols * (blockW + margin) - margin;
+      const gridH = rows * (blockH + margin) - margin;
+      const offsetX = (W - gridW) / 2;
+      const offsetY = Math.max(margin, Math.min((H * 0.5 - gridH) / 2, maxBottom - gridH));
+      for (let i = 0; i < total; i++) {
         const col = i % cols;
         const row = Math.floor(i / cols);
         positions.push({
-          x: margin + col * (blockW + margin),
-          y: margin + row * (blockH + margin),
+          x: offsetX + col * (blockW + margin),
+          y: offsetY + row * (blockH + margin),
         });
       }
     }
@@ -191,7 +212,7 @@ export default function GamePlay({ participants, onResult }: Props) {
     <div className="flex flex-col h-full w-full max-w-[600px] mx-auto gap-8">
       <div
         ref={wrapRef}
-        className="flex-1 min-h-0 max-h-[55vh] relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+        className="flex-1 min-h-0 max-h-[60vh] relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
       >
         <canvas ref={canvasRef} className="block w-full h-full" />
         {showStart && (
