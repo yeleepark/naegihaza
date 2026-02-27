@@ -68,15 +68,18 @@ export default function GamePlay({ participants, onResult, mode }: Props) {
     s.W = W;
     s.H = H;
 
+    // Shuffle participant order for random grid placement
+    const shuffled = [...participants].sort(() => Math.random() - 0.5);
+
     // Build blocks — size adapts to name length and participant count
-    const total = participants.length;
+    const total = shuffled.length;
     const half = total >= 50 ? 0.8 : 1;
     const blockH = (total <= 10
       ? Math.min(36, Math.max(26, H * 0.06))
       : Math.min(26, Math.max(18, H * 0.04))) * half;
     const fontSize = Math.min(13, blockH * 0.45);
     ctx.font = `bold ${fontSize}px "Jua", sans-serif`;
-    const maxTextW = Math.max(...participants.map((n) => ctx.measureText(n).width));
+    const maxTextW = Math.max(...shuffled.map((n) => ctx.measureText(n).width));
     const nameBasedW = maxTextW + 16;
     const blockW = Math.min(W * 0.4, Math.max(50, nameBasedW)) * half;
     const margin = 6;
@@ -134,7 +137,7 @@ export default function GamePlay({ participants, onResult, mode }: Props) {
       }
     }
 
-    s.blocks = participants.map((name, i) => ({
+    s.blocks = shuffled.map((name, i) => ({
       x: positions[i].x,
       y: positions[i].y,
       w: blockW,
