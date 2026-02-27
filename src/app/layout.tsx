@@ -24,11 +24,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://naegihaza.com'),
   title: {
-    default: "랜덤 선택기 · 룰렛 · 사다리타기 · 팀 나누기 무료 온라인 도구",
+    default: "내기하자 – 룰렛 · 사다리타기 · 주사위 무료 랜덤 게임",
     template: "%s | Naegihaza"
   },
-  description: "친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.",
+  description: "내기하자에서 친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.",
   keywords: [
+    "내기하자", "내기하자 사이트", "내기하자 게임",
     "betting", "game", "roulette", "dice", "random", "friends", "online game", "free game", "decision maker", "naegihaza", "내기", "룰렛", "주사위",
     "랜덤 선택기", "랜덤 추첨기", "룰렛 돌리기", "온라인 룰렛", "사다리타기", "벌칙 정하기", "술게임 정하기", "점심 메뉴 정하기", "내기 정하기", "친구 게임", "파티 게임", "랜덤 게임 사이트", "이름 추첨", "당번 뽑기", "팀 나누기", "제비뽑기", "운빨 게임", "주사위 굴리기", "폭탄 게임",
   ],
@@ -49,8 +50,8 @@ export const metadata: Metadata = {
     alternateLocale: ['ko_KR', 'zh_CN', 'es_ES'],
     url: 'https://naegihaza.com',
     siteName: 'Naegihaza',
-    title: '랜덤 선택기 · 룰렛 · 사다리타기 · 팀 나누기 무료 온라인 도구',
-    description: '친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
+    title: '내기하자 – 룰렛 · 사다리타기 · 주사위 무료 랜덤 게임',
+    description: '내기하자에서 친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
     images: [
       {
         url: '/opengraph-image',
@@ -62,8 +63,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '랜덤 선택기 · 룰렛 · 사다리타기 · 팀 나누기 무료 온라인 도구',
-    description: '친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
+    title: '내기하자 – 룰렛 · 사다리타기 · 주사위 무료 랜덤 게임',
+    description: '내기하자에서 친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
     images: ['/opengraph-image'],
   },
   robots: {
@@ -88,7 +89,7 @@ const structuredData = {
   name: 'Naegihaza',
   alternateName: '내기하자',
   url: 'https://naegihaza.com',
-  description: '친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
+  description: '내기하자에서 친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
   applicationCategory: 'GameApplication',
   operatingSystem: 'Web Browser',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
@@ -96,6 +97,11 @@ const structuredData = {
   inLanguage: ['ko', 'en', 'zh', 'es'],
   browserRequirements: 'Requires JavaScript. Requires HTML5.',
   softwareVersion: '1.0.0',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://naegihaza.com/{search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
 };
 
 export default function RootLayout({

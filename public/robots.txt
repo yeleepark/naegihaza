@@ -4,3 +4,6 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://naegihaza.com/sitemap.xml
+
+# Host
+Host: https://naegihaza.com

@@ -6,6 +6,7 @@ import HomeAbout from '@/components/home/HomeAbout';
 import HomeScrollAnimations from '@/components/home/HomeScrollAnimations';
 import { type Locale } from '@/i18n/settings';
 import { createPageMetadata } from '@/lib/metadata';
+import { generateSiteNavSchema } from '@/lib/structured-data';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -20,8 +21,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Home({ params }: Props) {
   await params; // Ensure params is resolved
+  const siteNavSchema = generateSiteNavSchema();
   return (
     <div className="h-screen h-[100dvh] w-screen flex flex-col overflow-hidden bg-[#fef3e2]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavSchema) }}
+        suppressHydrationWarning
+      />
       <Header />
 
       <div className="relative flex-1 flex flex-col min-h-0 min-w-0">
