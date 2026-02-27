@@ -1,11 +1,9 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import GameCard from '@/components/GameCard';
 import { BrickWall, Target, Dices, WavesLadder, Bomb, Cherry } from 'lucide-react';
-
-const GAMES = ['breakout', 'slot', 'roulette', 'dice', 'ladder', 'bomb'];
 
 const ICON_BASE = 'w-9 h-9 md:w-14 md:h-14 stroke-[2.5]';
 
@@ -46,13 +44,6 @@ export default function HomeClient() {
   const { t } = useTranslation();
   const params = useParams();
   const locale = params.locale as string;
-  const router = useRouter();
-
-  const handleRandomGame = () => {
-    const game = GAMES[Math.floor(Math.random() * GAMES.length)];
-    router.push(`/${locale}/games/${game}`);
-  };
-
   return (
     <div className="flex flex-col items-center gap-8 w-full pt-2 md:pt-8">
       {/* Games Grid */}
@@ -70,15 +61,6 @@ export default function HomeClient() {
           ))}
         </div>
       </div>
-
-      {/* Random Game Button */}
-      <button
-        onClick={handleRandomGame}
-        className="font-game text-lg font-black text-black bg-purple-400 hover:bg-purple-500 px-8 py-4 rounded-full border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all duration-200"
-      >
-        {t('home.randomGame')}
-      </button>
-
     </div>
   );
 }
