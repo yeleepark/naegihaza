@@ -214,13 +214,13 @@ export default function GamePlay({ participants, onResult, mode }: Props) {
   }
 
   return (
-    <div className="flex flex-col h-full w-full max-w-[600px] mx-auto gap-8">
+    <div className="flex flex-col w-full max-w-[600px] mx-auto gap-8">
       <p className="font-game text-center text-sm font-bold text-black/60">
         {t(mode === 'penalty' ? 'breakout.notice.penalty' : 'breakout.notice.winner')}
       </p>
       <div
         ref={wrapRef}
-        className="flex-1 min-h-[70dvh] max-h-[70vh] relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+        className="h-[70dvh] relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
       >
         <canvas ref={canvasRef} className="block w-full h-full" />
         {showStart && (
