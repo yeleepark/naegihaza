@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 import { createPageMetadata } from '@/lib/metadata';
 import HtmlLangSetter from '@/components/HtmlLangSetter';
+import LandscapeOverlay from '@/components/LandscapeOverlay';
 
 type Props = {
   children: React.ReactNode;
@@ -25,6 +26,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <I18nProvider locale={locale}>
       <HtmlLangSetter locale={locale} />
+      <LandscapeOverlay />
       {children}
       <Analytics />
       <ServiceWorkerRegistration />

@@ -26,6 +26,6 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['games', 'entertainment'],
     lang: 'ko',
     dir: 'ltr',
-    orientation: 'any',
+    orientation: 'portrait',
   };
 }

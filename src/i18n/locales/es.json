@@ -152,7 +152,8 @@
     },
     "playAgain": "Otra vez",
     "reset": "Reiniciar",
-    "howToPlay": "Cómo jugar"
+    "howToPlay": "Cómo jugar",
+    "landscapeWarning": "Por favor, gira al modo vertical"
   },
   "ladder": {
     "title": "Escalera",

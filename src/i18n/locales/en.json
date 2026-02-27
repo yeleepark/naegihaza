@@ -152,7 +152,8 @@
     },
     "playAgain": "Again",
     "reset": "Reset",
-    "howToPlay": "How to Play"
+    "howToPlay": "How to Play",
+    "landscapeWarning": "Please rotate to portrait mode"
   },
   "ladder": {
     "title": "Ladder",

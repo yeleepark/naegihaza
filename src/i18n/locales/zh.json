@@ -152,7 +152,8 @@
     },
     "playAgain": "再来一次",
     "reset": "重置",
-    "howToPlay": "使用说明"
+    "howToPlay": "使用说明",
+    "landscapeWarning": "请切换到竖屏模式"
   },
   "ladder": {
     "title": "抽签梯",
