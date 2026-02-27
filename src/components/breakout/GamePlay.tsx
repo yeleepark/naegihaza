@@ -220,7 +220,7 @@ export default function GamePlay({ participants, onResult, mode }: Props) {
       </p>
       <div
         ref={wrapRef}
-        className="flex-1 min-h-[40dvh] max-h-[60vh] relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+        className="flex-1 min-h-[60dvh] max-h-[60vh] relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
       >
         <canvas ref={canvasRef} className="block w-full h-full" />
         {showStart && (
