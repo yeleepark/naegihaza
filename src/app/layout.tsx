@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description: '친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
     images: [
       {
-        url: 'https://naegihaza.com',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'Naegihaza - 내기하자',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '랜덤 선택기 · 룰렛 · 사다리타기 · 팀 나누기 무료 온라인 도구',
     description: '친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 벌칙 정하기, 팀 나누기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.',
-    images: ['https://naegihaza.com'],
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
@@ -96,7 +96,6 @@ const structuredData = {
   inLanguage: ['ko', 'en', 'zh', 'es'],
   browserRequirements: 'Requires JavaScript. Requires HTML5.',
   softwareVersion: '1.0.0',
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '5', ratingCount: '1' },
 };
 
 export default function RootLayout({

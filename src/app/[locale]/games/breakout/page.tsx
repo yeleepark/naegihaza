@@ -5,6 +5,8 @@ import BreakoutGameClient from '@/components/breakout/BreakoutGameClient';
 import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
 import { createPageMetadata } from '@/lib/metadata';
+import { getTranslations, getMetadata } from '@/i18n/get-translations';
+import { generateFAQSchema, generateGameSchema } from '@/lib/structured-data';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -18,12 +20,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BreakoutPage({ params }: Props) {
-  await params;
+  const { locale } = await params;
+  const t = getTranslations(locale as Locale);
+  const meta = getMetadata(locale as Locale);
+  const faqSchema = generateFAQSchema(t.breakout.description.faq.items);
+  const gameSchema = generateGameSchema(meta.breakout.title, meta.breakout.description, `https://naegihaza.com/${locale}/games/breakout`);
+
   return (
-    <GamePageLayout
-      header={<Header />}
-      game={<BreakoutGameClient />}
-      description={<GameDescription gameKey="breakout" />}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(gameSchema) }}
+      />
+      <GamePageLayout
+        header={<Header />}
+        game={<BreakoutGameClient />}
+        description={<GameDescription gameKey="breakout" />}
+      />
+    </>
   );
 }

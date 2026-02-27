@@ -1,0 +1,46 @@
+import { ImageResponse } from 'next/og';
+
+export const runtime = 'edge';
+export const alt = 'Naegihaza - 내기하자';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
+
+export default function Image() {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: '#fef3e2',
+          gap: '16px',
+        }}
+      >
+        <span style={{ fontSize: 120 }}>🍀</span>
+        <span
+          style={{
+            fontSize: 64,
+            fontWeight: 700,
+            color: '#1a1a1a',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          Naegihaza
+        </span>
+        <span
+          style={{
+            fontSize: 36,
+            color: '#555555',
+          }}
+        >
+          내기하자
+        </span>
+      </div>
+    ),
+    { ...size },
+  );
+}

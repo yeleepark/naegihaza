@@ -4,6 +4,7 @@ import I18nProvider from '@/components/I18nProvider';
 import { Analytics } from "@vercel/analytics/next"
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 import { createPageMetadata } from '@/lib/metadata';
+import HtmlLangSetter from '@/components/HtmlLangSetter';
 
 type Props = {
   children: React.ReactNode;
@@ -23,6 +24,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   return (
     <I18nProvider locale={locale}>
+      <HtmlLangSetter locale={locale} />
       {children}
       <Analytics />
       <ServiceWorkerRegistration />

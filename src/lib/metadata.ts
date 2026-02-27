@@ -50,7 +50,7 @@ export function createPageMetadata(
       description: pageMeta.description,
       url: `${BASE_URL}/${locale}${path}`,
       locale: OG_LOCALE_MAP[locale],
-      images: [{ url: 'https://naegihaza.com', width: 1200, height: 630, alt: 'Naegihaza' }],
+      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Naegihaza' }],
       ...(options.alternateLocale && {
         alternateLocale: locales
           .filter(l => l !== locale)
