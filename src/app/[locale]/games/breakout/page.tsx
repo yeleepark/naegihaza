@@ -48,11 +48,15 @@ export default async function BreakoutPage({ params }: Props) {
       <Header />
 
       <main className="relative flex-1 min-h-0 overflow-y-auto">
-        <div className="h-[calc(100dvh-3.25rem)] flex items-start justify-center p-4 md:p-8">
+        <section className="h-[calc(100dvh-3.25rem)] flex items-start justify-center p-4 md:p-8">
           <BreakoutGameClient />
-        </div>
-        <GameDescription gameKey="breakout" />
-        <Footer />
+        </section>
+        <section className="min-h-[calc(100dvh-3.25rem)] flex flex-col">
+          <div className="flex-1 py-8">
+            <GameDescription gameKey="breakout" />
+          </div>
+          <Footer />
+        </section>
       </main>
     </div>
   );

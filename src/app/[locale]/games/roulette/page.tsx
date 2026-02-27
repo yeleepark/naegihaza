@@ -48,11 +48,15 @@ export default async function RoulettePage({ params }: Props) {
       <Header />
 
       <main className="relative flex-1 min-h-0 overflow-y-auto">
-        <div className="h-[calc(100dvh-3.25rem)] flex items-start justify-center p-4 md:p-8">
+        <section className="h-[calc(100dvh-3.25rem)] flex items-start justify-center p-4 md:p-8">
           <RouletteGameClient />
-        </div>
-        <GameDescription gameKey="roulette" />
-        <Footer />
+        </section>
+        <section className="min-h-[calc(100dvh-3.25rem)] flex flex-col">
+          <div className="flex-1 py-8">
+            <GameDescription gameKey="roulette" />
+          </div>
+          <Footer />
+        </section>
       </main>
     </div>
   );
