@@ -1,14 +1,10 @@
 'use client';
 
-import { useState, useCallback, useRef, useEffect } from 'react';
 import Button from '@/components/ui/Button';
-import {
-  selectWinner,
-  generateReelStrip,
-  PARTICIPANT_COLORS,
-} from '@/utils/slot';
+import { CELL_HEIGHT, SPIN_DURATION } from '@/utils/slot';
 import { SlotResult, SlotMode } from '@/types/slot';
 import { useTranslation } from 'react-i18next';
+import { useSlotMachine } from '@/hooks/useSlotMachine';
 
 type GamePlayProps = {
   participants: string[];
@@ -16,66 +12,10 @@ type GamePlayProps = {
   onComplete: (result: SlotResult) => void;
 };
 
-const CELL_HEIGHT = 64;
-const SPIN_DURATION = 5000;
-const REPEATS = 20;
-
 export default function GamePlay({ participants, mode, onComplete }: GamePlayProps) {
-  const [spinning, setSpinning] = useState(false);
-  const [stopped, setStopped] = useState(false);
-  const [strip, setStrip] = useState<string[]>([]);
-  const [offset, setOffset] = useState(0);
-  const [transitioning, setTransitioning] = useState(false);
-  const winnerRef = useRef<string | null>(null);
+  const { spinning, stopped, strip, offset, transitioning, handleSpin } =
+    useSlotMachine(participants, mode, onComplete);
   const { t } = useTranslation();
-
-  const handleSpin = useCallback(() => {
-    const selectedWinner = selectWinner(participants);
-    winnerRef.current = selectedWinner;
-
-    const newStrip = generateReelStrip(participants, selectedWinner, REPEATS);
-    setStrip(newStrip);
-    setStopped(false);
-    setOffset(0);
-    setTransitioning(false);
-    setSpinning(true);
-  }, [participants]);
-
-  useEffect(() => {
-    if (!spinning || strip.length === 0) return;
-
-    const raf = requestAnimationFrame(() => {
-      const targetIndex = strip.length - 1;
-      const targetOffset = targetIndex * CELL_HEIGHT;
-      setTransitioning(true);
-      setOffset(targetOffset);
-    });
-
-    const timer = setTimeout(() => {
-      setStopped(true);
-      setSpinning(false);
-
-      const winner = winnerRef.current!;
-      const winnerIndex = participants.indexOf(winner);
-      const winnerColor =
-        PARTICIPANT_COLORS[winnerIndex % PARTICIPANT_COLORS.length];
-
-      setTimeout(() => {
-        onComplete({
-          winnerName: winner,
-          winnerColor,
-          totalParticipants: participants.length,
-          timestamp: new Date(),
-          mode,
-        });
-      }, 800);
-    }, SPIN_DURATION + 300);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      clearTimeout(timer);
-    };
-  }, [spinning, strip]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="flex items-center justify-center h-full">
