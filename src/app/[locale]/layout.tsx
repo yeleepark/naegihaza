@@ -1,9 +1,7 @@
-import type { Metadata } from 'next';
-import { locales, type Locale } from '@/i18n/settings';
+import { locales } from '@/i18n/settings';
 import I18nProvider from '@/components/I18nProvider';
 import { Analytics } from "@vercel/analytics/next"
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
-import { createPageMetadata } from '@/lib/metadata';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -33,11 +31,6 @@ type Props = {
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  return createPageMetadata(locale as Locale, 'home', '');
 }
 
 export default async function LocaleLayout({ children, params }: Props) {

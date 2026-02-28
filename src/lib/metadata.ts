@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { locales, type Locale } from '@/i18n/settings';
+import { locales, defaultLocale, type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
 
 const BASE_URL = 'https://naegihaza.com';
@@ -35,7 +35,7 @@ export function createPageMetadata(
         ...Object.fromEntries(
           locales.map(l => [l, `${BASE_URL}/${l}${path}`]),
         ),
-        'x-default': `${BASE_URL}/${options?.xDefault ?? 'ko'}${path}`,
+        'x-default': `${BASE_URL}/${options?.xDefault ?? defaultLocale}${path}`,
       },
     },
   };

@@ -19,9 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'monthly',
         priority: route === '' ? 1.0 : 0.9,
         alternates: {
-          languages: Object.fromEntries(
-            locales.map((l) => [l, `${baseUrl}/${l}${route}`])
-          ),
+          languages: {
+            ...Object.fromEntries(
+              locales.map((l) => [l, `${baseUrl}/${l}${route}`])
+            ),
+            'x-default': `${baseUrl}/en${route}`,
+          },
         },
       });
     });
@@ -34,9 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'monthly',
         priority: 0.3,
         alternates: {
-          languages: Object.fromEntries(
-            locales.map((l) => [l, `${baseUrl}/${l}${route}`])
-          ),
+          languages: {
+            ...Object.fromEntries(
+              locales.map((l) => [l, `${baseUrl}/${l}${route}`])
+            ),
+            'x-default': `${baseUrl}/en${route}`,
+          },
         },
       });
     });

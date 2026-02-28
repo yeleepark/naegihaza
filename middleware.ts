@@ -64,16 +64,10 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  // Rewrite to locale-prefixed URL (no redirect, keeps original URL for SEO)
+  // Redirect to locale-prefixed URL (301) so canonical tags match the visited URL
   const locale = getLocale(request);
   const newUrl = new URL(`/${locale}${pathname}`, request.url);
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set('x-locale', locale);
-  const response = NextResponse.rewrite(newUrl, {
-    request: { headers: requestHeaders },
-  });
-  response.headers.set('Content-Language', locale);
-  return response;
+  return NextResponse.redirect(newUrl, 301);
 }
 
 export const config = {
