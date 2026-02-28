@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/dice/GameSetup';
 import GameRolling from '@/components/dice/GameRolling';
@@ -11,6 +11,7 @@ import {
   calculateDiceConfig,
   determineWinners,
 } from '@/utils/dice';
+import { useGameURL } from '@/hooks/useGameURL';
 import {
   GameState,
   Participant,
@@ -27,6 +28,25 @@ export default function DiceGameClient() {
   );
   const [isRolling, setIsRolling] = useState(false);
   const [result, setResult] = useState<DiceResult | null>(null);
+
+  const { initialized, sync, clear } = useGameURL(({ gameState: s, participants: p, params }) => {
+    const newParticipants = generateParticipants(p);
+    setParticipants(newParticipants);
+    if (s === 'result') {
+      // Dice result is complex (rankings with dice values).
+      // Restore participant names and re-enter rolling so user can re-roll.
+      setGameState('rolling');
+    } else {
+      setGameState('rolling');
+    }
+  });
+
+  useEffect(() => {
+    if (!initialized) return;
+    const names = participants.map((p) => p.name);
+    sync(gameState, names);
+  }, [initialized, gameState, participants, sync]);
+
   const handleStart = useCallback((names: string[]) => {
     const newParticipants = generateParticipants(names);
     setParticipants(newParticipants);
@@ -99,13 +119,14 @@ export default function DiceGameClient() {
   }, []);
 
   const handleReset = useCallback(() => {
+    clear();
     setGameState('setup');
     setParticipants([]);
     setCurrentRollingIndex(0);
     setRollConfig(undefined);
     setIsRolling(false);
     setResult(null);
-  }, []);
+  }, [clear]);
 
   return (
     <GameClientLayout

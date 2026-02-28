@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/ladder/GameSetup';
 import LadderScene from '@/components/ladder/LadderScene';
 import GameResult from '@/components/ladder/GameResult';
 import { generateLadder } from '@/utils/ladder';
+import { useGameURL } from '@/hooks/useGameURL';
 import type { LadderData, GameState } from '@/types/ladder';
 
 export default function LadderGameClient() {
@@ -19,6 +20,27 @@ export default function LadderGameClient() {
     revealTimers.current.forEach(clearTimeout);
     revealTimers.current = [];
   };
+
+  const { initialized, sync, clear } = useGameURL(({ gameState: s, participants: p, params }) => {
+    setParticipants(p);
+    const ri = params.get('ri');
+    if (ri) {
+      setResultItems(ri.split(','));
+    }
+    // Ladder layout is random — regenerate and restart from game state
+    setLadder(generateLadder(p.length));
+    setRevealedPaths(new Set());
+    setGameState('game');
+  });
+
+  useEffect(() => {
+    if (!initialized) return;
+    const extra: Record<string, string> = {};
+    if (resultItems.length > 0) {
+      extra.ri = resultItems.join(',');
+    }
+    sync(gameState, participants, extra);
+  }, [initialized, gameState, participants, resultItems, sync]);
 
   const handleStart = useCallback((names: string[], results: string[]) => {
     clearTimers();
@@ -57,12 +79,13 @@ export default function LadderGameClient() {
 
   const handleReset = useCallback(() => {
     clearTimers();
+    clear();
     setGameState('setup');
     setParticipants([]);
     setResultItems([]);
     setLadder(null);
     setRevealedPaths(new Set());
-  }, []);
+  }, [clear]);
 
   return (
     <GameClientLayout

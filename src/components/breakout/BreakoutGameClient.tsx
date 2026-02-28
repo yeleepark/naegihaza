@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/breakout/GameSetup';
 import GamePlay from '@/components/breakout/GamePlay';
 import GameResult from '@/components/breakout/GameResult';
+import { useGameURL } from '@/hooks/useGameURL';
 import { GameState, BreakoutResult, BreakoutMode } from '@/types/breakout';
 
 export default function BreakoutGameClient() {
@@ -12,6 +13,34 @@ export default function BreakoutGameClient() {
   const [participants, setParticipants] = useState<string[]>([]);
   const [result, setResult] = useState<BreakoutResult | null>(null);
   const [mode, setMode] = useState<BreakoutMode>('penalty');
+
+  const { initialized, sync, clear } = useGameURL(({ gameState: s, participants: p, params }) => {
+    const m = (params.get('m') as BreakoutMode) || 'penalty';
+    setParticipants(p);
+    setMode(m);
+    if (s === 'result') {
+      const w = params.get('w');
+      const wc = params.get('wc');
+      if (w && wc) {
+        setResult({ winnerName: w, winnerColor: wc, participants: p, timestamp: new Date(), mode: m });
+        setGameState('result');
+      } else {
+        setGameState('playing');
+      }
+    } else {
+      setGameState('playing');
+    }
+  });
+
+  useEffect(() => {
+    if (!initialized) return;
+    const extra: Record<string, string> = { m: mode };
+    if (result) {
+      extra.w = result.winnerName;
+      extra.wc = result.winnerColor;
+    }
+    sync(gameState, participants, extra);
+  }, [initialized, gameState, participants, mode, result, sync]);
 
   const handleStart = useCallback((names: string[], selectedMode: BreakoutMode) => {
     setParticipants(names);
@@ -40,10 +69,11 @@ export default function BreakoutGameClient() {
   }, []);
 
   const handleReset = useCallback(() => {
+    clear();
     setGameState('setup');
     setParticipants([]);
     setResult(null);
-  }, []);
+  }, [clear]);
 
   return (
     <GameClientLayout

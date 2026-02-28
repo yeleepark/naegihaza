@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/roulette/GameSetup';
 import GameSpinning from '@/components/roulette/GameSpinning';
@@ -12,6 +12,7 @@ import {
   calculateSpinConfig,
   createRouletteResult,
 } from '@/utils/roulette';
+import { useGameURL } from '@/hooks/useGameURL';
 import {
   GameState,
   Participant,
@@ -29,6 +30,46 @@ export default function RouletteGameClient() {
   );
   const [isSpinning, setIsSpinning] = useState(false);
   const [result, setResult] = useState<RouletteResult | null>(null);
+
+  const { initialized, sync, clear } = useGameURL(({ gameState: s, participants: p, params }) => {
+    const newParticipants = generateParticipants(p);
+    setParticipants(newParticipants);
+    setSegments(generateWheelSegments(p.length));
+    if (s === 'result') {
+      const w = params.get('w');
+      const wc = params.get('wc');
+      const wn = params.get('wn');
+      if (w && wc && wn) {
+        const winnerId = newParticipants.find((pt) => pt.name === w)?.id ?? 0;
+        setResult({
+          winnerId,
+          winnerName: w,
+          winnerColor: wc,
+          winnerNumber: parseInt(wn, 10),
+          totalParticipants: p.length,
+          timestamp: new Date(),
+        });
+        setGameState('result');
+      } else {
+        setGameState('spinning');
+      }
+    } else {
+      setGameState('spinning');
+    }
+  });
+
+  useEffect(() => {
+    if (!initialized) return;
+    const names = participants.map((p) => p.name);
+    const extra: Record<string, string> = {};
+    if (result) {
+      extra.w = result.winnerName;
+      extra.wc = result.winnerColor;
+      extra.wn = String(result.winnerNumber);
+    }
+    sync(gameState, names, extra);
+  }, [initialized, gameState, participants, result, sync]);
+
   const handleStart = useCallback((names: string[]) => {
     const newParticipants = generateParticipants(names);
     setParticipants(newParticipants);
@@ -70,13 +111,14 @@ export default function RouletteGameClient() {
   }, []);
 
   const handleReset = useCallback(() => {
+    clear();
     setGameState('setup');
     setParticipants([]);
     setSegments([]);
     setSpinConfig(undefined);
     setIsSpinning(false);
     setResult(null);
-  }, []);
+  }, [clear]);
 
   return (
     <GameClientLayout

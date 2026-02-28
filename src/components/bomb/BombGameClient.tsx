@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/bomb/GameSetup';
 import GamePlay from '@/components/bomb/GamePlay';
 import GameResult from '@/components/bomb/GameResult';
 import { generateCards, PARTICIPANT_COLORS } from '@/utils/bomb';
+import { useGameURL } from '@/hooks/useGameURL';
 import { GameState, Card, BombResult } from '@/types/bomb';
 
 export default function BombGameClient() {
@@ -17,6 +18,40 @@ export default function BombGameClient() {
   const [flippingCardId, setFlippingCardId] = useState<number | null>(null);
   const FLIPS_PER_PERSON = 2;
   const getCardCount = (participantCount: number) => participantCount * FLIPS_PER_PERSON;
+
+  const { initialized, sync, clear } = useGameURL(({ gameState: s, participants: p, params }) => {
+    setParticipants(p);
+    if (s === 'result') {
+      const l = params.get('l');
+      const lc = params.get('lc');
+      if (l && lc) {
+        setResult({
+          loserName: l,
+          loserColor: lc,
+          winnerNames: p.filter((n) => n !== l),
+          totalCards: getCardCount(p.length),
+          timestamp: new Date(),
+        });
+        setGameState('result');
+      } else {
+        setCards(generateCards(getCardCount(p.length)));
+        setGameState('playing');
+      }
+    } else {
+      setCards(generateCards(getCardCount(p.length)));
+      setGameState('playing');
+    }
+  });
+
+  useEffect(() => {
+    if (!initialized) return;
+    const extra: Record<string, string> = {};
+    if (result) {
+      extra.l = result.loserName;
+      extra.lc = result.loserColor;
+    }
+    sync(gameState, participants, extra);
+  }, [initialized, gameState, participants, result, sync]);
 
   const handleStart = useCallback((names: string[]) => {
     const count = getCardCount(names.length);
@@ -81,13 +116,14 @@ export default function BombGameClient() {
   }, [participants.length]);
 
   const handleReset = useCallback(() => {
+    clear();
     setGameState('setup');
     setParticipants([]);
     setCards([]);
     setCurrentTurnIndex(0);
     setResult(null);
     setFlippingCardId(null);
-  }, []);
+  }, [clear]);
 
   return (
     <GameClientLayout
