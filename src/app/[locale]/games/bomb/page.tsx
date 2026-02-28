@@ -39,7 +39,7 @@ export default async function BombPage({ params }: Props) {
       <GamePageLayout
         header={<Header />}
         game={<BombGameClient />}
-        description={<GameDescription gameKey="bomb" />}
+        description={<GameDescription description={t.bomb.description} />}
       />
     </>
   );

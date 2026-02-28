@@ -39,7 +39,7 @@ export default async function SlotPage({ params }: Props) {
       <GamePageLayout
         header={<Header />}
         game={<SlotGameClient />}
-        description={<GameDescription gameKey="slot" />}
+        description={<GameDescription description={t.slot.description} />}
       />
     </>
   );

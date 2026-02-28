@@ -39,7 +39,7 @@ export default async function RoulettePage({ params }: Props) {
       <GamePageLayout
         header={<Header />}
         game={<RouletteGameClient />}
-        description={<GameDescription gameKey="roulette" />}
+        description={<GameDescription description={t.roulette.description} />}
       />
     </>
   );

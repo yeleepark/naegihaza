@@ -39,7 +39,7 @@ export default async function BreakoutPage({ params }: Props) {
       <GamePageLayout
         header={<Header />}
         game={<BreakoutGameClient />}
-        description={<GameDescription gameKey="breakout" />}
+        description={<GameDescription description={t.breakout.description} />}
       />
     </>
   );

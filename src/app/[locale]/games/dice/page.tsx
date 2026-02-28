@@ -39,7 +39,7 @@ export default async function DicePage({ params }: Props) {
       <GamePageLayout
         header={<Header />}
         game={<DiceGameClient />}
-        description={<GameDescription gameKey="dice" />}
+        description={<GameDescription description={t.dice.description} />}
       />
     </>
   );

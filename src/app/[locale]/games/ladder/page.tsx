@@ -39,7 +39,7 @@ export default async function LadderPage({ params }: Props) {
       <GamePageLayout
         header={<Header />}
         game={<LadderGameClient />}
-        description={<GameDescription gameKey="ladder" />}
+        description={<GameDescription description={t.ladder.description} />}
       />
     </>
   );
