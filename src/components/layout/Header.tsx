@@ -3,12 +3,16 @@
 import Link from 'next/link';
 import { usePathname, useParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
+import { Menu } from 'lucide-react';
+import NavMenu from './NavMenu';
 
 export default function Header() {
   const pathname = usePathname();
   const params = useParams();
   const locale = params.locale as string;
   const { t } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // 홈은 /[locale] 형태
   const isHome = pathname === `/${locale}` || pathname === '/';
@@ -23,12 +27,17 @@ export default function Header() {
         </Link>
 
         {!isHome && (
-          <Link
-            href={`/${locale}`}
-            className="font-game text-sm hover:text-pink-400 transition-colors"
-          >
-            ← {t('header.backToList')}
-          </Link>
+          <div className="relative">
+            <button
+              onClick={() => setMenuOpen(true)}
+              className="p-2 hover:text-pink-400 transition-colors"
+              aria-label={t('header.backToList')}
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+
+            {menuOpen && <NavMenu onClose={() => setMenuOpen(false)} />}
+          </div>
         )}
       </div>
     </header>
