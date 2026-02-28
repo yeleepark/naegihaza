@@ -1,5 +1,20 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
+import { Press_Start_2P, Jua } from "next/font/google";
+import { defaultLocale } from "@/i18n/settings";
 import "./globals.css";
+
+const pressStart2P = Press_Start_2P({
+  variable: "--font-pixel",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const jua = Jua({
+  variable: "--font-jua",
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -70,10 +85,31 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  const headersList = await headers();
+  const locale = headersList.get('x-locale') || defaultLocale;
+
+  return (
+    <html lang={locale} suppressHydrationWarning>
+      <head>
+        <meta name="theme-color" content="#fef3e2" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="apple-touch-icon" href="/apple-icon" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4501038602130909"
+          crossOrigin="anonymous"
+        />
+      </head>
+      <body className={`${pressStart2P.variable} ${jua.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
 }
