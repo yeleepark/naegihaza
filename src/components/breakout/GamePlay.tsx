@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { BreakoutMode } from '@/types/breakout';
 import { useBreakoutEngine } from '@/hooks/useBreakoutEngine';
 import { SPEED_MIN, SPEED_MAX, SPEED_STEP } from '@/lib/breakout-engine';
+import { Siren, Trophy } from 'lucide-react';
 
 type Props = {
   participants: string[];
@@ -25,12 +26,25 @@ export default function GamePlay({ participants, onResult, mode }: Props) {
 
   return (
     <div className="flex flex-col w-full max-w-[600px] mx-auto gap-8">
-      <p className="font-game text-center text-sm font-bold text-black/60">
+      <div
+        className={`flex items-center justify-center gap-2 px-4 py-2 mx-auto border-2 rounded-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-game font-bold text-sm ${
+          mode === 'penalty'
+            ? 'bg-red-100 border-red-500 text-red-700'
+            : 'bg-amber-100 border-amber-500 text-amber-700'
+        }`}
+      >
+        {mode === 'penalty' ? (
+          <Siren className="w-4 h-4 flex-shrink-0" />
+        ) : (
+          <Trophy className="w-4 h-4 flex-shrink-0" />
+        )}
         {t(mode === 'penalty' ? 'breakout.notice.penalty' : 'breakout.notice.winner')}
-      </p>
+      </div>
       <div
         ref={wrapRef}
-        className="h-[70dvh] relative rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+        className={`h-[60dvh] relative rounded-2xl overflow-hidden border-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
+          mode === 'penalty' ? 'border-red-500' : 'border-amber-500'
+        }`}
       >
         <canvas ref={canvasRef} className="block w-full h-full" />
         {showStart && (

@@ -151,7 +151,7 @@
       "duplicate": "Hay nombres duplicados"
     },
     "playAgain": "Otra vez",
-    "reset": "Reiniciar",
+    "reset": "Cambiar jugadores",
     "howToPlay": "Cómo jugar"
   },
   "ladder": {
@@ -561,22 +561,22 @@
         "🧱 El último bloque en pie es el ganador"
       ]
     },
-    "minMax": "2–100 personas",
+    "minMax": "Puedes agregar de 2 a {{max}} participantes",
     "play": "Jugar",
     "speed": "Velocidad",
     "error": {
-      "max": "Máximo 40 personas"
+      "max": "Máximo {{max}} personas"
     },
     "mode": {
       "penalty": "Penalización",
       "winner": "Ganador"
     },
     "notice": {
-      "penalty": "El último en pie recibe la penalización",
-      "winner": "El último en pie es el ganador"
+      "penalty": "Último en pie = Perdedor",
+      "winner": "Último en pie = Ganador"
     },
     "result": {
-      "penalty": "¡Te tocó!",
+      "penalty": "¡Penalización!",
       "winner": "Ganador"
     }
   },

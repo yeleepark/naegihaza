@@ -151,7 +151,7 @@
       "duplicate": "Duplicate names found"
     },
     "playAgain": "Again",
-    "reset": "Reset",
+    "reset": "New Players",
     "howToPlay": "How to Play"
   },
   "ladder": {
@@ -561,22 +561,22 @@
         "🧱 The last block standing is the winner"
       ]
     },
-    "minMax": "2–100 people",
+    "minMax": "You can add 2 to {{max}} participants",
     "play": "Play",
     "speed": "Speed",
     "error": {
-      "max": "Up to 40 people allowed"
+      "max": "Up to {{max}} people allowed"
     },
     "mode": {
       "penalty": "Penalty Pick",
       "winner": "Winner Pick"
     },
     "notice": {
-      "penalty": "The last one standing gets the penalty",
-      "winner": "The last one standing is the winner"
+      "penalty": "Last one standing = Loser",
+      "winner": "Last one standing = Winner"
     },
     "result": {
-      "penalty": "You're It!",
+      "penalty": "Penalty!",
       "winner": "Winner"
     }
   },

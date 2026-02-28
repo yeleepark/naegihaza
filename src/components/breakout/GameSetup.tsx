@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { parseNames, validateParticipantNames } from '@/utils/breakout';
@@ -10,6 +10,9 @@ import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { BrickWall, Siren, Trophy } from 'lucide-react';
 import { BreakoutMode } from '@/types/breakout';
 
+const MOBILE_MAX = 10;
+const DESKTOP_MAX = 100;
+
 type GameSetupProps = {
   onStart: (names: string[], mode: BreakoutMode) => void;
 };
@@ -18,16 +21,26 @@ export default function GameSetup({ onStart }: GameSetupProps) {
   const [input, setInput] = useLocalStorage('participants');
   const [error, setError] = useState<string>('');
   const [mode, setMode] = useState<BreakoutMode>('penalty');
+  const [maxParticipants, setMaxParticipants] = useState(DESKTOP_MAX);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    setMaxParticipants(mq.matches ? MOBILE_MAX : DESKTOP_MAX);
+    const handler = (e: MediaQueryListEvent) =>
+      setMaxParticipants(e.matches ? MOBILE_MAX : DESKTOP_MAX);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const names = parseNames(input);
-    const validation = validateParticipantNames(names);
+    const validation = validateParticipantNames(names, maxParticipants);
 
     if (!validation.valid) {
-      setError(t(validation.error || 'common.error.min'));
+      setError(t(validation.error || 'common.error.min', { max: maxParticipants }));
       return;
     }
 
@@ -94,7 +107,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
                 <p className="text-red-500 text-sm font-bold mt-2">{error}</p>
               )}
               <p className="font-game text-black/50 text-xs mt-2">
-                {t('breakout.minMax')}
+                {t('breakout.minMax', { max: maxParticipants })}
               </p>
             </div>
 

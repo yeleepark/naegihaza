@@ -92,7 +92,6 @@ export default function GameResult({
           >
             {t(isPenalty ? 'breakout.result.penalty' : 'breakout.result.winner')}
           </h2>
-
           <div
             className={`rounded-xl p-8 mb-6 border-4 ${
               isPenalty

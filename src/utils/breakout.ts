@@ -10,7 +10,10 @@ export function parseNames(input: string): string[] {
     .filter((name) => name.length > 0);
 }
 
-export function validateParticipantNames(names: string[]): {
+export function validateParticipantNames(
+  names: string[],
+  max: number = 100,
+): {
   valid: boolean;
   error?: string;
 } {
@@ -18,7 +21,7 @@ export function validateParticipantNames(names: string[]): {
     return { valid: false, error: 'common.error.min' };
   }
 
-  if (names.length > 100) {
+  if (names.length > max) {
     return { valid: false, error: 'breakout.error.max' };
   }
 

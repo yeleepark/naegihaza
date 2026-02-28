@@ -150,7 +150,7 @@
       "duplicate": "중복된 이름이 있어요"
     },
     "playAgain": "다시",
-    "reset": "초기화",
+    "reset": "참가자 변경",
     "howToPlay": "사용법"
   },
   "ladder": {
@@ -560,23 +560,23 @@
         "🧱 마지막까지 남은 블럭이 당첨자입니다"
       ]
     },
-    "minMax": "2–100명 가능",
+    "minMax": "2명부터 {{max}}명까지 참가할 수 있어요",
     "play": "플레이",
     "speed": "속도",
     "error": {
-      "max": "최대 40명까지 입력할 수 있어요"
+      "max": "최대 {{max}}명까지 입력할 수 있어요"
     },
     "mode": {
       "penalty": "벌칙자 뽑기",
       "winner": "우승자 뽑기"
     },
     "notice": {
-      "penalty": "최후의 1인이 벌칙 당첨입니다",
-      "winner": "최후의 1인이 우승자입니다"
+      "penalty": "최후의 1인 = 벌칙자",
+      "winner": "최후의 1인 = 우승자"
     },
     "result": {
-      "penalty": "당첨",
-      "winner": "당첨"
+      "penalty": "벌칙 당첨",
+      "winner": "우승자"
     }
   },
   "slot": {
