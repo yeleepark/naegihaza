@@ -636,7 +636,12 @@
     "minMax": "2–100 personas",
     "spin": "¡Girar!",
     "spinning": "Girando...",
+    "mode": {
+      "penalty": "Penalización",
+      "winner": "Ganador"
+    },
     "result": {
+      "penalty": "¡Penalización!",
       "winner": "Ganador"
     }
   }

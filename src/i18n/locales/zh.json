@@ -636,7 +636,12 @@
     "minMax": "2–100人",
     "spin": "旋转！",
     "spinning": "旋转中...",
+    "mode": {
+      "penalty": "惩罚抽签",
+      "winner": "赢家抽签"
+    },
     "result": {
+      "penalty": "受罚!",
       "winner": "赢家"
     }
   }

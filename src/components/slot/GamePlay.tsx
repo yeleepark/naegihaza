@@ -7,19 +7,20 @@ import {
   generateReelStrip,
   PARTICIPANT_COLORS,
 } from '@/utils/slot';
-import { SlotResult } from '@/types/slot';
+import { SlotResult, SlotMode } from '@/types/slot';
 import { useTranslation } from 'react-i18next';
 
 type GamePlayProps = {
   participants: string[];
+  mode: SlotMode;
   onComplete: (result: SlotResult) => void;
 };
 
 const CELL_HEIGHT = 64;
-const SPIN_DURATION = 3000;
-const REPEATS = 10;
+const SPIN_DURATION = 5000;
+const REPEATS = 20;
 
-export default function GamePlay({ participants, onComplete }: GamePlayProps) {
+export default function GamePlay({ participants, mode, onComplete }: GamePlayProps) {
   const [spinning, setSpinning] = useState(false);
   const [stopped, setStopped] = useState(false);
   const [strip, setStrip] = useState<string[]>([]);
@@ -65,9 +66,10 @@ export default function GamePlay({ participants, onComplete }: GamePlayProps) {
           winnerColor,
           totalParticipants: participants.length,
           timestamp: new Date(),
+          mode,
         });
-      }, 500);
-    }, SPIN_DURATION + 200);
+      }, 800);
+    }, SPIN_DURATION + 300);
 
     return () => {
       cancelAnimationFrame(raf);
@@ -119,7 +121,7 @@ export default function GamePlay({ participants, onComplete }: GamePlayProps) {
               <div className="relative">
                 {/* Reel window */}
                 <div
-                  className="overflow-hidden border-3 border-black rounded-lg bg-sky-400 relative"
+                  className="overflow-hidden border-3 border-black rounded-lg bg-gray-900 relative"
                   style={{ height: CELL_HEIGHT }}
                 >
                   <div
@@ -127,7 +129,7 @@ export default function GamePlay({ participants, onComplete }: GamePlayProps) {
                     style={{
                       transform: `translateY(-${offset}px)`,
                       transition: transitioning
-                        ? `transform ${SPIN_DURATION}ms cubic-bezier(0.15, 0.85, 0.35, 1)`
+                        ? `transform ${SPIN_DURATION}ms cubic-bezier(0.05, 0.35, 0.0, 1.0)`
                         : 'none',
                     }}
                   >
@@ -170,26 +172,19 @@ export default function GamePlay({ participants, onComplete }: GamePlayProps) {
             </div>
 
             {/* Pink shelf */}
-            <div className="h-3 bg-pink-500 border-t-2 border-black" />
+            <div className="h-3 bg-pink-600 border-t-2 border-black" />
 
-            {/* Blue grill */}
-            <div className="bg-sky-400 border-t-2 border-black px-6 py-3 space-y-1.5">
+            {/* Gold grill */}
+            <div className="bg-amber-400 border-t-2 border-black px-6 py-3 space-y-1.5">
               {[0, 1, 2, 3].map((i) => (
                 <div
                   key={i}
-                  className="h-1.5 bg-sky-500 rounded-full border border-sky-600"
+                  className="h-1.5 bg-amber-500 rounded-full border border-amber-600"
                 />
               ))}
             </div>
           </div>
         </div>
-
-        {/* Status text */}
-        {spinning && (
-          <p className="font-game text-sm font-bold text-black/60 animate-pulse mt-4">
-            {t('slot.spinning')}
-          </p>
-        )}
 
         {/* SPIN button */}
         <Button

@@ -636,7 +636,12 @@
     "minMax": "2–100 people",
     "spin": "Spin!",
     "spinning": "Spinning...",
+    "mode": {
+      "penalty": "Penalty Pick",
+      "winner": "Winner Pick"
+    },
     "result": {
+      "penalty": "Penalty!",
       "winner": "Winner"
     }
   }

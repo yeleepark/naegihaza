@@ -6,20 +6,23 @@ import GameSetup from '@/components/slot/GameSetup';
 import GamePlay from '@/components/slot/GamePlay';
 import GameResult from '@/components/slot/GameResult';
 import { useGameURL } from '@/hooks/useGameURL';
-import { GameState, SlotResult } from '@/types/slot';
+import { GameState, SlotResult, SlotMode } from '@/types/slot';
 
 export default function SlotGameClient() {
   const [gameState, setGameState] = useState<GameState>('setup');
   const [participants, setParticipants] = useState<string[]>([]);
   const [result, setResult] = useState<SlotResult | null>(null);
+  const [mode, setMode] = useState<SlotMode>('penalty');
 
   const { initialized, sync, clear } = useGameURL(({ gameState: s, participants: p, params }) => {
+    const m = (params.get('m') as SlotMode) || 'penalty';
     setParticipants(p);
+    setMode(m);
     if (s === 'result') {
       const w = params.get('w');
       const wc = params.get('wc');
       if (w && wc) {
-        setResult({ winnerName: w, winnerColor: wc, totalParticipants: p.length, timestamp: new Date() });
+        setResult({ winnerName: w, winnerColor: wc, totalParticipants: p.length, timestamp: new Date(), mode: m });
         setGameState('result');
       } else {
         setGameState('spinning');
@@ -31,16 +34,17 @@ export default function SlotGameClient() {
 
   useEffect(() => {
     if (!initialized) return;
-    const extra: Record<string, string> = {};
+    const extra: Record<string, string> = { m: mode };
     if (result) {
       extra.w = result.winnerName;
       extra.wc = result.winnerColor;
     }
     sync(gameState, participants, extra);
-  }, [initialized, gameState, participants, result, sync]);
+  }, [initialized, gameState, participants, mode, result, sync]);
 
-  const handleStart = useCallback((names: string[]) => {
+  const handleStart = useCallback((names: string[], selectedMode: SlotMode) => {
     setParticipants(names);
+    setMode(selectedMode);
     setResult(null);
     setGameState('spinning');
   }, []);
@@ -67,7 +71,7 @@ export default function SlotGameClient() {
       gameState={gameState}
       setup={<GameSetup onStart={handleStart} />}
       gameplay={
-        <GamePlay participants={participants} onComplete={handleComplete} />
+        <GamePlay participants={participants} mode={mode} onComplete={handleComplete} />
       }
       result={
         result ? (
