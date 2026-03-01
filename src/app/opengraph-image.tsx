@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Naegihaza - 내기하자';
+export const alt = 'RandomGame.zip - 랜덤게임.zip';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -29,7 +29,7 @@ export default function Image() {
             letterSpacing: '-0.02em',
           }}
         >
-          Naegihaza
+          RandomGame.zip
         </span>
         <span
           style={{
@@ -37,7 +37,7 @@ export default function Image() {
             color: '#555555',
           }}
         >
-          내기하자
+          랜덤게임.zip
         </span>
       </div>
     ),

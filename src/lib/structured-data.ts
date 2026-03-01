@@ -20,10 +20,10 @@ const siteNavNames: Record<string, Record<string, string>> = {
 };
 
 const siteNavMenuName: Record<string, string> = {
-  ko: '내기하자 게임 메뉴',
-  en: 'Naegihaza Game Menu',
-  zh: 'Naegihaza 游戏菜单',
-  es: 'Menú de Juegos Naegihaza',
+  ko: '랜덤게임.zip 게임 메뉴',
+  en: 'RandomGame.zip Game Menu',
+  zh: 'RandomGame.zip 游戏菜单',
+  es: 'Menú de Juegos RandomGame.zip',
 };
 
 export function generateSiteNavSchema(locale: string = 'en') {

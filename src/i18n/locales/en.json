@@ -13,21 +13,21 @@
       "description": "A reel spins to select a winner."
     },
     "about": {
-      "title": "About Naegihaja",
+      "title": "About RandomGame.zip",
       "sections": {
         "intro": {
-          "title": "What is Naegihaja?",
-          "p1": "Naegihaja is a free web game service that helps friends, couples, family, and coworkers fairly decide order, penalties, or who pays.",
-          "p2": "The name \"Naegihaja\" means \"let’s make a bet\" in Korean.",
+          "title": "What is RandomGame.zip?",
+          "p1": "RandomGame.zip is a free web game service that helps friends, couples, family, and coworkers fairly decide order, penalties, or who pays.",
+          "p2": "The name \"RandomGame.zip\" means \"let’s make a bet\" in Korean.",
           "p3": "No installation or signup is required. You can use it instantly in any browser on mobile, tablet, or desktop.",
           "p4": "Roulette, dice, ladder game, and bomb pick are gathered in one place to solve the simple question — \"Who should do it?\" — in the easiest and most fun way."
         },
         "birth": {
           "title": "How It Started",
-          "p1": "Naegihaja was born from everyday moments at work — deciding who buys coffee, desserts, or takes turns paying for lunch.",
+          "p1": "RandomGame.zip was born from everyday moments at work — deciding who buys coffee, desserts, or takes turns paying for lunch.",
           "p2": "Rock-paper-scissors kept ending in ties, took too long, and sometimes didn’t feel fair.",
           "p3": "We needed a fast and transparent way to decide, so instead of searching different tools every time, we created one place with all decision games.",
-          "p4": "That became Naegihaja."
+          "p4": "That became RandomGame.zip."
         },
         "features": {
           "title": "Features",
@@ -91,11 +91,12 @@
             "Presentation order"
           ]
         },
-        "outro": "Naegihaja isn’t just a game site — it’s a fun way to make small daily decisions quickly."
+        "outro": "RandomGame.zip isn’t just a game site — it’s a fun way to make small daily decisions quickly."
       }
     }
   },
   "header": {
+    "title": "RandomGame.zip",
     "backToList": "Back to list"
   },
   "common": {
@@ -124,23 +125,23 @@
       "sections": [
         {
           "title": "Information We Collect",
-          "content": "Naegihaza does not require sign-up or login and does not directly collect personally identifiable information. Participant names entered in games are processed only within your browser and are not stored on our servers. However, we may collect anonymized usage statistics (page visits, browser type, device type, etc.) for service improvement and analytics."
+          "content": "RandomGame.zip does not require sign-up or login and does not directly collect personally identifiable information. Participant names entered in games are processed only within your browser and are not stored on our servers. However, we may collect anonymized usage statistics (page visits, browser type, device type, etc.) for service improvement and analytics."
         },
         {
           "title": "Cookies and Tracking",
-          "content": "Naegihaza may use cookies for service operation and advertising. Third-party advertising services such as Google AdSense may use their own cookies to provide personalized ads. You can disable cookies in your browser settings, but some features may be limited."
+          "content": "RandomGame.zip may use cookies for service operation and advertising. Third-party advertising services such as Google AdSense may use their own cookies to provide personalized ads. You can disable cookies in your browser settings, but some features may be limited."
         },
         {
           "title": "Third-Party Services",
-          "content": "Naegihaza may use third-party services such as Google AdSense (advertising) and Google Analytics (traffic analysis). These services collect and process data according to their own privacy policies. Please refer to the respective service's privacy policy for details."
+          "content": "RandomGame.zip may use third-party services such as Google AdSense (advertising) and Google Analytics (traffic analysis). These services collect and process data according to their own privacy policies. Please refer to the respective service's privacy policy for details."
         },
         {
           "title": "Data Storage",
-          "content": "Naegihaza does not store your game data on servers. All game processing occurs within your browser, and data is automatically deleted when you close the page. Some user preferences such as language settings may be stored in your browser's local storage."
+          "content": "RandomGame.zip does not store your game data on servers. All game processing occurs within your browser, and data is automatically deleted when you close the page. Some user preferences such as language settings may be stored in your browser's local storage."
         },
         {
           "title": "Children's Privacy",
-          "content": "Naegihaza is not intended for children under 13 and does not intentionally collect personal information from children. If we become aware that a child under 13 has provided personal information, we will promptly delete such information."
+          "content": "RandomGame.zip is not intended for children under 13 and does not intentionally collect personal information from children. If we become aware that a child under 13 has provided personal information, we will promptly delete such information."
         },
         {
           "title": "Policy Changes",
@@ -158,11 +159,11 @@
       "sections": [
         {
           "title": "Acceptance of Terms",
-          "content": "By using the Naegihaza website (the 'Service'), you agree to these Terms of Service. If you do not agree, please discontinue use of the Service."
+          "content": "By using the RandomGame.zip website (the 'Service'), you agree to these Terms of Service. If you do not agree, please discontinue use of the Service."
         },
         {
           "title": "Service Description",
-          "content": "Naegihaza is a web service providing various free random games including roulette, dice, ladder game, and bomb draw. The Service is provided for entertainment and decision-making assistance purposes and has no connection to actual gambling or monetary rewards."
+          "content": "RandomGame.zip is a web service providing various free random games including roulette, dice, ladder game, and bomb draw. The Service is provided for entertainment and decision-making assistance purposes and has no connection to actual gambling or monetary rewards."
         },
         {
           "title": "User Responsibilities",
@@ -170,15 +171,15 @@
         },
         {
           "title": "Intellectual Property",
-          "content": "All intellectual property rights in Naegihaza's design, code, and content belong to the service operator. Unauthorized reproduction, distribution, or modification of service content is prohibited."
+          "content": "All intellectual property rights in RandomGame.zip's design, code, and content belong to the service operator. Unauthorized reproduction, distribution, or modification of service content is prohibited."
         },
         {
           "title": "Disclaimer",
-          "content": "Naegihaza is provided 'as is' without warranties of fitness for a particular purpose or error-free operation. Game results are randomly generated, and the Service assumes no legal liability for the fairness of results. The Service may be changed or discontinued without prior notice."
+          "content": "RandomGame.zip is provided 'as is' without warranties of fitness for a particular purpose or error-free operation. Game results are randomly generated, and the Service assumes no legal liability for the fairness of results. The Service may be changed or discontinued without prior notice."
         },
         {
           "title": "Limitation of Liability",
-          "content": "The service operator shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of Naegihaza, to the extent permitted by law."
+          "content": "The service operator shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of RandomGame.zip, to the extent permitted by law."
         },
         {
           "title": "Changes to Terms",
@@ -197,7 +198,7 @@
       "intro": {
         "title": "What is Roulette?",
         "p1": "Roulette is the most intuitive and fun way to fairly select one person from a group. Enter participant names and they'll be evenly placed on a spinning wheel — the name where the arrow stops is selected.",
-        "p2": "Naegihaza's roulette uses a completely random algorithm to guarantee equal selection probability for all participants. No app installation required — use it directly in your browser with 2 to 12 participants."
+        "p2": "RandomGame.zip's roulette uses a completely random algorithm to guarantee equal selection probability for all participants. No app installation required — use it directly in your browser with 2 to 12 participants."
       },
       "rules": {
         "title": "Detailed Rules",
@@ -223,7 +224,7 @@
         "items": [
           {
             "q": "Are the results truly random?",
-            "a": "Yes, Naegihaza's roulette uses a cryptographically secure random number generator to ensure completely random results. Equal probability is applied to all participants."
+            "a": "Yes, RandomGame.zip's roulette uses a cryptographically secure random number generator to ensure completely random results. Equal probability is applied to all participants."
           },
           {
             "q": "Can I play again with the same participants?",
@@ -231,7 +232,7 @@
           },
           {
             "q": "Does it work on mobile?",
-            "a": "Yes, Naegihaza is built with responsive design and works identically on smartphones, tablets, and PCs."
+            "a": "Yes, RandomGame.zip is built with responsive design and works identically on smartphones, tablets, and PCs."
           }
         ]
       }

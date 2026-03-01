@@ -13,21 +13,21 @@
       "description": "Un carrete gira para seleccionar un ganador."
     },
     "about": {
-      "title": "Acerca de Naegihaja",
+      "title": "Acerca de RandomGame.zip",
       "sections": {
         "intro": {
-          "title": "¿Qué es Naegihaja?",
-          "p1": "Naegihaja es un servicio web gratuito que ayuda a amigos, parejas, familia o compañeros de trabajo a decidir de forma justa turnos, penalizaciones o quién paga.",
-          "p2": "«Naegihaja» en coreano significa «hagamos una apuesta».",
+          "title": "¿Qué es RandomGame.zip?",
+          "p1": "RandomGame.zip es un servicio web gratuito que ayuda a amigos, parejas, familia o compañeros de trabajo a decidir de forma justa turnos, penalizaciones o quién paga.",
+          "p2": "«RandomGame.zip» en coreano significa «hagamos una apuesta».",
           "p3": "No requiere instalación ni registro. Funciona directamente en cualquier navegador móvil, tablet o PC.",
           "p4": "Reúne ruleta, dados, escalera y bomba en un solo lugar para resolver la pregunta: «¿A quién le toca?» de la forma más fácil y divertida."
         },
         "birth": {
           "title": "Cómo empezó",
-          "p1": "Naegihaja nació de situaciones cotidianas: decidir quién compra el café, el postre o paga el almuerzo.",
+          "p1": "RandomGame.zip nació de situaciones cotidianas: decidir quién compra el café, el postre o paga el almuerzo.",
           "p2": "Piedra, papel o tijera terminaba en empate demasiadas veces y tomaba tiempo.",
           "p3": "Necesitábamos una forma rápida y transparente, así que creamos un solo lugar con todos los juegos de decisión.",
-          "p4": "Así nació Naegihaja."
+          "p4": "Así nació RandomGame.zip."
         },
         "features": {
           "title": "Características",
@@ -91,11 +91,12 @@
             "Orden de presentación"
           ]
         },
-        "outro": "Naegihaja no es solo un sitio de juegos: es una forma divertida de decidir rápidamente."
+        "outro": "RandomGame.zip no es solo un sitio de juegos: es una forma divertida de decidir rápidamente."
       }
     }
   },
   "header": {
+    "title": "JuegoAleatorio.zip",
     "backToList": "Volver a la lista"
   },
   "common": {
@@ -124,23 +125,23 @@
       "sections": [
         {
           "title": "Información que recopilamos",
-          "content": "Naegihaza no requiere registro ni inicio de sesión y no recopila directamente información de identificación personal. Los nombres de participantes ingresados en los juegos se procesan solo en su navegador y no se almacenan en nuestros servidores. Sin embargo, podemos recopilar estadísticas de uso anónimas (visitas a páginas, tipo de navegador, tipo de dispositivo, etc.) para mejorar el servicio y análisis."
+          "content": "RandomGame.zip no requiere registro ni inicio de sesión y no recopila directamente información de identificación personal. Los nombres de participantes ingresados en los juegos se procesan solo en su navegador y no se almacenan en nuestros servidores. Sin embargo, podemos recopilar estadísticas de uso anónimas (visitas a páginas, tipo de navegador, tipo de dispositivo, etc.) para mejorar el servicio y análisis."
         },
         {
           "title": "Cookies y seguimiento",
-          "content": "Naegihaza puede usar cookies para la operación del servicio y publicidad. Servicios de publicidad de terceros como Google AdSense pueden usar sus propias cookies para proporcionar anuncios personalizados. Puede desactivar las cookies en la configuración de su navegador, pero algunas funciones pueden verse limitadas."
+          "content": "RandomGame.zip puede usar cookies para la operación del servicio y publicidad. Servicios de publicidad de terceros como Google AdSense pueden usar sus propias cookies para proporcionar anuncios personalizados. Puede desactivar las cookies en la configuración de su navegador, pero algunas funciones pueden verse limitadas."
         },
         {
           "title": "Servicios de terceros",
-          "content": "Naegihaza puede utilizar servicios de terceros como Google AdSense (publicidad) y Google Analytics (análisis de tráfico). Estos servicios recopilan y procesan datos según sus propias políticas de privacidad. Consulte la política de privacidad del servicio respectivo para más detalles."
+          "content": "RandomGame.zip puede utilizar servicios de terceros como Google AdSense (publicidad) y Google Analytics (análisis de tráfico). Estos servicios recopilan y procesan datos según sus propias políticas de privacidad. Consulte la política de privacidad del servicio respectivo para más detalles."
         },
         {
           "title": "Almacenamiento de datos",
-          "content": "Naegihaza no almacena datos de juegos en servidores. Todo el procesamiento del juego ocurre dentro de su navegador y los datos se eliminan automáticamente al cerrar la página. Algunas preferencias como la configuración de idioma pueden almacenarse en el almacenamiento local de su navegador."
+          "content": "RandomGame.zip no almacena datos de juegos en servidores. Todo el procesamiento del juego ocurre dentro de su navegador y los datos se eliminan automáticamente al cerrar la página. Algunas preferencias como la configuración de idioma pueden almacenarse en el almacenamiento local de su navegador."
         },
         {
           "title": "Privacidad de menores",
-          "content": "Naegihaza no está dirigido a menores de 13 años y no recopila intencionalmente información personal de niños. Si descubrimos que un menor de 13 años ha proporcionado información personal, eliminaremos dicha información de inmediato."
+          "content": "RandomGame.zip no está dirigido a menores de 13 años y no recopila intencionalmente información personal de niños. Si descubrimos que un menor de 13 años ha proporcionado información personal, eliminaremos dicha información de inmediato."
         },
         {
           "title": "Cambios en la política",
@@ -158,11 +159,11 @@
       "sections": [
         {
           "title": "Aceptación de términos",
-          "content": "Al usar el sitio web Naegihaza (el 'Servicio'), acepta estos Términos de Servicio. Si no está de acuerdo, deje de usar el Servicio."
+          "content": "Al usar el sitio web RandomGame.zip (el 'Servicio'), acepta estos Términos de Servicio. Si no está de acuerdo, deje de usar el Servicio."
         },
         {
           "title": "Descripción del servicio",
-          "content": "Naegihaza es un servicio web que ofrece varios juegos aleatorios gratuitos, incluyendo ruleta, dados, escalera y bomba. El Servicio se proporciona con fines de entretenimiento y asistencia en la toma de decisiones, sin relación con apuestas reales o recompensas monetarias."
+          "content": "RandomGame.zip es un servicio web que ofrece varios juegos aleatorios gratuitos, incluyendo ruleta, dados, escalera y bomba. El Servicio se proporciona con fines de entretenimiento y asistencia en la toma de decisiones, sin relación con apuestas reales o recompensas monetarias."
         },
         {
           "title": "Responsabilidades del usuario",
@@ -170,15 +171,15 @@
         },
         {
           "title": "Propiedad intelectual",
-          "content": "Todos los derechos de propiedad intelectual del diseño, código y contenido de Naegihaza pertenecen al operador del servicio. La reproducción, distribución o modificación no autorizada del contenido está prohibida."
+          "content": "Todos los derechos de propiedad intelectual del diseño, código y contenido de RandomGame.zip pertenecen al operador del servicio. La reproducción, distribución o modificación no autorizada del contenido está prohibida."
         },
         {
           "title": "Descargo de responsabilidad",
-          "content": "Naegihaza se proporciona 'tal cual' sin garantías de idoneidad para un propósito particular u operación sin errores. Los resultados del juego se generan aleatoriamente y el Servicio no asume responsabilidad legal por la equidad de los resultados. El Servicio puede cambiar o interrumpirse sin previo aviso."
+          "content": "RandomGame.zip se proporciona 'tal cual' sin garantías de idoneidad para un propósito particular u operación sin errores. Los resultados del juego se generan aleatoriamente y el Servicio no asume responsabilidad legal por la equidad de los resultados. El Servicio puede cambiar o interrumpirse sin previo aviso."
         },
         {
           "title": "Limitación de responsabilidad",
-          "content": "El operador del servicio no será responsable de daños directos, indirectos, incidentales o consecuentes derivados del uso de Naegihaza, en la medida permitida por la ley."
+          "content": "El operador del servicio no será responsable de daños directos, indirectos, incidentales o consecuentes derivados del uso de RandomGame.zip, en la medida permitida por la ley."
         },
         {
           "title": "Cambios en los términos",
@@ -197,7 +198,7 @@
       "intro": {
         "title": "¿Qué es la Ruleta?",
         "p1": "La ruleta es la forma más intuitiva y divertida de seleccionar justamente a una persona de un grupo. Ingresa los nombres de los participantes y se distribuirán uniformemente en la rueda giratoria — el nombre donde se detiene la flecha es el seleccionado.",
-        "p2": "La ruleta de Naegihaza utiliza un algoritmo completamente aleatorio que garantiza la misma probabilidad de selección para todos los participantes. Sin instalación de apps — úsala directamente en tu navegador con 2 a 12 participantes."
+        "p2": "La ruleta de RandomGame.zip utiliza un algoritmo completamente aleatorio que garantiza la misma probabilidad de selección para todos los participantes. Sin instalación de apps — úsala directamente en tu navegador con 2 a 12 participantes."
       },
       "rules": {
         "title": "Reglas detalladas",
@@ -223,7 +224,7 @@
         "items": [
           {
             "q": "¿Los resultados son realmente aleatorios?",
-            "a": "Sí, la ruleta de Naegihaza usa un generador de números aleatorios criptográficamente seguro para garantizar resultados completamente aleatorios. Se aplica la misma probabilidad a todos los participantes."
+            "a": "Sí, la ruleta de RandomGame.zip usa un generador de números aleatorios criptográficamente seguro para garantizar resultados completamente aleatorios. Se aplica la misma probabilidad a todos los participantes."
           },
           {
             "q": "¿Puedo jugar de nuevo con los mismos participantes?",
@@ -231,7 +232,7 @@
           },
           {
             "q": "¿Funciona en móvil?",
-            "a": "Sí, Naegihaza está diseñado con diseño responsivo y funciona igual en smartphones, tablets y PCs."
+            "a": "Sí, RandomGame.zip está diseñado con diseño responsivo y funciona igual en smartphones, tablets y PCs."
           }
         ]
       }

@@ -6,10 +6,10 @@ import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'Naegihaza',
-  alternateName: '내기하자',
+  name: 'RandomGame.zip',
+  alternateName: '랜덤게임.zip',
   url: 'https://naegihaza.com',
-  description: "Let's bet! Free online betting game platform to enjoy with friends. Use random roulette and dice rolling to fairly decide order and make bets.",
+  description: "Free online random game platform to enjoy with friends. Use roulette, slot machine, and breakout to fairly decide with fun.",
   applicationCategory: 'GameApplication',
   operatingSystem: 'Web Browser',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },

@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Naegihaza - 내기하자',
-    short_name: 'Naegihaza',
-    description: '친구들과 함께 즐기는 무료 온라인 내기 게임 플랫폼',
+    name: 'RandomGame.zip - 랜덤게임.zip',
+    short_name: 'RandomGame.zip',
+    description: '친구들과 함께 즐기는 무료 온라인 랜덤 게임 플랫폼',
     start_url: '/',
     display: 'standalone',
     background_color: '#fef3e2',

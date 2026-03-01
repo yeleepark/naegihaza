@@ -18,80 +18,80 @@ export function getTranslations(locale: Locale) {
 export function getMetadata(locale: Locale) {
   return {
     home: {
-      title: locale === 'ko' ? '내기하자 – 룰렛돌리기 · 사다리타기 · 주사위 무료 랜덤 게임' :
-        locale === 'en' ? 'Naegihaza - Let\'s Bet | Random Games with Friends' :
-          locale === 'zh' ? 'Naegihaza - 打赌吧 | 与朋友一起玩随机游戏' :
-            'Naegihaza - ¡Apostemos! | Juegos Aleatorios con Amigos',
-      description: locale === 'ko' ? '내기하자에서 친구들과 빠르게 결정하세요. 룰렛, 사다리타기, 주사위, 폭탄 뽑기를 한 번에 사용할 수 있는 무료 랜덤 선택 도구입니다.' :
-        locale === 'en' ? 'Let\'s bet! Free online betting game platform to enjoy with friends. Use random roulette and dice rolling to fairly decide order and make bets.' :
-          locale === 'zh' ? '打赌吧！与朋友一起享受的免费在线打赌游戏平台。使用随机轮盘和掷骰子公平地决定顺序和打赌。' :
-            '¡Apostemos! Plataforma de juegos de apuestas en línea gratuita para disfrutar con amigos. Usa la ruleta aleatoria y lanzamiento de dados para decidir el orden de manera justa.',
-      keywords: locale === 'ko' ? ['내기하자', '내기하자 사이트', '내기하자 게임', '랜덤 게임', '랜덤 선택기', '랜덤 추첨기', '룰렛 돌리기', '사다리타기', '주사위 굴리기', '벌칙 정하기', '제비뽑기', '당번 뽑기', '이름 추첨기', '팀 나누기', '메뉴 정하기', '누가 계산', '술게임 정하기', '파티 게임', '무료 랜덤 선택 사이트'] :
-        locale === 'en' ? ['random game', 'random selector', 'random picker', 'spin roulette', 'ladder game', 'roll dice', 'penalty picker', 'draw lots', 'duty picker', 'name picker', 'team split', 'menu picker', 'who pays', 'drinking game picker', 'party game', 'friends game', 'choice paralysis solver', 'online random tool', 'free random pick site', 'random decision tool'] :
-        locale === 'zh' ? ['随机游戏', '随机选择器', '随机抽奖', '转盘', '梯子游戏', '掷骰子', '惩罚选择', '抽签', '当值抽选', '名字抽选', '分队', '选菜单', '谁请客', '酒局选择', '派对游戏', '朋友游戏', '选择困难解决', '在线随机工具', '免费随机选择网站', '随机决定工具'] :
-        ['juego aleatorio', 'selector aleatorio', 'sorteo aleatorio', 'ruleta', 'juego escalera', 'dados', 'elegir castigo', 'sorteo', 'sorteo turno', 'sorteo nombres', 'dividir equipos', 'elegir menú', 'quién paga', 'juego bebida', 'juego fiesta', 'juego amigos', 'resolver indecisión', 'herramienta aleatoria online', 'sitio gratis sorteo', 'herramienta decisión aleatoria'],
+      title: locale === 'ko' ? '랜덤게임.zip – 룰렛돌리기 · 랜덤 뽑기 · 랜덤 추첨기 무료 게임' :
+        locale === 'en' ? 'RandomGame.zip | Random Games with Friends' :
+          locale === 'zh' ? 'RandomGame.zip | 与朋友一起玩随机游戏' :
+            'RandomGame.zip | Juegos Aleatorios con Amigos',
+      description: locale === 'ko' ? '랜덤게임.zip에서 친구들과 빠르게 결정하세요. 룰렛돌리기, 랜덤 뽑기, 슬롯머신, 벽돌깨기를 한 번에 사용할 수 있는 무료 랜덤 추첨기입니다.' :
+        locale === 'en' ? 'Free online random game platform to enjoy with friends. Use roulette, slot machine, and breakout to fairly decide with fun.' :
+          locale === 'zh' ? '与朋友一起享受的免费在线随机游戏平台。使用轮盘、老虎机和打砖块来公平有趣地做决定。' :
+            'Plataforma de juegos aleatorios en línea gratuita para disfrutar con amigos. Usa la ruleta, tragamonedas y breakout para decidir de manera justa y divertida.',
+      keywords: locale === 'ko' ? ['랜덤게임.zip', '랜덤게임zip', '랜덤 추첨기', '랜덤 뽑기', '룰렛돌리기', '랜덤 게임', '랜덤 선택기', '무료 랜덤 추첨', '온라인 추첨기', '이름 추첨기', '랜덤 돌림판', '벌칙 정하기', '제비뽑기', '당번 뽑기', '팀 나누기', '메뉴 정하기', '누가 계산', '술게임 정하기', '파티 게임', '무료 랜덤 선택 사이트', '랜덤 뽑기 사이트', '온라인 룰렛'] :
+        locale === 'en' ? ['random game', 'random selector', 'random picker', 'spin roulette', 'roll dice', 'penalty picker', 'draw lots', 'duty picker', 'name picker', 'team split', 'menu picker', 'who pays', 'drinking game picker', 'party game', 'friends game', 'online random tool', 'free random pick site', 'random decision tool'] :
+        locale === 'zh' ? ['随机游戏', '随机选择器', '随机抽奖', '转盘', '掷骰子', '惩罚选择', '抽签', '当值抽选', '名字抽选', '分队', '选菜单', '谁请客', '酒局选择', '派对游戏', '在线随机工具', '免费随机选择网站', '随机决定工具'] :
+        ['juego aleatorio', 'selector aleatorio', 'sorteo aleatorio', 'ruleta', 'dados', 'elegir castigo', 'sorteo', 'sorteo turno', 'sorteo nombres', 'dividir equipos', 'elegir menú', 'quién paga', 'juego fiesta', 'herramienta aleatoria online', 'sitio gratis sorteo', 'herramienta decisión aleatoria'],
     },
     roulette: {
-      title: locale === 'ko' ? '내기하자 룰렛돌리기 – 이름 추첨 · 당번 · 내기 정하기 온라인' :
-        locale === 'en' ? 'Random Roulette | Naegihaza' :
-          locale === 'zh' ? '随机轮盘 | Naegihaza' :
-            'Ruleta Aleatoria | Naegihaza',
-      description: locale === 'ko' ? '내기하자 룰렛돌리기에서 이름을 입력하고 돌려 한 명을 선택하세요. 누가 계산할지, 당번 정하기, 벌칙 정하기에 사용할 수 있는 무료 랜덤 선택 도구입니다.' :
+      title: locale === 'ko' ? '룰렛돌리기 – 랜덤 뽑기 · 이름 추첨 · 당번 정하기' :
+        locale === 'en' ? 'Random Roulette – Spin the Wheel' :
+          locale === 'zh' ? '随机轮盘 – 转盘抽选' :
+            'Ruleta Aleatoria – Gira la Rueda',
+      description: locale === 'ko' ? '룰렛돌리기에서 이름을 입력하고 돌려 한 명을 선택하세요. 누가 계산할지, 당번 정하기, 벌칙 정하기에 사용할 수 있는 무료 랜덤 추첨기입니다.' :
         locale === 'en' ? 'Nobody knows who will be chosen! Spin the wheel of fate. Use this fair random roulette game with friends to decide order or make bets.' :
-          locale === 'zh' ? '谁都不知道会选中谁！转动命运之轮。与朋友一起使用这个公平的随机轮盘游戏来决定顺序或打赌。' :
-            '¡Nadie sabe quién será elegido! Gira la rueda del destino. Usa este juego de ruleta aleatoria justo con amigos para decidir el orden o hacer apuestas.',
-      keywords: locale === 'ko' ? ['내기하자 룰렛돌리기', '룰렛 돌리기 사이트', '이름 추첨기', '당번 뽑기', '누가 계산', '랜덤 선택기'] :
+          locale === 'zh' ? '谁都不知道会选中谁！转动命运之轮。与朋友一起使用这个公平的随机轮盘游戏来决定顺序。' :
+            '¡Nadie sabe quién será elegido! Gira la rueda del destino. Usa este juego de ruleta aleatoria justo con amigos para decidir el orden.',
+      keywords: locale === 'ko' ? ['룰렛돌리기', '룰렛 돌리기 사이트', '랜덤 뽑기', '랜덤 추첨기', '이름 추첨기', '당번 뽑기', '누가 계산', '랜덤 선택기', '온라인 룰렛', '랜덤 돌림판'] :
         locale === 'en' ? ['roulette site', 'name picker', 'duty picker', 'who pays', 'random selector'] :
           locale === 'zh' ? ['转盘网站', '抽名字', '抽当值', '谁请客', '随机选择器'] :
             ['sitio ruleta', 'sorteo nombres', 'sorteo turno', 'quién paga', 'selector aleatorio'],
     },
     breakout: {
-      title: locale === 'ko' ? '내기하자 벽돌깨기 – 마지막 블럭 당첨 랜덤 게임' :
-        locale === 'en' ? 'Breakout | Naegihaza' :
-          locale === 'zh' ? '打砖块 | Naegihaza' :
-            'Breakout | Naegihaza',
-      description: locale === 'ko' ? '내기하자 벽돌깨기에서 블럭을 깨고 마지막까지 남은 블럭이 당첨자! 참가자 수의 2배만큼 블럭이 생성됩니다.' :
+      title: locale === 'ko' ? '벽돌깨기 – 마지막 블럭 당첨 랜덤 뽑기 게임' :
+        locale === 'en' ? 'Breakout – Last Block Wins' :
+          locale === 'zh' ? '打砖块 – 最后砖块获胜' :
+            'Breakout – El Último Bloque Gana',
+      description: locale === 'ko' ? '벽돌깨기에서 블럭을 깨고 마지막까지 남은 블럭이 당첨자! 랜덤 추첨을 게임으로 즐기세요.' :
         locale === 'en' ? 'Break the blocks! The last block standing wins. A fun breakout game to decide winners with friends.' :
           locale === 'zh' ? '打碎砖块！最后剩下的砖块获胜。与朋友一起玩的有趣打砖块决定游戏。' :
             '¡Rompe los bloques! El último bloque en pie gana. Un divertido juego de breakout para decidir ganadores con amigos.',
-      keywords: locale === 'ko' ? ['내기하자 벽돌깨기', '벽돌깨기 게임', '블럭깨기', '랜덤 당첨', '내기 게임'] :
+      keywords: locale === 'ko' ? ['벽돌깨기 게임', '블럭깨기', '랜덤 당첨', '랜덤 뽑기 게임', '랜덤 추첨 게임'] :
         locale === 'en' ? ['breakout game', 'block breaker', 'brick breaker', 'random winner', 'party game'] :
           locale === 'zh' ? ['打砖块', '消除方块', '随机中奖', '派对游戏'] :
             ['breakout', 'rompe bloques', 'ganador aleatorio', 'juego fiesta'],
     },
     slot: {
-      title: locale === 'ko' ? '내기하자 슬롯머신 – 릴 돌리기 랜덤 당첨 게임' :
-        locale === 'en' ? 'Slot Machine | Naegihaza' :
-          locale === 'zh' ? '老虎机 | Naegihaza' :
-            'Tragamonedas | Naegihaza',
-      description: locale === 'ko' ? '내기하자 슬롯머신에서 3개의 릴을 돌려 당첨자를 선정하세요. 릴이 하나씩 멈추며 긴장감 넘치는 랜덤 선택 게임입니다.' :
+      title: locale === 'ko' ? '슬롯머신 – 릴 돌리기 랜덤 추첨 게임' :
+        locale === 'en' ? 'Slot Machine – Spin the Reels' :
+          locale === 'zh' ? '老虎机 – 转轮抽选' :
+            'Tragamonedas – Gira los Carretes',
+      description: locale === 'ko' ? '슬롯머신에서 3개의 릴을 돌려 당첨자를 선정하세요. 릴이 하나씩 멈추며 긴장감 넘치는 랜덤 뽑기 게임입니다.' :
         locale === 'en' ? 'Spin the reels and find the winner! A fun slot machine game to select someone randomly with friends.' :
           locale === 'zh' ? '转动转轮找出赢家！与朋友一起玩的有趣老虎机随机选人游戏。' :
             '¡Gira los carretes y encuentra al ganador! Un divertido juego de tragamonedas para seleccionar a alguien al azar con amigos.',
-      keywords: locale === 'ko' ? ['내기하자 슬롯머신', '슬롯머신 게임', '릴 돌리기', '랜덤 당첨', '내기 게임'] :
+      keywords: locale === 'ko' ? ['슬롯머신 게임', '릴 돌리기', '랜덤 당첨', '랜덤 뽑기 게임', '랜덤 추첨 게임'] :
         locale === 'en' ? ['slot machine game', 'spin reels', 'random winner', 'party game'] :
           locale === 'zh' ? ['老虎机游戏', '转轮', '随机中奖', '派对游戏'] :
             ['tragamonedas', 'girar carretes', 'ganador aleatorio', 'juego fiesta'],
     },
     privacy: {
-      title: locale === 'ko' ? '개인정보처리방침 | 내기하자' :
-        locale === 'en' ? 'Privacy Policy | Naegihaza' :
-          locale === 'zh' ? '隐私政策 | Naegihaza' :
-            'Política de Privacidad | Naegihaza',
-      description: locale === 'ko' ? '내기하자의 개인정보처리방침입니다. 개인정보 수집, 쿠키 사용, 데이터 저장에 대한 정책을 안내합니다.' :
-        locale === 'en' ? 'Naegihaza\'s privacy policy. Learn about our data collection, cookie usage, and data storage practices.' :
-          locale === 'zh' ? 'Naegihaza的隐私政策。了解我们的数据收集、Cookie使用和数据存储做法。' :
-            'Política de privacidad de Naegihaza. Conozca nuestras prácticas de recopilación de datos, uso de cookies y almacenamiento.',
+      title: locale === 'ko' ? '개인정보처리방침' :
+        locale === 'en' ? 'Privacy Policy' :
+          locale === 'zh' ? '隐私政策' :
+            'Política de Privacidad',
+      description: locale === 'ko' ? '랜덤게임.zip의 개인정보처리방침입니다. 개인정보 수집, 쿠키 사용, 데이터 저장에 대한 정책을 안내합니다.' :
+        locale === 'en' ? 'RandomGame.zip privacy policy. Learn about our data collection, cookie usage, and data storage practices.' :
+          locale === 'zh' ? 'RandomGame.zip的隐私政策。了解我们的数据收集、Cookie使用和数据存储做法。' :
+            'Política de privacidad de RandomGame.zip. Conozca nuestras prácticas de recopilación de datos, uso de cookies y almacenamiento.',
     },
     terms: {
-      title: locale === 'ko' ? '이용약관 | 내기하자' :
-        locale === 'en' ? 'Terms of Service | Naegihaza' :
-          locale === 'zh' ? '服务条款 | Naegihaza' :
-            'Términos de Servicio | Naegihaza',
-      description: locale === 'ko' ? '내기하자의 이용약관입니다. 서비스 이용 조건과 이용자 책임에 대해 안내합니다.' :
-        locale === 'en' ? 'Naegihaza\'s terms of service. Learn about our service conditions and user responsibilities.' :
-          locale === 'zh' ? 'Naegihaza的服务条款。了解我们的服务条件和用户责任。' :
-            'Términos de servicio de Naegihaza. Conozca nuestras condiciones de servicio y responsabilidades del usuario.',
+      title: locale === 'ko' ? '이용약관' :
+        locale === 'en' ? 'Terms of Service' :
+          locale === 'zh' ? '服务条款' :
+            'Términos de Servicio',
+      description: locale === 'ko' ? '랜덤게임.zip의 이용약관입니다. 서비스 이용 조건과 이용자 책임에 대해 안내합니다.' :
+        locale === 'en' ? 'RandomGame.zip terms of service. Learn about our service conditions and user responsibilities.' :
+          locale === 'zh' ? 'RandomGame.zip的服务条款。了解我们的服务条件和用户责任。' :
+            'Términos de servicio de RandomGame.zip. Conozca nuestras condiciones de servicio y responsabilidades del usuario.',
     },
   };
 }
