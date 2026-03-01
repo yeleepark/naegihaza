@@ -6,23 +6,20 @@ import GameSetup from '@/components/breakout/GameSetup';
 import GamePlay from '@/components/breakout/GamePlay';
 import GameResult from '@/components/breakout/GameResult';
 import { useGameURL } from '@/hooks/useGameURL';
-import { GameState, BreakoutResult, BreakoutMode } from '@/types/breakout';
+import { GameState, BreakoutResult } from '@/types/breakout';
 
 export default function BreakoutGameClient() {
   const [gameState, setGameState] = useState<GameState>('setup');
   const [participants, setParticipants] = useState<string[]>([]);
   const [result, setResult] = useState<BreakoutResult | null>(null);
-  const [mode, setMode] = useState<BreakoutMode>('penalty');
 
   const { initialized, sync, clear } = useGameURL(({ gameState: s, participants: p, params }) => {
-    const m = (params.get('m') as BreakoutMode) || 'penalty';
     setParticipants(p);
-    setMode(m);
     if (s === 'result') {
       const w = params.get('w');
       const wc = params.get('wc');
       if (w && wc) {
-        setResult({ winnerName: w, winnerColor: wc, participants: p, timestamp: new Date(), mode: m });
+        setResult({ winnerName: w, winnerColor: wc, participants: p, timestamp: new Date() });
         setGameState('result');
       } else {
         setGameState('playing');
@@ -34,17 +31,16 @@ export default function BreakoutGameClient() {
 
   useEffect(() => {
     if (!initialized) return;
-    const extra: Record<string, string> = { m: mode };
+    const extra: Record<string, string> = {};
     if (result) {
       extra.w = result.winnerName;
       extra.wc = result.winnerColor;
     }
     sync(gameState, participants, extra);
-  }, [initialized, gameState, participants, mode, result, sync]);
+  }, [initialized, gameState, participants, result, sync]);
 
-  const handleStart = useCallback((names: string[], selectedMode: BreakoutMode) => {
+  const handleStart = useCallback((names: string[]) => {
     setParticipants(names);
-    setMode(selectedMode);
     setResult(null);
     setGameState('playing');
   }, []);
@@ -56,11 +52,10 @@ export default function BreakoutGameClient() {
         winnerColor,
         participants,
         timestamp: new Date(),
-        mode,
       });
       setGameState('result');
     },
-    [participants, mode]
+    [participants]
   );
 
   const handlePlayAgain = useCallback(() => {
@@ -81,7 +76,7 @@ export default function BreakoutGameClient() {
       setup={<GameSetup onStart={handleStart} />}
       gameplay={
         <div className="flex flex-col py-2 md:py-4">
-          <GamePlay participants={participants} onResult={handleResult} mode={mode} />
+          <GamePlay participants={participants} onResult={handleResult} />
         </div>
       }
       result={

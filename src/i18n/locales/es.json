@@ -152,7 +152,8 @@
     },
     "playAgain": "Intentar una vez más",
     "reset": "Jugar con otros participantes",
-    "howToPlay": "Cómo jugar"
+    "howToPlay": "Cómo jugar",
+    "resultTitle": "Resultado"
   },
   "ladder": {
     "title": "Escalera",
@@ -566,18 +567,6 @@
     "speed": "Velocidad",
     "error": {
       "max": "Máximo {{max}} personas"
-    },
-    "mode": {
-      "penalty": "Penalización",
-      "winner": "Ganador"
-    },
-    "notice": {
-      "penalty": "Último en pie = Perdedor",
-      "winner": "Último en pie = Ganador"
-    },
-    "result": {
-      "penalty": "¡Penalización!",
-      "winner": "Ganador"
     }
   },
   "slot": {

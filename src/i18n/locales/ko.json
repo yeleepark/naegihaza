@@ -151,7 +151,8 @@
     },
     "playAgain": "한 번 더 하기",
     "reset": "다른 참가자로 플레이하기",
-    "howToPlay": "사용법"
+    "howToPlay": "사용법",
+    "resultTitle": "결과"
   },
   "ladder": {
     "title": "사다리",
@@ -565,18 +566,6 @@
     "speed": "속도",
     "error": {
       "max": "최대 {{max}}명까지 입력할 수 있어요"
-    },
-    "mode": {
-      "penalty": "벌칙자 뽑기",
-      "winner": "우승자 뽑기"
-    },
-    "notice": {
-      "penalty": "최후의 1인 = 벌칙자",
-      "winner": "최후의 1인 = 우승자"
-    },
-    "result": {
-      "penalty": "벌칙 당첨",
-      "winner": "우승자"
     }
   },
   "slot": {

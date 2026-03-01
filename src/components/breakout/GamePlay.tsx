@@ -2,18 +2,19 @@
 
 import Button from '@/components/ui/Button';
 import { useTranslation } from 'react-i18next';
-import { BreakoutMode } from '@/types/breakout';
 import { useBreakoutEngine } from '@/hooks/useBreakoutEngine';
 import { SPEED_MIN, SPEED_MAX, SPEED_STEP } from '@/lib/breakout-engine';
-import { Siren, Trophy } from 'lucide-react';
+import { useSound } from '@/hooks/useSound';
+import { Volume2, VolumeX } from 'lucide-react';
 
 type Props = {
   participants: string[];
   onResult: (name: string, color: string) => void;
-  mode: BreakoutMode;
 };
 
-export default function GamePlay({ participants, onResult, mode }: Props) {
+export default function GamePlay({ participants, onResult }: Props) {
+  const { enabled, setEnabled, playTick, playFanfare, vibrate } = useSound();
+
   const {
     canvasRef,
     wrapRef,
@@ -21,43 +22,50 @@ export default function GamePlay({ participants, onResult, mode }: Props) {
     speedMultiplier,
     handleStart,
     handleSpeedChange,
-  } = useBreakoutEngine(participants, onResult);
+  } = useBreakoutEngine(participants, {
+    onResult,
+    onBlockHit: playTick,
+    onWallHit: playTick,
+    onGameEnd: () => {
+      playFanfare();
+      vibrate([100, 50, 100]);
+    },
+  });
   const { t } = useTranslation();
 
   return (
     <div className="flex flex-col w-full max-w-[600px] mx-auto gap-8">
-      <div
-        className={`flex items-center justify-center gap-2 px-4 py-2 mx-auto border-2 rounded-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] font-game font-bold text-sm ${
-          mode === 'penalty'
-            ? 'bg-red-100 border-red-500 text-red-700'
-            : 'bg-amber-100 border-amber-500 text-amber-700'
-        }`}
-      >
-        {mode === 'penalty' ? (
-          <Siren className="w-4 h-4 flex-shrink-0" />
-        ) : (
-          <Trophy className="w-4 h-4 flex-shrink-0" />
-        )}
-        {t(mode === 'penalty' ? 'breakout.notice.penalty' : 'breakout.notice.winner')}
-      </div>
-      <div
-        ref={wrapRef}
-        className={`h-[60dvh] relative rounded-2xl overflow-hidden border-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] ${
-          mode === 'penalty' ? 'border-red-500' : 'border-amber-500'
-        }`}
-      >
-        <canvas ref={canvasRef} className="block w-full h-full" />
-        {showStart && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-            <Button
-              onClick={handleStart}
-              variant="primary"
-              className="text-lg px-8 py-4 lowercase"
-            >
-              {t('breakout.play')}
-            </Button>
-          </div>
-        )}
+      <div className="relative">
+        {/* Sound Toggle */}
+        <button
+          type="button"
+          onClick={() => setEnabled(!enabled)}
+          className="absolute top-2 right-2 z-30 p-2 bg-white border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-shadow"
+        >
+          {enabled ? (
+            <Volume2 className="w-5 h-5 text-black" />
+          ) : (
+            <VolumeX className="w-5 h-5 text-black/40" />
+          )}
+        </button>
+
+        <div
+          ref={wrapRef}
+          className="h-[60dvh] rounded-2xl overflow-hidden border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+        >
+          <canvas ref={canvasRef} className="block w-full h-full" />
+          {showStart && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+              <Button
+                onClick={handleStart}
+                variant="primary"
+                className="text-lg px-8 py-4 lowercase"
+              >
+                {t('breakout.play')}
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Speed slider */}

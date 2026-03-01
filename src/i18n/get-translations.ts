@@ -18,7 +18,7 @@ export function getTranslations(locale: Locale) {
 export function getMetadata(locale: Locale) {
   return {
     home: {
-      title: locale === 'ko' ? '내기하자 – 룰렛 · 사다리타기 · 주사위 무료 랜덤 게임' :
+      title: locale === 'ko' ? '내기하자 – 룰렛돌리기 · 사다리타기 · 주사위 무료 랜덤 게임' :
         locale === 'en' ? 'Naegihaza - Let\'s Bet | Random Games with Friends' :
           locale === 'zh' ? 'Naegihaza - 打赌吧 | 与朋友一起玩随机游戏' :
             'Naegihaza - ¡Apostemos! | Juegos Aleatorios con Amigos',
@@ -46,15 +46,15 @@ export function getMetadata(locale: Locale) {
             ['sitio dados', 'generador números aleatorios', 'orden', 'dados online'],
     },
     roulette: {
-      title: locale === 'ko' ? '내기하자 룰렛 – 이름 추첨 · 당번 · 내기 정하기 온라인' :
+      title: locale === 'ko' ? '내기하자 룰렛돌리기 – 이름 추첨 · 당번 · 내기 정하기 온라인' :
         locale === 'en' ? 'Random Roulette | Naegihaza' :
           locale === 'zh' ? '随机轮盘 | Naegihaza' :
             'Ruleta Aleatoria | Naegihaza',
-      description: locale === 'ko' ? '내기하자 룰렛에서 이름을 입력하고 돌려 한 명을 선택하세요. 누가 계산할지, 당번 정하기, 벌칙 정하기에 사용할 수 있는 무료 랜덤 선택 도구입니다.' :
+      description: locale === 'ko' ? '내기하자 룰렛돌리기에서 이름을 입력하고 돌려 한 명을 선택하세요. 누가 계산할지, 당번 정하기, 벌칙 정하기에 사용할 수 있는 무료 랜덤 선택 도구입니다.' :
         locale === 'en' ? 'Nobody knows who will be chosen! Spin the wheel of fate. Use this fair random roulette game with friends to decide order or make bets.' :
           locale === 'zh' ? '谁都不知道会选中谁！转动命运之轮。与朋友一起使用这个公平的随机轮盘游戏来决定顺序或打赌。' :
             '¡Nadie sabe quién será elegido! Gira la rueda del destino. Usa este juego de ruleta aleatoria justo con amigos para decidir el orden o hacer apuestas.',
-      keywords: locale === 'ko' ? ['내기하자 룰렛', '룰렛 돌리기 사이트', '이름 추첨기', '당번 뽑기', '누가 계산', '랜덤 선택기'] :
+      keywords: locale === 'ko' ? ['내기하자 룰렛돌리기', '룰렛 돌리기 사이트', '이름 추첨기', '당번 뽑기', '누가 계산', '랜덤 선택기'] :
         locale === 'en' ? ['roulette site', 'name picker', 'duty picker', 'who pays', 'random selector'] :
           locale === 'zh' ? ['转盘网站', '抽名字', '抽当值', '谁请客', '随机选择器'] :
             ['sitio ruleta', 'sorteo nombres', 'sorteo turno', 'quién paga', 'selector aleatorio'],

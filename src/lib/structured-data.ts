@@ -14,7 +14,7 @@ export function generateFAQSchema(items: { q: string; a: string }[]) {
 }
 
 const siteNavNames: Record<string, Record<string, string>> = {
-  roulette: { ko: '룰렛', en: 'Roulette', zh: '转盘', es: 'Ruleta' },
+  roulette: { ko: '룰렛돌리기', en: 'Roulette', zh: '转盘', es: 'Ruleta' },
   ladder:   { ko: '사다리타기', en: 'Ladder', zh: '爬梯游戏', es: 'Escalera' },
   dice:     { ko: '주사위', en: 'Dice', zh: '骰子', es: 'Dados' },
   bomb:     { ko: '폭탄 게임', en: 'Bomb Pick', zh: '抽炸弹', es: 'Bomba' },

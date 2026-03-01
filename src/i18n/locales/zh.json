@@ -152,7 +152,8 @@
     },
     "playAgain": "再来一次",
     "reset": "换其他参与者玩",
-    "howToPlay": "使用说明"
+    "howToPlay": "使用说明",
+    "resultTitle": "结果"
   },
   "ladder": {
     "title": "抽签梯",
@@ -566,18 +567,6 @@
     "speed": "速度",
     "error": {
       "max": "最多{{max}}人"
-    },
-    "mode": {
-      "penalty": "惩罚抽签",
-      "winner": "赢家抽签"
-    },
-    "notice": {
-      "penalty": "最后一人 = 受罚者",
-      "winner": "最后一人 = 赢家"
-    },
-    "result": {
-      "penalty": "受罚!",
-      "winner": "赢家"
     }
   },
   "slot": {

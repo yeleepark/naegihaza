@@ -67,7 +67,7 @@ export default function GameResult({
       <Card className="max-w-md w-full relative z-10">
         <div className="text-center">
           <h2 className="font-game text-2xl font-black text-black mb-6">
-            {t('bomb.result.loser')}
+            {t('common.resultTitle')}
           </h2>
 
           {/* Loser */}

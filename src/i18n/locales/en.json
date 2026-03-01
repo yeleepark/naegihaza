@@ -152,7 +152,8 @@
     },
     "playAgain": "Try one more time",
     "reset": "Play with different players",
-    "howToPlay": "How to Play"
+    "howToPlay": "How to Play",
+    "resultTitle": "Result"
   },
   "ladder": {
     "title": "Ladder",
@@ -566,18 +567,6 @@
     "speed": "Speed",
     "error": {
       "max": "Up to {{max}} people allowed"
-    },
-    "mode": {
-      "penalty": "Penalty Pick",
-      "winner": "Winner Pick"
-    },
-    "notice": {
-      "penalty": "Last one standing = Loser",
-      "winner": "Last one standing = Winner"
-    },
-    "result": {
-      "penalty": "Penalty!",
-      "winner": "Winner"
     }
   },
   "slot": {

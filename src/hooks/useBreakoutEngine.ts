@@ -9,9 +9,16 @@ import {
   highlightWinner,
 } from '@/lib/breakout-engine';
 
+interface BreakoutCallbacks {
+  onResult: (name: string, color: string) => void;
+  onBlockHit?: () => void;
+  onWallHit?: () => void;
+  onGameEnd?: () => void;
+}
+
 export function useBreakoutEngine(
   participants: string[],
-  onResult: (name: string, color: string) => void,
+  callbacks: BreakoutCallbacks,
 ) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -28,8 +35,8 @@ export function useBreakoutEngine(
     speedMul: SPEED_DEFAULT,
   });
 
-  const onResultRef = useRef(onResult);
-  onResultRef.current = onResult;
+  const callbacksRef = useRef(callbacks);
+  callbacksRef.current = callbacks;
 
   useEffect(() => {
     const cvs = canvasRef.current;
@@ -96,16 +103,24 @@ export function useBreakoutEngine(
     (function loop() {
       if (!s.running) return;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      tick(s);
+      const { blockHit, wallHit } = tick(s);
       render(ctx, s);
+
+      if (blockHit) {
+        callbacksRef.current.onBlockHit?.();
+      }
+      if (wallHit) {
+        callbacksRef.current.onWallHit?.();
+      }
 
       const alive = s.blocks.filter((b) => b.alive);
       if (alive.length <= 1) {
         s.running = false;
         if (alive.length === 1) {
           highlightWinner(ctx, alive[0], s);
+          callbacksRef.current.onGameEnd?.();
           setTimeout(
-            () => onResultRef.current(alive[0].name, alive[0].color),
+            () => callbacksRef.current.onResult(alive[0].name, alive[0].color),
             1000,
           );
         }

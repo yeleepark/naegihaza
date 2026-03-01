@@ -5,7 +5,7 @@ import { BLOCK_COLORS } from '@/utils/breakout';
 
 export const BASE_SPEED = 10;
 export const SPEED_MIN = 0.5;
-export const SPEED_MAX = 3;
+export const SPEED_MAX = 2;
 export const SPEED_STEP = 0.1;
 export const SPEED_DEFAULT = 1;
 
@@ -99,32 +99,43 @@ export function buildBlocks(
 
 /* ── Physics tick ──────────────────────────────────────── */
 
-export function tick(s: EngineState) {
+export interface TickResult {
+  blockHit: boolean;
+  wallHit: boolean;
+}
+
+export function tick(s: EngineState): TickResult {
   const { W, H, ball, blocks } = s;
 
   ball.x += ball.dx;
   ball.y += ball.dy;
 
   // Wall collisions
+  let wallHit = false;
   if (ball.x - ball.r < 0) {
     ball.x = ball.r;
     ball.dx = Math.abs(ball.dx);
+    wallHit = true;
   }
   if (ball.x + ball.r > W) {
     ball.x = W - ball.r;
     ball.dx = -Math.abs(ball.dx);
+    wallHit = true;
   }
   if (ball.y - ball.r < 0) {
     ball.y = ball.r;
     ball.dy = Math.abs(ball.dy);
+    wallHit = true;
   }
   if (ball.y + ball.r > H) {
     ball.y = H - ball.r;
     ball.dy = -Math.abs(ball.dy);
     ball.dx += (Math.random() - 0.5) * 0.8;
+    wallHit = true;
   }
 
   // Block collisions
+  let hit = false;
   for (const b of blocks) {
     if (!b.alive) continue;
     if (
@@ -134,6 +145,7 @@ export function tick(s: EngineState) {
       ball.y - ball.r < b.y + b.h
     ) {
       b.alive = false;
+      hit = true;
 
       const ol = ball.x + ball.r - b.x;
       const or_ = b.x + b.w - (ball.x - ball.r);
@@ -169,6 +181,8 @@ export function tick(s: EngineState) {
     ball.dx *= spd / newSpd;
     ball.dy *= spd / newSpd;
   }
+
+  return { blockHit: hit, wallHit };
 }
 
 /* ── Rendering ────────────────────────────────────────── */

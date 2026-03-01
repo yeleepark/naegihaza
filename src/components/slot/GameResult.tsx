@@ -90,7 +90,7 @@ export default function GameResult({
               isPenalty ? 'text-red-600' : 'text-black'
             }`}
           >
-            {t(isPenalty ? 'slot.result.penalty' : 'slot.result.winner')}
+            {t('common.resultTitle')}
           </h2>
 
           {/* Winner */}
