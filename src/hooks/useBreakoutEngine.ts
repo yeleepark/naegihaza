@@ -23,7 +23,11 @@ export function useBreakoutEngine(
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [showStart, setShowStart] = useState(true);
-  const [speedMultiplier, setSpeedMultiplier] = useState(SPEED_DEFAULT);
+  const defaultSpeed =
+    typeof window !== 'undefined' && window.innerWidth < 768
+      ? SPEED_DEFAULT * 0.6
+      : SPEED_DEFAULT;
+  const [speedMultiplier, setSpeedMultiplier] = useState(defaultSpeed);
 
   const stateRef = useRef<EngineState>({
     blocks: [],
@@ -32,7 +36,7 @@ export function useBreakoutEngine(
     H: 0,
     running: false,
     raf: 0,
-    speedMul: SPEED_DEFAULT,
+    speedMul: defaultSpeed,
   });
 
   const callbacksRef = useRef(callbacks);

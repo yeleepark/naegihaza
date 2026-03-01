@@ -19,7 +19,18 @@ export function buildBlocks(
 ): Block[] {
   const shuffled = [...participants].sort(() => Math.random() - 0.5);
 
-  const total = shuffled.length;
+  // Expand: each participant gets multiple bricks when few participants
+  const bricksPerPerson = Math.max(1, Math.ceil(20 / shuffled.length));
+  const expanded: { name: string; participantIndex: number }[] = [];
+  for (let i = 0; i < shuffled.length; i++) {
+    for (let j = 0; j < bricksPerPerson; j++) {
+      expanded.push({ name: shuffled[i], participantIndex: i });
+    }
+  }
+  // Shuffle expanded array so same-participant bricks are spread out
+  expanded.sort(() => Math.random() - 0.5);
+
+  const total = expanded.length;
   const half = total >= 50 ? 0.8 : 1;
   const blockH =
     (total <= 10
@@ -86,13 +97,13 @@ export function buildBlocks(
     }
   }
 
-  return shuffled.map((name, i) => ({
+  return expanded.map(({ name, participantIndex }, i) => ({
     x: positions[i].x,
     y: positions[i].y,
     w: blockW,
     h: blockH,
     name,
-    color: BLOCK_COLORS[i % BLOCK_COLORS.length],
+    color: BLOCK_COLORS[participantIndex % BLOCK_COLORS.length],
     alive: true,
   }));
 }
