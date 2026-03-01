@@ -12,7 +12,7 @@ export default function GamePageLayout({ header, game, description }: GamePageLa
       {header}
 
       <main className="relative flex-1 min-h-0 overflow-y-auto">
-        <section className="min-h-[calc(100dvh-3.25rem)] md:h-[calc(100dvh-3.25rem)] flex items-center justify-center p-4 md:p-8">
+        <section className="min-h-[calc(100dvh-3.25rem)] md:h-[calc(100dvh-3.25rem)] flex items-center justify-center py-4 px-6 md:py-8 md:px-8">
           {game}
         </section>
         <section className="min-h-[calc(100dvh-3.25rem)] flex flex-col">

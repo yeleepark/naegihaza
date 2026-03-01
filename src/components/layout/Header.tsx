@@ -19,26 +19,29 @@ export default function Header() {
 
   return (
     <header className="relative z-10 bg-black text-white py-4 px-6 md:px-8">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="flex items-center justify-between">
         <Link href={`/${locale}`} className="flex items-center gap-2 w-fit hover:opacity-80 transition-opacity">
           <span className="font-pixel text-sm font-black lowercase tracking-wider">
             naegihaza
           </span>
         </Link>
 
-        {!isHome && (
-          <div className="relative">
-            <button
-              onClick={() => setMenuOpen(true)}
-              className="p-2 hover:text-pink-400 transition-colors"
-              aria-label={t('header.backToList')}
-            >
-              <Menu className="w-5 h-5" />
-            </button>
+        <div className="relative">
+          {!isHome && (
+            <>
+              <button
+                onClick={() => setMenuOpen(true)}
+                className="p-2 hover:text-pink-400 transition-colors"
+                aria-label={t('header.backToList')}
+              >
+                <Menu className="w-5 h-5" />
+              </button>
 
-            {menuOpen && <NavMenu onClose={() => setMenuOpen(false)} />}
-          </div>
-        )}
+              {menuOpen && <NavMenu onClose={() => setMenuOpen(false)} />}
+            </>
+          )}
+          {isHome && <div className="p-2"><div className="w-5 h-5" /></div>}
+        </div>
       </div>
     </header>
   );

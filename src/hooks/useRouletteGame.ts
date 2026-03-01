@@ -21,7 +21,6 @@ export function useRouletteGame() {
   );
   const [isSpinning, setIsSpinning] = useState(false);
   const [result, setResult] = useState<RouletteResult | null>(null);
-  const [showResult, setShowResult] = useState(false);
 
   const handleStart = useCallback((names: string[]) => {
     const newParticipants = generateParticipants(names);
@@ -30,7 +29,6 @@ export function useRouletteGame() {
     setIsSpinning(false);
     setSpinConfig(undefined);
     setResult(null);
-    setShowResult(false);
   }, []);
 
   const handleShuffle = useCallback(() => {
@@ -47,7 +45,6 @@ export function useRouletteGame() {
 
     setSpinConfig(config);
     setIsSpinning(true);
-    setShowResult(false);
 
     const newResult = createRouletteResult(winnerIndex, participants);
     setResult(newResult);
@@ -55,11 +52,9 @@ export function useRouletteGame() {
 
   const handleSpinComplete = useCallback(() => {
     setIsSpinning(false);
-    setShowResult(true);
   }, []);
 
   const handlePlayAgain = useCallback(() => {
-    setShowResult(false);
     setResult(null);
     setIsSpinning(false);
     setSpinConfig(undefined);
@@ -71,22 +66,17 @@ export function useRouletteGame() {
     setSpinConfig(undefined);
     setIsSpinning(false);
     setResult(null);
-    setShowResult(false);
   }, []);
 
   const restoreFromURL = useCallback((
     names: string[],
     urlResult?: RouletteResult | null,
-    urlShowResult?: boolean,
   ) => {
     const newParticipants = generateParticipants(names);
     setParticipants(newParticipants);
     setSegments(generateWheelSegments(names.length));
     if (urlResult) {
       setResult(urlResult);
-    }
-    if (urlShowResult) {
-      setShowResult(true);
     }
   }, []);
 
@@ -96,7 +86,6 @@ export function useRouletteGame() {
     spinConfig,
     isSpinning,
     result,
-    showResult,
     handleStart,
     handleShuffle,
     handleSpin,

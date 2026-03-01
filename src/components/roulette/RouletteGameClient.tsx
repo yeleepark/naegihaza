@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
+import GameClientLayout from '@/components/layout/GameClientLayout';
 import GameSetup from '@/components/roulette/GameSetup';
 import GameSpinning from '@/components/roulette/GameSpinning';
-import ResultOverlay from '@/components/roulette/ResultOverlay';
+import GameResult from '@/components/roulette/GameResult';
 import { useGameURL } from '@/hooks/useGameURL';
 import { useRouletteGame } from '@/hooks/useRouletteGame';
 import { GameState } from '@/types/roulette';
@@ -17,12 +18,11 @@ export default function RouletteGameClient() {
     spinConfig,
     isSpinning,
     result,
-    showResult,
     handleStart: hookStart,
     handleShuffle,
     handleSpin,
-    handleSpinComplete,
-    handlePlayAgain,
+    handleSpinComplete: hookSpinComplete,
+    handlePlayAgain: hookPlayAgain,
     resetGame,
     restoreFromURL,
   } = useRouletteGame();
@@ -40,33 +40,44 @@ export default function RouletteGameClient() {
           winnerNumber: parseInt(wn, 10),
           totalParticipants: p.length,
           timestamp: new Date(),
-        }, true);
+        });
+        setGameState('result');
       } else {
         restoreFromURL(p);
+        setGameState('spinning');
       }
     } else {
       restoreFromURL(p);
+      setGameState('spinning');
     }
-    setGameState('spinning');
   });
 
   useEffect(() => {
     if (!initialized) return;
     const names = participants.map((p) => p.name);
     const extra: Record<string, string> = {};
-    const urlState = showResult ? 'result' : gameState;
-    if (result && showResult) {
+    if (result && gameState === 'result') {
       extra.w = result.winnerName;
       extra.wc = result.winnerColor;
       extra.wn = String(result.winnerNumber);
     }
-    sync(urlState as GameState, names, extra);
-  }, [initialized, gameState, showResult, participants, result, sync]);
+    sync(gameState, names, extra);
+  }, [initialized, gameState, participants, result, sync]);
 
   const handleStart = useCallback((names: string[]) => {
     hookStart(names);
     setGameState('spinning');
   }, [hookStart]);
+
+  const handleSpinComplete = useCallback(() => {
+    hookSpinComplete();
+    setGameState('result');
+  }, [hookSpinComplete]);
+
+  const handlePlayAgain = useCallback(() => {
+    hookPlayAgain();
+    setGameState('spinning');
+  }, [hookPlayAgain]);
 
   const handleReset = useCallback(() => {
     clear();
@@ -75,9 +86,10 @@ export default function RouletteGameClient() {
   }, [clear, resetGame]);
 
   return (
-    <div className="w-full h-full overflow-y-auto">
-      {gameState === 'setup' && <GameSetup onStart={handleStart} />}
-      {gameState === 'spinning' && !showResult && (
+    <GameClientLayout
+      gameState={gameState}
+      setup={<GameSetup onStart={handleStart} />}
+      gameplay={
         <GameSpinning
           segments={segments}
           participants={participants}
@@ -87,14 +99,16 @@ export default function RouletteGameClient() {
           onShuffle={handleShuffle}
           onSpinComplete={handleSpinComplete}
         />
-      )}
-      {showResult && result && (
-        <ResultOverlay
-          result={result}
-          onPlayAgain={handlePlayAgain}
-          onReset={handleReset}
-        />
-      )}
-    </div>
+      }
+      result={
+        result ? (
+          <GameResult
+            result={result}
+            onPlayAgain={handlePlayAgain}
+            onReset={handleReset}
+          />
+        ) : null
+      }
+    />
   );
 }

@@ -36,7 +36,7 @@ export default function GamePlay({ participants, onComplete }: GamePlayProps) {
           <button
             type="button"
             onClick={() => setEnabled(!enabled)}
-            className="absolute -top-1 -right-1 z-30 p-2 bg-white border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-shadow"
+            className="fixed top-[4.5rem] right-6 md:right-8 z-[8] p-2 bg-white border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-shadow"
           >
             {enabled ? (
               <Volume2 className="w-5 h-5 text-black" />
