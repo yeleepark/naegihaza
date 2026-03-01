@@ -10,12 +10,14 @@ import {
   BrickWall,
   Coins,
   Target,
+  Bomb,
 } from 'lucide-react';
 
 const GAME_ITEMS = [
   { key: 'breakout', icon: BrickWall, color: 'text-cyan-400' },
   { key: 'slot', icon: Coins, color: 'text-purple-400' },
   { key: 'roulette', icon: Target, color: 'text-yellow-400' },
+  { key: 'bomb', icon: Bomb, color: 'text-red-400' },
 ];
 
 interface NavMenuProps {

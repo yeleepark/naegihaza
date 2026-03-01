@@ -73,6 +73,20 @@ export function getMetadata(locale: Locale) {
           locale === 'zh' ? ['老虎机游戏', '转轮', '随机中奖', '派对游戏'] :
             ['tragamonedas', 'girar carretes', 'ganador aleatorio', 'juego fiesta'],
     },
+    bomb: {
+      title: locale === 'ko' ? '폭탄돌리기 – 폭탄 터지면 당첨 랜덤 뽑기 게임' :
+        locale === 'en' ? 'Bomb Pass – Pass the Bomb Game' :
+          locale === 'zh' ? '传炸弹 – 炸弹传递随机选人游戏' :
+            'Pasa la Bomba – Juego de Pasar la Bomba',
+      description: locale === 'ko' ? '폭탄돌리기에서 폭탄이 참가자 사이를 돌다가 터지면 당첨! 숨겨진 타이머로 극한의 긴장감을 느껴보세요.' :
+        locale === 'en' ? 'Pass the bomb between players — whoever holds it when it explodes is selected! A hidden timer creates maximum suspense.' :
+          locale === 'zh' ? '炸弹在参与者之间传递，爆炸时持有者被选中！隐藏计时器制造极致紧张感。' :
+            '¡Pasa la bomba entre jugadores — quien la tenga cuando explote es el elegido! Un temporizador oculto crea el máximo suspenso.',
+      keywords: locale === 'ko' ? ['폭탄돌리기', '폭탄 게임', '랜덤 당첨', '랜덤 뽑기 게임', '파티 게임'] :
+        locale === 'en' ? ['bomb pass game', 'pass the bomb', 'random winner', 'party game', 'bomb game'] :
+          locale === 'zh' ? ['传炸弹游戏', '炸弹传递', '随机中奖', '派对游戏'] :
+            ['pasa la bomba', 'juego bomba', 'ganador aleatorio', 'juego fiesta'],
+    },
     privacy: {
       title: locale === 'ko' ? '개인정보처리방침' :
         locale === 'en' ? 'Privacy Policy' :

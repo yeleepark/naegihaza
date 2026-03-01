@@ -12,6 +12,10 @@
       "title": "Tragamonedas",
       "description": "Un carrete gira para seleccionar un ganador."
     },
+    "bomb": {
+      "title": "Pasa la Bomba",
+      "description": "¡Pasa la bomba antes de que explote!"
+    },
     "about": {
       "title": "Acerca de RandomGame.zip",
       "sections": {
@@ -377,5 +381,65 @@
     "minMax": "Puedes agregar de 2 a 100 participantes",
     "spin": "¡Girar!",
     "spinning": "Girando..."
+  },
+  "bomb": {
+    "title": "Pasa la Bomba",
+    "description": {
+      "intro": {
+        "title": "¿Qué es Pasa la Bomba?",
+        "p1": "Pasa la Bomba es un juego de máxima tensión donde una bomba pasa entre los participantes y quien la tenga cuando explote es el elegido. Un temporizador oculto hace que nadie sepa cuándo explotará.",
+        "p2": "La bomba se mueve automáticamente en sentido horario y se acelera con el tiempo. Admite de 2 a 20 participantes."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres separados por comas o saltos de línea.",
+          "Puedes ingresar entre 2 y 20 participantes.",
+          "Pulsa Iniciar y la bomba se mueve automáticamente en sentido horario.",
+          "La bomba se acelera conforme pasa el tiempo.",
+          "Cuando el temporizador oculto termina, la bomba explota y quien la tenga es seleccionado."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarlo",
+        "items": [
+          "Cuando quieres suspenso extremo",
+          "Cuando quieres animar una fiesta o reunión",
+          "Cuando quieres elegir un castigo de forma emocionante",
+          "Cuando quieres una forma rápida y simple de seleccionar a alguien"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Cuándo explota la bomba?",
+            "a": "La bomba explota en un tiempo aleatorio entre 5 y 15 segundos. Nadie sabe el momento exacto, maximizando el suspenso."
+          },
+          {
+            "q": "¿Cómo cambia la velocidad de la bomba?",
+            "a": "Empieza lento y se acelera gradualmente. Al final se mueve muy rápido, haciendo difícil predecir quién la tendrá."
+          },
+          {
+            "q": "¿Los resultados son justos?",
+            "a": "Sí, tanto el temporizador como la posición inicial son completamente aleatorios, dando a todos la misma probabilidad."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Pulsa Iniciar",
+        "Pulsa Iniciar para pasar la bomba",
+        "💣 ¡Quien la tenga cuando explote es el elegido!"
+      ]
+    },
+    "minMax": "Puedes agregar de 2 a 20 participantes",
+    "play": "Iniciar",
+    "playing": "En progreso...",
+    "error": {
+      "max": "Máximo 20 personas"
+    }
   }
 }

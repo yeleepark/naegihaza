@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { locales } from '@/i18n/settings';
 
 const baseUrl = 'https://naegihaza.com';
-const gameRoutes = ['', '/games/roulette', '/games/breakout', '/games/slot'];
+const gameRoutes = ['', '/games/roulette', '/games/breakout', '/games/slot', '/games/bomb'];
 const legalRoutes = ['/privacy', '/terms'];
 
 export async function generateSitemaps() {

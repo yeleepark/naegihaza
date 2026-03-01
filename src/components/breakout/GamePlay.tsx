@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function GamePlay({ participants, onResult }: Props) {
-  const { enabled, setEnabled, playBlockBreak, playWallBounce, vibrate } = useSound();
+  const { enabled, setEnabled, playBlockBreak, playWallBounce } = useSound();
 
   const {
     canvasRef,
@@ -26,9 +26,6 @@ export default function GamePlay({ participants, onResult }: Props) {
     onResult,
     onBlockHit: playBlockBreak,
     onWallHit: playWallBounce,
-    onGameEnd: () => {
-      vibrate([100, 50, 100]);
-    },
   });
   const { t } = useTranslation();
 

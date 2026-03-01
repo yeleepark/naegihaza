@@ -53,16 +53,15 @@ export default function GameResult({
   onReset,
 }: GameResultProps) {
   const { t } = useTranslation();
-  const { playBreakoutWin, vibrate } = useSound();
+  const { playBreakoutWin } = useSound();
 
   useEffect(() => {
     fireCelebration();
     playBreakoutWin();
-    vibrate([100, 50, 100, 50, 200]);
     return () => {
       confetti.reset();
     };
-  }, [playBreakoutWin, vibrate]);
+  }, [playBreakoutWin]);
 
   return (
     <div className="flex items-center justify-center h-full relative">

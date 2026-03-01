@@ -12,6 +12,10 @@
       "title": "Slot Machine",
       "description": "A reel spins to select a winner."
     },
+    "bomb": {
+      "title": "Bomb Pass",
+      "description": "Pass the bomb before it explodes!"
+    },
     "about": {
       "title": "About RandomGame.zip",
       "sections": {
@@ -377,5 +381,65 @@
     "minMax": "You can add 2 to 100 participants",
     "spin": "Spin!",
     "spinning": "Spinning..."
+  },
+  "bomb": {
+    "title": "Bomb Pass",
+    "description": {
+      "intro": {
+        "title": "What is Bomb Pass?",
+        "p1": "Bomb Pass is an intense game where a bomb passes between participants and whoever holds it when it explodes is selected. A hidden timer means nobody knows when it will go off.",
+        "p2": "The bomb automatically moves clockwise and gets faster over time. Supports 2 to 20 participants."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names separated by commas or line breaks.",
+          "You can enter between 2 and 20 participants.",
+          "Press Start and the bomb automatically moves clockwise.",
+          "The bomb speeds up as time passes.",
+          "When the hidden timer ends, the bomb explodes and whoever is holding it is selected."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "When you want extreme suspense",
+          "When you want to liven up a party or gathering",
+          "When you want a thrilling way to pick someone for a penalty",
+          "When you want a quick and simple way to select someone"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "When does the bomb explode?",
+            "a": "The bomb explodes at a random time between 5 and 15 seconds. Nobody knows the exact time, maximizing the suspense."
+          },
+          {
+            "q": "How does the bomb speed change?",
+            "a": "It starts slow and gradually speeds up. Near the end it moves very fast, making it hard to predict who will be holding it."
+          },
+          {
+            "q": "Are the results fair?",
+            "a": "Yes, both the timer and starting position are completely random, giving everyone an equal chance."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Press Start",
+        "Press Start to pass the bomb",
+        "💣 Whoever holds it when it explodes is selected!"
+      ]
+    },
+    "minMax": "You can add 2 to 20 participants",
+    "play": "Start",
+    "playing": "In progress...",
+    "error": {
+      "max": "Up to 20 people allowed"
+    }
   }
 }

@@ -4,18 +4,18 @@ import { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import { RouletteResult } from '@/types/roulette';
+import { BombResult } from '@/types/bomb';
 import { useTranslation } from 'react-i18next';
 import { useSound } from '@/hooks/useSound';
 
 type GameResultProps = {
-  result: RouletteResult;
+  result: BombResult;
   onPlayAgain: () => void;
   onReset: () => void;
 };
 
 function fireCelebration() {
-  const colors = ['#fb923c', '#fbbf24', '#f472b6', '#a78bfa', '#60a5fa', '#34d399'];
+  const colors = ['#ef4444', '#fb923c', '#fbbf24', '#f472b6', '#a78bfa', '#60a5fa'];
 
   confetti({
     particleCount: 150,
@@ -53,16 +53,15 @@ export default function GameResult({
   onReset,
 }: GameResultProps) {
   const { t } = useTranslation();
-  const { playRouletteWin } = useSound();
+  const { playBombWin } = useSound();
 
   useEffect(() => {
     fireCelebration();
-    playRouletteWin();
-
+    playBombWin();
     return () => {
       confetti.reset();
     };
-  }, [playRouletteWin]);
+  }, [playBombWin]);
 
   return (
     <div className="flex items-center justify-center h-full relative">

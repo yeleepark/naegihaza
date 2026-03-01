@@ -375,16 +375,129 @@ export function useSound() {
     }
   }, [getAudioCtx]);
 
-  const playFanfare = playSlotWin;
-
-  const vibrate = useCallback((pattern: number | number[]) => {
+  // Bomb tick — triangle wave 1000Hz, 40ms double click (clock tick feel)
+  const playBombTick = useCallback(() => {
     if (!getSnapshot()) return;
     try {
-      navigator?.vibrate?.(pattern);
-    } catch {
-      // Vibration not supported
-    }
-  }, []);
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
 
-  return { enabled, setEnabled, playTick, playSlotTick, playSlotSpin, playBlockBreak, playWallBounce, playFanfare, playSlotWin, playRouletteSpin, playRouletteTick, playRouletteWin, playBreakoutWin, vibrate };
+      // Double click: two short triangle pings
+      [0, 0.04].forEach((offset) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = 1000 + Math.random() * 100;
+        gain.gain.setValueAtTime(0.12, now + offset);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + offset + 0.03);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + offset);
+        osc.stop(now + offset + 0.03);
+      });
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  // Bomb explode — bass thump + white noise burst + square wave crack
+  const playBombExplode = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      // 1. Bass thump (sine 200→40Hz, ~0.3s)
+      const bass = ctx.createOscillator();
+      const bassGain = ctx.createGain();
+      bass.type = 'sine';
+      bass.frequency.setValueAtTime(200, now);
+      bass.frequency.exponentialRampToValueAtTime(40, now + 0.3);
+      bassGain.gain.setValueAtTime(0.25, now);
+      bassGain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+      bass.connect(bassGain);
+      bassGain.connect(ctx.destination);
+      bass.start(now);
+      bass.stop(now + 0.4);
+
+      // 2. White noise burst (~0.2s)
+      const bufLen = ctx.sampleRate * 0.25;
+      const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < bufLen; i++) {
+        d[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.06));
+      }
+      const noise = ctx.createBufferSource();
+      noise.buffer = buf;
+      const lpf = ctx.createBiquadFilter();
+      lpf.type = 'lowpass';
+      lpf.frequency.value = 3000;
+      const nGain = ctx.createGain();
+      nGain.gain.setValueAtTime(0.2, now);
+      nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+      noise.connect(lpf);
+      lpf.connect(nGain);
+      nGain.connect(ctx.destination);
+      noise.start(now);
+
+      // 3. Square wave crack (800→100Hz, ~0.08s)
+      const crack = ctx.createOscillator();
+      const crackGain = ctx.createGain();
+      crack.type = 'square';
+      crack.frequency.setValueAtTime(800, now);
+      crack.frequency.exponentialRampToValueAtTime(100, now + 0.08);
+      crackGain.gain.setValueAtTime(0.15, now);
+      crackGain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+      crack.connect(crackGain);
+      crackGain.connect(ctx.destination);
+      crack.start(now);
+      crack.stop(now + 0.1);
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  // Heartbeat pulse — low-frequency lub-dub for tension
+  const playHeartbeatPulse = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      // Lub (55→35Hz sine, 120ms)
+      const lub = ctx.createOscillator();
+      const lubGain = ctx.createGain();
+      lub.type = 'sine';
+      lub.frequency.setValueAtTime(55, now);
+      lub.frequency.exponentialRampToValueAtTime(35, now + 0.12);
+      lubGain.gain.setValueAtTime(0.18, now);
+      lubGain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+      lub.connect(lubGain);
+      lubGain.connect(ctx.destination);
+      lub.start(now);
+      lub.stop(now + 0.15);
+
+      // Dub (70→45Hz sine, 120ms, offset 150ms)
+      const dub = ctx.createOscillator();
+      const dubGain = ctx.createGain();
+      dub.type = 'sine';
+      dub.frequency.setValueAtTime(70, now + 0.15);
+      dub.frequency.exponentialRampToValueAtTime(45, now + 0.27);
+      dubGain.gain.setValueAtTime(0.14, now + 0.15);
+      dubGain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+      dub.connect(dubGain);
+      dubGain.connect(ctx.destination);
+      dub.start(now + 0.15);
+      dub.stop(now + 0.3);
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  // Bomb win — reuse fireworks celebration
+  const playBombWin = playBreakoutWin;
+
+  const playFanfare = playSlotWin;
+
+  return { enabled, setEnabled, playTick, playSlotTick, playSlotSpin, playBlockBreak, playWallBounce, playFanfare, playSlotWin, playRouletteSpin, playRouletteTick, playRouletteWin, playBreakoutWin, playBombTick, playBombExplode, playBombWin, playHeartbeatPulse };
 }
