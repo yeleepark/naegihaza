@@ -8,17 +8,15 @@ import { parseNames, validateParticipantNames } from '@/utils/slot';
 import { useTranslation } from 'react-i18next';
 import HowToPlay from '@/components/ui/HowToPlay';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { Dices, Siren, Trophy } from 'lucide-react';
-import { SlotMode } from '@/types/slot';
+import { Dices } from 'lucide-react';
 
 type GameSetupProps = {
-  onStart: (names: string[], mode: SlotMode) => void;
+  onStart: (names: string[]) => void;
 };
 
 export default function GameSetup({ onStart }: GameSetupProps) {
   const [input, setInput] = useLocalStorage('participants');
   const [error, setError] = useState<string>('');
-  const [mode, setMode] = useState<SlotMode>('penalty');
   const { t } = useTranslation();
 
   const tags = useMemo(() => parseNames(input), [input]);
@@ -40,7 +38,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
     }
 
     setError('');
-    onStart(names, mode);
+    onStart(names);
   };
 
   return (
@@ -52,33 +50,6 @@ export default function GameSetup({ onStart }: GameSetupProps) {
           <h2 className="font-game text-3xl font-black text-black mb-2">
             {t('slot.title')}
           </h2>
-        </div>
-
-        <div className="flex gap-3 mb-4 md:mb-6">
-          <button
-            type="button"
-            onClick={() => setMode('penalty')}
-            className={`font-game flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all duration-200 cursor-pointer ${
-              mode === 'penalty'
-                ? 'border-2 border-black bg-orange-100 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
-                : 'border-2 border-black/20 bg-white text-black/40'
-            }`}
-          >
-            <Siren className="w-4 h-4 inline-block mr-1 -mt-0.5" />
-            {t('slot.mode.penalty')}
-          </button>
-          <button
-            type="button"
-            onClick={() => setMode('winner')}
-            className={`font-game flex-1 py-2 px-3 rounded-lg text-sm font-bold transition-all duration-200 cursor-pointer ${
-              mode === 'winner'
-                ? 'border-2 border-black bg-orange-100 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
-                : 'border-2 border-black/20 bg-white text-black/40'
-            }`}
-          >
-            <Trophy className="w-4 h-4 inline-block mr-1 -mt-0.5" />
-            {t('slot.mode.winner')}
-          </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">

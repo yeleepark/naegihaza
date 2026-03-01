@@ -623,14 +623,6 @@
     },
     "minMax": "2명에서 100명까지 참가할 수 있어요",
     "spin": "스핀!",
-    "spinning": "돌아가는 중...",
-    "mode": {
-      "penalty": "벌칙자 뽑기",
-      "winner": "우승자 뽑기"
-    },
-    "result": {
-      "penalty": "벌칙 당첨",
-      "winner": "당첨자"
-    }
+    "spinning": "돌아가는 중..."
   }
 }

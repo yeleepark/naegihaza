@@ -624,14 +624,6 @@
     },
     "minMax": "Puedes agregar de 2 a 100 participantes",
     "spin": "¡Girar!",
-    "spinning": "Girando...",
-    "mode": {
-      "penalty": "Penalización",
-      "winner": "Ganador"
-    },
-    "result": {
-      "penalty": "¡Penalización!",
-      "winner": "Ganador"
-    }
+    "spinning": "Girando..."
   }
 }

@@ -1,20 +1,30 @@
 'use client';
 
 import Button from '@/components/ui/Button';
-import { CELL_HEIGHT, SPIN_DURATION } from '@/utils/slot';
-import { SlotResult, SlotMode } from '@/types/slot';
+import { CELL_HEIGHT } from '@/utils/slot';
+import { SlotResult } from '@/types/slot';
 import { useTranslation } from 'react-i18next';
 import { useSlotMachine } from '@/hooks/useSlotMachine';
+import { useSound } from '@/hooks/useSound';
+import { Volume2, VolumeX } from 'lucide-react';
 
 type GamePlayProps = {
   participants: string[];
-  mode: SlotMode;
   onComplete: (result: SlotResult) => void;
 };
 
-export default function GamePlay({ participants, mode, onComplete }: GamePlayProps) {
-  const { spinning, stopped, strip, offset, transitioning, handleSpin } =
-    useSlotMachine(participants, mode, onComplete);
+export default function GamePlay({ participants, onComplete }: GamePlayProps) {
+  const { enabled, setEnabled, playTick, playFanfare, vibrate } = useSound();
+
+  const { spinning, stopped, strip, offset, handleSpin } =
+    useSlotMachine(participants, {
+      onComplete,
+      onTick: playTick,
+      onResult: () => {
+        playFanfare();
+        vibrate([100, 50, 100]);
+      },
+    });
   const { t } = useTranslation();
 
   return (
@@ -22,6 +32,19 @@ export default function GamePlay({ participants, mode, onComplete }: GamePlayPro
       <div className="flex flex-col items-center w-full max-w-xs px-4">
         {/* Slot machine */}
         <div className="w-full relative">
+          {/* Sound Toggle */}
+          <button
+            type="button"
+            onClick={() => setEnabled(!enabled)}
+            className="absolute -top-1 -right-1 z-30 p-2 bg-white border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-shadow"
+          >
+            {enabled ? (
+              <Volume2 className="w-5 h-5 text-black" />
+            ) : (
+              <VolumeX className="w-5 h-5 text-black/40" />
+            )}
+          </button>
+
           {/* Machine body */}
           <div className="bg-pink-400 border-4 border-black rounded-3xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
             {/* Arch top with lights */}
@@ -68,9 +91,6 @@ export default function GamePlay({ participants, mode, onComplete }: GamePlayPro
                     className="flex flex-col"
                     style={{
                       transform: `translateY(-${offset}px)`,
-                      transition: transitioning
-                        ? `transform ${SPIN_DURATION}ms cubic-bezier(0.05, 0.35, 0.0, 1.0)`
-                        : 'none',
                     }}
                   >
                     {strip.map((name, i) => (

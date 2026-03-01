@@ -624,14 +624,6 @@
     },
     "minMax": "You can add 2 to 100 participants",
     "spin": "Spin!",
-    "spinning": "Spinning...",
-    "mode": {
-      "penalty": "Penalty Pick",
-      "winner": "Winner Pick"
-    },
-    "result": {
-      "penalty": "Penalty!",
-      "winner": "Winner"
-    }
+    "spinning": "Spinning..."
   }
 }

@@ -8,67 +8,88 @@ import {
   REPEATS,
   RESULT_DELAY,
 } from '@/utils/slot';
-import { SlotResult, SlotMode } from '@/types/slot';
+import { SlotResult } from '@/types/slot';
+
+export interface SlotCallbacks {
+  onComplete: (result: SlotResult) => void;
+  onTick?: () => void;
+  onResult?: () => void;
+}
+
+/** Power-6 ease-out: fast start, dramatically slow end */
+function dramaticEase(t: number): number {
+  return 1 - Math.pow(1 - t, 6);
+}
 
 export function useSlotMachine(
   participants: string[],
-  mode: SlotMode,
-  onComplete: (result: SlotResult) => void,
+  callbacks: SlotCallbacks,
 ) {
   const [spinning, setSpinning] = useState(false);
   const [stopped, setStopped] = useState(false);
   const [strip, setStrip] = useState<string[]>([]);
   const [offset, setOffset] = useState(0);
-  const [transitioning, setTransitioning] = useState(false);
-  const winnerRef = useRef<string | null>(null);
+  const rafRef = useRef(0);
+  const callbacksRef = useRef(callbacks);
+  callbacksRef.current = callbacks;
+
+  useEffect(() => {
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
 
   const handleSpin = useCallback(() => {
     const selectedWinner = selectWinner(participants);
-    winnerRef.current = selectedWinner;
 
     const newStrip = generateReelStrip(participants, selectedWinner, REPEATS);
     setStrip(newStrip);
     setStopped(false);
     setOffset(0);
-    setTransitioning(false);
     setSpinning(true);
+
+    const targetOffset = (newStrip.length - 1) * CELL_HEIGHT;
+    const startTime = performance.now();
+    let lastCellIndex = 0;
+
+    function animate(now: number) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / SPIN_DURATION, 1);
+      const eased = dramaticEase(progress);
+
+      const currentOffset = eased * targetOffset;
+      setOffset(currentOffset);
+
+      // Detect cell crossing for tick sound
+      const currentCellIndex = Math.floor(currentOffset / CELL_HEIGHT);
+      if (currentCellIndex > lastCellIndex) {
+        callbacksRef.current.onTick?.();
+        lastCellIndex = currentCellIndex;
+      }
+
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(animate);
+      } else {
+        setOffset(targetOffset);
+        setStopped(true);
+        setSpinning(false);
+        callbacksRef.current.onResult?.();
+
+        const winnerIndex = participants.indexOf(selectedWinner);
+        const winnerColor =
+          PARTICIPANT_COLORS[winnerIndex % PARTICIPANT_COLORS.length];
+
+        setTimeout(() => {
+          callbacksRef.current.onComplete({
+            winnerName: selectedWinner,
+            winnerColor,
+            totalParticipants: participants.length,
+            timestamp: new Date(),
+          });
+        }, RESULT_DELAY);
+      }
+    }
+
+    rafRef.current = requestAnimationFrame(animate);
   }, [participants]);
 
-  useEffect(() => {
-    if (!spinning || strip.length === 0) return;
-
-    const raf = requestAnimationFrame(() => {
-      const targetIndex = strip.length - 1;
-      const targetOffset = targetIndex * CELL_HEIGHT;
-      setTransitioning(true);
-      setOffset(targetOffset);
-    });
-
-    const timer = setTimeout(() => {
-      setStopped(true);
-      setSpinning(false);
-
-      const winner = winnerRef.current!;
-      const winnerIndex = participants.indexOf(winner);
-      const winnerColor =
-        PARTICIPANT_COLORS[winnerIndex % PARTICIPANT_COLORS.length];
-
-      setTimeout(() => {
-        onComplete({
-          winnerName: winner,
-          winnerColor,
-          totalParticipants: participants.length,
-          timestamp: new Date(),
-          mode,
-        });
-      }, RESULT_DELAY);
-    }, SPIN_DURATION + 300);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      clearTimeout(timer);
-    };
-  }, [spinning, strip]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  return { spinning, stopped, strip, offset, transitioning, handleSpin };
+  return { spinning, stopped, strip, offset, handleSpin };
 }

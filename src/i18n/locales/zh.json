@@ -624,14 +624,6 @@
     },
     "minMax": "可以添加2到100名参与者",
     "spin": "旋转！",
-    "spinning": "旋转中...",
-    "mode": {
-      "penalty": "惩罚抽签",
-      "winner": "赢家抽签"
-    },
-    "result": {
-      "penalty": "受罚!",
-      "winner": "赢家"
-    }
+    "spinning": "旋转中..."
   }
 }
