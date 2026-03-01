@@ -58,3 +58,51 @@ export function generateGameSchema(
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   };
 }
+
+const siteNames: Record<string, string> = {
+  ko: '랜덤게임.zip',
+  en: 'RandomGame.zip',
+  zh: 'RandomGame.zip',
+  es: 'RandomGame.zip',
+};
+
+export function generateBreadcrumbSchema(
+  locale: string,
+  gameName: string,
+  path: string,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: siteNames[locale] || siteNames.en,
+        item: `https://naegihaza.com/${locale}`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: gameName,
+        item: `https://naegihaza.com/${locale}${path}`,
+      },
+    ],
+  };
+}
+
+export function generateHowToSchema(
+  gameName: string,
+  steps: string[],
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: gameName,
+    step: steps.map((text, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      text,
+    })),
+  };
+}

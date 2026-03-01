@@ -23,7 +23,7 @@ export default async function sitemap({
     entries.push({
       url: `${baseUrl}/${locale}${route}`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: route === '' ? 1.0 : 0.9,
       alternates: {
         languages: {

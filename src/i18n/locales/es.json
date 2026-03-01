@@ -77,6 +77,16 @@
               "Animar fiestas",
               "Selección de ganador con suspenso"
             ]
+          },
+          "bomb": {
+            "title": "Pasa la Bomba",
+            "desc": "¡Pasa la bomba entre jugadores — quien la tenga cuando explote es el elegido!\nUn temporizador oculto crea el máximo suspenso.",
+            "recommendTitle": "Ideal para",
+            "recommend": [
+              "Suspenso y emoción extrema",
+              "Animar fiestas",
+              "Selección rápida y simple de castigo"
+            ]
           }
         },
         "randomStart": {

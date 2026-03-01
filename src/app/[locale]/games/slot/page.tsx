@@ -6,7 +6,7 @@ import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
 import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations, getMetadata } from '@/i18n/get-translations';
-import { generateFAQSchema, generateGameSchema } from '@/lib/structured-data';
+import { generateFAQSchema, generateGameSchema, generateBreadcrumbSchema, generateHowToSchema } from '@/lib/structured-data';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -25,6 +25,8 @@ export default async function SlotPage({ params }: Props) {
   const meta = getMetadata(locale as Locale);
   const faqSchema = generateFAQSchema(t.slot.description.faq.items);
   const gameSchema = generateGameSchema(meta.slot.title, meta.slot.description, `https://naegihaza.com/${locale}/games/slot`);
+  const breadcrumbSchema = generateBreadcrumbSchema(locale, meta.slot.title, '/games/slot');
+  const howToSchema = generateHowToSchema(meta.slot.title, t.slot.howToPlay.steps);
 
   return (
     <>
@@ -36,10 +38,18 @@ export default async function SlotPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(gameSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       <GamePageLayout
         header={<Header />}
         game={<SlotGameClient />}
-        description={<GameDescription description={t.slot.description} />}
+        description={<GameDescription description={t.slot.description} locale={locale} currentGame="slot" />}
       />
     </>
   );

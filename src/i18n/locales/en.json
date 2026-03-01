@@ -77,6 +77,16 @@
               "Livening up parties",
               "Suspenseful winner selection"
             ]
+          },
+          "bomb": {
+            "title": "Bomb Pass",
+            "desc": "Pass the bomb between players — whoever holds it when it explodes is selected!\nA hidden timer creates maximum suspense.",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Extreme suspense and excitement",
+              "Livening up parties",
+              "Quick and simple penalty selection"
+            ]
           }
         },
         "randomStart": {

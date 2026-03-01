@@ -6,7 +6,7 @@ import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
 import { createPageMetadata } from '@/lib/metadata';
 import { getTranslations, getMetadata } from '@/i18n/get-translations';
-import { generateFAQSchema, generateGameSchema } from '@/lib/structured-data';
+import { generateFAQSchema, generateGameSchema, generateBreadcrumbSchema, generateHowToSchema } from '@/lib/structured-data';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -25,6 +25,8 @@ export default async function BombPage({ params }: Props) {
   const meta = getMetadata(locale as Locale);
   const faqSchema = generateFAQSchema(t.bomb.description.faq.items);
   const gameSchema = generateGameSchema(meta.bomb.title, meta.bomb.description, `https://naegihaza.com/${locale}/games/bomb`);
+  const breadcrumbSchema = generateBreadcrumbSchema(locale, meta.bomb.title, '/games/bomb');
+  const howToSchema = generateHowToSchema(meta.bomb.title, t.bomb.howToPlay.steps);
 
   return (
     <>
@@ -36,10 +38,18 @@ export default async function BombPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(gameSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       <GamePageLayout
         header={<Header />}
         game={<BombGameClient />}
-        description={<GameDescription description={t.bomb.description} />}
+        description={<GameDescription description={t.bomb.description} locale={locale} currentGame="bomb" />}
       />
     </>
   );
