@@ -40,10 +40,10 @@ export function getMetadata(locale: Locale) {
         locale === 'en' ? 'Nobody knows who will be chosen! Spin the wheel of fate. Use this fair random roulette game with friends to decide order or make bets.' :
           locale === 'zh' ? '谁都不知道会选中谁！转动命运之轮。与朋友一起使用这个公平的随机轮盘游戏来决定顺序。' :
             '¡Nadie sabe quién será elegido! Gira la rueda del destino. Usa este juego de ruleta aleatoria justo con amigos para decidir el orden.',
-      keywords: locale === 'ko' ? ['룰렛돌리기', '룰렛 돌리기 사이트', '랜덤 뽑기', '랜덤 추첨기', '이름 추첨기', '당번 뽑기', '누가 계산', '랜덤 선택기', '온라인 룰렛', '랜덤 돌림판'] :
-        locale === 'en' ? ['roulette site', 'name picker', 'duty picker', 'who pays', 'random selector'] :
-          locale === 'zh' ? ['转盘网站', '抽名字', '抽当值', '谁请客', '随机选择器'] :
-            ['sitio ruleta', 'sorteo nombres', 'sorteo turno', 'quién paga', 'selector aleatorio'],
+      keywords: locale === 'ko' ? ['룰렛돌리기', '룰렛 돌리기 사이트', '랜덤 뽑기', '랜덤 추첨기', '이름 추첨기', '당번 뽑기', '누가 계산', '랜덤 선택기', '온라인 룰렛', '랜덤 돌림판', '랜덤 룰렛', '랜덤 추첨', '랜덤 게임', '내기 게임', '벌칙 뽑기', '제비뽑기', '파티 게임', '술자리 게임', '순서 정하기'] :
+        locale === 'en' ? ['roulette site', 'name picker', 'duty picker', 'who pays', 'random selector', 'random roulette', 'random draw', 'random game', 'betting game', 'penalty picker', 'party game', 'drinking game', 'decision maker'] :
+          locale === 'zh' ? ['转盘网站', '抽名字', '抽当值', '谁请客', '随机选择器', '随机轮盘', '随机抽奖', '随机游戏', '打赌游戏', '派对游戏', '酒局游戏', '决定工具'] :
+            ['sitio ruleta', 'sorteo nombres', 'sorteo turno', 'quién paga', 'selector aleatorio', 'ruleta aleatoria', 'sorteo aleatorio', 'juego aleatorio', 'juego apuestas', 'juego fiesta', 'juego bebidas', 'herramienta decisión'],
     },
     breakout: {
       title: locale === 'ko' ? '벽돌깨기 – 마지막 블럭 당첨 랜덤 뽑기 게임' :
@@ -54,10 +54,10 @@ export function getMetadata(locale: Locale) {
         locale === 'en' ? 'Break the blocks! The last block standing wins. A fun breakout game to decide winners with friends.' :
           locale === 'zh' ? '打碎砖块！最后剩下的砖块获胜。与朋友一起玩的有趣打砖块决定游戏。' :
             '¡Rompe los bloques! El último bloque en pie gana. Un divertido juego de breakout para decidir ganadores con amigos.',
-      keywords: locale === 'ko' ? ['벽돌깨기 게임', '블럭깨기', '랜덤 당첨', '랜덤 뽑기 게임', '랜덤 추첨 게임'] :
-        locale === 'en' ? ['breakout game', 'block breaker', 'brick breaker', 'random winner', 'party game'] :
-          locale === 'zh' ? ['打砖块', '消除方块', '随机中奖', '派对游戏'] :
-            ['breakout', 'rompe bloques', 'ganador aleatorio', 'juego fiesta'],
+      keywords: locale === 'ko' ? ['벽돌깨기 게임', '블럭깨기', '랜덤 당첨', '랜덤 뽑기 게임', '랜덤 추첨 게임', '랜덤 룰렛', '랜덤 뽑기', '랜덤 추첨', '랜덤 게임', '내기 게임', '벌칙 뽑기', '파티 게임', '술자리 게임'] :
+        locale === 'en' ? ['breakout game', 'block breaker', 'brick breaker', 'random winner', 'party game', 'random draw', 'random game', 'betting game', 'penalty picker', 'drinking game', 'decision maker'] :
+          locale === 'zh' ? ['打砖块', '消除方块', '随机中奖', '派对游戏', '随机抽奖', '随机游戏', '打赌游戏', '酒局游戏', '决定工具'] :
+            ['breakout', 'rompe bloques', 'ganador aleatorio', 'juego fiesta', 'sorteo aleatorio', 'juego aleatorio', 'juego apuestas', 'juego bebidas', 'herramienta decisión'],
     },
     slot: {
       title: locale === 'ko' ? '슬롯머신 – 릴 돌리기 랜덤 추첨 게임' :
@@ -68,10 +68,10 @@ export function getMetadata(locale: Locale) {
         locale === 'en' ? 'Spin the reels and find the winner! A fun slot machine game to select someone randomly with friends.' :
           locale === 'zh' ? '转动转轮找出赢家！与朋友一起玩的有趣老虎机随机选人游戏。' :
             '¡Gira los carretes y encuentra al ganador! Un divertido juego de tragamonedas para seleccionar a alguien al azar con amigos.',
-      keywords: locale === 'ko' ? ['슬롯머신 게임', '릴 돌리기', '랜덤 당첨', '랜덤 뽑기 게임', '랜덤 추첨 게임'] :
-        locale === 'en' ? ['slot machine game', 'spin reels', 'random winner', 'party game'] :
-          locale === 'zh' ? ['老虎机游戏', '转轮', '随机中奖', '派对游戏'] :
-            ['tragamonedas', 'girar carretes', 'ganador aleatorio', 'juego fiesta'],
+      keywords: locale === 'ko' ? ['슬롯머신 게임', '릴 돌리기', '랜덤 당첨', '랜덤 뽑기 게임', '랜덤 추첨 게임', '랜덤 룰렛', '랜덤 뽑기', '랜덤 추첨', '랜덤 게임', '내기 게임', '벌칙 뽑기', '파티 게임', '술자리 게임'] :
+        locale === 'en' ? ['slot machine game', 'spin reels', 'random winner', 'party game', 'random draw', 'random game', 'betting game', 'penalty picker', 'drinking game', 'decision maker'] :
+          locale === 'zh' ? ['老虎机游戏', '转轮', '随机中奖', '派对游戏', '随机抽奖', '随机游戏', '打赌游戏', '酒局游戏', '决定工具'] :
+            ['tragamonedas', 'girar carretes', 'ganador aleatorio', 'juego fiesta', 'sorteo aleatorio', 'juego aleatorio', 'juego apuestas', 'juego bebidas', 'herramienta decisión'],
     },
     bomb: {
       title: locale === 'ko' ? '폭탄돌리기 – 폭탄 터지면 당첨 랜덤 뽑기 게임' :
@@ -82,10 +82,10 @@ export function getMetadata(locale: Locale) {
         locale === 'en' ? 'Pass the bomb between players — whoever holds it when it explodes is selected! A hidden timer creates maximum suspense.' :
           locale === 'zh' ? '炸弹在参与者之间传递，爆炸时持有者被选中！隐藏计时器制造极致紧张感。' :
             '¡Pasa la bomba entre jugadores — quien la tenga cuando explote es el elegido! Un temporizador oculto crea el máximo suspenso.',
-      keywords: locale === 'ko' ? ['폭탄돌리기', '폭탄 게임', '랜덤 당첨', '랜덤 뽑기 게임', '파티 게임'] :
-        locale === 'en' ? ['bomb pass game', 'pass the bomb', 'random winner', 'party game', 'bomb game'] :
-          locale === 'zh' ? ['传炸弹游戏', '炸弹传递', '随机中奖', '派对游戏'] :
-            ['pasa la bomba', 'juego bomba', 'ganador aleatorio', 'juego fiesta'],
+      keywords: locale === 'ko' ? ['폭탄돌리기', '폭탄 게임', '랜덤 당첨', '랜덤 뽑기 게임', '파티 게임', '랜덤 룰렛', '랜덤 뽑기', '랜덤 추첨', '랜덤 게임', '내기 게임', '벌칙 뽑기', '술자리 게임', '폭탄 돌리기 게임'] :
+        locale === 'en' ? ['bomb pass game', 'pass the bomb', 'random winner', 'party game', 'bomb game', 'random draw', 'random game', 'betting game', 'penalty picker', 'drinking game', 'decision maker'] :
+          locale === 'zh' ? ['传炸弹游戏', '炸弹传递', '随机中奖', '派对游戏', '随机抽奖', '随机游戏', '打赌游戏', '酒局游戏', '决定工具'] :
+            ['pasa la bomba', 'juego bomba', 'ganador aleatorio', 'juego fiesta', 'sorteo aleatorio', 'juego aleatorio', 'juego apuestas', 'juego bebidas', 'herramienta decisión'],
     },
     privacy: {
       title: locale === 'ko' ? '개인정보처리방침' :
