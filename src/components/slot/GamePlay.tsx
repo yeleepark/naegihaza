@@ -14,12 +14,12 @@ type GamePlayProps = {
 };
 
 export default function GamePlay({ participants, onComplete }: GamePlayProps) {
-  const { enabled, setEnabled, playTick, playFanfare, vibrate } = useSound();
+  const { enabled, setEnabled, playSlotTick, playSlotSpin, playFanfare, vibrate } = useSound();
 
   const { spinning, stopped, strip, offset, handleSpin } =
     useSlotMachine(participants, {
       onComplete,
-      onTick: playTick,
+      onTick: playSlotTick,
       onResult: () => {
         playFanfare();
         vibrate([100, 50, 100]);
@@ -148,7 +148,7 @@ export default function GamePlay({ participants, onComplete }: GamePlayProps) {
 
         {/* SPIN button */}
         <Button
-          onClick={handleSpin}
+          onClick={() => { playSlotSpin(); handleSpin(); }}
           variant="primary"
           disabled={spinning}
           className="w-full text-xl py-4 lowercase mt-5"

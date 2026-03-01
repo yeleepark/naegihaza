@@ -27,7 +27,7 @@ export default function GameSpinning({
   onSpinComplete,
 }: GameSpinningProps) {
   const { t } = useTranslation();
-  const { enabled, setEnabled, playTick, vibrate } = useSound();
+  const { enabled, setEnabled, playRouletteSpin, playRouletteTick, vibrate } = useSound();
 
   return (
     <div className="relative flex flex-col items-center justify-center h-full gap-4">
@@ -52,7 +52,7 @@ export default function GameSpinning({
             participants={participants}
             spinConfig={spinConfig}
             onSpinComplete={onSpinComplete}
-            onSegmentCross={playTick}
+            onSegmentCross={playRouletteTick}
           />
         </div>
       </div>
@@ -62,7 +62,7 @@ export default function GameSpinning({
         {!isSpinning && (
           <>
             <Button
-              onClick={() => { onShuffle(); playTick(); vibrate(50); }}
+              onClick={() => { onShuffle(); playRouletteSpin(); vibrate(50); }}
               variant="secondary"
               className="px-6 py-4 text-xl lowercase"
             >

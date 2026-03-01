@@ -3,7 +3,7 @@
 import { type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'next/navigation';
-import { BrickWall, Cherry, Target } from 'lucide-react';
+import { BrickWall, Coins, Target } from 'lucide-react';
 
 const SECTION_INTRO_KEYS = ['p1', 'p2', 'p3'] as const;
 const SECTION_BIRTH_KEYS = ['p1', 'p2', 'p3', 'p4'] as const;
@@ -11,7 +11,7 @@ const GAME_KEYS = ['breakout', 'slot', 'roulette'] as const;
 
 const GAME_ICONS: Record<string, ReactNode> = {
   breakout: <BrickWall className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
-  slot: <Cherry className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
+  slot: <Coins className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
   roulette: <Target className="w-5 h-5 stroke-[2.5] inline-block align-text-bottom mr-1.5" />,
 };
 

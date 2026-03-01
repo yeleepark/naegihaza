@@ -29,6 +29,9 @@ export function useSound() {
     if (!audioCtxRef.current) {
       audioCtxRef.current = new AudioContext();
     }
+    if (audioCtxRef.current.state === 'suspended') {
+      audioCtxRef.current.resume();
+    }
     return audioCtxRef.current;
   }, []);
 
@@ -82,138 +85,291 @@ export function useSound() {
     }
   }, [getAudioCtx]);
 
-  // Slot — jackpot jingle with coin shower
-  const playSlotWin = useCallback(() => {
+  // Slot tick — mechanical reel notch click
+  const playSlotTick = useCallback(() => {
     if (!getSnapshot()) return;
     try {
       const ctx = getAudioCtx();
       const now = ctx.currentTime;
 
-      const notes = [
-        { freq: 880, time: 0, dur: 0.25 },
-        { freq: 1109, time: 0.12, dur: 0.25 },
-        { freq: 1319, time: 0.24, dur: 0.25 },
-        { freq: 1760, time: 0.36, dur: 0.5 },
-        { freq: 2093, time: 0.48, dur: 0.6 },
-        { freq: 2637, time: 0.6, dur: 0.8 },
-      ];
+      // Short square wave burst — mechanical notch feel
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.value = 300 + Math.random() * 200;
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.025);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.025);
 
-      notes.forEach(({ freq, time, dur }) => {
-        [1, 2, 3.5].forEach((h, i) => {
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.type = 'sine';
-          osc.frequency.value = freq * h;
-          const vol = [0.1, 0.04, 0.02][i];
-          const start = now + time;
-          gain.gain.setValueAtTime(vol, start);
-          gain.gain.exponentialRampToValueAtTime(0.001, start + dur);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start(start);
-          osc.stop(start + dur);
-        });
-      });
-
-      for (let i = 0; i < 8; i++) {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.value = 3000 + Math.random() * 2000;
-        const start = now + 0.7 + i * 0.06;
-        gain.gain.setValueAtTime(0.05, start);
-        gain.gain.exponentialRampToValueAtTime(0.001, start + 0.06);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(start);
-        osc.stop(start + 0.06);
-      }
+      // Low-pass noise for notch friction texture
+      const bufLen = ctx.sampleRate * 0.02;
+      const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < bufLen; i++) d[i] = (Math.random() * 2 - 1) * 0.2;
+      const noise = ctx.createBufferSource();
+      noise.buffer = buf;
+      const lpf = ctx.createBiquadFilter();
+      lpf.type = 'lowpass';
+      lpf.frequency.value = 1500;
+      const nGain = ctx.createGain();
+      nGain.gain.setValueAtTime(0.06, now);
+      nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.02);
+      noise.connect(lpf);
+      lpf.connect(nGain);
+      nGain.connect(ctx.destination);
+      noise.start(now);
     } catch {
       // Audio not supported
     }
   }, [getAudioCtx]);
 
-  // Roulette — casino bell ding-ding-ding
-  const playRouletteWin = useCallback(() => {
+  // Slot spin — lever pull: descending clunk + ascending whir
+  const playSlotSpin = useCallback(() => {
     if (!getSnapshot()) return;
     try {
       const ctx = getAudioCtx();
       const now = ctx.currentTime;
 
-      // Triple bell ring
-      for (let i = 0; i < 3; i++) {
-        const start = now + i * 0.2;
-        [1, 2.76, 4.13].forEach((h, j) => {
-          const osc = ctx.createOscillator();
-          const gain = ctx.createGain();
-          osc.type = 'sine';
-          osc.frequency.value = 1400 * h;
-          const vol = [0.12, 0.05, 0.02][j];
-          gain.gain.setValueAtTime(vol, start);
-          gain.gain.exponentialRampToValueAtTime(0.001, start + 0.4);
-          osc.connect(gain);
-          gain.connect(ctx.destination);
-          osc.start(start);
-          osc.stop(start + 0.4);
-        });
-      }
+      // Descending clunk (square 400→100Hz, ~0.08s)
+      const clunk = ctx.createOscillator();
+      const clunkGain = ctx.createGain();
+      clunk.type = 'square';
+      clunk.frequency.setValueAtTime(400, now);
+      clunk.frequency.exponentialRampToValueAtTime(100, now + 0.08);
+      clunkGain.gain.setValueAtTime(0.12, now);
+      clunkGain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+      clunk.connect(clunkGain);
+      clunkGain.connect(ctx.destination);
+      clunk.start(now);
+      clunk.stop(now + 0.1);
 
-      // Sustained shimmer chord
-      [1760, 2217, 2637].forEach((freq) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.value = freq;
-        const start = now + 0.6;
-        gain.gain.setValueAtTime(0.07, start);
-        gain.gain.exponentialRampToValueAtTime(0.001, start + 1.0);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(start);
-        osc.stop(start + 1.0);
-      });
+      // Ascending whir (sine 100→600Hz, ~0.15s)
+      const whir = ctx.createOscillator();
+      const whirGain = ctx.createGain();
+      whir.type = 'sine';
+      whir.frequency.setValueAtTime(100, now + 0.06);
+      whir.frequency.exponentialRampToValueAtTime(600, now + 0.21);
+      whirGain.gain.setValueAtTime(0.001, now + 0.06);
+      whirGain.gain.linearRampToValueAtTime(0.1, now + 0.1);
+      whirGain.gain.exponentialRampToValueAtTime(0.001, now + 0.23);
+      whir.connect(whirGain);
+      whirGain.connect(ctx.destination);
+      whir.start(now + 0.06);
+      whir.stop(now + 0.23);
     } catch {
       // Audio not supported
     }
   }, [getAudioCtx]);
 
-  // Breakout — retro arcade victory
+  // Roulette spin — flick the wheel
+  const playRouletteSpin = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      // Descending sine sweep (800→200Hz, ~0.15s)
+      const sweep = ctx.createOscillator();
+      const sweepGain = ctx.createGain();
+      sweep.type = 'sine';
+      sweep.frequency.setValueAtTime(800, now);
+      sweep.frequency.exponentialRampToValueAtTime(200, now + 0.15);
+      sweepGain.gain.setValueAtTime(0.15, now);
+      sweepGain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+      sweep.connect(sweepGain);
+      sweepGain.connect(ctx.destination);
+      sweep.start(now);
+      sweep.stop(now + 0.18);
+
+      // Light noise whoosh
+      const bufLen = ctx.sampleRate * 0.12;
+      const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < bufLen; i++) {
+        d[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.04));
+      }
+      const noise = ctx.createBufferSource();
+      noise.buffer = buf;
+      const bpf = ctx.createBiquadFilter();
+      bpf.type = 'bandpass';
+      bpf.frequency.value = 1200;
+      bpf.Q.value = 0.8;
+      const nGain = ctx.createGain();
+      nGain.gain.setValueAtTime(0.1, now);
+      nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+      noise.connect(bpf);
+      bpf.connect(nGain);
+      nGain.connect(ctx.destination);
+      noise.start(now);
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  // Roulette tick — ball crossing a segment divider
+  const playRouletteTick = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      // Short triangle wave burst (~0.03s, 800-1200Hz random)
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.value = 800 + Math.random() * 400;
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.03);
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  // Breakout — celebration fireworks
   const playBreakoutWin = useCallback(() => {
     if (!getSnapshot()) return;
     try {
       const ctx = getAudioCtx();
       const now = ctx.currentTime;
 
-      // Fast ascending arpeggio (8-bit style)
-      const notes = [523, 659, 784, 1047, 1319, 1568, 2093];
-      notes.forEach((freq, i) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'square';
-        osc.frequency.value = freq;
-        const start = now + i * 0.07;
-        gain.gain.setValueAtTime(0.08, start);
-        gain.gain.exponentialRampToValueAtTime(0.001, start + 0.12);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(start);
-        osc.stop(start + 0.12);
-      });
+      // 1. Launch whistle — rising sine sweep
+      const whistle = ctx.createOscillator();
+      const whistleGain = ctx.createGain();
+      whistle.type = 'sine';
+      whistle.frequency.setValueAtTime(400, now);
+      whistle.frequency.exponentialRampToValueAtTime(2400, now + 0.3);
+      whistleGain.gain.setValueAtTime(0.12, now);
+      whistleGain.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
+      whistle.connect(whistleGain);
+      whistleGain.connect(ctx.destination);
+      whistle.start(now);
+      whistle.stop(now + 0.32);
 
-      // Final power chord
-      [2093, 2637, 3136].forEach((freq) => {
+      // 2. Pops — staggered sine bursts simulating firework pops
+      const popFreqs = [880, 1100, 660, 1320, 780, 1500, 950, 1200];
+      for (let i = 0; i < popFreqs.length; i++) {
+        const pop = ctx.createOscillator();
+        const popGain = ctx.createGain();
+        pop.type = 'sine';
+        const t = now + 0.3 + i * 0.06 + Math.random() * 0.03;
+        pop.frequency.setValueAtTime(popFreqs[i], t);
+        pop.frequency.exponentialRampToValueAtTime(popFreqs[i] * 0.5, t + 0.08);
+        popGain.gain.setValueAtTime(0.1, t);
+        popGain.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
+        pop.connect(popGain);
+        popGain.connect(ctx.destination);
+        pop.start(t);
+        pop.stop(t + 0.1);
+      }
+
+      // 3. Sparkles — high-frequency random pings scattering
+      for (let i = 0; i < 10; i++) {
+        const spark = ctx.createOscillator();
+        const sparkGain = ctx.createGain();
+        spark.type = 'sine';
+        const t = now + 0.5 + Math.random() * 0.6;
+        const freq = 2000 + Math.random() * 4000;
+        spark.frequency.setValueAtTime(freq, t);
+        sparkGain.gain.setValueAtTime(0.04 + Math.random() * 0.03, t);
+        sparkGain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+        spark.connect(sparkGain);
+        sparkGain.connect(ctx.destination);
+        spark.start(t);
+        spark.stop(t + 0.12);
+      }
+
+      // 4. Shimmer tail — gentle chord that fades out
+      const chordFreqs = [1047, 1319, 1568]; // C6, E6, G6
+      chordFreqs.forEach((freq) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
-        osc.type = 'square';
-        osc.frequency.value = freq;
-        const start = now + 0.55;
-        gain.gain.setValueAtTime(0.06, start);
-        gain.gain.exponentialRampToValueAtTime(0.001, start + 0.5);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + 0.8);
+        gain.gain.setValueAtTime(0.05, now + 0.8);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 1.8);
         osc.connect(gain);
         gain.connect(ctx.destination);
-        osc.start(start);
-        osc.stop(start + 0.5);
+        osc.start(now + 0.8);
+        osc.stop(now + 1.8);
       });
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  // Win sounds — all games use the same fireworks celebration
+  const playSlotWin = playBreakoutWin;
+  const playRouletteWin = playBreakoutWin;
+
+  // Block break — crunch with glass shatter
+  const playBlockBreak = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      // Sharp crack
+      const crack = ctx.createOscillator();
+      const crackGain = ctx.createGain();
+      crack.type = 'square';
+      crack.frequency.setValueAtTime(800 + Math.random() * 400, now);
+      crack.frequency.exponentialRampToValueAtTime(200, now + 0.04);
+      crackGain.gain.setValueAtTime(0.1, now);
+      crackGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+      crack.connect(crackGain);
+      crackGain.connect(ctx.destination);
+      crack.start(now);
+      crack.stop(now + 0.05);
+
+      // Shatter noise
+      const bufLen = ctx.sampleRate * 0.06;
+      const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < bufLen; i++) {
+        d[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.015));
+      }
+      const noise = ctx.createBufferSource();
+      noise.buffer = buf;
+      const hpf = ctx.createBiquadFilter();
+      hpf.type = 'highpass';
+      hpf.frequency.value = 2000;
+      const nGain = ctx.createGain();
+      nGain.gain.setValueAtTime(0.1, now);
+      nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+      noise.connect(hpf);
+      hpf.connect(nGain);
+      nGain.connect(ctx.destination);
+      noise.start(now);
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  // Wall bounce — short rubber thud
+  const playWallBounce = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(250 + Math.random() * 80, now);
+      osc.frequency.exponentialRampToValueAtTime(80, now + 0.06);
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.06);
     } catch {
       // Audio not supported
     }
@@ -230,5 +386,5 @@ export function useSound() {
     }
   }, []);
 
-  return { enabled, setEnabled, playTick, playFanfare, playSlotWin, playRouletteWin, playBreakoutWin, vibrate };
+  return { enabled, setEnabled, playTick, playSlotTick, playSlotSpin, playBlockBreak, playWallBounce, playFanfare, playSlotWin, playRouletteSpin, playRouletteTick, playRouletteWin, playBreakoutWin, vibrate };
 }

@@ -24,6 +24,7 @@ function fireCelebration() {
     colors,
     gravity: 0.8,
     scalar: 1.2,
+    zIndex: 30,
   });
 
   setTimeout(() => {
@@ -33,6 +34,7 @@ function fireCelebration() {
       spread: 70,
       origin: { x: 0, y: 0.7 },
       colors,
+      zIndex: 30,
     });
     confetti({
       particleCount: 50,
@@ -40,6 +42,7 @@ function fireCelebration() {
       spread: 70,
       origin: { x: 1, y: 0.7 },
       colors,
+      zIndex: 30,
     });
   }, 200);
 }

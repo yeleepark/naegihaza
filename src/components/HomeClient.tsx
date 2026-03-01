@@ -3,7 +3,7 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'next/navigation';
 import GameCard from '@/components/GameCard';
-import { BrickWall, Target, Cherry } from 'lucide-react';
+import { BrickWall, Target, Coins } from 'lucide-react';
 
 const ICON_BASE = 'w-9 h-9 md:w-14 md:h-14 stroke-[2.5]';
 
@@ -15,7 +15,7 @@ const GAME_ITEMS = [
   },
   {
     key: 'slot',
-    icon: <Cherry className={`${ICON_BASE} text-purple-800`} />,
+    icon: <Coins className={`${ICON_BASE} text-purple-800`} />,
     bgColor: 'bg-purple-300',
   },
   {

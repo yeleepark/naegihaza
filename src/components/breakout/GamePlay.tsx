@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function GamePlay({ participants, onResult }: Props) {
-  const { enabled, setEnabled, playTick, playFanfare, vibrate } = useSound();
+  const { enabled, setEnabled, playBlockBreak, playWallBounce, playFanfare, vibrate } = useSound();
 
   const {
     canvasRef,
@@ -24,8 +24,8 @@ export default function GamePlay({ participants, onResult }: Props) {
     handleSpeedChange,
   } = useBreakoutEngine(participants, {
     onResult,
-    onBlockHit: playTick,
-    onWallHit: playTick,
+    onBlockHit: playBlockBreak,
+    onWallHit: playWallBounce,
     onGameEnd: () => {
       playFanfare();
       vibrate([100, 50, 100]);
