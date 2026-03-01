@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import HowToPlay from '@/components/ui/HowToPlay';
+import TagInput from '@/components/ui/TagInput';
 import { parseNames, validateLadderInput } from '@/utils/ladder';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { WavesLadder } from 'lucide-react';
@@ -19,11 +20,22 @@ export default function GameSetup({ onStart }: GameSetupProps) {
   const [resultsInput, setResultsInput] = useLocalStorage('ladder-results');
   const [error, setError] = useState('');
 
+  const participantTags = useMemo(() => parseNames(participantsInput), [participantsInput]);
+  const resultTags = useMemo(() => parseNames(resultsInput), [resultsInput]);
+
+  const handleParticipantsChange = (newTags: string[]) => {
+    setParticipantsInput(newTags.join(', '));
+    setError('');
+  };
+
+  const handleResultsChange = (newTags: string[]) => {
+    setResultsInput(newTags.join(', '));
+    setError('');
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const participants = parseNames(participantsInput);
-    const results = parseNames(resultsInput);
-    const validation = validateLadderInput(participants, results);
+    const validation = validateLadderInput(participantTags, resultTags);
 
     if (!validation.valid) {
       const key = `ladder.setup.error${validation.error!.charAt(0).toUpperCase() + validation.error!.slice(1)}`;
@@ -32,7 +44,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
     }
 
     setError('');
-    onStart(participants, results);
+    onStart(participantTags, resultTags);
   };
 
   return (
@@ -52,30 +64,22 @@ export default function GameSetup({ onStart }: GameSetupProps) {
               <label className="font-game block text-sm font-bold text-black mb-2">
                 {t('ladder.setup.participants')}
               </label>
-              <textarea
-                value={participantsInput}
-                onChange={(e) => {
-                  setParticipantsInput(e.target.value);
-                  setError('');
-                }}
+              <TagInput
+                tags={participantTags}
+                onTagsChange={handleParticipantsChange}
                 placeholder={t('ladder.setup.participantsPlaceholder')}
-                className="font-game w-full px-4 py-3 rounded-lg bg-white border-2 border-black text-black placeholder-neutral-400 focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-sm resize-none"
-                rows={6}
+                maxTags={10}
               />
             </div>
             <div>
               <label className="font-game block text-sm font-bold text-black mb-2">
                 {t('ladder.setup.results')}
               </label>
-              <textarea
-                value={resultsInput}
-                onChange={(e) => {
-                  setResultsInput(e.target.value);
-                  setError('');
-                }}
+              <TagInput
+                tags={resultTags}
+                onTagsChange={handleResultsChange}
                 placeholder={t('ladder.setup.resultsPlaceholder')}
-                className="font-game w-full px-4 py-3 rounded-lg bg-white border-2 border-black text-black placeholder-neutral-400 focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-sm resize-none"
-                rows={6}
+                maxTags={10}
               />
             </div>
           </div>

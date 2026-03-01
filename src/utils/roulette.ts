@@ -128,7 +128,7 @@ export function validateParticipantNames(names: string[]): {
     };
   }
 
-  if (names.length > 100) {
+  if (names.length > 12) {
     return {
       valid: false,
       error: 'max',

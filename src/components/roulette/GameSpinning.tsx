@@ -4,6 +4,8 @@ import Button from '@/components/ui/Button';
 import { useTranslation } from 'react-i18next';
 import { WheelSegment, SpinConfig, Participant } from '@/types/roulette';
 import RouletteScene from './RouletteScene';
+import { useSound } from '@/hooks/useSound';
+import { Volume2, VolumeX } from 'lucide-react';
 
 type GameSpinningProps = {
   segments: WheelSegment[];
@@ -25,8 +27,23 @@ export default function GameSpinning({
   onSpinComplete,
 }: GameSpinningProps) {
   const { t } = useTranslation();
+  const { enabled, setEnabled, playTick, vibrate } = useSound();
+
   return (
-    <div className="flex flex-col items-center justify-center h-full gap-4">
+    <div className="relative flex flex-col items-center justify-center h-full gap-4">
+      {/* Sound Toggle */}
+      <button
+        type="button"
+        onClick={() => setEnabled(!enabled)}
+        className="absolute top-2 right-2 z-30 p-2 bg-white border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-none transition-shadow"
+      >
+        {enabled ? (
+          <Volume2 className="w-5 h-5 text-black" />
+        ) : (
+          <VolumeX className="w-5 h-5 text-black" />
+        )}
+      </button>
+
       {/* Roulette Wheel */}
       <div className="flex-1 min-h-0 w-full flex items-center justify-center">
         <div className="h-full max-h-[60vh] aspect-square max-w-full">
@@ -35,6 +52,7 @@ export default function GameSpinning({
             participants={participants}
             spinConfig={spinConfig}
             onSpinComplete={onSpinComplete}
+            onSegmentCross={playTick}
           />
         </div>
       </div>
@@ -44,7 +62,7 @@ export default function GameSpinning({
         {!isSpinning && (
           <>
             <Button
-              onClick={onShuffle}
+              onClick={() => { onShuffle(); playTick(); vibrate(50); }}
               variant="secondary"
               className="px-6 py-4 text-xl lowercase"
             >

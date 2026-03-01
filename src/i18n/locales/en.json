@@ -143,15 +143,15 @@
   "common": {
     "participants": "Participants",
     "placeholder": "Separate with comma or line break\nex: Alex, Mina, Joon, Hana",
-    "minMax": "2–100 people",
+    "minMax": "You can add 2 to 100 participants",
     "start": "Start",
     "error": {
       "min": "Enter at least 2 people",
       "max": "Up to 100 people allowed",
       "duplicate": "Duplicate names found"
     },
-    "playAgain": "Again",
-    "reset": "New Players",
+    "playAgain": "Try one more time",
+    "reset": "Play with different players",
     "howToPlay": "How to Play"
   },
   "ladder": {
@@ -213,7 +213,7 @@
       "participantsPlaceholder": "Comma or line break\nex: Alex, Mina, Joon",
       "resultsPlaceholder": "Comma or line break\nex: Win, Lose, Penalty",
       "start": "Start",
-      "minMax": "2–10 people (must match)",
+      "minMax": "You can add 2 to 10 participants (must match)",
       "errorMin": "Enter at least 2 people",
       "errorMax": "Up to 10 people allowed",
       "errorMismatch": "Participants and results must match"
@@ -226,9 +226,7 @@
     "result": {
       "title": "Result",
       "name": "Name",
-      "prize": "Result",
-      "playAgain": "Same Players",
-      "reset": "Reset"
+      "prize": "Result"
     }
   },
   "bomb": {
@@ -284,7 +282,7 @@
         "💣 Whoever picks the bomb gets the penalty"
       ]
     },
-    "minMax": "2–10 people",
+    "minMax": "You can add 2 to 10 participants",
     "turnOf": "{{name}}'s turn",
     "clickCard": "Pick a card",
     "safe": "Safe",
@@ -447,13 +445,13 @@
       "intro": {
         "title": "What is Roulette?",
         "p1": "Roulette is the most intuitive and fun way to fairly select one person from a group. Enter participant names and they'll be evenly placed on a spinning wheel — the name where the arrow stops is selected.",
-        "p2": "Naegihaza's roulette uses a completely random algorithm to guarantee equal selection probability for all participants. No app installation required — use it directly in your browser with 2 to 100 participants."
+        "p2": "Naegihaza's roulette uses a completely random algorithm to guarantee equal selection probability for all participants. No app installation required — use it directly in your browser with 2 to 12 participants."
       },
       "rules": {
         "title": "Detailed Rules",
         "items": [
           "Enter participant names separated by commas or line breaks.",
-          "You can enter between 2 and 100 participants.",
+          "You can enter between 2 and 12 participants.",
           "Press Start to go to the roulette wheel screen.",
           "Press Spin and the wheel rotates at a random speed.",
           "When the wheel stops, the participant the arrow points to is selected."
@@ -495,7 +493,11 @@
       ]
     },
     "setup": {
-      "start": "Start"
+      "start": "Start",
+      "minMax": "You can add 2 to 12 participants",
+      "error": {
+        "max": "Up to 12 people allowed"
+      }
     },
     "spinning": {
       "shuffle": "Shuffle",
@@ -503,9 +505,7 @@
       "spinning": "Spinning..."
     },
     "result": {
-      "title": "Result",
-      "playAgain": "Same players",
-      "reset": "Reset"
+      "title": "Result"
     }
   },
   "breakout": {
@@ -633,7 +633,7 @@
         "🎰 The winner is revealed when the reel stops"
       ]
     },
-    "minMax": "2–100 people",
+    "minMax": "You can add 2 to 100 participants",
     "spin": "Spin!",
     "spinning": "Spinning...",
     "mode": {

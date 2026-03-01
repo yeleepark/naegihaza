@@ -143,15 +143,15 @@
   "common": {
     "participants": "Participantes",
     "placeholder": "Separar por coma o salto de línea\nEj: Ana, Luis, Marta",
-    "minMax": "2–100 personas",
+    "minMax": "Puedes agregar de 2 a 100 participantes",
     "start": "Iniciar",
     "error": {
       "min": "Ingresa al menos 2 personas",
       "max": "Máximo 100 personas",
       "duplicate": "Hay nombres duplicados"
     },
-    "playAgain": "Otra vez",
-    "reset": "Cambiar jugadores",
+    "playAgain": "Intentar una vez más",
+    "reset": "Jugar con otros participantes",
     "howToPlay": "Cómo jugar"
   },
   "ladder": {
@@ -213,7 +213,7 @@
       "participantsPlaceholder": "Comas o líneas\nEj: Ana, Luis",
       "resultsPlaceholder": "Comas o líneas\nEj: Gana, Pierde, Castigo",
       "start": "Iniciar",
-      "minMax": "2–10 personas",
+      "minMax": "Puedes agregar de 2 a 10 participantes (deben coincidir)",
       "errorMin": "Mínimo 2 personas",
       "errorMax": "Máximo 10 personas",
       "errorMismatch": "Participantes y resultados deben coincidir"
@@ -226,9 +226,7 @@
     "result": {
       "title": "Resultado",
       "name": "Nombre",
-      "prize": "Resultado",
-      "playAgain": "Mismos jugadores",
-      "reset": "Reiniciar"
+      "prize": "Resultado"
     }
   },
   "bomb": {
@@ -284,7 +282,7 @@
         "💣 Quien saque la bomba recibe el castigo"
       ]
     },
-    "minMax": "2–10 personas",
+    "minMax": "Puedes agregar de 2 a 10 participantes",
     "turnOf": "Turno de {{name}}",
     "clickCard": "Elige una carta",
     "safe": "Seguro",
@@ -447,13 +445,13 @@
       "intro": {
         "title": "¿Qué es la Ruleta?",
         "p1": "La ruleta es la forma más intuitiva y divertida de seleccionar justamente a una persona de un grupo. Ingresa los nombres de los participantes y se distribuirán uniformemente en la rueda giratoria — el nombre donde se detiene la flecha es el seleccionado.",
-        "p2": "La ruleta de Naegihaza utiliza un algoritmo completamente aleatorio que garantiza la misma probabilidad de selección para todos los participantes. Sin instalación de apps — úsala directamente en tu navegador con 2 a 100 participantes."
+        "p2": "La ruleta de Naegihaza utiliza un algoritmo completamente aleatorio que garantiza la misma probabilidad de selección para todos los participantes. Sin instalación de apps — úsala directamente en tu navegador con 2 a 12 participantes."
       },
       "rules": {
         "title": "Reglas detalladas",
         "items": [
           "Ingresa los nombres separados por comas o saltos de línea.",
-          "Puedes ingresar entre 2 y 100 participantes.",
+          "Puedes ingresar entre 2 y 12 participantes.",
           "Pulsa Iniciar para ir a la pantalla de la ruleta.",
           "Pulsa Girar y la rueda gira a velocidad aleatoria.",
           "Cuando la rueda se detiene, el participante señalado por la flecha es seleccionado."
@@ -495,7 +493,11 @@
       ]
     },
     "setup": {
-      "start": "Iniciar"
+      "start": "Iniciar",
+      "minMax": "Puedes agregar de 2 a 12 participantes",
+      "error": {
+        "max": "Máximo 12 personas"
+      }
     },
     "spinning": {
       "shuffle": "Mezclar",
@@ -503,9 +505,7 @@
       "spinning": "Girando..."
     },
     "result": {
-      "title": "Resultado",
-      "playAgain": "Mismos jugadores",
-      "reset": "Reiniciar"
+      "title": "Resultado"
     }
   },
   "breakout": {
@@ -633,7 +633,7 @@
         "🎰 El ganador se revela cuando el carrete se detiene"
       ]
     },
-    "minMax": "2–100 personas",
+    "minMax": "Puedes agregar de 2 a 100 participantes",
     "spin": "¡Girar!",
     "spinning": "Girando...",
     "mode": {

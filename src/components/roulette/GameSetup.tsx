@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import HowToPlay from '@/components/ui/HowToPlay';
+import TagInput from '@/components/ui/TagInput';
 import { parseNames, validateParticipantNames } from '@/utils/roulette';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { Target } from 'lucide-react';
@@ -18,24 +19,26 @@ export default function GameSetup({ onStart }: GameSetupProps) {
   const [input, setInput] = useLocalStorage('participants');
   const [error, setError] = useState<string>('');
 
+  const tags = useMemo(() => parseNames(input), [input]);
+
+  const handleTagsChange = (newTags: string[]) => {
+    setInput(newTags.join(', '));
+    setError('');
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const names = parseNames(input);
+    const names = tags;
     const validation = validateParticipantNames(names);
 
     if (!validation.valid) {
-      setError(validation.error ? t(`common.error.${validation.error}`) : '');
+      setError(validation.error ? t(validation.error === 'max' ? 'roulette.setup.error.max' : `common.error.${validation.error}`) : '');
       return;
     }
 
     setError('');
     onStart(names);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInput(e.target.value);
-    setError(''); // Clear error on input change
   };
 
   return (
@@ -54,18 +57,17 @@ export default function GameSetup({ onStart }: GameSetupProps) {
             <label className="font-game block text-sm font-bold text-black mb-2">
               {t('common.participants')}
             </label>
-            <textarea
-              value={input}
-              onChange={handleInputChange}
+            <TagInput
+              tags={tags}
+              onTagsChange={handleTagsChange}
               placeholder={t('common.placeholder')}
-              className="font-game w-full px-4 py-3 rounded-lg bg-white border-2 border-black text-black placeholder-neutral-400 focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-sm resize-none"
-              rows={6}
+              maxTags={12}
             />
             {error && (
               <p className="text-red-500 text-sm font-bold mt-2">{error}</p>
             )}
             <p className="font-game text-black/50 text-xs mt-2">
-              {t('common.minMax')}
+              {t('roulette.setup.minMax')}
             </p>
           </div>
 

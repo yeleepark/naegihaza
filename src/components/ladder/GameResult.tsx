@@ -68,10 +68,10 @@ export default function GameResult({
 
         <div className="space-y-3">
           <Button onClick={onPlayAgain} variant="primary" className="w-full">
-            {t('ladder.result.playAgain')}
+            {t('common.playAgain')}
           </Button>
           <Button onClick={onReset} variant="secondary" className="w-full">
-            {t('ladder.result.reset')}
+            {t('common.reset')}
           </Button>
         </div>
       </Card>

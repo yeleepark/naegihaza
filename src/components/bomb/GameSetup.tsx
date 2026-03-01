@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import TagInput from '@/components/ui/TagInput';
 import { parseNames, validateParticipantNames } from '@/utils/bomb';
 import { useTranslation } from 'react-i18next';
 import HowToPlay from '@/components/ui/HowToPlay';
@@ -18,10 +19,17 @@ export default function GameSetup({ onStart }: GameSetupProps) {
   const [error, setError] = useState<string>('');
   const { t } = useTranslation();
 
+  const tags = useMemo(() => parseNames(input), [input]);
+
+  const handleTagsChange = (newTags: string[]) => {
+    setInput(newTags.join(', '));
+    setError('');
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const names = parseNames(input);
+    const names = tags;
     const validation = validateParticipantNames(names);
 
     if (!validation.valid) {
@@ -31,11 +39,6 @@ export default function GameSetup({ onStart }: GameSetupProps) {
 
     setError('');
     onStart(names);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInput(e.target.value);
-    setError('');
   };
 
   return (
@@ -54,12 +57,11 @@ export default function GameSetup({ onStart }: GameSetupProps) {
             <label className="font-game block text-sm font-bold text-black mb-2">
               {t('common.participants')}
             </label>
-            <textarea
-              value={input}
-              onChange={handleInputChange}
+            <TagInput
+              tags={tags}
+              onTagsChange={handleTagsChange}
               placeholder={t('common.placeholder')}
-              className="font-game w-full px-4 py-3 rounded-lg bg-white border-2 border-black text-black placeholder-neutral-400 focus:outline-none focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 text-sm resize-none"
-              rows={6}
+              maxTags={10}
             />
             {error && (
               <p className="text-red-500 text-sm font-bold mt-2">{error}</p>
