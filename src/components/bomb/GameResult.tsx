@@ -15,7 +15,7 @@ type GameResultProps = {
 };
 
 function fireCelebration() {
-  const colors = ['#ef4444', '#fb923c', '#fbbf24', '#f472b6', '#a78bfa', '#60a5fa'];
+  const colors = ['#ef4444', '#fb923c', '#fbbf24', '#dc2626', '#f97316'];
 
   confetti({
     particleCount: 150,
@@ -65,13 +65,13 @@ export default function GameResult({
 
   return (
     <div className="flex items-center justify-center h-full relative">
-      <Card className="max-w-md w-full relative z-10">
+      <Card className="max-w-md w-full relative z-10 animate-result-appear">
         <div className="text-center">
           <h2 className="font-game text-2xl font-black text-black mb-6">
             {t('common.resultTitle')}
           </h2>
           <div
-            className="rounded-xl p-8 mb-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            className="rounded-xl p-8 mb-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] animate-result-glow"
             style={{ backgroundColor: result.winnerColor }}
           >
             <p className="font-game text-4xl md:text-5xl font-black text-black break-words">

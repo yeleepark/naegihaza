@@ -19,6 +19,7 @@ export default function BombGameClient() {
     currentHolder,
     isRunning,
     exploded,
+    preExplosion,
     remainingRatio,
     direction,
     handleSetup,
@@ -100,6 +101,7 @@ export default function BombGameClient() {
             currentHolder={currentHolder}
             isRunning={isRunning}
             exploded={exploded}
+            preExplosion={preExplosion}
             remainingRatio={remainingRatio}
             direction={direction}
             onStart={handleStart}

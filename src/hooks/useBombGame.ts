@@ -19,6 +19,7 @@ export function useBombGame(callbacks: BombGameCallbacks) {
   const [currentHolder, setCurrentHolder] = useState<number>(-1);
   const [isRunning, setIsRunning] = useState(false);
   const [exploded, setExploded] = useState(false);
+  const [preExplosion, setPreExplosion] = useState(false);
   const [remainingRatio, setRemainingRatio] = useState(1);
   const [direction, setDirection] = useState<1 | -1>(1);
 
@@ -53,22 +54,27 @@ export function useBombGame(callbacks: BombGameCallbacks) {
     const total = totalDurationRef.current;
 
     if (elapsed >= total) {
-      // Explode
-      setExploded(true);
+      // Pre-explosion freeze — bomb swells for 800ms before detonation
+      setPreExplosion(true);
       setIsRunning(false);
-      callbacksRef.current.onExplode?.();
-
-      const p = participantsRef.current;
-      const loser = p[holderIndex];
 
       setTimeout(() => {
-        callbacksRef.current.onComplete({
-          winnerName: loser.name,
-          winnerColor: loser.color,
-          totalParticipants: p.length,
-          timestamp: new Date(),
-        });
-      }, 1500);
+        setPreExplosion(false);
+        setExploded(true);
+        callbacksRef.current.onExplode?.();
+
+        const p = participantsRef.current;
+        const loser = p[holderIndex];
+
+        setTimeout(() => {
+          callbacksRef.current.onComplete({
+            winnerName: loser.name,
+            winnerColor: loser.color,
+            totalParticipants: p.length,
+            timestamp: new Date(),
+          });
+        }, 2000);
+      }, 800);
       return;
     }
 
@@ -126,6 +132,7 @@ export function useBombGame(callbacks: BombGameCallbacks) {
 
     setCurrentHolder(startIndex);
     setExploded(false);
+    setPreExplosion(false);
     setIsRunning(true);
     setRemainingRatio(1);
     setDirection(1);
@@ -141,6 +148,7 @@ export function useBombGame(callbacks: BombGameCallbacks) {
     cleanup();
     setCurrentHolder(-1);
     setExploded(false);
+    setPreExplosion(false);
     setIsRunning(false);
   }, [cleanup]);
 
@@ -150,6 +158,7 @@ export function useBombGame(callbacks: BombGameCallbacks) {
     participantsRef.current = [];
     setCurrentHolder(-1);
     setExploded(false);
+    setPreExplosion(false);
     setIsRunning(false);
   }, [cleanup]);
 
@@ -159,6 +168,7 @@ export function useBombGame(callbacks: BombGameCallbacks) {
     participantsRef.current = p;
     setCurrentHolder(-1);
     setExploded(false);
+    setPreExplosion(false);
     setIsRunning(false);
     if (result) {
       setExploded(false);
@@ -170,6 +180,7 @@ export function useBombGame(callbacks: BombGameCallbacks) {
     currentHolder,
     isRunning,
     exploded,
+    preExplosion,
     remainingRatio,
     direction,
     handleSetup,
