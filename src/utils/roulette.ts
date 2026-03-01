@@ -63,10 +63,11 @@ export function selectWinner(count: number): number {
 }
 
 /**
- * Ease-out-cubic function for smooth deceleration
+ * Dramatic ease-out: fast start, long suspenseful slowdown at the end
+ * Uses quintic (power of 5) for much steeper deceleration curve
  */
-export function easeOutCubic(t: number): number {
-  return 1 - Math.pow(1 - t, 3);
+export function easeOutDramatic(t: number): number {
+  return 1 - Math.pow(1 - t, 5);
 }
 
 /**
@@ -100,17 +101,17 @@ export function calculateSpinConfig(
   winnerIndex: number,
   participantCount: number
 ): SpinConfig {
-  // Random duration between 4-6 seconds
-  const duration = 4000 + Math.random() * 2000;
+  // Random duration between 5-8 seconds
+  const duration = 5000 + Math.random() * 3000;
 
-  // Random rotations between 5-8
-  const rotations = 5 + Math.floor(Math.random() * 4);
+  // Random rotations between 8-12
+  const rotations = 8 + Math.floor(Math.random() * 5);
 
   return {
     duration,
     rotations,
     winnerIndex,
-    easeFunction: easeOutCubic,
+    easeFunction: easeOutDramatic,
   };
 }
 

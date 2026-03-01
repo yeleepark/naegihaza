@@ -245,7 +245,7 @@ export function useRouletteWheel({
           // Delay callback for dramatic effect
           setTimeout(() => {
             onSpinCompleteRef.current();
-          }, 500);
+          }, 1000);
         }
       }
 

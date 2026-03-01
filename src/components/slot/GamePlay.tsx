@@ -14,14 +14,13 @@ type GamePlayProps = {
 };
 
 export default function GamePlay({ participants, onComplete }: GamePlayProps) {
-  const { enabled, setEnabled, playSlotTick, playSlotSpin, playFanfare, vibrate } = useSound();
+  const { enabled, setEnabled, playSlotTick, playSlotSpin, vibrate } = useSound();
 
   const { spinning, stopped, strip, offset, handleSpin } =
     useSlotMachine(participants, {
       onComplete,
       onTick: playSlotTick,
       onResult: () => {
-        playFanfare();
         vibrate([100, 50, 100]);
       },
     });

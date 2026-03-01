@@ -37,6 +37,7 @@ export default function TagInput({
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.nativeEvent.isComposing) return;
     if (e.key === 'Enter' || e.key === ',') {
       e.preventDefault();
       addTags(inputValue);

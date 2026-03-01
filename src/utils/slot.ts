@@ -1,8 +1,8 @@
 // Animation constants
 export const CELL_HEIGHT = 64;
-export const SPIN_DURATION = 5000;
-export const REPEATS = 20;
-export const RESULT_DELAY = 800;
+export const SPIN_DURATION = 6000;
+export const REPEATS = 30;
+export const RESULT_DELAY = 1200;
 
 export const PARTICIPANT_COLORS = [
   '#fb923c', // orange-400
