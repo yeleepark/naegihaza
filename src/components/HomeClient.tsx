@@ -3,7 +3,7 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'next/navigation';
 import GameCard from '@/components/GameCard';
-import { BrickWall, Target, Dices, WavesLadder, Bomb, Cherry } from 'lucide-react';
+import { BrickWall, Target, Cherry } from 'lucide-react';
 
 const ICON_BASE = 'w-9 h-9 md:w-14 md:h-14 stroke-[2.5]';
 
@@ -23,21 +23,6 @@ const GAME_ITEMS = [
     icon: <Target className={`${ICON_BASE} text-yellow-800`} />,
     bgColor: 'bg-yellow-300',
   },
-  {
-    key: 'dice',
-    icon: <Dices className={`${ICON_BASE} text-blue-800`} />,
-    bgColor: 'bg-blue-300',
-  },
-  {
-    key: 'ladder',
-    icon: <WavesLadder className={`${ICON_BASE} text-green-800`} />,
-    bgColor: 'bg-green-300',
-  },
-  {
-    key: 'bomb',
-    icon: <Bomb className={`${ICON_BASE} text-red-800`} />,
-    bgColor: 'bg-red-300',
-  },
 ];
 
 export default function HomeClient() {
@@ -48,7 +33,7 @@ export default function HomeClient() {
     <div className="flex flex-col items-center gap-8 w-full pt-2 md:pt-8">
       {/* Games Grid */}
       <div className="w-full px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           {GAME_ITEMS.map((item) => (
             <GameCard
               key={item.key}

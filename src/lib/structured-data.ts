@@ -15,9 +15,6 @@ export function generateFAQSchema(items: { q: string; a: string }[]) {
 
 const siteNavNames: Record<string, Record<string, string>> = {
   roulette: { ko: '룰렛돌리기', en: 'Roulette', zh: '转盘', es: 'Ruleta' },
-  ladder:   { ko: '사다리타기', en: 'Ladder', zh: '爬梯游戏', es: 'Escalera' },
-  dice:     { ko: '주사위', en: 'Dice', zh: '骰子', es: 'Dados' },
-  bomb:     { ko: '폭탄 게임', en: 'Bomb Pick', zh: '抽炸弹', es: 'Bomba' },
   slot:     { ko: '슬롯머신', en: 'Slot Machine', zh: '老虎机', es: 'Tragamonedas' },
   breakout: { ko: '벽돌깨기', en: 'Breakout', zh: '打砖块', es: 'Breakout' },
 };
@@ -30,7 +27,7 @@ const siteNavMenuName: Record<string, string> = {
 };
 
 export function generateSiteNavSchema(locale: string = 'en') {
-  const games = ['roulette', 'ladder', 'dice', 'bomb', 'slot', 'breakout'];
+  const games = ['roulette', 'slot', 'breakout'];
   return {
     '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',

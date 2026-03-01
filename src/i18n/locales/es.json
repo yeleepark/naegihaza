@@ -4,18 +4,6 @@
       "title": "Ruleta",
       "description": "Selecciona a una persona al azar."
     },
-    "dice": {
-      "title": "Dados",
-      "description": "Cada participante lanza dos dados y se selecciona el puntaje total más alto."
-    },
-    "ladder": {
-      "title": "Escalera",
-      "description": "Toca un nombre y sigue el camino para ver el resultado."
-    },
-    "bomb": {
-      "title": "Bomba",
-      "description": "La persona que saque la carta bomba es seleccionada."
-    },
     "breakout": {
       "title": "Breakout",
       "description": "Elige al último en pie."
@@ -66,36 +54,6 @@
               "Elegir presentador"
             ]
           },
-          "dice": {
-            "title": "Dados",
-            "desc": "Cada participante lanza dos dados y se compara la suma. El total más alto es seleccionado.",
-            "recommendTitle": "Ideal para",
-            "recommend": [
-              "Orden de turnos",
-              "Turnos de juego",
-              "Apuestas por puntos"
-            ]
-          },
-          "ladder": {
-            "title": "Escalera",
-            "desc": "Toca un nombre y sigue el camino hasta el resultado. Suspenso hasta el final.",
-            "recommendTitle": "Ideal para",
-            "recommend": [
-              "Dividir equipos",
-              "Asignar tareas",
-              "Repartir castigos"
-            ]
-          },
-          "bomb": {
-            "title": "Bomba",
-            "desc": "Elige una carta. Si es la bomba, te toca a ti.",
-            "recommendTitle": "Ideal para",
-            "recommend": [
-              "Elegir una persona",
-              "Juegos de fiesta",
-              "Apuestas tensas"
-            ]
-          },
           "breakout": {
             "title": "Breakout",
             "desc": "Cada participante recibe la mayor cantidad de bloques posible y la pelota los rompe.\n¡El último bloque en pie es el ganador!",
@@ -143,7 +101,6 @@
   "common": {
     "participants": "Participantes",
     "placeholder": "Separar por coma o salto de línea\nEj: Ana, Luis, Marta",
-    "minMax": "Puedes agregar de 2 a 100 participantes",
     "start": "Iniciar",
     "error": {
       "min": "Ingresa al menos 2 personas",
@@ -154,212 +111,6 @@
     "reset": "Jugar con otros participantes",
     "howToPlay": "Cómo jugar",
     "resultTitle": "Resultado"
-  },
-  "ladder": {
-    "title": "Escalera",
-    "description": {
-      "intro": {
-        "title": "¿Qué es el Juego de Escalera?",
-        "p1": "El juego de escalera es un método tradicional coreano de sorteo. Ingresa los nombres de los participantes y los resultados, y las rutas de escalera conectadas aleatoriamente determinan quién obtiene qué resultado.",
-        "p2": "En el juego de escalera de Naegihaza, los participantes hacen clic en su nombre para seguir la ruta y descubrir su resultado, creando suspenso y diversión hasta el final. Soporta de 2 a 10 participantes."
-      },
-      "rules": {
-        "title": "Reglas detalladas",
-        "items": [
-          "Ingresa los nombres de participantes y los resultados por separado.",
-          "El número de participantes y resultados debe ser igual.",
-          "Mínimo 2 y máximo 10 participantes.",
-          "Pulsa Iniciar para generar la escalera automáticamente.",
-          "Haz clic en un nombre para seguir su ruta y ver el resultado."
-        ]
-      },
-      "tips": {
-        "title": "Cuándo usarlo",
-        "items": [
-          "Dividir en equipos o formar grupos",
-          "Asignar tareas como limpieza o cocina",
-          "Distribuir diferentes castigos entre participantes",
-          "Repartir premios o recompensas"
-        ]
-      },
-      "faq": {
-        "title": "Preguntas frecuentes",
-        "items": [
-          {
-            "q": "¿Pueden diferir el número de participantes y resultados?",
-            "a": "No, por la naturaleza del juego de escalera, participantes y resultados deben ser iguales. Cada participante corresponde a exactamente un resultado."
-          },
-          {
-            "q": "¿Puedo ver todos los resultados a la vez?",
-            "a": "Sí, pulsa el botón 'Mostrar todo' para ver todas las rutas y resultados simultáneamente."
-          },
-          {
-            "q": "¿Las rutas se generan diferente cada vez?",
-            "a": "Sí, se generan nuevas rutas aleatoriamente en cada juego, haciendo los resultados impredecibles."
-          }
-        ]
-      }
-    },
-    "howToPlay": {
-      "steps": [
-        "Escribe los nombres de los participantes",
-        "Escribe los resultados (ej: Gana, Pierde)",
-        "Pulsa Iniciar",
-        "🪜 Toca un nombre para seguir el camino"
-      ]
-    },
-    "setup": {
-      "participants": "Participantes",
-      "results": "Resultados",
-      "participantsPlaceholder": "Comas o líneas\nEj: Ana, Luis",
-      "resultsPlaceholder": "Comas o líneas\nEj: Gana, Pierde, Castigo",
-      "start": "Iniciar",
-      "minMax": "Puedes agregar de 2 a 10 participantes (deben coincidir)",
-      "errorMin": "Mínimo 2 personas",
-      "errorMax": "Máximo 10 personas",
-      "errorMismatch": "Participantes y resultados deben coincidir"
-    },
-    "game": {
-      "clickHint": "Toca un nombre",
-      "revealAll": "Mostrar todo",
-      "seeResult": "Ver"
-    },
-    "result": {
-      "title": "Resultado",
-      "name": "Nombre",
-      "prize": "Resultado"
-    }
-  },
-  "bomb": {
-    "title": "Bomba",
-    "description": {
-      "intro": {
-        "title": "¿Qué es Bomba?",
-        "p1": "Bomba es un emocionante juego donde los jugadores eligen cartas boca abajo para encontrar la bomba oculta. Quien saque la carta bomba recibe el castigo.",
-        "p2": "Nadie conoce el resultado hasta voltear la carta, manteniendo a todos los participantes en suspenso durante todo el juego. Perfecto para animar fiestas, reuniones y veladas."
-      },
-      "rules": {
-        "title": "Reglas detalladas",
-        "items": [
-          "Ingresa los nombres de participantes (2 a 10 personas).",
-          "Al iniciar, se generan cartas equivalentes al doble del número de participantes.",
-          "Una bomba está oculta entre las cartas.",
-          "Los participantes eligen una carta por turno.",
-          "Quien saque la bomba recibe el castigo."
-        ]
-      },
-      "tips": {
-        "title": "Cuándo usarlo",
-        "items": [
-          "Seleccionar a una persona para el castigo con suspenso",
-          "Animar una reunión o fiesta",
-          "Jugar juegos de castigo en reuniones",
-          "Cuando quieres una apuesta simple pero emocionante"
-        ]
-      },
-      "faq": {
-        "title": "Preguntas frecuentes",
-        "items": [
-          {
-            "q": "¿Siempre hay solo una bomba?",
-            "a": "Sí, siempre hay exactamente una bomba por juego, y su posición es completamente aleatoria."
-          },
-          {
-            "q": "¿Cómo se determina el número de cartas?",
-            "a": "El número de cartas es automáticamente el doble de participantes. Por ejemplo, 5 participantes significa 10 cartas."
-          },
-          {
-            "q": "¿El orden de selección es injusto?",
-            "a": "Como la posición de la bomba es completamente aleatoria, la misma probabilidad se aplica a todos los participantes sin importar el orden."
-          }
-        ]
-      }
-    },
-    "howToPlay": {
-      "steps": [
-        "Escribe los nombres de los participantes",
-        "Pulsa Iniciar",
-        "Cada uno elige una carta por turno",
-        "💣 Quien saque la bomba recibe el castigo"
-      ]
-    },
-    "minMax": "Puedes agregar de 2 a 10 participantes",
-    "turnOf": "Turno de {{name}}",
-    "clickCard": "Elige una carta",
-    "safe": "Seguro",
-    "bomb": "Bomba",
-    "result": {
-      "loser": "Sacó la bomba",
-      "winners": "Jugadores seguros"
-    }
-  },
-  "dice": {
-    "title": "Dados",
-    "description": {
-      "intro": {
-        "title": "¿Qué es el Juego de Dados?",
-        "p1": "El juego de dados es un juego aleatorio justo donde cada participante lanza dos dados y compara los totales. El participante con la puntuación más alta es seleccionado, y los empates también se muestran.",
-        "p2": "El juego de dados de Naegihaza ofrece animaciones realistas de lanzamiento para una experiencia inmersiva. Ideal para determinar el orden o hacer apuestas basadas en puntos."
-      },
-      "rules": {
-        "title": "Reglas detalladas",
-        "items": [
-          "Ingresa los nombres de participantes (2 a 100 personas).",
-          "Pulsa Iniciar para ir a la pantalla del juego de dados.",
-          "Cada participante pulsa Lanzar en su turno.",
-          "La clasificación se determina por la suma de dos dados (2-12 puntos).",
-          "Después de que todos lancen, el que tenga la puntuación más alta es seleccionado."
-        ]
-      },
-      "tips": {
-        "title": "Cuándo usarlo",
-        "items": [
-          "Decidir el orden (la puntuación más alta primero)",
-          "Hacer apuestas basadas en puntuación",
-          "Determinar turnos de juego",
-          "Obtener resultados rápidos sin dados físicos"
-        ]
-      },
-      "faq": {
-        "title": "Preguntas frecuentes",
-        "items": [
-          {
-            "q": "¿Qué pasa si hay empate?",
-            "a": "Los empates se muestran en la pantalla de resultados. Puedes jugar de nuevo con los mismos participantes si es necesario."
-          },
-          {
-            "q": "¿Los resultados de los dados son justos?",
-            "a": "Sí, cada dado produce valores del 1 al 6 con igual probabilidad, siguiendo la misma distribución que los dados reales."
-          },
-          {
-            "q": "¿El orden de lanzamiento afecta los resultados?",
-            "a": "No, cada lanzamiento es un evento aleatorio independiente, por lo que la misma probabilidad se aplica a todos sin importar el orden."
-          }
-        ]
-      }
-    },
-    "howToPlay": {
-      "steps": [
-        "Escribe los nombres de los participantes",
-        "Pulsa Iniciar",
-        "Cada participante pulsa Lanzar en su turno",
-        "🏆 El puntaje total más alto es el ganador"
-      ]
-    },
-    "rolling": "Lanzando",
-    "turnOf": "Turno de {{name}}",
-    "allComplete": "Completado",
-    "roll": "Lanzar",
-    "rollingInProgress": "En progreso...",
-    "showResult": "Ver resultado",
-    "results": "Resultados",
-    "noResults": "Sin resultados",
-    "completed": "{{count}} / {{total}} completados",
-    "result": {
-      "win": "Puntaje más alto",
-      "tie": "Empate",
-      "points": "{{value}} pts"
-    }
   },
   "footer": {
     "privacy": "Política de Privacidad",

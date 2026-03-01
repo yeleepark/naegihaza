@@ -4,18 +4,6 @@
       "title": "Roulette",
       "description": "Randomly selects one person."
     },
-    "dice": {
-      "title": "Dice",
-      "description": "Each participant rolls two dice and the highest total score is selected."
-    },
-    "ladder": {
-      "title": "Ladder",
-      "description": "Tap a name and follow the path to reveal the result."
-    },
-    "bomb": {
-      "title": "Bomb Pick",
-      "description": "The person who picks the bomb card is selected."
-    },
     "breakout": {
       "title": "Breakout",
       "description": "Picks the last one standing."
@@ -66,36 +54,6 @@
               "Choosing a presenter"
             ]
           },
-          "dice": {
-            "title": "Dice",
-            "desc": "Each participant rolls two dice and compares the total score. The highest total is selected.",
-            "recommendTitle": "Best For",
-            "recommend": [
-              "Turn order",
-              "Game turns",
-              "Score-based bets"
-            ]
-          },
-          "ladder": {
-            "title": "Ladder Game",
-            "desc": "Tap a name and follow the path to see the result. The outcome is unknown until revealed, creating fun tension.",
-            "recommendTitle": "Best For",
-            "recommend": [
-              "Team splitting",
-              "Assigning roles",
-              "Distributing penalties"
-            ]
-          },
-          "bomb": {
-            "title": "Bomb Pick",
-            "desc": "Choose a card — if it’s the bomb, you’re selected. A suspenseful random game.",
-            "recommendTitle": "Best For",
-            "recommend": [
-              "Selecting one person for a penalty",
-              "Party games",
-              "High tension bets"
-            ]
-          },
           "breakout": {
             "title": "Breakout",
             "desc": "Each participant gets as many blocks as possible and the ball breaks them.\nThe last block standing is the winner!",
@@ -143,7 +101,6 @@
   "common": {
     "participants": "Participants",
     "placeholder": "Separate with comma or line break\nex: Alex, Mina, Joon, Hana",
-    "minMax": "You can add 2 to 100 participants",
     "start": "Start",
     "error": {
       "min": "Enter at least 2 people",
@@ -154,212 +111,6 @@
     "reset": "Play with different players",
     "howToPlay": "How to Play",
     "resultTitle": "Result"
-  },
-  "ladder": {
-    "title": "Ladder",
-    "description": {
-      "intro": {
-        "title": "What is the Ladder Game?",
-        "p1": "The ladder game is a traditional Korean drawing method used for ages. Enter participant names and result items, and randomly connected ladder paths determine who gets which result.",
-        "p2": "In Naegihaza's ladder game, participants click their own name to follow the path and discover their result — creating suspense and fun until the very end. Supports 2 to 10 participants."
-      },
-      "rules": {
-        "title": "Detailed Rules",
-        "items": [
-          "Enter participant names and result items separately.",
-          "The number of participants and results must be equal.",
-          "Minimum 2 and maximum 10 participants allowed.",
-          "Press Start to automatically generate the ladder.",
-          "Click a name to follow its path and reveal the result."
-        ]
-      },
-      "tips": {
-        "title": "When to Use",
-        "items": [
-          "Splitting into teams or forming groups",
-          "Assigning duties like cleaning or dishes",
-          "Distributing different penalties among participants",
-          "Allocating prizes or rewards to participants"
-        ]
-      },
-      "faq": {
-        "title": "Frequently Asked Questions",
-        "items": [
-          {
-            "q": "Can the number of participants and results differ?",
-            "a": "No, due to the nature of the ladder game, participants and results must be equal. Each participant corresponds to exactly one result."
-          },
-          {
-            "q": "Can I reveal all results at once?",
-            "a": "Yes, press the 'Reveal All' button to see all participants' paths and results simultaneously."
-          },
-          {
-            "q": "Are ladder paths generated differently each time?",
-            "a": "Yes, new ladder paths are randomly generated for each game, making results unpredictable."
-          }
-        ]
-      }
-    },
-    "howToPlay": {
-      "steps": [
-        "Enter participant names",
-        "Enter result labels (e.g. Win, Lose)",
-        "Press Start",
-        "🪜 Tap a name to follow the ladder path"
-      ]
-    },
-    "setup": {
-      "participants": "Participants",
-      "results": "Results",
-      "participantsPlaceholder": "Comma or line break\nex: Alex, Mina, Joon",
-      "resultsPlaceholder": "Comma or line break\nex: Win, Lose, Penalty",
-      "start": "Start",
-      "minMax": "You can add 2 to 10 participants (must match)",
-      "errorMin": "Enter at least 2 people",
-      "errorMax": "Up to 10 people allowed",
-      "errorMismatch": "Participants and results must match"
-    },
-    "game": {
-      "clickHint": "Tap a name",
-      "revealAll": "Reveal All",
-      "seeResult": "Reveal"
-    },
-    "result": {
-      "title": "Result",
-      "name": "Name",
-      "prize": "Result"
-    }
-  },
-  "bomb": {
-    "title": "Bomb Pick",
-    "description": {
-      "intro": {
-        "title": "What is Bomb Pick?",
-        "p1": "Bomb Pick is a thrilling game where players take turns choosing from face-down cards to find the hidden bomb. The person who picks the bomb card becomes the penalty target.",
-        "p2": "Since no one knows the result until the card is flipped, every participant stays on edge throughout the game. It's perfect for livening up parties, gatherings, and drinking sessions."
-      },
-      "rules": {
-        "title": "Detailed Rules",
-        "items": [
-          "Enter participant names (2 to 10 people).",
-          "When started, cards equal to twice the number of participants are generated.",
-          "One bomb is hidden among the cards.",
-          "Participants take turns choosing one card each.",
-          "The participant who picks the bomb gets the penalty."
-        ]
-      },
-      "tips": {
-        "title": "When to Use",
-        "items": [
-          "Selecting one person for a penalty with suspense",
-          "Livening up a drinking session",
-          "Playing penalty games at parties or gatherings",
-          "When you want a simple but thrilling bet"
-        ]
-      },
-      "faq": {
-        "title": "Frequently Asked Questions",
-        "items": [
-          {
-            "q": "Is there always only one bomb?",
-            "a": "Yes, there is always exactly one bomb per game, and its position is completely random."
-          },
-          {
-            "q": "How is the number of cards determined?",
-            "a": "The card count is automatically set to twice the number of participants. For example, 5 participants means 10 cards."
-          },
-          {
-            "q": "Isn't the selection order unfair?",
-            "a": "Since the bomb's position is completely random, equal probability applies to all participants regardless of selection order."
-          }
-        ]
-      }
-    },
-    "howToPlay": {
-      "steps": [
-        "Enter participant names",
-        "Press Start",
-        "Take turns picking one card each",
-        "💣 Whoever picks the bomb gets the penalty"
-      ]
-    },
-    "minMax": "You can add 2 to 10 participants",
-    "turnOf": "{{name}}'s turn",
-    "clickCard": "Pick a card",
-    "safe": "Safe",
-    "bomb": "Bomb",
-    "result": {
-      "loser": "Bomb selected",
-      "winners": "Safe players"
-    }
-  },
-  "dice": {
-    "title": "Dice",
-    "description": {
-      "intro": {
-        "title": "What is the Dice Game?",
-        "p1": "The dice game is a fair random game where each participant rolls two dice and compares total scores. The participant with the highest score is selected, and ties are also displayed.",
-        "p2": "Naegihaza's dice game provides realistic rolling animations for an immersive experience. It's ideal for determining order or making score-based bets."
-      },
-      "rules": {
-        "title": "Detailed Rules",
-        "items": [
-          "Enter participant names (2 to 100 people).",
-          "Press Start to go to the dice game screen.",
-          "Each participant presses Roll on their turn.",
-          "Rankings are determined by the sum of two dice (2–12 points).",
-          "After all participants roll, the highest scorer is selected."
-        ]
-      },
-      "tips": {
-        "title": "When to Use",
-        "items": [
-          "Deciding order (highest score goes first)",
-          "Making score-based bets",
-          "Determining game turns",
-          "Getting quick results without physical dice"
-        ]
-      },
-      "faq": {
-        "title": "Frequently Asked Questions",
-        "items": [
-          {
-            "q": "What happens if there's a tie?",
-            "a": "Ties are shown on the result screen. You can play again with the same participants if needed."
-          },
-          {
-            "q": "Are the dice results fair?",
-            "a": "Yes, each die is designed to produce values 1–6 with equal probability. It follows the same probability distribution as real dice."
-          },
-          {
-            "q": "Does rolling order affect the results?",
-            "a": "No, each dice roll is an independent random event, so equal probability applies to all participants regardless of order."
-          }
-        ]
-      }
-    },
-    "howToPlay": {
-      "steps": [
-        "Enter participant names",
-        "Press Start",
-        "Each participant presses Roll on their turn",
-        "🏆 The highest total score wins"
-      ]
-    },
-    "rolling": "Rolling",
-    "turnOf": "{{name}}'s turn",
-    "allComplete": "All done",
-    "roll": "Roll",
-    "rollingInProgress": "Rolling...",
-    "showResult": "Show result",
-    "results": "Results",
-    "noResults": "No results yet",
-    "completed": "{{count}} / {{total}} completed",
-    "result": {
-      "win": "Highest score",
-      "tie": "Tie",
-      "points": "{{value}} pts"
-    }
   },
   "footer": {
     "privacy": "Privacy Policy",

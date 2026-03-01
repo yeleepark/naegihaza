@@ -6,6 +6,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import { BreakoutResult } from '@/types/breakout';
 import { useTranslation } from 'react-i18next';
+import { useSound } from '@/hooks/useSound';
 
 type GameResultProps = {
   result: BreakoutResult;
@@ -49,13 +50,16 @@ export default function GameResult({
   onReset,
 }: GameResultProps) {
   const { t } = useTranslation();
+  const { playBreakoutWin, vibrate } = useSound();
 
   useEffect(() => {
     fireCelebration();
+    playBreakoutWin();
+    vibrate([100, 50, 100, 50, 200]);
     return () => {
       confetti.reset();
     };
-  }, []);
+  }, [playBreakoutWin, vibrate]);
 
   return (
     <div className="flex items-center justify-center h-full relative">
