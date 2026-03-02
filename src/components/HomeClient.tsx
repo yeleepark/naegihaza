@@ -75,7 +75,7 @@ export default function HomeClient() {
                   t('common.players', { min: item.minPlayers, max: item.maxPlayers })
                 )
               }
-              gameType={t(`common.gameType.${item.gameType}`)}
+              gameType={{ label: t(`common.gameType.${item.gameType}`), type: item.gameType }}
               icon={item.icon}
               bgColor={item.bgColor}
               href={`/${locale}/games/${item.key}`}

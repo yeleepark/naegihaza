@@ -6,11 +6,16 @@ type GameCardProps = {
   title: string;
   description: string;
   badge: ReactNode;
-  gameType?: string;
+  gameType?: { label: string; type: 'pickOne' | 'ranking' };
   icon: ReactNode;
   bgColor: string;
   href: string;
   disabled?: boolean;
+};
+
+const GAME_TYPE_ICON = {
+  pickOne: Crosshair,
+  ranking: ListOrdered,
 };
 
 export default function GameCard({
@@ -52,12 +57,12 @@ export default function GameCard({
               <Users className="w-3 h-3" />
               {badge}
             </span>
-            {gameType && (
+            {gameType && (() => { const TypeIcon = GAME_TYPE_ICON[gameType.type]; return (
               <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/20 rounded-full font-game text-[11px] text-black/80 font-bold">
-                <Crosshair className="w-3 h-3" />
-                {gameType}
+                <TypeIcon className="w-3 h-3" />
+                {gameType.label}
               </span>
-            )}
+            ); })()}
           </div>
         </div>
       </div>
@@ -75,12 +80,12 @@ export default function GameCard({
             <Users className="w-3 h-3" />
             {badge}
           </span>
-          {gameType && (
+          {gameType && (() => { const TypeIcon = GAME_TYPE_ICON[gameType.type]; return (
             <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/20 rounded-full font-game text-xs text-black/80 font-bold">
-              <Crosshair className="w-3 h-3" />
-              {gameType}
+              <TypeIcon className="w-3 h-3" />
+              {gameType.label}
             </span>
-          )}
+          ); })()}
         </div>
       </div>
       {disabled && (
