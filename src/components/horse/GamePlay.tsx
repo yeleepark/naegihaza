@@ -304,7 +304,7 @@ export default function GamePlay({
 
       {/* Race Track */}
       <div
-        className={`flex-1 w-full flex flex-col justify-center rounded-2xl border-4 border-black overflow-hidden relative ${
+        className={`flex-1 w-full flex flex-col justify-center rounded-2xl border-4 border-black overflow-hidden relative min-h-[60dvh] md:min-h-0 ${
           isPhotoFinish && raceState === 'racing' ? 'animate-screen-shake' : ''
         }`}
         style={{

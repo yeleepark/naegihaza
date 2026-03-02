@@ -11,6 +11,7 @@ import {
   Coins,
   Target,
   Bomb,
+  Flag,
 } from 'lucide-react';
 
 const GAME_ITEMS = [
@@ -18,6 +19,7 @@ const GAME_ITEMS = [
   { key: 'slot', icon: Coins, color: 'text-purple-400' },
   { key: 'roulette', icon: Target, color: 'text-yellow-400' },
   { key: 'bomb', icon: Bomb, color: 'text-red-400' },
+  { key: 'horse', icon: Flag, color: 'text-green-400' },
 ];
 
 interface NavMenuProps {

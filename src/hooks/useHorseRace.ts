@@ -53,7 +53,7 @@ export function useHorseRace(): UseHorseRaceReturn {
     setLeadChanges(0);
 
     // Assign base speeds — tight range for fairness, drama comes from variation
-    baseSpeeds.current = names.map(() => 0.13 + Math.random() * 0.02);
+    baseSpeeds.current = names.map(() => 0.22 + Math.random() * 0.04);
   }, []);
 
   const startRace = useCallback(() => {
@@ -77,7 +77,7 @@ export function useHorseRace(): UseHorseRaceReturn {
     setHorses(horsesRef.current);
 
     // Re-randomize base speeds
-    baseSpeeds.current = horsesRef.current.map(() => 0.13 + Math.random() * 0.02);
+    baseSpeeds.current = horsesRef.current.map(() => 0.22 + Math.random() * 0.04);
 
     // Countdown: 3, 2, 1, GO!
     let count = 3;
@@ -173,7 +173,7 @@ export function useHorseRace(): UseHorseRaceReturn {
         else if (roll < 0.03) event = -0.08; // dramatic stall
       }
 
-      const speed = Math.max(0.01, (base + variation + rubberBand + event) * phaseMult);
+      const speed = Math.max(0.06, (base + variation + rubberBand + event) * phaseMult);
       const newProgress = Math.min(100, horse.progress + speed * cappedDelta * 0.06);
 
       // Check if just finished

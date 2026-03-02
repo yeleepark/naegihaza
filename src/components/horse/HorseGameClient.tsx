@@ -109,7 +109,7 @@ export default function HorseGameClient() {
       gameState={gameState}
       setup={<GameSetup onStart={handleStart} />}
       gameplay={
-        <div className="flex flex-col py-2 md:py-4 h-full">
+        <div className="flex flex-col py-2 md:py-4 h-full min-h-[70dvh] md:min-h-0">
           <GamePlay
             horses={horses}
             finishOrder={finishOrder}
