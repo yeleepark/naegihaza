@@ -8,7 +8,7 @@ const structuredData = {
   '@type': 'WebApplication',
   name: 'RandomGame.zip',
   alternateName: '랜덤게임.zip',
-  url: 'https://naegihaza.com',
+  url: 'https://freerandomgame.com',
   description: "Free online random game platform to enjoy with friends. Use roulette, slot machine, and breakout to fairly decide with fun.",
   applicationCategory: 'GameApplication',
   operatingSystem: 'Web Browser',
@@ -19,7 +19,7 @@ const structuredData = {
   softwareVersion: '1.0.0',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://naegihaza.com/{search_term_string}',
+    target: 'https://freerandomgame.com/{search_term_string}',
     'query-input': 'required name=search_term_string',
   },
 };

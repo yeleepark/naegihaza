@@ -24,7 +24,7 @@ export default async function SlotPage({ params }: Props) {
   const t = getTranslations(locale as Locale);
   const meta = getMetadata(locale as Locale);
   const faqSchema = generateFAQSchema(t.slot.description.faq.items);
-  const gameSchema = generateGameSchema(meta.slot.title, meta.slot.description, `https://naegihaza.com/${locale}/games/slot`);
+  const gameSchema = generateGameSchema(meta.slot.title, meta.slot.description, `https://freerandomgame.com/${locale}/games/slot`);
   const breadcrumbSchema = generateBreadcrumbSchema(locale, meta.slot.title, '/games/slot');
   const howToSchema = generateHowToSchema(meta.slot.title, t.slot.howToPlay.steps);
 

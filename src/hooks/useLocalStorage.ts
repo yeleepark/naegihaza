@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const STORAGE_KEY_PREFIX = 'naegihaza-';
+const STORAGE_KEY_PREFIX = 'freerandomgame-';
 
 export function useLocalStorage(key: string, initialValue: string = ''): [string, (value: string) => void] {
   const fullKey = STORAGE_KEY_PREFIX + key;

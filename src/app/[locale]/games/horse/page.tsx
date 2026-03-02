@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import GamePageLayout from '@/components/layout/GamePageLayout';
 import Header from '@/components/layout/Header';
-import BombGameClient from '@/components/bomb/BombGameClient';
+import HorseGameClient from '@/components/horse/HorseGameClient';
 import GameDescription from '@/components/ui/GameDescription';
 import { type Locale } from '@/i18n/settings';
 import { createPageMetadata } from '@/lib/metadata';
@@ -16,17 +16,17 @@ export const dynamic = 'force-static';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  return createPageMetadata(locale as Locale, 'bomb', '/games/bomb', { openGraph: true });
+  return createPageMetadata(locale as Locale, 'horse', '/games/horse', { openGraph: true });
 }
 
-export default async function BombPage({ params }: Props) {
+export default async function HorsePage({ params }: Props) {
   const { locale } = await params;
   const t = getTranslations(locale as Locale);
   const meta = getMetadata(locale as Locale);
-  const faqSchema = generateFAQSchema(t.bomb.description.faq.items);
-  const gameSchema = generateGameSchema(meta.bomb.title, meta.bomb.description, `https://freerandomgame.com/${locale}/games/bomb`);
-  const breadcrumbSchema = generateBreadcrumbSchema(locale, meta.bomb.title, '/games/bomb');
-  const howToSchema = generateHowToSchema(meta.bomb.title, t.bomb.howToPlay.steps);
+  const faqSchema = generateFAQSchema(t.horse.description.faq.items);
+  const gameSchema = generateGameSchema(meta.horse.title, meta.horse.description, `https://freerandomgame.com/${locale}/games/horse`);
+  const breadcrumbSchema = generateBreadcrumbSchema(locale, meta.horse.title, '/games/horse');
+  const howToSchema = generateHowToSchema(meta.horse.title, t.horse.howToPlay.steps);
 
   return (
     <>
@@ -48,8 +48,8 @@ export default async function BombPage({ params }: Props) {
       />
       <GamePageLayout
         header={<Header />}
-        game={<BombGameClient />}
-        description={<GameDescription description={t.bomb.description} locale={locale} currentGame="bomb" />}
+        game={<HorseGameClient />}
+        description={<GameDescription description={t.horse.description} locale={locale} currentGame="horse" />}
       />
     </>
   );

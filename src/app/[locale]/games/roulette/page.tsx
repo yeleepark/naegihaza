@@ -24,7 +24,7 @@ export default async function RoulettePage({ params }: Props) {
   const t = getTranslations(locale as Locale);
   const meta = getMetadata(locale as Locale);
   const faqSchema = generateFAQSchema(t.roulette.description.faq.items);
-  const gameSchema = generateGameSchema(meta.roulette.title, meta.roulette.description, `https://naegihaza.com/${locale}/games/roulette`);
+  const gameSchema = generateGameSchema(meta.roulette.title, meta.roulette.description, `https://freerandomgame.com/${locale}/games/roulette`);
   const breadcrumbSchema = generateBreadcrumbSchema(locale, meta.roulette.title, '/games/roulette');
   const howToSchema = generateHowToSchema(meta.roulette.title, t.roulette.howToPlay.steps);
 

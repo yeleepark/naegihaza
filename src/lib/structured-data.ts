@@ -18,6 +18,7 @@ const siteNavNames: Record<string, Record<string, string>> = {
   slot:     { ko: '슬롯머신', en: 'Slot Machine', zh: '老虎机', es: 'Tragamonedas' },
   breakout: { ko: '벽돌깨기', en: 'Breakout', zh: '打砖块', es: 'Breakout' },
   bomb:     { ko: '폭탄돌리기', en: 'Bomb Pass', zh: '传炸弹', es: 'Pasa la Bomba' },
+  horse:    { ko: '경마게임', en: 'Horse Race', zh: '赛马游戏', es: 'Carrera de Caballos' },
 };
 
 const siteNavMenuName: Record<string, string> = {
@@ -28,16 +29,16 @@ const siteNavMenuName: Record<string, string> = {
 };
 
 export function generateSiteNavSchema(locale: string = 'en') {
-  const games = ['roulette', 'slot', 'breakout', 'bomb'];
+  const games = ['roulette', 'slot', 'breakout', 'bomb', 'horse'];
   return {
     '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
     name: siteNavMenuName[locale] || siteNavMenuName.en,
-    url: 'https://naegihaza.com',
+    url: 'https://freerandomgame.com',
     hasPart: games.map((game) => ({
       '@type': 'WebPage',
       name: siteNavNames[game][locale] || siteNavNames[game].en,
-      url: `https://naegihaza.com/${locale}/games/${game}`,
+      url: `https://freerandomgame.com/${locale}/games/${game}`,
     })),
   };
 }
@@ -79,13 +80,13 @@ export function generateBreadcrumbSchema(
         '@type': 'ListItem',
         position: 1,
         name: siteNames[locale] || siteNames.en,
-        item: `https://naegihaza.com/${locale}`,
+        item: `https://freerandomgame.com/${locale}`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: gameName,
-        item: `https://naegihaza.com/${locale}${path}`,
+        item: `https://freerandomgame.com/${locale}${path}`,
       },
     ],
   };

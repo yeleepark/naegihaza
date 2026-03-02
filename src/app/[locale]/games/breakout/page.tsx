@@ -24,7 +24,7 @@ export default async function BreakoutPage({ params }: Props) {
   const t = getTranslations(locale as Locale);
   const meta = getMetadata(locale as Locale);
   const faqSchema = generateFAQSchema(t.breakout.description.faq.items);
-  const gameSchema = generateGameSchema(meta.breakout.title, meta.breakout.description, `https://naegihaza.com/${locale}/games/breakout`);
+  const gameSchema = generateGameSchema(meta.breakout.title, meta.breakout.description, `https://freerandomgame.com/${locale}/games/breakout`);
   const breadcrumbSchema = generateBreadcrumbSchema(locale, meta.breakout.title, '/games/breakout');
   const howToSchema = generateHowToSchema(meta.breakout.title, t.breakout.howToPlay.steps);
 

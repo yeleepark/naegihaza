@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://naegihaza.com/sitemap.xml
+Sitemap: https://freerandomgame.com/sitemap.xml
 
 # Host
-Host: https://naegihaza.com
+Host: https://freerandomgame.com

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'naegihaza-v3';
+const CACHE_NAME = 'freerandomgame-v1';
 
 const PRECACHE_URLS = [
   '/',

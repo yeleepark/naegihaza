@@ -1,9 +1,9 @@
-# 🍀 내기하자 (Naegihaza)
+# 🍀 FreeRandomGame
 
 친구들과 함께 즐기는 무료 온라인 랜덤 게임 플랫폼입니다.
 룰렛, 주사위, 사다리타기로 순서를 정하거나 내기를 즐겨보세요.
 
-**[naegihaza.com](https://naegihaza.com)**
+**[freerandomgame.com](https://freerandomgame.com)**
 
 ---
 

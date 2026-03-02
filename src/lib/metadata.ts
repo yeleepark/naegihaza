@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { locales, defaultLocale, type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
 
-const BASE_URL = 'https://naegihaza.com';
+const BASE_URL = 'https://freerandomgame.com';
 
 const OG_LOCALE_MAP: Record<string, string> = {
   ko: 'ko_KR',
@@ -11,7 +11,7 @@ const OG_LOCALE_MAP: Record<string, string> = {
   es: 'es_ES',
 };
 
-type MetaKey = 'home' | 'roulette' | 'breakout' | 'slot' | 'bomb' | 'privacy' | 'terms';
+type MetaKey = 'home' | 'roulette' | 'breakout' | 'slot' | 'bomb' | 'horse' | 'privacy' | 'terms';
 
 export function createPageMetadata(
   locale: Locale,
