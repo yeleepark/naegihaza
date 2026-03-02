@@ -52,8 +52,8 @@ export function useHorseRace(): UseHorseRaceReturn {
     setLeader(null);
     setLeadChanges(0);
 
-    // Assign base speeds — very similar for fairness, slight randomness
-    baseSpeeds.current = names.map(() => 0.15 + Math.random() * 0.03);
+    // Assign base speeds — tight range for fairness, drama comes from variation
+    baseSpeeds.current = names.map(() => 0.13 + Math.random() * 0.02);
   }, []);
 
   const startRace = useCallback(() => {
@@ -77,7 +77,7 @@ export function useHorseRace(): UseHorseRaceReturn {
     setHorses(horsesRef.current);
 
     // Re-randomize base speeds
-    baseSpeeds.current = horsesRef.current.map(() => 0.15 + Math.random() * 0.03);
+    baseSpeeds.current = horsesRef.current.map(() => 0.13 + Math.random() * 0.02);
 
     // Countdown: 3, 2, 1, GO!
     let count = 3;
@@ -112,22 +112,68 @@ export function useHorseRace(): UseHorseRaceReturn {
     const finished = finishOrderRef.current;
     let allFinished = true;
 
+    // Find current leader progress for rubber-banding
+    const maxProgress = Math.max(...currentHorses.map((h) => h.progress));
+    const minProgress = Math.min(
+      ...currentHorses.filter((h) => h.progress < 100).map((h) => h.progress),
+    );
+    const spread = maxProgress - minProgress;
+
     const updated = currentHorses.map((horse, i) => {
       if (horse.progress >= 100) return horse;
 
       allFinished = false;
 
       const base = baseSpeeds.current[i];
-      // Random variation — large for excitement
-      const variation = (Math.random() - 0.45) * 0.25;
+      const p = horse.progress;
 
-      // Near finish line (90%+) — increase variation for dramatic finishes
-      const finishBoost = horse.progress > 90 ? (Math.random() - 0.4) * 0.15 : 0;
+      // === Phase-based multiplier ===
+      let phaseMult: number;
+      if (p < 8) {
+        // Start: slow acceleration (0.5 → 1.0)
+        phaseMult = 0.5 + (p / 8) * 0.5;
+      } else if (p < 40) {
+        // Early race: normal
+        phaseMult = 1.0;
+      } else if (p < 55) {
+        // Mid-race pack-up: slight slowdown to bunch horses together
+        phaseMult = 0.8 + Math.random() * 0.15;
+      } else if (p < 75) {
+        // Second wind: back to normal with bigger swings
+        phaseMult = 0.9 + Math.random() * 0.4;
+      } else if (p < 90) {
+        // Final approach: tension builds, volatile speed
+        phaseMult = 0.7 + Math.random() * 0.6;
+      } else {
+        // Final stretch: dramatic — can stall or sprint
+        phaseMult = 0.5 + Math.random() * 0.9;
+      }
 
-      // Occasional burst of speed (2% chance per frame)
-      const burst = Math.random() < 0.02 ? 0.3 : 0;
+      // === Rubber-banding: trailing horses catch up, leaders slow slightly ===
+      let rubberBand = 0;
+      if (spread > 3) {
+        const normalizedPos = (horse.progress - minProgress) / spread; // 0=last, 1=first
+        rubberBand = (0.5 - normalizedPos) * 0.08; // trailing: +0.04, leading: -0.04
+      }
 
-      const speed = Math.max(0.02, base + variation + finishBoost + burst);
+      // === Random variation ===
+      const variation = (Math.random() - 0.5) * 0.18;
+
+      // === Burst / stall events ===
+      let event = 0;
+      const roll = Math.random();
+      if (p > 20 && p < 95) {
+        if (roll < 0.008) event = 0.35; // big burst (0.8%)
+        else if (roll < 0.025) event = 0.18; // small burst (1.7%)
+        else if (roll < 0.035) event = -0.1; // stumble (1.0%)
+      }
+      // Final stretch special events
+      if (p >= 90) {
+        if (roll < 0.015) event = 0.4; // dramatic sprint
+        else if (roll < 0.03) event = -0.08; // dramatic stall
+      }
+
+      const speed = Math.max(0.01, (base + variation + rubberBand + event) * phaseMult);
       const newProgress = Math.min(100, horse.progress + speed * cappedDelta * 0.06);
 
       // Check if just finished
@@ -169,13 +215,13 @@ export function useHorseRace(): UseHorseRaceReturn {
     prevLeaderRef.current = currentLeader.name;
     setLeader(currentLeader);
 
-    // Photo finish detection: top 2 within 5% gap at 80%+ progress
+    // Photo finish detection: top 2 within 8% gap at 75%+ progress
     const activeHorses = updated.filter((h) => h.progress < 100);
     if (activeHorses.length >= 2) {
       const sortedActive = [...activeHorses].sort((a, b) => b.progress - a.progress);
       const top1 = sortedActive[0];
       const top2 = sortedActive[1];
-      if (top1.progress > 80 && top1.progress - top2.progress <= 5) {
+      if (top1.progress > 75 && top1.progress - top2.progress <= 8) {
         setIsPhotoFinish(true);
       } else {
         setIsPhotoFinish(false);

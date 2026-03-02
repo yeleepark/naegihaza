@@ -101,11 +101,7 @@ export default async function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon" href="/apple-icon" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4501038602130909"
-          crossOrigin="anonymous"
-        />
+        <meta name="google-adsense-account" content="ca-pub-4501038602130909" />
       </head>
       <body className={`${pressStart2P.variable} ${jua.variable} antialiased`}>
         {children}

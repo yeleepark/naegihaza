@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import confetti from 'canvas-confetti';
 import { Horse, RaceState, RankingEntry } from '@/types/horse';
 import { useSound } from '@/hooks/useSound';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX, Crown, Medal, Zap } from 'lucide-react';
 
 type GamePlayProps = {
   horses: Horse[];
@@ -39,8 +39,8 @@ function SvgHorse({
   return (
     <div className={`relative ${isRunning ? 'animate-horse-gallop' : ''}`}>
       {isLeader && (
-        <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-xs animate-leader-pulse">
-          👑
+        <span className="absolute -top-4 left-1/2 -translate-x-1/2 animate-leader-pulse">
+          <Crown className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
         </span>
       )}
       <svg
@@ -406,8 +406,20 @@ export default function GamePlay({
 
                   {/* Finish rank badge */}
                   {isFinished && rank && (
-                    <span className="absolute -top-4 right-0 font-game text-sm font-black animate-bounce-in">
-                      {rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `${rank}th`}
+                    <span className="absolute -top-4 right-0 animate-bounce-in">
+                      {rank <= 3 ? (
+                        <Medal
+                          className="w-4 h-4"
+                          style={{
+                            color: rank === 1 ? '#fbbf24' : rank === 2 ? '#9ca3af' : '#b45309',
+                            fill: rank === 1 ? '#fbbf24' : rank === 2 ? '#9ca3af' : '#b45309',
+                          }}
+                        />
+                      ) : (
+                        <span className="font-game text-[10px] font-black text-white bg-black/50 px-1 rounded">
+                          {rank}th
+                        </span>
+                      )}
                     </span>
                   )}
                 </div>
@@ -422,11 +434,11 @@ export default function GamePlay({
         {raceState === 'racing' && (
           <div className="bg-emerald-900 border-4 border-black rounded-xl px-6 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             <p className="font-game font-black text-white text-base md:text-lg animate-pulse flex items-center gap-2">
-              <span>🏇</span>
+              <Zap className="w-5 h-5 text-yellow-400 fill-yellow-400" />
               <span>{t('horse.racing')}</span>
               {leader && (
-                <span className="text-yellow-400 text-sm">
-                  👑 {leader.name}
+                <span className="text-yellow-400 text-sm flex items-center gap-1">
+                  <Crown className="w-3.5 h-3.5 fill-yellow-400" /> {leader.name}
                 </span>
               )}
             </p>

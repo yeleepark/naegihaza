@@ -7,6 +7,7 @@ import Button from '@/components/ui/Button';
 import { HorseResult } from '@/types/horse';
 import { useTranslation } from 'react-i18next';
 import { useSound } from '@/hooks/useSound';
+import { Trophy, Medal } from 'lucide-react';
 
 type GameResultProps = {
   result: HorseResult;
@@ -98,7 +99,7 @@ function Podium({ rankings }: { rankings: HorseResult['rankings'] }) {
           className="flex flex-col items-center animate-podium-rise"
           style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}
         >
-          <span className="text-2xl mb-1">🥈</span>
+          <Medal className="w-7 h-7 text-gray-400 fill-gray-400 mb-1" />
           <span
             className="block font-game text-xs md:text-sm font-black text-white px-2 py-1 rounded-t-lg border-2 border-black border-b-0 truncate max-w-[80px] md:max-w-[100px] text-center"
             style={{ backgroundColor: second.color }}
@@ -121,7 +122,7 @@ function Podium({ rankings }: { rankings: HorseResult['rankings'] }) {
         className="flex flex-col items-center animate-podium-rise"
         style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}
       >
-        <span className="text-3xl mb-1 animate-winner-bounce">🥇</span>
+        <Medal className="w-9 h-9 text-yellow-400 fill-yellow-400 mb-1 animate-winner-bounce" />
         <span
           className="block font-game text-sm md:text-base font-black text-white px-3 py-1.5 rounded-t-lg border-2 border-black border-b-0 truncate max-w-[90px] md:max-w-[110px] text-center"
           style={{ backgroundColor: first.color }}
@@ -144,7 +145,7 @@ function Podium({ rankings }: { rankings: HorseResult['rankings'] }) {
           className="flex flex-col items-center animate-podium-rise"
           style={{ animationDelay: '0.6s', animationFillMode: 'backwards' }}
         >
-          <span className="text-2xl mb-1">🥉</span>
+          <Medal className="w-7 h-7 text-amber-700 fill-amber-700 mb-1" />
           <span
             className="block font-game text-xs md:text-sm font-black text-white px-2 py-1 rounded-t-lg border-2 border-black border-b-0 truncate max-w-[80px] md:max-w-[100px] text-center"
             style={{ backgroundColor: third.color }}
@@ -190,8 +191,8 @@ export default function GameResult({
     <div className="flex items-center justify-center h-full relative">
       <Card className="max-w-md w-full relative z-10 animate-result-appear">
         <div className="text-center">
-          <h2 className="font-game text-2xl font-black text-black mb-4">
-            🏆 {t('horse.result.title')}
+          <h2 className="font-game text-2xl font-black text-black mb-4 flex items-center justify-center gap-2">
+            <Trophy className="w-7 h-7 text-yellow-500 fill-yellow-500" /> {t('horse.result.title')}
           </h2>
 
           {/* Podium */}
