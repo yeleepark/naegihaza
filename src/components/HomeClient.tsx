@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import GameCard from '@/components/GameCard';
 import { BrickWall, Target, Coins, Bomb, Flag } from 'lucide-react';
 
-const ICON_BASE = 'w-9 h-9 md:w-14 md:h-14 stroke-[2.5]';
+const ICON_BASE = 'w-6 h-6 md:w-14 md:h-14 stroke-[2.5]';
 
 const GAME_ITEMS = [
   {
@@ -54,7 +54,7 @@ export default function HomeClient() {
     <div className="flex flex-col items-center gap-8 w-full pt-2 md:pt-8">
       {/* Games Grid */}
       <div className="w-full px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-3 md:gap-4">
           {GAME_ITEMS.map((item) => (
             <GameCard
               key={item.key}
