@@ -1,4 +1,4 @@
-import type { Block, EngineState } from '@/types/breakout';
+import type { Block, EngineState, Particle } from '@/types/breakout';
 import { BLOCK_COLORS } from '@/utils/breakout';
 
 /* ── Constants ────────────────────────────────────────── */
@@ -47,54 +47,19 @@ export function buildBlocks(
   const maxBottom = ballY - 100;
   const positions: { x: number; y: number }[] = [];
 
-  if (total <= 20) {
-    const areaX = margin;
-    const areaY = margin;
-    const areaW = W - margin * 2 - blockW;
-    const areaH = maxBottom - margin - blockH;
-    for (let i = 0; i < total; i++) {
-      let placed = false;
-      for (let attempt = 0; attempt < 500; attempt++) {
-        const px = areaX + Math.random() * areaW;
-        const py = areaY + Math.random() * areaH;
-        const overlaps = positions.some(
-          (pos) =>
-            px < pos.x + blockW + margin &&
-            px + blockW + margin > pos.x &&
-            py < pos.y + blockH + margin &&
-            py + blockH + margin > pos.y,
-        );
-        if (!overlaps) {
-          positions.push({ x: px, y: py });
-          placed = true;
-          break;
-        }
-      }
-      if (!placed) {
-        positions.push({
-          x: margin + (i % 3) * (blockW + margin),
-          y: margin + Math.floor(i / 3) * (blockH + margin),
-        });
-      }
-    }
-  } else {
-    const cols = Math.max(1, Math.floor((W - margin) / (blockW + margin)));
-    const rows = Math.ceil(total / cols);
-    const gridW = cols * (blockW + margin) - margin;
-    const gridH = rows * (blockH + margin) - margin;
-    const offsetX = (W - gridW) / 2;
-    const offsetY = Math.max(
-      margin,
-      Math.min((H * 0.5 - gridH) / 2, maxBottom - gridH),
-    );
-    for (let i = 0; i < total; i++) {
-      const col = i % cols;
-      const row = Math.floor(i / cols);
-      positions.push({
-        x: offsetX + col * (blockW + margin),
-        y: offsetY + row * (blockH + margin),
-      });
-    }
+  const cols = Math.max(1, Math.floor((W - margin) / (blockW + margin)));
+  const rows = Math.ceil(total / cols);
+  const gridW = cols * (blockW + margin) - margin;
+  const gridH = rows * (blockH + margin) - margin;
+  const offsetX = (W - gridW) / 2;
+  const offsetY = margin;
+  for (let i = 0; i < total; i++) {
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    positions.push({
+      x: offsetX + col * (blockW + margin),
+      y: offsetY + row * (blockH + margin),
+    });
   }
 
   return expanded.map(({ name, participantIndex }, i) => ({
@@ -108,10 +73,71 @@ export function buildBlocks(
   }));
 }
 
+/* ── Stars ───────────────────────────────────────────── */
+
+export function initStars(W: number, H: number) {
+  const count = 60 + Math.floor(Math.random() * 20);
+  return Array.from({ length: count }, () => ({
+    x: Math.random() * W,
+    y: Math.random() * H,
+    size: Math.random() * 2 + 0.5,
+    brightness: Math.random(),
+  }));
+}
+
+/* ── Particle system ─────────────────────────────────── */
+
+export function spawnParticles(state: EngineState, block: Block) {
+  const count = 8 + Math.floor(Math.random() * 5);
+  for (let i = 0; i < count; i++) {
+    const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+    const speed = 2 + Math.random() * 4;
+    const p: Particle = {
+      x: block.x + block.w / 2,
+      y: block.y + block.h / 2,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      size: 3 + Math.random() * 4,
+      color: block.color,
+      life: 1,
+      maxLife: 1,
+      rotation: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.3,
+    };
+    state.particles.push(p);
+  }
+}
+
+export function updateParticles(state: EngineState) {
+  for (let i = state.particles.length - 1; i >= 0; i--) {
+    const p = state.particles[i];
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += 0.15; // gravity
+    p.rotation += p.rotSpeed;
+    p.life -= 0.02;
+    if (p.life <= 0) {
+      state.particles.splice(i, 1);
+    }
+  }
+}
+
+/* ── Trail system ────────────────────────────────────── */
+
+export function updateTrail(state: EngineState) {
+  state.trail.unshift({ x: state.ball.x, y: state.ball.y, age: 0 });
+  for (let i = state.trail.length - 1; i >= 0; i--) {
+    state.trail[i].age++;
+    if (state.trail[i].age > 12) {
+      state.trail.splice(i, 1);
+    }
+  }
+}
+
 /* ── Physics tick ──────────────────────────────────────── */
 
 export interface TickResult {
-  blockHit: boolean;
+  blockHit: Block | null;
   wallHit: boolean;
 }
 
@@ -146,7 +172,7 @@ export function tick(s: EngineState): TickResult {
   }
 
   // Block collisions
-  let hit = false;
+  let hitBlock: Block | null = null;
   for (const b of blocks) {
     if (!b.alive) continue;
     if (
@@ -156,7 +182,7 @@ export function tick(s: EngineState): TickResult {
       ball.y - ball.r < b.y + b.h
     ) {
       b.alive = false;
-      hit = true;
+      hitBlock = b;
 
       const ol = ball.x + ball.r - b.x;
       const or_ = b.x + b.w - (ball.x - ball.r);
@@ -193,7 +219,7 @@ export function tick(s: EngineState): TickResult {
     ball.dy *= spd / newSpd;
   }
 
-  return { blockHit: hit, wallHit };
+  return { blockHit: hitBlock, wallHit };
 }
 
 /* ── Rendering ────────────────────────────────────────── */
@@ -202,43 +228,117 @@ export function render(ctx: CanvasRenderingContext2D, s: EngineState) {
   const { W, H, blocks, ball } = s;
   ctx.clearRect(0, 0, W, H);
 
-  // Background
-  ctx.fillStyle = '#16213e';
+  // Background gradient
+  const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+  bgGrad.addColorStop(0, '#0a0f2e');
+  bgGrad.addColorStop(1, '#16213e');
+  ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, W, H);
 
-  // Blocks
+  // Grid overlay
+  ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+  ctx.lineWidth = 1;
+  for (let gx = 0; gx < W; gx += 40) {
+    ctx.beginPath();
+    ctx.moveTo(gx, 0);
+    ctx.lineTo(gx, H);
+    ctx.stroke();
+  }
+  for (let gy = 0; gy < H; gy += 40) {
+    ctx.beginPath();
+    ctx.moveTo(0, gy);
+    ctx.lineTo(W, gy);
+    ctx.stroke();
+  }
+
+  // Stars
+  for (const star of s.stars) {
+    const twinkle = 0.4 + 0.6 * Math.sin(s.frameCount * 0.03 + star.brightness * 10);
+    ctx.fillStyle = `rgba(255,255,255,${twinkle * 0.7})`;
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // Blocks (flat style)
   for (const b of blocks) {
     if (!b.alive) continue;
-    ctx.fillStyle = 'rgba(0,0,0,0.25)';
-    ctx.fillRect(b.x + 3, b.y + 3, b.w, b.h);
+
     ctx.fillStyle = b.color;
     ctx.fillRect(b.x, b.y, b.w, b.h);
+
     ctx.strokeStyle = 'rgba(0,0,0,0.4)';
     ctx.lineWidth = 2;
     ctx.strokeRect(b.x, b.y, b.w, b.h);
-    ctx.fillStyle = '#000';
+
+    // Text
+    ctx.fillStyle = '#fff';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = 2;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
     ctx.font = `bold ${Math.min(13, b.h * 0.45)}px "Jua", sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     let txt = b.name;
     const maxW = b.w - 8;
     if (ctx.measureText(txt).width > maxW) {
-      while (ctx.measureText(txt + '…').width > maxW && txt.length > 1)
+      while (ctx.measureText(txt + '\u2026').width > maxW && txt.length > 1)
         txt = txt.slice(0, -1);
-      txt += '…';
+      txt += '\u2026';
     }
     ctx.fillText(txt, b.x + b.w / 2, b.y + b.h / 2 + 1);
+    ctx.shadowColor = 'transparent';
+    ctx.shadowBlur = 0;
   }
 
-  // Ball
-  ctx.fillStyle = '#fff';
-  ctx.shadowColor = 'rgba(255,255,255,0.5)';
-  ctx.shadowBlur = 12;
+  // Particles
+  for (const p of s.particles) {
+    const alpha = p.life / p.maxLife;
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation);
+    ctx.globalAlpha = alpha;
+    ctx.fillStyle = p.color;
+    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+    ctx.restore();
+  }
+
+  // Ball comet trail
+  for (let i = s.trail.length - 1; i >= 0; i--) {
+    const t = s.trail[i];
+    const progress = 1 - t.age / 12;
+    const radius = ball.r * progress * 0.8;
+    const alpha = progress * 0.5;
+    if (radius > 0.5) {
+      ctx.fillStyle = `rgba(255,200,100,${alpha})`;
+      ctx.beginPath();
+      ctx.arc(t.x, t.y, radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // Ball with warm orange glow
+  ctx.shadowColor = 'rgba(255,180,50,0.6)';
+  ctx.shadowBlur = 16;
+  const ballGrad = ctx.createRadialGradient(
+    ball.x - ball.r * 0.3,
+    ball.y - ball.r * 0.3,
+    ball.r * 0.1,
+    ball.x,
+    ball.y,
+    ball.r,
+  );
+  ballGrad.addColorStop(0, '#fff');
+  ballGrad.addColorStop(0.6, '#ffd080');
+  ballGrad.addColorStop(1, '#ffb040');
+  ctx.fillStyle = ballGrad;
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
   ctx.fill();
   ctx.shadowColor = 'transparent';
   ctx.shadowBlur = 0;
+
 }
 
 export function highlightWinner(
@@ -248,11 +348,22 @@ export function highlightWinner(
 ) {
   render(ctx, s);
 
+  // Pulsing glow based on frameCount
+  const pulse = Math.sin(s.frameCount * 0.1) * 0.5 + 0.5;
+  const glowSize = 15 + pulse * 15;
+  const expand = pulse * 4;
+
   ctx.shadowColor = block.color;
-  ctx.shadowBlur = 20;
+  ctx.shadowBlur = glowSize;
   ctx.strokeStyle = '#fff';
-  ctx.lineWidth = 4;
-  ctx.strokeRect(block.x - 2, block.y - 2, block.w + 4, block.h + 4);
+  ctx.lineWidth = 3 + pulse * 2;
+  ctx.strokeRect(
+    block.x - 2 - expand,
+    block.y - 2 - expand,
+    block.w + 4 + expand * 2,
+    block.h + 4 + expand * 2,
+  );
   ctx.shadowColor = 'transparent';
   ctx.shadowBlur = 0;
+
 }

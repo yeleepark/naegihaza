@@ -7,6 +7,10 @@ import {
   tick,
   render,
   highlightWinner,
+  initStars,
+  spawnParticles,
+  updateParticles,
+  updateTrail,
 } from '@/lib/breakout-engine';
 
 interface BreakoutCallbacks {
@@ -28,6 +32,7 @@ export function useBreakoutEngine(
       ? SPEED_DEFAULT * 0.6
       : SPEED_DEFAULT;
   const [speedMultiplier, setSpeedMultiplier] = useState(defaultSpeed);
+  const shakeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const stateRef = useRef<EngineState>({
     blocks: [],
@@ -37,10 +42,24 @@ export function useBreakoutEngine(
     running: false,
     raf: 0,
     speedMul: defaultSpeed,
+    particles: [],
+    trail: [],
+    frameCount: 0,
+    stars: [],
   });
 
   const callbacksRef = useRef(callbacks);
   callbacksRef.current = callbacks;
+
+  function triggerShake() {
+    const wrap = wrapRef.current;
+    if (!wrap || shakeTimeoutRef.current) return;
+    wrap.classList.add('animate-breakout-shake');
+    shakeTimeoutRef.current = setTimeout(() => {
+      wrap.classList.remove('animate-breakout-shake');
+      shakeTimeoutRef.current = null;
+    }, 150);
+  }
 
   useEffect(() => {
     const cvs = canvasRef.current;
@@ -61,6 +80,10 @@ export function useBreakoutEngine(
     const s = stateRef.current;
     s.W = W;
     s.H = H;
+    s.particles = [];
+    s.trail = [];
+    s.frameCount = 0;
+    s.stars = initStars(W, H);
 
     s.blocks = buildBlocks(participants, W, H, ctx);
     s.ball = { x: W / 2, y: H - 20, dx: 0, dy: 0, r: 7 };
@@ -107,26 +130,43 @@ export function useBreakoutEngine(
     (function loop() {
       if (!s.running) return;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      s.frameCount++;
       const { blockHit, wallHit } = tick(s);
-      render(ctx, s);
 
       if (blockHit) {
+        spawnParticles(s, blockHit);
+        triggerShake();
         callbacksRef.current.onBlockHit?.();
       }
       if (wallHit) {
         callbacksRef.current.onWallHit?.();
       }
 
+      updateParticles(s);
+      updateTrail(s);
+      render(ctx, s);
+
       const alive = s.blocks.filter((b) => b.alive);
       if (alive.length <= 1) {
         s.running = false;
         if (alive.length === 1) {
-          highlightWinner(ctx, alive[0], s);
           callbacksRef.current.onGameEnd?.();
-          setTimeout(
-            () => callbacksRef.current.onResult(alive[0].name, alive[0].color),
-            1000,
-          );
+
+          // Winner highlight animation loop (60 frames)
+          let frame = 0;
+          (function highlightLoop() {
+            if (frame >= 60) {
+              callbacksRef.current.onResult(alive[0].name, alive[0].color);
+              return;
+            }
+            s.frameCount++;
+            updateParticles(s);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            highlightWinner(ctx, alive[0], s);
+            frame++;
+            requestAnimationFrame(highlightLoop);
+          })();
         }
         return;
       }

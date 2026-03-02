@@ -1,7 +1,18 @@
-export const BLOCK_COLORS = Array.from({ length: 100 }, (_, i) => {
-  const h = Math.round((i * 137.508) % 360);
-  return `hsl(${h}, 75%, 65%)`;
-});
+const BASE_PALETTE = [
+  '#fb923c', // orange-400
+  '#f472b6', // pink-400
+  '#a78bfa', // violet-400
+  '#60a5fa', // blue-400
+  '#34d399', // emerald-400
+  '#fbbf24', // amber-400
+  '#fb7185', // rose-400
+  '#38bdf8', // sky-400
+];
+
+export const BLOCK_COLORS = Array.from(
+  { length: 100 },
+  (_, i) => BASE_PALETTE[i % BASE_PALETTE.length],
+);
 
 export function parseNames(input: string): string[] {
   return input

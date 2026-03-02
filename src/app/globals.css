@@ -333,6 +333,42 @@
     animation: near-stop-shake 0.15s ease-in-out infinite;
   }
 
+  /* === Breakout game animations === */
+
+  @keyframes breakout-shake {
+    0%, 100% { transform: translate(0, 0); }
+    15% { transform: translate(-3px, 2px); }
+    30% { transform: translate(3px, -2px); }
+    45% { transform: translate(-2px, -1px); }
+    60% { transform: translate(2px, 1px); }
+    75% { transform: translate(-1px, 1px); }
+    90% { transform: translate(1px, -1px); }
+  }
+
+  .animate-breakout-shake {
+    animation: breakout-shake 0.15s ease-in-out;
+  }
+
+  @keyframes breakout-result-glow {
+    0%, 100% { box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 4px 4px 0px 0px rgba(0,0,0,1); }
+    50% { box-shadow: 0 0 25px currentColor, 0 0 45px currentColor, 4px 4px 0px 0px rgba(0,0,0,1); }
+  }
+
+  .animate-breakout-result-glow {
+    animation: breakout-result-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce-in {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    70% { transform: scale(0.95); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-bounce-in {
+    animation: bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
   /* Home scroll snap: desktop only (md: 768px+) */
   @media (min-width: 768px) {
     .home-scroll-main {
