@@ -27,6 +27,7 @@ export function useSlotMachine(
 ) {
   const [spinning, setSpinning] = useState(false);
   const [stopped, setStopped] = useState(false);
+  const [nearStop, setNearStop] = useState(false);
   const [strip, setStrip] = useState<string[]>([]);
   const [offset, setOffset] = useState(0);
   const rafRef = useRef(0);
@@ -43,10 +44,12 @@ export function useSlotMachine(
     const newStrip = generateReelStrip(participants, selectedWinner, REPEATS);
     setStrip(newStrip);
     setStopped(false);
+    setNearStop(false);
     setOffset(0);
     setSpinning(true);
 
-    const targetOffset = (newStrip.length - 1) * CELL_HEIGHT;
+    // Winner is at index length-2; center it in 3-cell window (offset by 1 cell)
+    const targetOffset = (newStrip.length - 3) * CELL_HEIGHT;
     const startTime = performance.now();
     let lastCellIndex = 0;
 
@@ -57,6 +60,11 @@ export function useSlotMachine(
 
       const currentOffset = eased * targetOffset;
       setOffset(currentOffset);
+
+      // Detect near-stop phase (last ~25% of animation)
+      if (progress > 0.75) {
+        setNearStop(true);
+      }
 
       // Detect cell crossing for tick sound
       const currentCellIndex = Math.floor(currentOffset / CELL_HEIGHT);
@@ -91,5 +99,5 @@ export function useSlotMachine(
     rafRef.current = requestAnimationFrame(animate);
   }, [participants]);
 
-  return { spinning, stopped, strip, offset, handleSpin };
+  return { spinning, stopped, nearStop, strip, offset, handleSpin };
 }

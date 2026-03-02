@@ -73,8 +73,12 @@ export function generateReelStrip(
     strip.push(...shuffled);
   }
 
-  // Place winner at the end
+  // Place winner near the end, with one padding name after for 3-cell display
   strip.push(winner);
+
+  // Add one padding name so winner sits in the middle cell (index length-2)
+  const padding = names.find((n) => n !== winner) ?? names[0];
+  strip.push(padding);
 
   return strip;
 }

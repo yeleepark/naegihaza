@@ -19,8 +19,8 @@ const GAME_ITEMS = [
   },
   {
     key: 'slot',
-    icon: <Coins className={`${ICON_BASE} text-purple-800`} />,
-    bgColor: 'bg-purple-300',
+    icon: <Coins className={`${ICON_BASE} text-rose-800`} />,
+    bgColor: 'bg-rose-300',
     minPlayers: 2,
     maxPlayers: 100,
     gameType: 'pickOne' as const,

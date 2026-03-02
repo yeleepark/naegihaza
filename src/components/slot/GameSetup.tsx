@@ -8,7 +8,6 @@ import { parseNames, validateParticipantNames } from '@/utils/slot';
 import { useTranslation } from 'react-i18next';
 import HowToPlay from '@/components/ui/HowToPlay';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { Coins } from 'lucide-react';
 
 type GameSetupProps = {
   onStart: (names: string[]) => void;
@@ -46,7 +45,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
       <div className="flex-1 flex items-center justify-center w-full">
       <Card className="max-w-md w-full">
         <div className="text-center mb-4 md:mb-8">
-          <Coins className="w-10 h-10 md:w-14 md:h-14 stroke-[2.5] mx-auto mb-2 md:mb-4 text-pink-600" />
+          <span className="block text-4xl md:text-5xl mx-auto mb-2 md:mb-4" role="img" aria-label="slot machine">🎰</span>
           <h2 className="font-game text-3xl font-black text-black mb-2">
             {t('slot.title')}
           </h2>

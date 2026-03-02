@@ -18,7 +18,7 @@ function fireCelebration() {
   const colors = ['#a855f7', '#fbbf24', '#f472b6', '#60a5fa', '#34d399'];
 
   confetti({
-    particleCount: 120,
+    particleCount: 180,
     spread: 120,
     origin: { x: 0.5, y: 0.5 },
     colors,
@@ -29,7 +29,7 @@ function fireCelebration() {
 
   setTimeout(() => {
     confetti({
-      particleCount: 50,
+      particleCount: 80,
       angle: 60,
       spread: 70,
       origin: { x: 0, y: 0.7 },
@@ -37,7 +37,7 @@ function fireCelebration() {
       zIndex: 30,
     });
     confetti({
-      particleCount: 50,
+      particleCount: 80,
       angle: 120,
       spread: 70,
       origin: { x: 1, y: 0.7 },
@@ -68,10 +68,11 @@ export default function GameResult({
       <Card className="max-w-md w-full relative z-10">
         <div className="text-center">
           <h2 className="font-game text-2xl font-black text-black mb-6">
+            <span className="mr-2" role="img" aria-label="trophy">🏆</span>
             {t('common.resultTitle')}
           </h2>
           <div
-            className="rounded-xl p-8 mb-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            className="rounded-xl p-8 mb-6 border-4 border-black animate-slot-winner-glow"
             style={{ backgroundColor: result.winnerColor }}
           >
             <p className="font-game text-4xl md:text-5xl font-black text-black break-words">
