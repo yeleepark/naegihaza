@@ -35,8 +35,8 @@ const GAME_ITEMS = [
   },
   {
     key: 'bomb',
-    icon: <Bomb className={`${ICON_BASE} text-red-800`} />,
-    bgColor: 'bg-red-300',
+    icon: <Bomb className={`${ICON_BASE} text-orange-800`} />,
+    bgColor: 'bg-orange-300',
     minPlayers: 2,
     maxPlayers: 20,
     gameType: 'pickOne' as const,
