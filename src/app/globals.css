@@ -369,6 +369,130 @@
     animation: bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
 
+  /* === Horse race animations === */
+
+  @keyframes horse-gallop {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-3px); }
+    70% { transform: translateY(1px); }
+  }
+
+  .animate-horse-gallop {
+    animation: horse-gallop 0.25s ease-in-out infinite;
+  }
+
+  @keyframes horse-front-legs {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); }
+  }
+
+  .animate-horse-front-legs {
+    animation: horse-front-legs 0.3s ease-in-out infinite;
+  }
+
+  @keyframes horse-back-legs {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-15deg); }
+  }
+
+  .animate-horse-back-legs {
+    animation: horse-back-legs 0.3s ease-in-out infinite;
+  }
+
+  @keyframes dust-puff {
+    0% { transform: translateX(0) translateY(0); opacity: 0.7; }
+    100% { transform: translateX(-20px) translateY(4px); opacity: 0; }
+  }
+
+  .animate-dust-puff {
+    animation: dust-puff 0.4s ease-out forwards;
+  }
+
+  @keyframes countdown-pop {
+    0% { transform: scale(2.5); opacity: 0; }
+    40% { transform: scale(0.9); opacity: 1; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .animate-countdown-pop {
+    animation: countdown-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  @keyframes countdown-flash {
+    0% { opacity: 0.7; }
+    100% { opacity: 0; }
+  }
+
+  .animate-countdown-flash {
+    animation: countdown-flash 0.3s ease-out forwards;
+  }
+
+  @keyframes leader-pulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.5)); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.9)); }
+  }
+
+  .animate-leader-pulse {
+    animation: leader-pulse 0.8s ease-in-out infinite;
+  }
+
+  @keyframes leader-glow {
+    0%, 100% { box-shadow: inset 0 0 15px rgba(251, 191, 36, 0.15); }
+    50% { box-shadow: inset 0 0 25px rgba(251, 191, 36, 0.35); }
+  }
+
+  .animate-leader-glow {
+    animation: leader-glow 1s ease-in-out infinite;
+  }
+
+  @keyframes podium-rise {
+    0% { transform: translateY(40px); opacity: 0; }
+    70% { transform: translateY(-4px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  .animate-podium-rise {
+    animation: podium-rise 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  @keyframes winner-bounce {
+    0%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-8px); }
+    60% { transform: translateY(-3px); }
+  }
+
+  .animate-winner-bounce {
+    animation: winner-bounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes winner-glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(251, 191, 36, 0.4), 0 0 20px rgba(251, 191, 36, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.7), 0 0 40px rgba(251, 191, 36, 0.4), 0 0 60px rgba(251, 191, 36, 0.2); }
+  }
+
+  .animate-winner-glow {
+    animation: winner-glow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes rank-slide-in {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  .animate-rank-slide-in {
+    animation: rank-slide-in 0.4s ease-out forwards;
+  }
+
+  @keyframes finish-flash {
+    0% { background-color: rgba(255, 255, 255, 0.6); }
+    100% { background-color: transparent; }
+  }
+
+  .animate-finish-flash {
+    animation: finish-flash 0.3s ease-out forwards;
+  }
+
   /* Home scroll snap: desktop only (md: 768px+) */
   @media (min-width: 768px) {
     .home-scroll-main {

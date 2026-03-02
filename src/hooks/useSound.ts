@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useSyncExternalStore } from 'react';
+import { useCallback, useSyncExternalStore } from 'react';
 
 const STORAGE_KEY = 'sound-enabled';
 
@@ -21,18 +21,36 @@ function subscribe(callback: () => void): () => void {
   return () => window.removeEventListener('storage', handler);
 }
 
+// Module-level singleton — shared across all useSound instances
+// so a user gesture on any page (e.g. Setup "Start" click) keeps the
+// AudioContext alive when navigating to GamePlay.
+let sharedAudioCtx: AudioContext | null = null;
+
+function getSharedAudioCtx(): AudioContext {
+  if (!sharedAudioCtx) {
+    sharedAudioCtx = new AudioContext();
+  }
+  if (sharedAudioCtx.state === 'suspended') {
+    sharedAudioCtx.resume();
+  }
+  return sharedAudioCtx;
+}
+
+// Eagerly resume AudioContext on any user gesture so that
+// sounds triggered by timers/rAF (countdown, gallop) work.
+if (typeof window !== 'undefined') {
+  const resumeOnGesture = () => {
+    getSharedAudioCtx();
+  };
+  window.addEventListener('pointerdown', resumeOnGesture, { once: false, passive: true });
+  window.addEventListener('keydown', resumeOnGesture, { once: false, passive: true });
+}
+
 export function useSound() {
   const enabled = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  const audioCtxRef = useRef<AudioContext | null>(null);
 
   const getAudioCtx = useCallback(() => {
-    if (!audioCtxRef.current) {
-      audioCtxRef.current = new AudioContext();
-    }
-    if (audioCtxRef.current.state === 'suspended') {
-      audioCtxRef.current.resume();
-    }
-    return audioCtxRef.current;
+    return getSharedAudioCtx();
   }, []);
 
   const setEnabled = useCallback((value: boolean) => {
@@ -499,5 +517,136 @@ export function useSound() {
 
   const playFanfare = playSlotWin;
 
-  return { enabled, setEnabled, playTick, playSlotTick, playSlotSpin, playBlockBreak, playWallBounce, playFanfare, playSlotWin, playRouletteSpin, playRouletteTick, playRouletteWin, playBreakoutWin, playBombTick, playBombExplode, playBombWin, playHeartbeatPulse };
+  // Horse gallop — percussive clip-clop with wood-block feel
+  const playHorseGallop = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      // Clip — sharp percussive hit (wood block feel)
+      const clip = ctx.createOscillator();
+      const clipGain = ctx.createGain();
+      clip.type = 'triangle';
+      clip.frequency.setValueAtTime(800 + Math.random() * 200, now);
+      clip.frequency.exponentialRampToValueAtTime(300, now + 0.04);
+      clipGain.gain.setValueAtTime(0.18, now);
+      clipGain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+      clip.connect(clipGain);
+      clipGain.connect(ctx.destination);
+      clip.start(now);
+      clip.stop(now + 0.05);
+
+      // Impact noise — filtered burst for surface texture
+      const bufLen = ctx.sampleRate * 0.03;
+      const buf = ctx.createBuffer(1, bufLen, ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < bufLen; i++) d[i] = (Math.random() * 2 - 1) * 0.5;
+      const noise = ctx.createBufferSource();
+      noise.buffer = buf;
+      const bpf = ctx.createBiquadFilter();
+      bpf.type = 'bandpass';
+      bpf.frequency.value = 2500;
+      bpf.Q.value = 2;
+      const nGain = ctx.createGain();
+      nGain.gain.setValueAtTime(0.12, now);
+      nGain.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+      noise.connect(bpf);
+      bpf.connect(nGain);
+      nGain.connect(ctx.destination);
+      noise.start(now);
+
+      // Clop — second hit, slightly lower pitch (60ms offset)
+      const clop = ctx.createOscillator();
+      const clopGain = ctx.createGain();
+      clop.type = 'triangle';
+      clop.frequency.setValueAtTime(600 + Math.random() * 150, now + 0.06);
+      clop.frequency.exponentialRampToValueAtTime(200, now + 0.1);
+      clopGain.gain.setValueAtTime(0.14, now + 0.06);
+      clopGain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+      clop.connect(clopGain);
+      clopGain.connect(ctx.destination);
+      clop.start(now + 0.06);
+      clop.stop(now + 0.11);
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  // Horse start — metal gate + crowd cheer
+  const playHorseStart = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      // Metal gate — harmonic sine bursts
+      [1200, 2400, 3600].forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        const vol = [0.1, 0.06, 0.03][i];
+        gain.gain.setValueAtTime(vol, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.15);
+      });
+
+      // Crowd cheer — bandpass noise with bell-curve envelope
+      const cheerLen = ctx.sampleRate * 0.8;
+      const cheerBuf = ctx.createBuffer(1, cheerLen, ctx.sampleRate);
+      const cd = cheerBuf.getChannelData(0);
+      for (let i = 0; i < cheerLen; i++) {
+        const env = Math.exp(-Math.pow((i / cheerLen - 0.3) * 3, 2));
+        cd[i] = (Math.random() * 2 - 1) * env * 0.4;
+      }
+      const cheer = ctx.createBufferSource();
+      cheer.buffer = cheerBuf;
+      const bpf = ctx.createBiquadFilter();
+      bpf.type = 'bandpass';
+      bpf.frequency.value = 2000;
+      bpf.Q.value = 0.5;
+      const cGain = ctx.createGain();
+      cGain.gain.setValueAtTime(0.08, now + 0.1);
+      cGain.gain.linearRampToValueAtTime(0.12, now + 0.3);
+      cGain.gain.exponentialRampToValueAtTime(0.001, now + 0.9);
+      cheer.connect(bpf);
+      bpf.connect(cGain);
+      cGain.connect(ctx.destination);
+      cheer.start(now + 0.1);
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  // Horse finish — triple bell chime
+  const playHorseFinish = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      const notes = [1047, 1319, 1568]; // C6, E6, G6
+      notes.forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        const t = now + i * 0.12;
+        osc.frequency.setValueAtTime(freq, t);
+        gain.gain.setValueAtTime(0.1, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.4);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(t);
+        osc.stop(t + 0.4);
+      });
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
+  return { enabled, setEnabled, playTick, playSlotTick, playSlotSpin, playBlockBreak, playWallBounce, playFanfare, playSlotWin, playRouletteSpin, playRouletteTick, playRouletteWin, playBreakoutWin, playBombTick, playBombExplode, playBombWin, playHeartbeatPulse, playHorseGallop, playHorseStart, playHorseFinish };
 }

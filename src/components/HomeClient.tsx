@@ -3,7 +3,7 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'next/navigation';
 import GameCard from '@/components/GameCard';
-import { BrickWall, Target, Coins, Bomb } from 'lucide-react';
+import { BrickWall, Target, Coins, Bomb, Flag } from 'lucide-react';
 
 const ICON_BASE = 'w-9 h-9 md:w-14 md:h-14 stroke-[2.5]';
 
@@ -12,21 +12,37 @@ const GAME_ITEMS = [
     key: 'breakout',
     icon: <BrickWall className={`${ICON_BASE} text-cyan-800`} />,
     bgColor: 'bg-cyan-300',
+    minPlayers: 2,
+    maxPlayers: 100,
+    mobileMaxPlayers: 10,
   },
   {
     key: 'slot',
     icon: <Coins className={`${ICON_BASE} text-purple-800`} />,
     bgColor: 'bg-purple-300',
+    minPlayers: 2,
+    maxPlayers: 100,
   },
   {
     key: 'roulette',
     icon: <Target className={`${ICON_BASE} text-yellow-800`} />,
     bgColor: 'bg-yellow-300',
+    minPlayers: 2,
+    maxPlayers: 12,
   },
   {
     key: 'bomb',
     icon: <Bomb className={`${ICON_BASE} text-red-800`} />,
     bgColor: 'bg-red-300',
+    minPlayers: 2,
+    maxPlayers: 20,
+  },
+  {
+    key: 'horse',
+    icon: <Flag className={`${ICON_BASE} text-green-800`} />,
+    bgColor: 'bg-green-300',
+    minPlayers: 2,
+    maxPlayers: 10,
   },
 ];
 
@@ -44,6 +60,16 @@ export default function HomeClient() {
               key={item.key}
               title={t(`home.${item.key}.title`)}
               description={t(`home.${item.key}.description`)}
+              badge={
+                item.mobileMaxPlayers ? (
+                  <>
+                    <span className="md:hidden">{t('common.players', { min: item.minPlayers, max: item.mobileMaxPlayers })}</span>
+                    <span className="hidden md:inline">{t('common.players', { min: item.minPlayers, max: item.maxPlayers })}</span>
+                  </>
+                ) : (
+                  t('common.players', { min: item.minPlayers, max: item.maxPlayers })
+                )
+              }
               icon={item.icon}
               bgColor={item.bgColor}
               href={`/${locale}/games/${item.key}`}

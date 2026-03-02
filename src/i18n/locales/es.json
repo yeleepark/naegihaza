@@ -6,7 +6,7 @@
     },
     "breakout": {
       "title": "Breakout",
-      "description": "Elige al último en pie."
+      "description": "Rompe ladrillos para elegir a uno."
     },
     "slot": {
       "title": "Tragamonedas",
@@ -14,7 +14,11 @@
     },
     "bomb": {
       "title": "Pasa la Bomba",
-      "description": "¡Pasa la bomba antes de que explote!"
+      "description": "La bomba decide quién es el último."
+    },
+    "horse": {
+      "title": "Carrera de Caballos",
+      "description": "Los caballos corren para clasificar a todos."
     },
     "about": {
       "title": "Acerca de RandomGame.zip",
@@ -87,6 +91,16 @@
               "Animar fiestas",
               "Selección rápida y simple de castigo"
             ]
+          },
+          "horse": {
+            "title": "Carrera de Caballos",
+            "desc": "Los participantes compiten a caballo para determinar el ranking completo.\n¡Los adelantamientos y remontadas hacen cada carrera emocionante!",
+            "recommendTitle": "Ideal para",
+            "recommend": [
+              "Determinar rankings completos",
+              "Establecer orden de presentación o castigo",
+              "Disfrutar la emoción de ver una carrera"
+            ]
           }
         },
         "randomStart": {
@@ -122,6 +136,7 @@
       "max": "Máximo 100 personas",
       "duplicate": "Hay nombres duplicados"
     },
+    "players": "{{min}}-{{max}} jugadores",
     "playAgain": "Intentar una vez más",
     "reset": "Jugar con otros participantes",
     "howToPlay": "Cómo jugar",
@@ -450,6 +465,71 @@
     "playing": "En progreso...",
     "error": {
       "max": "Máximo 20 personas"
+    }
+  },
+  "horse": {
+    "title": "Carrera de Caballos",
+    "description": {
+      "intro": {
+        "title": "¿Qué es Carrera de Caballos?",
+        "p1": "Carrera de Caballos es un juego aleatorio donde los participantes compiten a caballo para determinar el ranking completo. A diferencia de otros juegos que seleccionan un ganador, cada participante recibe un puesto del primero al último.",
+        "p2": "Los caballos corren a velocidades aleatorias con constantes adelantamientos y remontadas, haciendo el resultado impredecible hasta el final. Admite de 2 a 10 participantes."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres separados por comas o saltos de línea.",
+          "Puedes ingresar entre 2 y 10 participantes.",
+          "Pulsa Iniciar y una cuenta regresiva comenzará antes de la carrera.",
+          "Cada caballo corre a velocidades aleatorias con frecuentes cambios de líder.",
+          "Cuando todos los caballos cruzan la meta, se revela el ranking completo."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarlo",
+        "items": [
+          "Cuando necesitas un ranking completo (orden de presentación, orden de castigo, etc.)",
+          "Cuando quieres determinar el orden del primero al último de una sola vez",
+          "Cuando quieres la emoción de ver una carrera",
+          "Cuando quieres animar una fiesta o reunión"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Los resultados son justos?",
+            "a": "Sí, todos los caballos tienen velocidades base similares y los resultados se determinan por variación aleatoria. Se aplica la misma probabilidad de ganar a todos los participantes."
+          },
+          {
+            "q": "¿En qué se diferencia de otros juegos?",
+            "a": "Otros juegos seleccionan a una persona, pero Carrera de Caballos clasifica a todos los participantes. Ideal para determinar orden de presentación, dividir equipos y más."
+          },
+          {
+            "q": "¿Las remontadas son frecuentes?",
+            "a": "Sí, especialmente cerca de la línea de meta donde la variación de velocidad aumenta, creando drama de último momento."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Pulsa Iniciar",
+        "Observa la carrera",
+        "🏆 Se determina el ranking completo"
+      ]
+    },
+    "minMax": "Puedes agregar de 2 a 10 participantes",
+    "go": "¡YA!",
+    "photoFinish": "¡Foto Finish!",
+    "racing": "Carrera en curso...",
+    "finished": "¡Carrera terminada!",
+    "result": {
+      "title": "Clasificación"
+    },
+    "error": {
+      "max": "Máximo 10 personas"
     }
   }
 }

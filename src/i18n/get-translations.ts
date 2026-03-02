@@ -87,6 +87,20 @@ export function getMetadata(locale: Locale) {
           locale === 'zh' ? ['传炸弹游戏', '炸弹传递', '随机中奖', '派对游戏', '随机抽奖', '随机游戏', '打赌游戏', '酒局游戏', '决定工具'] :
             ['pasa la bomba', 'juego bomba', 'ganador aleatorio', 'juego fiesta', 'sorteo aleatorio', 'juego aleatorio', 'juego apuestas', 'juego bebidas', 'herramienta decisión'],
     },
+    horse: {
+      title: locale === 'ko' ? '경마게임 – 전체 순위 결정 랜덤 레이스 게임' :
+        locale === 'en' ? 'Horse Race – Random Ranking Race Game' :
+          locale === 'zh' ? '赛马游戏 – 随机排名赛跑游戏' :
+            'Carrera de Caballos – Juego de Carrera con Ranking',
+      description: locale === 'ko' ? '경마게임에서 참가자들이 말을 타고 레이스를 펼칩니다. 랜덤 속도 변화로 역전과 추월이 반복되어 전체 순위가 결정되는 랜덤 게임입니다.' :
+        locale === 'en' ? 'Watch participants race on horseback! Random speed changes create overtakes and comebacks. A fun random race game that ranks all players.' :
+          locale === 'zh' ? '参与者骑马比赛！随机速度变化带来超越和逆转。为所有玩家排名的有趣随机赛跑游戏。' :
+            '¡Los participantes compiten a caballo! Los cambios aleatorios de velocidad crean adelantamientos y remontadas. Un divertido juego de carrera que clasifica a todos.',
+      keywords: locale === 'ko' ? ['경마게임', '순위 정하기', '랜덤 레이스', '랜덤 순위', '랜덤 게임', '랜덤 뽑기', '파티 게임', '순서 정하기', '내기 게임'] :
+        locale === 'en' ? ['horse race game', 'ranking game', 'random race', 'random ranking', 'party game', 'order picker', 'betting game'] :
+          locale === 'zh' ? ['赛马游戏', '排名游戏', '随机赛跑', '随机排名', '派对游戏', '顺序选择', '打赌游戏'] :
+            ['carrera de caballos', 'juego de ranking', 'carrera aleatoria', 'ranking aleatorio', 'juego fiesta', 'orden aleatorio', 'juego apuestas'],
+    },
     privacy: {
       title: locale === 'ko' ? '개인정보처리방침' :
         locale === 'en' ? 'Privacy Policy' :

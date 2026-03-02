@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { type ReactNode } from 'react';
+import { Users } from 'lucide-react';
 
 type GameCardProps = {
   title: string;
   description: string;
+  badge: ReactNode;
   icon: ReactNode;
   bgColor: string;
   href: string;
@@ -13,6 +15,7 @@ type GameCardProps = {
 export default function GameCard({
   title,
   description,
+  badge,
   icon,
   bgColor,
   href,
@@ -36,9 +39,13 @@ export default function GameCard({
       <h3 className="font-game text-base md:text-xl font-black text-black mb-1 md:mb-2">
         {title}
       </h3>
-      <p className="hidden md:block font-game text-sm text-black/80 leading-relaxed">
+      <p className="font-game text-xs md:text-sm text-black/70 mb-2 md:mb-3">
         {description}
       </p>
+      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/10 rounded-full font-game text-[11px] md:text-xs text-black/70">
+        <Users className="w-3 h-3" />
+        {badge}
+      </span>
       {disabled && (
         <div className="absolute top-4 right-4 bg-black px-3 py-1.5 rounded-lg text-[10px] text-white font-pixel">
           Coming Soon

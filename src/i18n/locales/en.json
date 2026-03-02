@@ -6,7 +6,7 @@
     },
     "breakout": {
       "title": "Breakout",
-      "description": "Picks the last one standing."
+      "description": "Break bricks to pick one person."
     },
     "slot": {
       "title": "Slot Machine",
@@ -14,7 +14,11 @@
     },
     "bomb": {
       "title": "Bomb Pass",
-      "description": "Pass the bomb before it explodes!"
+      "description": "The bomb decides the last one standing."
+    },
+    "horse": {
+      "title": "Horse Race",
+      "description": "Horses race to rank all participants."
     },
     "about": {
       "title": "About RandomGame.zip",
@@ -87,6 +91,16 @@
               "Livening up parties",
               "Quick and simple penalty selection"
             ]
+          },
+          "horse": {
+            "title": "Horse Race",
+            "desc": "Participants race on horseback to determine the full ranking.\nOvertakes and comebacks make every race exciting!",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Determining full rankings",
+              "Setting presentation or penalty order",
+              "Enjoying the excitement of watching a race"
+            ]
           }
         },
         "randomStart": {
@@ -122,6 +136,7 @@
       "max": "Up to 100 people allowed",
       "duplicate": "Duplicate names found"
     },
+    "players": "{{min}}-{{max}} players",
     "playAgain": "Try one more time",
     "reset": "Play with different players",
     "howToPlay": "How to Play",
@@ -450,6 +465,71 @@
     "playing": "In progress...",
     "error": {
       "max": "Up to 20 people allowed"
+    }
+  },
+  "horse": {
+    "title": "Horse Race",
+    "description": {
+      "intro": {
+        "title": "What is Horse Race?",
+        "p1": "Horse Race is a random game where participants race on horseback to determine the full ranking. Unlike other games that select one winner, every participant gets ranked from first to last.",
+        "p2": "Horses run at random speeds with constant overtaking and comebacks, making the result unpredictable until the very end. Supports 2 to 10 participants."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names separated by commas or line breaks.",
+          "You can enter between 2 and 10 participants.",
+          "Press Start and a countdown begins before the race.",
+          "Each horse runs at random speeds with frequent lead changes.",
+          "When all horses cross the finish line, the full ranking is revealed."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "When you need a full ranking (presentation order, penalty order, etc.)",
+          "When you want to determine order from first to last all at once",
+          "When you want the excitement of watching a race",
+          "When you want to liven up a party or gathering"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "Are the results fair?",
+            "a": "Yes, all horses have similar base speeds and outcomes are determined by random variation. Equal winning probability is applied to all participants."
+          },
+          {
+            "q": "How is this different from other games?",
+            "a": "Other games select one person, but Horse Race ranks all participants. Great for determining presentation order, splitting teams, and more."
+          },
+          {
+            "q": "Do comebacks happen often?",
+            "a": "Yes, especially near the finish line where speed variation increases, creating last-minute comeback drama."
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Press Start",
+        "Watch the race",
+        "🏆 Full ranking is determined"
+      ]
+    },
+    "minMax": "You can add 2 to 10 participants",
+    "go": "GO!",
+    "photoFinish": "Photo Finish!",
+    "racing": "Race in progress...",
+    "finished": "Race finished!",
+    "result": {
+      "title": "Rankings"
+    },
+    "error": {
+      "max": "Up to 10 people allowed"
     }
   }
 }
