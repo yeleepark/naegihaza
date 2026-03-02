@@ -140,7 +140,11 @@
     "playAgain": "再来一次",
     "reset": "换其他参与者玩",
     "howToPlay": "使用说明",
-    "resultTitle": "结果"
+    "resultTitle": "结果",
+    "gameType": {
+      "pickOne": "抽1人",
+      "ranking": "排名"
+    }
   },
   "footer": {
     "privacy": "隐私政策",

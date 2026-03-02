@@ -140,7 +140,11 @@
     "playAgain": "Try one more time",
     "reset": "Play with different players",
     "howToPlay": "How to Play",
-    "resultTitle": "Result"
+    "resultTitle": "Result",
+    "gameType": {
+      "pickOne": "Pick 1",
+      "ranking": "Ranking"
+    }
   },
   "footer": {
     "privacy": "Privacy Policy",

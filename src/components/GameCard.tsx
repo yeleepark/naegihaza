@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { type ReactNode } from 'react';
-import { Users } from 'lucide-react';
+import { Users, Crosshair, ListOrdered } from 'lucide-react';
 
 type GameCardProps = {
   title: string;
   description: string;
   badge: ReactNode;
+  gameType?: string;
   icon: ReactNode;
   bgColor: string;
   href: string;
@@ -16,6 +17,7 @@ export default function GameCard({
   title,
   description,
   badge,
+  gameType,
   icon,
   bgColor,
   href,
@@ -45,10 +47,18 @@ export default function GameCard({
           <p className="font-game text-xs text-black/70 mt-0.5">
             {description}
           </p>
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/10 rounded-full font-game text-[11px] text-black/70 mt-1.5">
-            <Users className="w-3 h-3" />
-            {badge}
-          </span>
+          <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/10 rounded-full font-game text-[11px] text-black/70">
+              <Users className="w-3 h-3" />
+              {badge}
+            </span>
+            {gameType && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/20 rounded-full font-game text-[11px] text-black/80 font-bold">
+                <Crosshair className="w-3 h-3" />
+                {gameType}
+              </span>
+            )}
+          </div>
         </div>
       </div>
       {/* Desktop: vertical layout */}
@@ -60,10 +70,18 @@ export default function GameCard({
         <p className="font-game text-sm text-black/70 mb-3">
           {description}
         </p>
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/10 rounded-full font-game text-xs text-black/70">
-          <Users className="w-3 h-3" />
-          {badge}
-        </span>
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/10 rounded-full font-game text-xs text-black/70">
+            <Users className="w-3 h-3" />
+            {badge}
+          </span>
+          {gameType && (
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/20 rounded-full font-game text-xs text-black/80 font-bold">
+              <Crosshair className="w-3 h-3" />
+              {gameType}
+            </span>
+          )}
+        </div>
       </div>
       {disabled && (
         <div className="absolute top-4 right-4 bg-black px-3 py-1.5 rounded-lg text-[10px] text-white font-pixel">

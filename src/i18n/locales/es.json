@@ -140,7 +140,11 @@
     "playAgain": "Intentar una vez más",
     "reset": "Jugar con otros participantes",
     "howToPlay": "Cómo jugar",
-    "resultTitle": "Resultado"
+    "resultTitle": "Resultado",
+    "gameType": {
+      "pickOne": "Elegir 1",
+      "ranking": "Ranking"
+    }
   },
   "footer": {
     "privacy": "Política de Privacidad",

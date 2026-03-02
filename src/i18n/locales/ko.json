@@ -139,7 +139,11 @@
     "playAgain": "한 번 더 하기",
     "reset": "다른 참가자로 플레이하기",
     "howToPlay": "사용법",
-    "resultTitle": "결과"
+    "resultTitle": "결과",
+    "gameType": {
+      "pickOne": "1명 뽑기",
+      "ranking": "순위 정하기"
+    }
   },
   "footer": {
     "privacy": "개인정보처리방침",

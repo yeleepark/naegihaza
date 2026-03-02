@@ -15,6 +15,7 @@ const GAME_ITEMS = [
     minPlayers: 2,
     maxPlayers: 100,
     mobileMaxPlayers: 10,
+    gameType: 'pickOne' as const,
   },
   {
     key: 'slot',
@@ -22,6 +23,7 @@ const GAME_ITEMS = [
     bgColor: 'bg-purple-300',
     minPlayers: 2,
     maxPlayers: 100,
+    gameType: 'pickOne' as const,
   },
   {
     key: 'roulette',
@@ -29,6 +31,7 @@ const GAME_ITEMS = [
     bgColor: 'bg-yellow-300',
     minPlayers: 2,
     maxPlayers: 12,
+    gameType: 'pickOne' as const,
   },
   {
     key: 'bomb',
@@ -36,6 +39,7 @@ const GAME_ITEMS = [
     bgColor: 'bg-red-300',
     minPlayers: 2,
     maxPlayers: 20,
+    gameType: 'pickOne' as const,
   },
   {
     key: 'horse',
@@ -43,6 +47,7 @@ const GAME_ITEMS = [
     bgColor: 'bg-green-300',
     minPlayers: 2,
     maxPlayers: 10,
+    gameType: 'ranking' as const,
   },
 ];
 
@@ -70,6 +75,7 @@ export default function HomeClient() {
                   t('common.players', { min: item.minPlayers, max: item.maxPlayers })
                 )
               }
+              gameType={t(`common.gameType.${item.gameType}`)}
               icon={item.icon}
               bgColor={item.bgColor}
               href={`/${locale}/games/${item.key}`}
