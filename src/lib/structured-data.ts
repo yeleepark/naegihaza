@@ -19,6 +19,7 @@ const siteNavNames: Record<string, Record<string, string>> = {
   breakout: { ko: '벽돌깨기', en: 'Breakout', zh: '打砖块', es: 'Breakout' },
   bomb:     { ko: '폭탄돌리기', en: 'Bomb Pass', zh: '传炸弹', es: 'Pasa la Bomba' },
   horse:    { ko: '경마게임', en: 'Horse Race', zh: '赛马游戏', es: 'Carrera de Caballos' },
+  mine:     { ko: '지뢰찾기', en: 'Minesweeper', zh: '扫雷', es: 'Buscaminas' },
 };
 
 const siteNavMenuName: Record<string, string> = {
@@ -29,7 +30,7 @@ const siteNavMenuName: Record<string, string> = {
 };
 
 export function generateSiteNavSchema(locale: string = 'en') {
-  const games = ['roulette', 'slot', 'breakout', 'bomb', 'horse'];
+  const games = ['roulette', 'slot', 'breakout', 'bomb', 'horse', 'mine'];
   return {
     '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
