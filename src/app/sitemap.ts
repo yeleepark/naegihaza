@@ -21,10 +21,9 @@ export async function generateSitemaps() {
 }
 
 export default async function sitemap(
-  props: Promise<{ id: string }>,
+  props: { id: string | Promise<string> },
 ): Promise<MetadataRoute.Sitemap> {
-  const { id } = await props;
-  const locale = id;
+  const locale = await props.id;
 
   const entries: MetadataRoute.Sitemap = [];
 
