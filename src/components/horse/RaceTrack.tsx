@@ -166,7 +166,7 @@ export default function RaceTrack({
             </div>
 
             {/* Track area */}
-            <div className="relative flex-1 h-full flex items-center">
+            <div className="relative flex-1 h-full flex items-center" style={{ containerType: 'inline-size' }}>
               {/* Finish line */}
               <div
                 className="absolute right-0 top-0 bottom-0 w-3 md:w-4 z-[1]"
@@ -178,9 +178,11 @@ export default function RaceTrack({
 
               {/* Horse position */}
               <div
-                className="absolute flex items-center z-[2] transition-[left] duration-75"
+                className="absolute flex items-center z-[2]"
                 style={{
-                  left: `calc(${Math.min(horse.progress, 95)}% - 18px)`,
+                  left: 0,
+                  transform: `translateX(calc(${Math.min(horse.progress, 95)}cqw - 18px))`,
+                  willChange: 'transform',
                 }}
               >
                 {/* Dust particles */}

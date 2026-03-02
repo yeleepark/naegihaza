@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useCallback, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import confetti from 'canvas-confetti';
 import { RaceState, RankingEntry } from '@/types/horse';
 import { useSound } from '@/hooks/useSound';
@@ -19,8 +19,6 @@ type UseRaceSoundsParams = {
 type UseRaceSoundsReturn = {
   enabled: boolean;
   setEnabled: (v: boolean) => void;
-  waitingForGesture: boolean;
-  handleTapToStart: () => void;
   showFlash: boolean;
   showPhotoFinishText: boolean;
   finishFlashLane: string | null;
@@ -38,44 +36,29 @@ export function useRaceSounds({
   const {
     enabled,
     setEnabled,
-    playFanfare,
     playBombTick,
     playHorseGallop,
     playHorseStart,
     playHorseFinish,
     playTick,
     playHeartbeatPulse,
-    needsUserGesture,
-    resumeAudio,
   } = useSound();
 
   const gallopIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const heartbeatIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const prevLeadChangesRef = useRef(0);
   const prevFinishCountRef = useRef(0);
-  const fanfarePlayedRef = useRef(false);
   const onRaceFinishedRef = useRef(onRaceFinished);
   onRaceFinishedRef.current = onRaceFinished;
 
   const [showFlash, setShowFlash] = useState(false);
   const [showPhotoFinishText, setShowPhotoFinishText] = useState(false);
   const [finishFlashLane, setFinishFlashLane] = useState<string | null>(null);
-  const [waitingForGesture, setWaitingForGesture] = useState(false);
 
-  // Auto-start race on mount (skip if AudioContext needs user gesture)
+  // Auto-start race on mount
   useEffect(() => {
-    if (needsUserGesture()) {
-      setWaitingForGesture(true);
-    } else {
-      onStart();
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const handleTapToStart = useCallback(() => {
-    resumeAudio();
-    setWaitingForGesture(false);
     onStart();
-  }, [resumeAudio, onStart]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Countdown sounds
   useEffect(() => {
@@ -153,17 +136,6 @@ export function useRaceSounds({
     prevFinishCountRef.current = finishOrder.length;
   }, [finishOrder, playHorseFinish]);
 
-  // Play fanfare once when race finishes
-  useEffect(() => {
-    if (raceState === 'finished' && !fanfarePlayedRef.current) {
-      fanfarePlayedRef.current = true;
-      playFanfare();
-    }
-    if (raceState !== 'finished') {
-      fanfarePlayedRef.current = false;
-    }
-  }, [raceState, playFanfare]);
-
   // Transition to result when race finishes
   useEffect(() => {
     if (raceState === 'finished') {
@@ -177,8 +149,6 @@ export function useRaceSounds({
   return {
     enabled,
     setEnabled,
-    waitingForGesture,
-    handleTapToStart,
     showFlash,
     showPhotoFinishText,
     finishFlashLane,

@@ -65,8 +65,6 @@ export default function GamePlay({
       </button>
 
       <RaceOverlays
-        waitingForGesture={soundState.waitingForGesture}
-        onTapToStart={soundState.handleTapToStart}
         showFlash={soundState.showFlash}
         raceState={raceState}
         countdown={countdown}
