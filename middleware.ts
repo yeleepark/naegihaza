@@ -41,7 +41,12 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.includes('.') ||
-    pathname.startsWith('/favicon')
+    pathname.startsWith('/favicon') ||
+    pathname.includes('/opengraph-image') ||
+    pathname.includes('/apple-icon') ||
+    pathname.includes('/icon') ||
+    pathname.startsWith('/sitemap') ||
+    pathname.startsWith('/manifest')
   ) {
     return NextResponse.next();
   }
