@@ -20,6 +20,10 @@
       "title": "Horse Race",
       "description": "Horses race to rank all participants."
     },
+    "mine": {
+      "title": "Minesweeper",
+      "description": "Avoid the mine to pick one person."
+    },
     "about": {
       "title": "About RandomGame.zip",
       "sections": {
@@ -100,6 +104,16 @@
               "Determining full rankings",
               "Setting presentation or penalty order",
               "Enjoying the excitement of watching a race"
+            ]
+          },
+          "mine": {
+            "title": "Minesweeper",
+            "desc": "One mine is hidden in a 5×5 grid.\nTake turns choosing tiles — step on the mine and you're out!",
+            "recommendTitle": "Best For",
+            "recommend": [
+              "Thrilling pick-one games",
+              "Hands-on participation fun",
+              "Livening up parties"
             ]
           }
         },
@@ -536,6 +550,69 @@
     "result": {
       "title": "Rankings"
     },
+    "error": {
+      "max": "Up to 10 people allowed"
+    }
+  },
+  "mine": {
+    "title": "Minesweeper",
+    "description": {
+      "intro": {
+        "title": "What is Minesweeper?",
+        "p1": "Minesweeper is a thrilling game where one mine is hidden in a 5×5 grid. Players take turns choosing tiles — whoever steps on the mine gets the penalty!",
+        "p2": "With only 1 mine among 25 tiles, the tension builds with every safe reveal. Supports 2 to 10 participants."
+      },
+      "rules": {
+        "title": "Detailed Rules",
+        "items": [
+          "Enter participant names separated by commas or line breaks.",
+          "You can enter between 2 and 10 participants.",
+          "One mine is randomly placed on the 5×5 grid.",
+          "Players take turns tapping a tile to reveal it.",
+          "Whoever steps on the mine gets the penalty."
+        ]
+      },
+      "tips": {
+        "title": "When to Use",
+        "items": [
+          "When you want a thrilling way to pick someone",
+          "When you want hands-on participation fun",
+          "When you want to liven up a party or gathering",
+          "When you want a simple and fair selection game"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "items": [
+          {
+            "q": "How many mines are there?",
+            "a": "Exactly 1 mine is hidden among 25 tiles. As tiles get revealed, the odds of hitting the mine increase, building maximum tension."
+          },
+          {
+            "q": "Are the results fair?",
+            "a": "Yes, the mine is placed completely at random. Players choose their own tiles, combining luck and choice for a fair game."
+          },
+          {
+            "q": "Can I choose any tile?",
+            "a": "Yes, on your turn you can tap any unrevealed tile. Choose wisely!"
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Enter participant names",
+        "Press Start",
+        "Tap a tile on your turn",
+        "💣 Step on the mine and you're out!"
+      ]
+    },
+    "minMax": "You can add 2 to 10 participants",
+    "play": "Start",
+    "turn": "Turn: {{count}}",
+    "remaining": "Remaining: {{count}}",
+    "yourTurn": "{{name}}'s Turn!",
+    "selectCell": "Select a cell",
     "error": {
       "max": "Up to 10 people allowed"
     }

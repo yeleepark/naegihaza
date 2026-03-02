@@ -20,6 +20,10 @@
       "title": "Carrera de Caballos",
       "description": "Los caballos corren para clasificar a todos."
     },
+    "mine": {
+      "title": "Buscaminas",
+      "description": "Evita la mina para elegir a uno."
+    },
     "about": {
       "title": "Acerca de RandomGame.zip",
       "sections": {
@@ -100,6 +104,16 @@
               "Determinar rankings completos",
               "Establecer orden de presentación o castigo",
               "Disfrutar la emoción de ver una carrera"
+            ]
+          },
+          "mine": {
+            "title": "Buscaminas",
+            "desc": "Una mina oculta en una cuadrícula 5×5.\n¡Elige casillas por turnos — pisa la mina y pagas la penitencia!",
+            "recommendTitle": "Ideal para",
+            "recommend": [
+              "Juegos emocionantes para elegir a alguien",
+              "Diversión con participación directa",
+              "Animar fiestas"
             ]
           }
         },
@@ -536,6 +550,69 @@
     "result": {
       "title": "Clasificación"
     },
+    "error": {
+      "max": "Máximo 10 personas"
+    }
+  },
+  "mine": {
+    "title": "Buscaminas",
+    "description": {
+      "intro": {
+        "title": "¿Qué es Buscaminas?",
+        "p1": "Buscaminas es un emocionante juego donde una mina se esconde en una cuadrícula 5×5. Los jugadores eligen casillas por turnos — ¡quien pise la mina paga la penitencia!",
+        "p2": "Con solo 1 mina entre 25 casillas, la tensión aumenta con cada casilla revelada. Admite de 2 a 10 participantes."
+      },
+      "rules": {
+        "title": "Reglas detalladas",
+        "items": [
+          "Ingresa los nombres separados por comas o saltos de línea.",
+          "Puedes ingresar entre 2 y 10 participantes.",
+          "Una mina se coloca aleatoriamente en la cuadrícula 5×5.",
+          "Los jugadores tocan una casilla por turno para revelarla.",
+          "Quien pise la mina paga la penitencia."
+        ]
+      },
+      "tips": {
+        "title": "Cuándo usarlo",
+        "items": [
+          "Cuando quieres una forma emocionante de elegir a alguien",
+          "Cuando quieres diversión con participación directa",
+          "Cuando quieres animar una fiesta o reunión",
+          "Cuando quieres un juego de selección simple y justo"
+        ]
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "items": [
+          {
+            "q": "¿Cuántas minas hay?",
+            "a": "Exactamente 1 mina oculta entre 25 casillas. A medida que se revelan casillas, la probabilidad de pisar la mina aumenta."
+          },
+          {
+            "q": "¿Los resultados son justos?",
+            "a": "Sí, la mina se coloca completamente al azar. Los jugadores eligen sus propias casillas, combinando suerte y elección."
+          },
+          {
+            "q": "¿Puedo elegir cualquier casilla?",
+            "a": "Sí, en tu turno puedes tocar cualquier casilla sin revelar. ¡Elige sabiamente!"
+          }
+        ]
+      }
+    },
+    "howToPlay": {
+      "steps": [
+        "Escribe los nombres de los participantes",
+        "Pulsa Iniciar",
+        "Toca una casilla en tu turno",
+        "💣 ¡Pisa la mina y pagas la penitencia!"
+      ]
+    },
+    "minMax": "Puedes agregar de 2 a 10 participantes",
+    "play": "Iniciar",
+    "turn": "Turno: {{count}}",
+    "remaining": "Restantes: {{count}}",
+    "yourTurn": "¡Turno de {{name}}!",
+    "selectCell": "Selecciona una celda",
     "error": {
       "max": "Máximo 10 personas"
     }

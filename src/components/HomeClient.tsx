@@ -3,7 +3,7 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'next/navigation';
 import GameCard from '@/components/GameCard';
-import { BrickWall, Target, Coins, Bomb, Flag } from 'lucide-react';
+import { BrickWall, Target, Coins, Bomb, Flag, Grid3x3 } from 'lucide-react';
 
 const ICON_BASE = 'w-6 h-6 md:w-14 md:h-14 stroke-[2.5]';
 
@@ -49,6 +49,14 @@ const GAME_ITEMS = [
     maxPlayers: 10,
     gameType: 'ranking' as const,
   },
+  {
+    key: 'mine',
+    icon: <Grid3x3 className={`${ICON_BASE} text-purple-800`} />,
+    bgColor: 'bg-purple-300',
+    minPlayers: 2,
+    maxPlayers: 10,
+    gameType: 'pickOne' as const,
+  },
 ];
 
 export default function HomeClient() {
@@ -59,7 +67,7 @@ export default function HomeClient() {
     <div className="flex flex-col items-center gap-8 w-full pt-2 md:pt-8">
       {/* Games Grid */}
       <div className="w-full px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {GAME_ITEMS.map((item) => (
             <GameCard
               key={item.key}

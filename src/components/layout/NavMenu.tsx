@@ -12,6 +12,7 @@ import {
   Target,
   Bomb,
   Flag,
+  Grid3x3,
 } from 'lucide-react';
 
 const GAME_ITEMS = [
@@ -20,6 +21,7 @@ const GAME_ITEMS = [
   { key: 'roulette', icon: Target, color: 'text-yellow-400' },
   { key: 'bomb', icon: Bomb, color: 'text-red-400' },
   { key: 'horse', icon: Flag, color: 'text-green-400' },
+  { key: 'mine', icon: Grid3x3, color: 'text-purple-400' },
 ];
 
 interface NavMenuProps {

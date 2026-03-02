@@ -101,6 +101,20 @@ export function getMetadata(locale: Locale) {
           locale === 'zh' ? ['赛马游戏', '排名游戏', '随机赛跑', '随机排名', '派对游戏', '顺序选择', '打赌游戏'] :
             ['carrera de caballos', 'juego de ranking', 'carrera aleatoria', 'ranking aleatorio', 'juego fiesta', 'orden aleatorio', 'juego apuestas'],
     },
+    mine: {
+      title: locale === 'ko' ? '지뢰찾기 – 지뢰를 피하라! 벌칙 뽑기 게임' :
+        locale === 'en' ? 'Minesweeper – Find the Mine Random Game' :
+          locale === 'zh' ? '扫雷 – 踩地雷随机选人游戏' :
+            'Buscaminas – Juego Aleatorio de Minas',
+      description: locale === 'ko' ? '지뢰찾기에서 5×5 그리드의 숨겨진 지뢰를 피하세요! 참가자가 직접 칸을 선택하고 지뢰를 밟으면 벌칙! 스릴 넘치는 랜덤 게임입니다.' :
+        locale === 'en' ? 'One mine hides in a 5×5 grid! Take turns choosing tiles — step on the mine and you\'re out. A thrilling random penalty game with friends.' :
+          locale === 'zh' ? '5×5网格中隐藏着1个地雷！轮流选择格子——踩到地雷就要接受惩罚。与朋友一起玩的刺激随机游戏。' :
+            '¡Una mina se esconde en una cuadrícula 5×5! Elige casillas por turnos — pisa la mina y pagas la penitencia. Un emocionante juego aleatorio.',
+      keywords: locale === 'ko' ? ['지뢰찾기', '지뢰찾기 게임', '랜덤 뽑기', '랜덤 게임', '파티 게임', '내기 게임', '랜덤 추첨', '벌칙 뽑기'] :
+        locale === 'en' ? ['minesweeper', 'mine game', 'random picker', 'party game', 'random game', 'selection game', 'pick one game'] :
+          locale === 'zh' ? ['扫雷', '地雷游戏', '随机选择', '派对游戏', '随机游戏', '选人游戏'] :
+            ['buscaminas', 'juego de minas', 'selector aleatorio', 'juego fiesta', 'juego aleatorio', 'juego selección'],
+    },
     privacy: {
       title: locale === 'ko' ? '개인정보처리방침' :
         locale === 'en' ? 'Privacy Policy' :

@@ -512,6 +512,42 @@ export function useSound() {
     }
   }, [getAudioCtx]);
 
+  // Mine safe — soft chime (gentle ascending ding)
+  const playMineSafe = useCallback(() => {
+    if (!getSnapshot()) return;
+    try {
+      const ctx = getAudioCtx();
+      const now = ctx.currentTime;
+
+      // Gentle ascending chime
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, now);
+      osc.frequency.exponentialRampToValueAtTime(1200, now + 0.1);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.2);
+
+      // Second harmonic — bell-like shimmer
+      const osc2 = ctx.createOscillator();
+      const gain2 = ctx.createGain();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(1600, now + 0.03);
+      gain2.gain.setValueAtTime(0.05, now + 0.03);
+      gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+      osc2.connect(gain2);
+      gain2.connect(ctx.destination);
+      osc2.start(now + 0.03);
+      osc2.stop(now + 0.18);
+    } catch {
+      // Audio not supported
+    }
+  }, [getAudioCtx]);
+
   // Bomb win — reuse fireworks celebration
   const playBombWin = playBreakoutWin;
 
@@ -657,5 +693,5 @@ export function useSound() {
     getSharedAudioCtx();
   }, []);
 
-  return { enabled, setEnabled, playTick, playSlotTick, playSlotSpin, playBlockBreak, playWallBounce, playFanfare, playSlotWin, playRouletteSpin, playRouletteTick, playRouletteWin, playBreakoutWin, playBombTick, playBombExplode, playBombWin, playHeartbeatPulse, playHorseGallop, playHorseStart, playHorseFinish, needsUserGesture, resumeAudio };
+  return { enabled, setEnabled, playTick, playSlotTick, playSlotSpin, playBlockBreak, playWallBounce, playFanfare, playSlotWin, playRouletteSpin, playRouletteTick, playRouletteWin, playBreakoutWin, playBombTick, playBombExplode, playBombWin, playHeartbeatPulse, playHorseGallop, playHorseStart, playHorseFinish, playMineSafe, needsUserGesture, resumeAudio };
 }

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { locales } from '@/i18n/settings';
 
 const baseUrl = 'https://www.freerandomgame.com';
-const gameRoutes = ['', '/games/roulette', '/games/breakout', '/games/slot', '/games/bomb', '/games/horse'];
+const gameRoutes = ['', '/games/roulette', '/games/breakout', '/games/slot', '/games/bomb', '/games/horse', '/games/mine'];
 const legalRoutes = ['/privacy', '/terms'];
 
 const lastModifiedDates: Record<string, Date> = {
@@ -12,6 +12,7 @@ const lastModifiedDates: Record<string, Date> = {
   '/games/slot': new Date('2026-03-02'),
   '/games/bomb': new Date('2026-03-02'),
   '/games/horse': new Date('2026-03-02'),
+  '/games/mine': new Date('2026-03-02'),
   '/privacy': new Date('2025-01-15'),
   '/terms': new Date('2025-01-15'),
 };

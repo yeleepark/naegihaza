@@ -3,7 +3,7 @@ type FaqItem = {
   a: string;
 };
 
-type GameKey = 'roulette' | 'breakout' | 'slot' | 'bomb' | 'horse';
+type GameKey = 'roulette' | 'breakout' | 'slot' | 'bomb' | 'horse' | 'mine';
 
 const ALL_GAMES: { key: GameKey; emoji: string; names: Record<string, string> }[] = [
   { key: 'roulette', emoji: '🎯', names: { ko: '룰렛돌리기', en: 'Roulette', zh: '转盘', es: 'Ruleta' } },
@@ -11,6 +11,7 @@ const ALL_GAMES: { key: GameKey; emoji: string; names: Record<string, string> }[
   { key: 'slot', emoji: '🎰', names: { ko: '슬롯머신', en: 'Slot Machine', zh: '老虎机', es: 'Tragamonedas' } },
   { key: 'bomb', emoji: '💣', names: { ko: '폭탄돌리기', en: 'Bomb Pass', zh: '传炸弹', es: 'Pasa la Bomba' } },
   { key: 'horse', emoji: '🏇', names: { ko: '경마게임', en: 'Horse Race', zh: '赛马游戏', es: 'Carrera de Caballos' } },
+  { key: 'mine', emoji: '💣', names: { ko: '지뢰찾기', en: 'Minesweeper', zh: '扫雷', es: 'Buscaminas' } },
 ];
 
 const RELATED_TITLE: Record<string, string> = {
