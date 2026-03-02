@@ -525,10 +525,14 @@
       ]
     },
     "minMax": "Puedes agregar de 2 a 10 participantes",
+    "ready": "Listos",
+    "set": "¡Fuera!",
+    "almost": "...!",
     "go": "¡YA!",
     "photoFinish": "¡Foto Finish!",
     "racing": "Carrera en curso...",
     "finished": "¡Carrera terminada!",
+    "tapToStart": "Toca para empezar",
     "result": {
       "title": "Clasificación"
     },

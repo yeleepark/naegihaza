@@ -157,14 +157,38 @@ function Podium({ rankings }: { rankings: HorseResult['rankings'] }) {
               {entry.name}
             </span>
             <div
-              className={`${cfg.platformW} rounded-t-lg border-2 border-black border-b-0 ${cfg.glow ? 'animate-winner-glow' : ''}`}
-              style={{ height: `${cfg.height}px`, backgroundColor: '#92400e' }}
+              className={`${cfg.platformW} rounded-t-lg border-2 border-black border-b-0 ${cfg.glow ? 'animate-winner-glow' : ''} relative overflow-hidden`}
+              style={{
+                height: `${cfg.height}px`,
+                background: cfg.rank === 1
+                  ? 'linear-gradient(to bottom, #b45309, #92400e)'
+                  : cfg.rank === 2
+                    ? 'linear-gradient(to bottom, #6b7280, #4b5563)'
+                    : 'linear-gradient(to bottom, #92400e, #78350f)',
+                borderTopColor: cfg.rank === 1 ? '#fbbf24' : cfg.rank === 2 ? '#9ca3af' : '#92400e',
+              }}
             >
-              <div className="flex items-center justify-center h-full">
+              <div className="flex items-center justify-center h-full relative z-[1]">
                 <span className={`font-game ${cfg.rankColor} ${cfg.rankSize} font-black`}>
                   {cfg.rank}
                 </span>
               </div>
+              {/* Sparkle particles for 1st place */}
+              {cfg.rank === 1 && (
+                <>
+                  {[0, 1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1.5 h-1.5 bg-yellow-300 rounded-full animate-sparkle-orbit"
+                      style={{
+                        top: '50%',
+                        left: '50%',
+                        animationDelay: `${i * 0.5}s`,
+                      }}
+                    />
+                  ))}
+                </>
+              )}
             </div>
           </div>
         );

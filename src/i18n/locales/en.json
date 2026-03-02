@@ -525,10 +525,14 @@
       ]
     },
     "minMax": "You can add 2 to 10 participants",
+    "ready": "Ready",
+    "set": "Set!",
+    "almost": "...!",
     "go": "GO!",
     "photoFinish": "Photo Finish!",
     "racing": "Race in progress...",
     "finished": "Race finished!",
+    "tapToStart": "Tap to Start",
     "result": {
       "title": "Rankings"
     },

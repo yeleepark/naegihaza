@@ -524,10 +524,14 @@
       ]
     },
     "minMax": "2명에서 10명까지 참가할 수 있어요",
+    "ready": "준비",
+    "set": "땅!",
+    "almost": "...!",
     "go": "출발!",
     "photoFinish": "포토 피니시!",
     "racing": "레이스 진행 중...",
     "finished": "레이스 종료!",
+    "tapToStart": "터치하여 시작",
     "result": {
       "title": "순위 결과"
     },

@@ -41,11 +41,9 @@ export function useRaceSounds({
     playHorseStart,
     playHorseFinish,
     playTick,
-    playHeartbeatPulse,
   } = useSound();
 
   const gallopIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const heartbeatIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const prevLeadChangesRef = useRef(0);
   const prevFinishCountRef = useRef(0);
   const onRaceFinishedRef = useRef(onRaceFinished);
@@ -94,25 +92,13 @@ export function useRaceSounds({
     prevLeadChangesRef.current = leadChanges;
   }, [leadChanges, raceState, playTick]);
 
-  // Photo finish tension
+  // Photo finish text
   useEffect(() => {
     if (isPhotoFinish && raceState === 'racing') {
       setShowPhotoFinishText(true);
-      heartbeatIntervalRef.current = setInterval(playHeartbeatPulse, 400);
       setTimeout(() => setShowPhotoFinishText(false), 1500);
-    } else {
-      if (heartbeatIntervalRef.current) {
-        clearInterval(heartbeatIntervalRef.current);
-        heartbeatIntervalRef.current = null;
-      }
     }
-    return () => {
-      if (heartbeatIntervalRef.current) {
-        clearInterval(heartbeatIntervalRef.current);
-        heartbeatIntervalRef.current = null;
-      }
-    };
-  }, [isPhotoFinish, raceState, playHeartbeatPulse]);
+  }, [isPhotoFinish, raceState]);
 
   // First place finish effect
   useEffect(() => {

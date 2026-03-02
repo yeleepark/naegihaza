@@ -525,10 +525,14 @@
       ]
     },
     "minMax": "可以添加2到10名参与者",
+    "ready": "准备",
+    "set": "预备!",
+    "almost": "...!",
     "go": "出发！",
     "photoFinish": "终点冲刺!",
     "racing": "比赛进行中...",
     "finished": "比赛结束！",
+    "tapToStart": "点击开始",
     "result": {
       "title": "排名结果"
     },

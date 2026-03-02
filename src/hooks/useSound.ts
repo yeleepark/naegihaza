@@ -648,5 +648,14 @@ export function useSound() {
     }
   }, [getAudioCtx]);
 
-  return { enabled, setEnabled, playTick, playSlotTick, playSlotSpin, playBlockBreak, playWallBounce, playFanfare, playSlotWin, playRouletteSpin, playRouletteTick, playRouletteWin, playBreakoutWin, playBombTick, playBombExplode, playBombWin, playHeartbeatPulse, playHorseGallop, playHorseStart, playHorseFinish };
+  const needsUserGesture = useCallback((): boolean => {
+    if (!sharedAudioCtx) return true;
+    return sharedAudioCtx.state === 'suspended';
+  }, []);
+
+  const resumeAudio = useCallback(() => {
+    getSharedAudioCtx();
+  }, []);
+
+  return { enabled, setEnabled, playTick, playSlotTick, playSlotSpin, playBlockBreak, playWallBounce, playFanfare, playSlotWin, playRouletteSpin, playRouletteTick, playRouletteWin, playBreakoutWin, playBombTick, playBombExplode, playBombWin, playHeartbeatPulse, playHorseGallop, playHorseStart, playHorseFinish, needsUserGesture, resumeAudio };
 }

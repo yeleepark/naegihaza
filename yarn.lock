@@ -2518,6 +2518,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"freerandomgame@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "freerandomgame@workspace:."
+  dependencies:
+    "@types/canvas-confetti": "npm:^1.9.0"
+    "@types/node": "npm:^20"
+    "@types/react": "npm:^19"
+    "@types/react-dom": "npm:^19"
+    "@types/three": "npm:^0.181.0"
+    "@vercel/analytics": "npm:^1.6.1"
+    autoprefixer: "npm:^10.4.22"
+    canvas-confetti: "npm:^1.9.4"
+    eslint: "npm:^9"
+    eslint-config-next: "npm:16.0.5"
+    eslint-config-prettier: "npm:^10.1.8"
+    eslint-plugin-prettier: "npm:^5.5.4"
+    i18next: "npm:^25.8.13"
+    i18next-browser-languagedetector: "npm:^8.2.1"
+    lucide-react: "npm:^0.575.0"
+    next: "npm:^16"
+    postcss: "npm:^8.5.6"
+    prettier: "npm:^3.7.3"
+    react: "npm:19.2.0"
+    react-dom: "npm:19.2.0"
+    react-i18next: "npm:^16.5.4"
+    react-scroll-animations: "npm:^0.0.1"
+    swiper: "npm:^12.1.2"
+    tailwindcss: "npm:3.4.14"
+    three: "npm:^0.181.2"
+    typescript: "npm:^5"
+  languageName: unknown
+  linkType: soft
+
 "fs-minipass@npm:^3.0.0":
   version: 3.0.3
   resolution: "fs-minipass@npm:3.0.3"
@@ -3556,39 +3589,6 @@ __metadata:
   checksum: 10c0/103114e93f87362f0b56ab5b2e7245051ad0276b646e3902c98397d18bb8f4a77f2ea4a2c9d3ad516034ea3a56553b60d3f5f78220001ca4c404bd711bd0af39
   languageName: node
   linkType: hard
-
-"naegihaza@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "naegihaza@workspace:."
-  dependencies:
-    "@types/canvas-confetti": "npm:^1.9.0"
-    "@types/node": "npm:^20"
-    "@types/react": "npm:^19"
-    "@types/react-dom": "npm:^19"
-    "@types/three": "npm:^0.181.0"
-    "@vercel/analytics": "npm:^1.6.1"
-    autoprefixer: "npm:^10.4.22"
-    canvas-confetti: "npm:^1.9.4"
-    eslint: "npm:^9"
-    eslint-config-next: "npm:16.0.5"
-    eslint-config-prettier: "npm:^10.1.8"
-    eslint-plugin-prettier: "npm:^5.5.4"
-    i18next: "npm:^25.8.13"
-    i18next-browser-languagedetector: "npm:^8.2.1"
-    lucide-react: "npm:^0.575.0"
-    next: "npm:^16"
-    postcss: "npm:^8.5.6"
-    prettier: "npm:^3.7.3"
-    react: "npm:19.2.0"
-    react-dom: "npm:19.2.0"
-    react-i18next: "npm:^16.5.4"
-    react-scroll-animations: "npm:^0.0.1"
-    swiper: "npm:^12.1.2"
-    tailwindcss: "npm:3.4.14"
-    three: "npm:^0.181.2"
-    typescript: "npm:^5"
-  languageName: unknown
-  linkType: soft
 
 "nanoid@npm:^3.3.11, nanoid@npm:^3.3.6":
   version: 3.3.11

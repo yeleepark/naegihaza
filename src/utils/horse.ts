@@ -48,14 +48,14 @@ export function getHorseColor(index: number): string {
 export const RACE_CONFIG = {
   // Speed
   BASE_SPEED: 0.22,
-  SPEED_VARIATION: 0.04,
+  SPEED_VARIATION: 0.08,
   MIN_SPEED: 0.13,
   SMOOTHING: 0.08,
   PROGRESS_MULTIPLIER: 0.06,
   RANDOM_VARIATION: 0.14,
   // Rubber-banding
-  RUBBER_BAND_THRESHOLD: 3,
-  RUBBER_BAND_INTENSITY: 0.08,
+  RUBBER_BAND_THRESHOLD: 10,
+  RUBBER_BAND_INTENSITY: 0.04,
   // Phase thresholds
   PHASE_START: 3,
   PHASE_EARLY: 40,
