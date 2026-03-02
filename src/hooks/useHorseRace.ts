@@ -129,9 +129,9 @@ export function useHorseRace(): UseHorseRaceReturn {
 
       // === Phase-based multiplier ===
       let phaseMult: number;
-      if (p < 8) {
-        // Start: slow acceleration (0.5 → 1.0)
-        phaseMult = 0.5 + (p / 8) * 0.5;
+      if (p < 3) {
+        // Start: brief acceleration (0.75 → 1.0)
+        phaseMult = 0.75 + (p / 3) * 0.25;
       } else if (p < 40) {
         // Early race: normal
         phaseMult = 1.0;
