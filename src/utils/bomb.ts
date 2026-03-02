@@ -54,12 +54,3 @@ export function generateTimerDuration(): number {
 export function selectStartingIndex(total: number): number {
   return Math.floor(Math.random() * total);
 }
-
-/**
- * Exponential decay curve: INITIAL * (FINAL/INITIAL)^progress
- * progress = elapsed / total (0..1)
- */
-export function calculateInterval(elapsed: number, total: number): number {
-  const progress = Math.min(elapsed / total, 1);
-  return INITIAL_INTERVAL * Math.pow(FINAL_INTERVAL / INITIAL_INTERVAL, progress);
-}

@@ -25,7 +25,6 @@
       "description": "Evita la mina para elegir a uno."
     },
     "about": {
-      "title": "Acerca de RandomGame.zip",
       "sections": {
         "intro": {
           "title": "¿Qué es RandomGame.zip?",
@@ -303,9 +302,6 @@
       "shuffle": "Mezclar",
       "spin": "Girar",
       "spinning": "Girando..."
-    },
-    "result": {
-      "title": "Resultado"
     }
   },
   "breakout": {
@@ -422,8 +418,7 @@
       ]
     },
     "minMax": "Puedes agregar de 2 a 100 participantes",
-    "spin": "¡Girar!",
-    "spinning": "Girando..."
+    "spin": "¡Girar!"
   },
   "bomb": {
     "title": "Pasa la Bomba",
@@ -480,7 +475,6 @@
     },
     "minMax": "Puedes agregar de 2 a 20 participantes",
     "play": "Iniciar",
-    "playing": "En progreso...",
     "error": {
       "max": "Máximo 20 personas"
     }
@@ -546,7 +540,6 @@
     "photoFinish": "¡Foto Finish!",
     "racing": "Carrera en curso...",
     "finished": "¡Carrera terminada!",
-    "tapToStart": "Toca para empezar",
     "result": {
       "title": "Clasificación"
     },
@@ -609,9 +602,7 @@
     },
     "minMax": "Puedes agregar de 2 a 10 participantes",
     "play": "Iniciar",
-    "turn": "Turno: {{count}}",
     "remaining": "Restantes: {{count}}",
-    "yourTurn": "¡Turno de {{name}}!",
     "selectCell": "Selecciona una celda",
     "error": {
       "max": "Máximo 10 personas"

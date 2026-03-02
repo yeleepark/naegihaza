@@ -25,7 +25,6 @@
       "description": "지뢰를 피하며 한 명을 정합니다."
     },
     "about": {
-      "title": "랜덤게임.zip 소개",
       "sections": {
         "intro": {
           "title": "랜덤게임.zip 소개",
@@ -302,9 +301,6 @@
       "shuffle": "섞기",
       "spin": "돌리기",
       "spinning": "진행 중..."
-    },
-    "result": {
-      "title": "결과"
     }
   },
   "breakout": {
@@ -421,8 +417,7 @@
       ]
     },
     "minMax": "2명에서 100명까지 참가할 수 있어요",
-    "spin": "스핀!",
-    "spinning": "돌아가는 중..."
+    "spin": "스핀!"
   },
   "bomb": {
     "title": "폭탄돌리기",
@@ -479,7 +474,6 @@
     },
     "minMax": "2명에서 20명까지 참가할 수 있어요",
     "play": "시작",
-    "playing": "진행 중...",
     "error": {
       "max": "최대 20명까지 입력할 수 있어요"
     }
@@ -545,7 +539,6 @@
     "photoFinish": "포토 피니시!",
     "racing": "레이스 진행 중...",
     "finished": "레이스 종료!",
-    "tapToStart": "터치하여 시작",
     "result": {
       "title": "순위 결과"
     },
@@ -608,9 +601,7 @@
     },
     "minMax": "2명에서 10명까지 참가할 수 있어요",
     "play": "시작",
-    "turn": "턴: {{count}}",
     "remaining": "남은 칸: {{count}}",
-    "yourTurn": "{{name}}의 차례!",
     "selectCell": "칸을 선택하세요",
     "error": {
       "max": "최대 10명까지 입력할 수 있어요"

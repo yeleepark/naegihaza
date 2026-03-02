@@ -25,7 +25,6 @@
       "description": "避开地雷选出一人。"
     },
     "about": {
-      "title": "关于 RandomGame.zip",
       "sections": {
         "intro": {
           "title": "什么是 RandomGame.zip？",
@@ -303,9 +302,6 @@
       "shuffle": "打乱",
       "spin": "旋转",
       "spinning": "旋转中..."
-    },
-    "result": {
-      "title": "结果"
     }
   },
   "breakout": {
@@ -422,8 +418,7 @@
       ]
     },
     "minMax": "可以添加2到100名参与者",
-    "spin": "旋转！",
-    "spinning": "旋转中..."
+    "spin": "旋转！"
   },
   "bomb": {
     "title": "传炸弹",
@@ -480,7 +475,6 @@
     },
     "minMax": "可以添加2到20名参与者",
     "play": "开始",
-    "playing": "进行中...",
     "error": {
       "max": "最多20人"
     }
@@ -546,7 +540,6 @@
     "photoFinish": "终点冲刺!",
     "racing": "比赛进行中...",
     "finished": "比赛结束！",
-    "tapToStart": "点击开始",
     "result": {
       "title": "排名结果"
     },
@@ -609,9 +602,7 @@
     },
     "minMax": "可以添加2到10名参与者",
     "play": "开始",
-    "turn": "回合: {{count}}",
     "remaining": "剩余: {{count}}格",
-    "yourTurn": "{{name}}的回合！",
     "selectCell": "选择一个格子",
     "error": {
       "max": "最多10人"
