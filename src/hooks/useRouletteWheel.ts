@@ -265,11 +265,21 @@ export function useRouletteWheel({
           // Text shadow for readability
           const fontSize = Math.max(14, radius / 8);
           ctx.font = `bold ${fontSize}px Jua, sans-serif`;
+
+          // Truncate long names with ellipsis
+          const maxWidth = radius * 0.55;
+          let txt = participant.name;
+          if (ctx.measureText(txt).width > maxWidth) {
+            while (ctx.measureText(txt + '\u2026').width > maxWidth && txt.length > 1)
+              txt = txt.slice(0, -1);
+            txt += '\u2026';
+          }
+
           ctx.fillStyle = 'rgba(255,255,255,0.5)';
-          ctx.fillText(participant.name, textRadius + 1, 1);
+          ctx.fillText(txt, textRadius + 1, 1);
 
           ctx.fillStyle = '#000000';
-          ctx.fillText(participant.name, textRadius, 0);
+          ctx.fillText(txt, textRadius, 0);
 
           ctx.restore();
         }
