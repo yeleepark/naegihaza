@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://freerandomgame.com'),
+  metadataBase: new URL('https://www.freerandomgame.com'),
   title: {
     default: "RandomGame.zip | Random Games with Friends",
     template: "%s | RandomGame.zip"
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     alternateLocale: ['ko_KR', 'zh_CN', 'es_ES'],
-    url: 'https://freerandomgame.com',
+    url: 'https://www.freerandomgame.com',
     siteName: 'RandomGame.zip',
     title: "RandomGame.zip | Random Games with Friends",
     description: "Free online random game platform to enjoy with friends. Use roulette, slot machine, and breakout to fairly decide with fun.",

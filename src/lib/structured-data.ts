@@ -34,11 +34,11 @@ export function generateSiteNavSchema(locale: string = 'en') {
     '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
     name: siteNavMenuName[locale] || siteNavMenuName.en,
-    url: 'https://freerandomgame.com',
+    url: 'https://www.freerandomgame.com',
     hasPart: games.map((game) => ({
       '@type': 'WebPage',
       name: siteNavNames[game][locale] || siteNavNames[game].en,
-      url: `https://freerandomgame.com/${locale}/games/${game}`,
+      url: `https://www.freerandomgame.com/${locale}/games/${game}`,
     })),
   };
 }
@@ -80,13 +80,13 @@ export function generateBreadcrumbSchema(
         '@type': 'ListItem',
         position: 1,
         name: siteNames[locale] || siteNames.en,
-        item: `https://freerandomgame.com/${locale}`,
+        item: `https://www.freerandomgame.com/${locale}`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: gameName,
-        item: `https://freerandomgame.com/${locale}${path}`,
+        item: `https://www.freerandomgame.com/${locale}${path}`,
       },
     ],
   };

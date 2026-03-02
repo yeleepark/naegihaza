@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { locales, defaultLocale, type Locale } from '@/i18n/settings';
 import { getMetadata } from '@/i18n/get-translations';
 
-const BASE_URL = 'https://freerandomgame.com';
+const BASE_URL = 'https://www.freerandomgame.com';
 
 const OG_LOCALE_MAP: Record<string, string> = {
   ko: 'ko_KR',

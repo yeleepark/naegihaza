@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://freerandomgame.com/sitemap.xml',
+    sitemap: 'https://www.freerandomgame.com/sitemap.xml',
   };
 }

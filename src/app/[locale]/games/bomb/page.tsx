@@ -24,7 +24,7 @@ export default async function BombPage({ params }: Props) {
   const t = getTranslations(locale as Locale);
   const meta = getMetadata(locale as Locale);
   const faqSchema = generateFAQSchema(t.bomb.description.faq.items);
-  const gameSchema = generateGameSchema(meta.bomb.title, meta.bomb.description, `https://freerandomgame.com/${locale}/games/bomb`);
+  const gameSchema = generateGameSchema(meta.bomb.title, meta.bomb.description, `https://www.freerandomgame.com/${locale}/games/bomb`);
   const breadcrumbSchema = generateBreadcrumbSchema(locale, meta.bomb.title, '/games/bomb');
   const howToSchema = generateHowToSchema(meta.bomb.title, t.bomb.howToPlay.steps);
 

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { locales } from '@/i18n/settings';
 
-const baseUrl = 'https://freerandomgame.com';
+const baseUrl = 'https://www.freerandomgame.com';
 const gameRoutes = ['', '/games/roulette', '/games/breakout', '/games/slot', '/games/bomb', '/games/horse'];
 const legalRoutes = ['/privacy', '/terms'];
 

@@ -24,7 +24,7 @@ export default async function HorsePage({ params }: Props) {
   const t = getTranslations(locale as Locale);
   const meta = getMetadata(locale as Locale);
   const faqSchema = generateFAQSchema(t.horse.description.faq.items);
-  const gameSchema = generateGameSchema(meta.horse.title, meta.horse.description, `https://freerandomgame.com/${locale}/games/horse`);
+  const gameSchema = generateGameSchema(meta.horse.title, meta.horse.description, `https://www.freerandomgame.com/${locale}/games/horse`);
   const breadcrumbSchema = generateBreadcrumbSchema(locale, meta.horse.title, '/games/horse');
   const howToSchema = generateHowToSchema(meta.horse.title, t.horse.howToPlay.steps);
 
