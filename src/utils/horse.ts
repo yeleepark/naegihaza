@@ -44,3 +44,35 @@ export function validateParticipantNames(names: string[]): {
 export function getHorseColor(index: number): string {
   return HORSE_COLORS[index % HORSE_COLORS.length];
 }
+
+export const RACE_CONFIG = {
+  // Speed
+  BASE_SPEED: 0.22,
+  SPEED_VARIATION: 0.04,
+  MIN_SPEED: 0.13,
+  SMOOTHING: 0.08,
+  PROGRESS_MULTIPLIER: 0.06,
+  RANDOM_VARIATION: 0.14,
+  // Rubber-banding
+  RUBBER_BAND_THRESHOLD: 3,
+  RUBBER_BAND_INTENSITY: 0.08,
+  // Phase thresholds
+  PHASE_START: 3,
+  PHASE_EARLY: 40,
+  PHASE_MID: 55,
+  PHASE_SECOND_WIND: 75,
+  PHASE_FINAL_APPROACH: 90,
+  // Events
+  EVENT_BIG_BURST: { chance: 0.008, value: 0.3 },
+  EVENT_SMALL_BURST: { chance: 0.025, value: 0.15 },
+  EVENT_STUMBLE: { chance: 0.035, value: -0.05 },
+  EVENT_SPRINT: { chance: 0.015, value: 0.35 },
+  EVENT_FATIGUE: { chance: 0.03, value: -0.04 },
+  // Photo finish
+  PHOTO_FINISH_PROGRESS: 75,
+  PHOTO_FINISH_GAP: 8,
+  // Timing
+  COUNTDOWN_INTERVAL: 800,
+  DELTA_CAP: 50,
+  RESULT_DELAY: 1500,
+} as const;

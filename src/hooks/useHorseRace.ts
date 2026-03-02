@@ -1,6 +1,8 @@
 import { useState, useCallback, useRef } from 'react';
 import { Horse, RaceState, RankingEntry } from '@/types/horse';
-import { getHorseColor } from '@/utils/horse';
+import { getHorseColor, RACE_CONFIG } from '@/utils/horse';
+
+const RC = RACE_CONFIG;
 
 interface UseHorseRaceReturn {
   horses: Horse[];
@@ -13,6 +15,115 @@ interface UseHorseRaceReturn {
   startRace: () => void;
   resetRace: (names: string[]) => void;
 }
+
+// --- Pure helper functions extracted from raceLoop ---
+
+function computePhaseMult(p: number): number {
+  if (p < RC.PHASE_START) {
+    return 0.8 + (p / RC.PHASE_START) * 0.2;
+  } else if (p < RC.PHASE_EARLY) {
+    return 0.95 + Math.random() * 0.1;
+  } else if (p < RC.PHASE_MID) {
+    return 0.85 + Math.random() * 0.15;
+  } else if (p < RC.PHASE_SECOND_WIND) {
+    return 0.85 + Math.random() * 0.4;
+  } else if (p < RC.PHASE_FINAL_APPROACH) {
+    return 0.8 + Math.random() * 0.5;
+  } else {
+    return 0.75 + Math.random() * 0.65;
+  }
+}
+
+function computeRubberBand(horseProgress: number, minProgress: number, spread: number): number {
+  if (spread <= RC.RUBBER_BAND_THRESHOLD) return 0;
+  const normalizedPos = (horseProgress - minProgress) / spread;
+  return (0.5 - normalizedPos) * RC.RUBBER_BAND_INTENSITY;
+}
+
+function computeEvent(p: number): number {
+  const roll = Math.random();
+  if (p > 20 && p < 95) {
+    if (roll < RC.EVENT_BIG_BURST.chance) return RC.EVENT_BIG_BURST.value;
+    if (roll < RC.EVENT_SMALL_BURST.chance) return RC.EVENT_SMALL_BURST.value;
+    if (roll < RC.EVENT_STUMBLE.chance) return RC.EVENT_STUMBLE.value;
+  }
+  if (p >= RC.PHASE_FINAL_APPROACH) {
+    if (roll < RC.EVENT_SPRINT.chance) return RC.EVENT_SPRINT.value;
+    if (roll < RC.EVENT_FATIGUE.chance) return RC.EVENT_FATIGUE.value;
+  }
+  return 0;
+}
+
+function updateHorseProgress(
+  horse: Horse,
+  index: number,
+  spread: number,
+  minProgress: number,
+  cappedDelta: number,
+  baseSpeeds: number[],
+  smoothedSpeeds: number[],
+): Horse {
+  if (horse.progress >= 100) return horse;
+
+  const base = baseSpeeds[index];
+  const p = horse.progress;
+
+  const phaseMult = computePhaseMult(p);
+  const rubberBand = computeRubberBand(p, minProgress, spread);
+  const variation = (Math.random() - 0.5) * RC.RANDOM_VARIATION;
+  const event = computeEvent(p);
+
+  const targetSpeed = Math.max(RC.MIN_SPEED, (base + variation + rubberBand + event) * phaseMult);
+
+  const prev = smoothedSpeeds[index];
+  const speed = prev + (targetSpeed - prev) * RC.SMOOTHING;
+  smoothedSpeeds[index] = speed;
+
+  const newProgress = Math.min(100, horse.progress + speed * cappedDelta * RC.PROGRESS_MULTIPLIER);
+  return { ...horse, progress: newProgress, speed };
+}
+
+function updateRanks(
+  horses: Horse[],
+  finishOrder: RankingEntry[],
+): void {
+  const sorted = [...horses]
+    .filter((h) => h.progress < 100)
+    .sort((a, b) => b.progress - a.progress);
+  const finishedCount = finishOrder.length;
+
+  horses.forEach((horse) => {
+    if (horse.progress >= 100) {
+      const entry = finishOrder.find((f) => f.name === horse.name);
+      horse.currentRank = entry?.rank ?? 1;
+    } else {
+      const idx = sorted.findIndex((s) => s.name === horse.name);
+      horse.currentRank = finishedCount + idx + 1;
+    }
+  });
+}
+
+function detectLeaderChange(
+  horses: Horse[],
+  prevLeaderName: string | null,
+): { leader: Horse; changed: boolean } {
+  const leader = horses.reduce((best, h) =>
+    h.progress > best.progress ? h : best,
+  );
+  const changed = prevLeaderName !== null && prevLeaderName !== leader.name;
+  return { leader, changed };
+}
+
+function detectPhotoFinish(horses: Horse[]): boolean {
+  const active = horses.filter((h) => h.progress < 100);
+  if (active.length < 2) return false;
+  const sorted = [...active].sort((a, b) => b.progress - a.progress);
+  const top1 = sorted[0];
+  const top2 = sorted[1];
+  return top1.progress > RC.PHOTO_FINISH_PROGRESS && top1.progress - top2.progress <= RC.PHOTO_FINISH_GAP;
+}
+
+// --- Hook ---
 
 export function useHorseRace(): UseHorseRaceReturn {
   const [horses, setHorses] = useState<Horse[]>([]);
@@ -27,9 +138,25 @@ export function useHorseRace(): UseHorseRaceReturn {
   const horsesRef = useRef<Horse[]>([]);
   const finishOrderRef = useRef<RankingEntry[]>([]);
   const baseSpeeds = useRef<number[]>([]);
+  const smoothedSpeeds = useRef<number[]>([]);
   const lastTimeRef = useRef<number>(0);
   const prevLeaderRef = useRef<string | null>(null);
   const leadChangesRef = useRef(0);
+
+  const initRaceState = useCallback((currentHorses: Horse[]) => {
+    finishOrderRef.current = [];
+    prevLeaderRef.current = null;
+    leadChangesRef.current = 0;
+    setFinishOrder([]);
+    setRaceState('countdown');
+    setCountdown(3);
+    setIsPhotoFinish(false);
+    setLeader(null);
+    setLeadChanges(0);
+
+    baseSpeeds.current = currentHorses.map(() => RC.BASE_SPEED + Math.random() * RC.SPEED_VARIATION);
+    smoothedSpeeds.current = currentHorses.map(() => RC.BASE_SPEED);
+  }, []);
 
   const resetRace = useCallback((names: string[]) => {
     cancelAnimationFrame(rafRef.current);
@@ -41,43 +168,85 @@ export function useHorseRace(): UseHorseRaceReturn {
       speed: 0,
     }));
     horsesRef.current = newHorses;
-    finishOrderRef.current = [];
-    prevLeaderRef.current = null;
-    leadChangesRef.current = 0;
     setHorses(newHorses);
-    setFinishOrder([]);
-    setRaceState('countdown');
-    setCountdown(3);
-    setIsPhotoFinish(false);
-    setLeader(null);
-    setLeadChanges(0);
+    initRaceState(newHorses);
+  }, [initRaceState]);
 
-    // Assign base speeds — tight range for fairness, drama comes from variation
-    baseSpeeds.current = names.map(() => 0.22 + Math.random() * 0.04);
+  const raceLoop = useCallback((timestamp: number) => {
+    if (lastTimeRef.current === 0) {
+      lastTimeRef.current = timestamp;
+      rafRef.current = requestAnimationFrame(raceLoop);
+      return;
+    }
+
+    const delta = timestamp - lastTimeRef.current;
+    lastTimeRef.current = timestamp;
+    const cappedDelta = Math.min(delta, RC.DELTA_CAP);
+
+    const currentHorses = horsesRef.current;
+    const finished = finishOrderRef.current;
+    let allFinished = true;
+
+    const maxProgress = Math.max(...currentHorses.map((h) => h.progress));
+    const minProgress = Math.min(
+      ...currentHorses.filter((h) => h.progress < 100).map((h) => h.progress),
+    );
+    const spread = maxProgress - minProgress;
+
+    const updated = currentHorses.map((horse, i) => {
+      if (horse.progress >= 100) return horse;
+      allFinished = false;
+
+      const newHorse = updateHorseProgress(
+        horse, i, spread, minProgress, cappedDelta,
+        baseSpeeds.current, smoothedSpeeds.current,
+      );
+
+      // Check if just finished
+      if (newHorse.progress >= 100 && horse.progress < 100) {
+        const rank = finished.length + 1;
+        finishOrderRef.current = [
+          ...finished,
+          { name: horse.name, color: horse.color, rank },
+        ];
+      }
+
+      return newHorse;
+    });
+
+    updateRanks(updated, finishOrderRef.current);
+
+    const { leader: currentLeader, changed } = detectLeaderChange(updated, prevLeaderRef.current);
+    if (changed) {
+      leadChangesRef.current++;
+      setLeadChanges(leadChangesRef.current);
+    }
+    prevLeaderRef.current = currentLeader.name;
+    setLeader(currentLeader);
+
+    setIsPhotoFinish(detectPhotoFinish(updated));
+
+    horsesRef.current = updated;
+    setHorses([...updated]);
+    setFinishOrder([...finishOrderRef.current]);
+
+    if (allFinished) {
+      setRaceState('finished');
+    } else {
+      rafRef.current = requestAnimationFrame(raceLoop);
+    }
   }, []);
 
   const startRace = useCallback(() => {
-    setRaceState('countdown');
-    setCountdown(3);
-    setIsPhotoFinish(false);
-    setLeader(null);
-    setLeadChanges(0);
-    prevLeaderRef.current = null;
-    leadChangesRef.current = 0;
-
-    // Reset all horses to start
+    // Reset horses to start positions
     horsesRef.current = horsesRef.current.map((h, i) => ({
       ...h,
       progress: 0,
       currentRank: i + 1,
       speed: 0,
     }));
-    finishOrderRef.current = [];
-    setFinishOrder([]);
     setHorses(horsesRef.current);
-
-    // Re-randomize base speeds
-    baseSpeeds.current = horsesRef.current.map(() => 0.22 + Math.random() * 0.04);
+    initRaceState(horsesRef.current);
 
     // Countdown: 3, 2, 1, GO!
     let count = 3;
@@ -92,152 +261,8 @@ export function useHorseRace(): UseHorseRaceReturn {
         lastTimeRef.current = 0;
         rafRef.current = requestAnimationFrame(raceLoop);
       }
-    }, 800);
-  }, []);
-
-  const raceLoop = useCallback((timestamp: number) => {
-    if (lastTimeRef.current === 0) {
-      lastTimeRef.current = timestamp;
-      rafRef.current = requestAnimationFrame(raceLoop);
-      return;
-    }
-
-    const delta = timestamp - lastTimeRef.current;
-    lastTimeRef.current = timestamp;
-
-    // Cap delta to avoid jumps when tab is inactive
-    const cappedDelta = Math.min(delta, 50);
-
-    const currentHorses = horsesRef.current;
-    const finished = finishOrderRef.current;
-    let allFinished = true;
-
-    // Find current leader progress for rubber-banding
-    const maxProgress = Math.max(...currentHorses.map((h) => h.progress));
-    const minProgress = Math.min(
-      ...currentHorses.filter((h) => h.progress < 100).map((h) => h.progress),
-    );
-    const spread = maxProgress - minProgress;
-
-    const updated = currentHorses.map((horse, i) => {
-      if (horse.progress >= 100) return horse;
-
-      allFinished = false;
-
-      const base = baseSpeeds.current[i];
-      const p = horse.progress;
-
-      // === Phase-based multiplier ===
-      let phaseMult: number;
-      if (p < 3) {
-        // Start: brief acceleration (0.75 → 1.0)
-        phaseMult = 0.75 + (p / 3) * 0.25;
-      } else if (p < 40) {
-        // Early race: normal
-        phaseMult = 1.0;
-      } else if (p < 55) {
-        // Mid-race pack-up: slight slowdown to bunch horses together
-        phaseMult = 0.8 + Math.random() * 0.15;
-      } else if (p < 75) {
-        // Second wind: back to normal with bigger swings
-        phaseMult = 0.9 + Math.random() * 0.4;
-      } else if (p < 90) {
-        // Final approach: tension builds, volatile speed
-        phaseMult = 0.7 + Math.random() * 0.6;
-      } else {
-        // Final stretch: dramatic — can stall or sprint
-        phaseMult = 0.5 + Math.random() * 0.9;
-      }
-
-      // === Rubber-banding: trailing horses catch up, leaders slow slightly ===
-      let rubberBand = 0;
-      if (spread > 3) {
-        const normalizedPos = (horse.progress - minProgress) / spread; // 0=last, 1=first
-        rubberBand = (0.5 - normalizedPos) * 0.08; // trailing: +0.04, leading: -0.04
-      }
-
-      // === Random variation ===
-      const variation = (Math.random() - 0.5) * 0.18;
-
-      // === Burst / stall events ===
-      let event = 0;
-      const roll = Math.random();
-      if (p > 20 && p < 95) {
-        if (roll < 0.008) event = 0.35; // big burst (0.8%)
-        else if (roll < 0.025) event = 0.18; // small burst (1.7%)
-        else if (roll < 0.035) event = -0.1; // stumble (1.0%)
-      }
-      // Final stretch special events
-      if (p >= 90) {
-        if (roll < 0.015) event = 0.4; // dramatic sprint
-        else if (roll < 0.03) event = -0.08; // dramatic stall
-      }
-
-      const speed = Math.max(0.06, (base + variation + rubberBand + event) * phaseMult);
-      const newProgress = Math.min(100, horse.progress + speed * cappedDelta * 0.06);
-
-      // Check if just finished
-      if (newProgress >= 100 && horse.progress < 100) {
-        const rank = finished.length + 1;
-        finishOrderRef.current = [
-          ...finished,
-          { name: horse.name, color: horse.color, rank },
-        ];
-      }
-
-      return { ...horse, progress: newProgress, speed };
-    });
-
-    // Calculate real-time ranks based on progress
-    const sorted = [...updated]
-      .filter((h) => h.progress < 100)
-      .sort((a, b) => b.progress - a.progress);
-    const finishedCount = finishOrderRef.current.length;
-
-    updated.forEach((horse) => {
-      if (horse.progress >= 100) {
-        const entry = finishOrderRef.current.find((f) => f.name === horse.name);
-        horse.currentRank = entry?.rank ?? 1;
-      } else {
-        const idx = sorted.findIndex((s) => s.name === horse.name);
-        horse.currentRank = finishedCount + idx + 1;
-      }
-    });
-
-    // Track leader changes
-    const currentLeader = updated.reduce((best, h) =>
-      h.progress > best.progress ? h : best
-    );
-    if (prevLeaderRef.current && prevLeaderRef.current !== currentLeader.name) {
-      leadChangesRef.current++;
-      setLeadChanges(leadChangesRef.current);
-    }
-    prevLeaderRef.current = currentLeader.name;
-    setLeader(currentLeader);
-
-    // Photo finish detection: top 2 within 8% gap at 75%+ progress
-    const activeHorses = updated.filter((h) => h.progress < 100);
-    if (activeHorses.length >= 2) {
-      const sortedActive = [...activeHorses].sort((a, b) => b.progress - a.progress);
-      const top1 = sortedActive[0];
-      const top2 = sortedActive[1];
-      if (top1.progress > 75 && top1.progress - top2.progress <= 8) {
-        setIsPhotoFinish(true);
-      } else {
-        setIsPhotoFinish(false);
-      }
-    }
-
-    horsesRef.current = updated;
-    setHorses([...updated]);
-    setFinishOrder([...finishOrderRef.current]);
-
-    if (allFinished) {
-      setRaceState('finished');
-    } else {
-      rafRef.current = requestAnimationFrame(raceLoop);
-    }
-  }, []);
+    }, RC.COUNTDOWN_INTERVAL);
+  }, [initRaceState, raceLoop]);
 
   return {
     horses,

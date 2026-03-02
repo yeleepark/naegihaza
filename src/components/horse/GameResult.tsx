@@ -83,85 +83,92 @@ function fireCelebration(winnerColor: string) {
   }, 800);
 }
 
-// Podium component for top 3
+const PODIUM_CONFIG = [
+  {
+    rank: 2,
+    height: 80,
+    iconSize: 'w-7 h-7',
+    iconColor: 'text-gray-400 fill-gray-400',
+    nameClass: 'text-xs md:text-sm',
+    namePadding: 'px-2 py-1',
+    nameMaxW: 'max-w-[80px] md:max-w-[100px]',
+    platformW: 'w-20 md:w-24',
+    rankColor: 'text-white/60',
+    rankSize: 'text-lg',
+    delay: '0.4s',
+    bounce: false,
+    glow: false,
+  },
+  {
+    rank: 1,
+    height: 110,
+    iconSize: 'w-9 h-9',
+    iconColor: 'text-yellow-400 fill-yellow-400',
+    nameClass: 'text-sm md:text-base',
+    namePadding: 'px-3 py-1.5',
+    nameMaxW: 'max-w-[90px] md:max-w-[110px]',
+    platformW: 'w-24 md:w-28',
+    rankColor: 'text-yellow-400',
+    rankSize: 'text-2xl',
+    delay: '0.2s',
+    bounce: true,
+    glow: true,
+  },
+  {
+    rank: 3,
+    height: 55,
+    iconSize: 'w-7 h-7',
+    iconColor: 'text-amber-700 fill-amber-700',
+    nameClass: 'text-xs md:text-sm',
+    namePadding: 'px-2 py-1',
+    nameMaxW: 'max-w-[80px] md:max-w-[100px]',
+    platformW: 'w-20 md:w-24',
+    rankColor: 'text-white/60',
+    rankSize: 'text-lg',
+    delay: '0.6s',
+    bounce: false,
+    glow: false,
+  },
+] as const;
+
 function Podium({ rankings }: { rankings: HorseResult['rankings'] }) {
   const first = rankings.find((r) => r.rank === 1);
-  const second = rankings.find((r) => r.rank === 2);
-  const third = rankings.find((r) => r.rank === 3);
-
   if (!first) return null;
 
   return (
     <div className="flex items-end justify-center gap-2 md:gap-3 mb-4">
-      {/* 2nd Place - Left */}
-      {second && (
-        <div
-          className="flex flex-col items-center animate-podium-rise"
-          style={{ animationDelay: '0.4s', animationFillMode: 'backwards' }}
-        >
-          <Medal className="w-7 h-7 text-gray-400 fill-gray-400 mb-1" />
-          <span
-            className="block font-game text-xs md:text-sm font-black text-white px-2 py-1 rounded-t-lg border-2 border-black border-b-0 truncate max-w-[80px] md:max-w-[100px] text-center"
-            style={{ backgroundColor: second.color }}
-          >
-            {second.name}
-          </span>
+      {PODIUM_CONFIG.map((cfg) => {
+        const entry = rankings.find((r) => r.rank === cfg.rank);
+        if (!entry) return null;
+
+        return (
           <div
-            className="w-20 md:w-24 rounded-t-lg border-2 border-black border-b-0"
-            style={{ height: '80px', backgroundColor: '#92400e' }}
+            key={cfg.rank}
+            className="flex flex-col items-center animate-podium-rise"
+            style={{ animationDelay: cfg.delay, animationFillMode: 'backwards' }}
           >
-            <div className="flex items-center justify-center h-full">
-              <span className="font-game text-white/60 text-lg font-black">2</span>
+            <Medal
+              className={`${cfg.iconSize} ${cfg.iconColor} mb-1 ${cfg.bounce ? 'animate-winner-bounce' : ''}`}
+            />
+            <span
+              className={`block font-game ${cfg.nameClass} font-black text-white ${cfg.namePadding} rounded-t-lg border-2 border-black border-b-0 truncate ${cfg.nameMaxW} text-center`}
+              style={{ backgroundColor: entry.color }}
+            >
+              {entry.name}
+            </span>
+            <div
+              className={`${cfg.platformW} rounded-t-lg border-2 border-black border-b-0 ${cfg.glow ? 'animate-winner-glow' : ''}`}
+              style={{ height: `${cfg.height}px`, backgroundColor: '#92400e' }}
+            >
+              <div className="flex items-center justify-center h-full">
+                <span className={`font-game ${cfg.rankColor} ${cfg.rankSize} font-black`}>
+                  {cfg.rank}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-
-      {/* 1st Place - Center */}
-      <div
-        className="flex flex-col items-center animate-podium-rise"
-        style={{ animationDelay: '0.2s', animationFillMode: 'backwards' }}
-      >
-        <Medal className="w-9 h-9 text-yellow-400 fill-yellow-400 mb-1 animate-winner-bounce" />
-        <span
-          className="block font-game text-sm md:text-base font-black text-white px-3 py-1.5 rounded-t-lg border-2 border-black border-b-0 truncate max-w-[90px] md:max-w-[110px] text-center"
-          style={{ backgroundColor: first.color }}
-        >
-          {first.name}
-        </span>
-        <div
-          className="w-24 md:w-28 rounded-t-lg border-2 border-black border-b-0 animate-winner-glow"
-          style={{ height: '110px', backgroundColor: '#92400e' }}
-        >
-          <div className="flex items-center justify-center h-full">
-            <span className="font-game text-yellow-400 text-2xl font-black">1</span>
-          </div>
-        </div>
-      </div>
-
-      {/* 3rd Place - Right */}
-      {third && (
-        <div
-          className="flex flex-col items-center animate-podium-rise"
-          style={{ animationDelay: '0.6s', animationFillMode: 'backwards' }}
-        >
-          <Medal className="w-7 h-7 text-amber-700 fill-amber-700 mb-1" />
-          <span
-            className="block font-game text-xs md:text-sm font-black text-white px-2 py-1 rounded-t-lg border-2 border-black border-b-0 truncate max-w-[80px] md:max-w-[100px] text-center"
-            style={{ backgroundColor: third.color }}
-          >
-            {third.name}
-          </span>
-          <div
-            className="w-20 md:w-24 rounded-t-lg border-2 border-black border-b-0"
-            style={{ height: '55px', backgroundColor: '#92400e' }}
-          >
-            <div className="flex items-center justify-center h-full">
-              <span className="font-game text-white/60 text-lg font-black">3</span>
-            </div>
-          </div>
-        </div>
-      )}
+        );
+      })}
     </div>
   );
 }
