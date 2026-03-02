@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Sitemaps
-Sitemap: https://freerandomgame.com/sitemap.xml
-
-# Host
-Host: https://freerandomgame.com
