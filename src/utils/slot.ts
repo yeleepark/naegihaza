@@ -1,6 +1,6 @@
 // Animation constants
 export const CELL_HEIGHT = 64;
-export const SPIN_DURATION = 6000;
+export const SPIN_DURATION = 10000;
 export const REPEATS = 30;
 export const RESULT_DELAY = 1200;
 

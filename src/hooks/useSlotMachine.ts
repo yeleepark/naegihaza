@@ -16,9 +16,9 @@ export interface SlotCallbacks {
   onResult?: () => void;
 }
 
-/** Power-6 ease-out: fast start, dramatically slow end */
+/** Power-3 ease-out: fast start, gradual slowdown that keeps moving until the end */
 function dramaticEase(t: number): number {
-  return 1 - Math.pow(1 - t, 6);
+  return 1 - Math.pow(1 - t, 3);
 }
 
 export function useSlotMachine(
@@ -61,8 +61,8 @@ export function useSlotMachine(
       const currentOffset = eased * targetOffset;
       setOffset(currentOffset);
 
-      // Detect near-stop phase (last ~25% of animation)
-      if (progress > 0.75) {
+      // Detect near-stop phase (last ~40% of animation)
+      if (progress > 0.6) {
         setNearStop(true);
       }
 
