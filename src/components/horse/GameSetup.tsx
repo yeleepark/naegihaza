@@ -129,7 +129,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
                           : 'bg-white text-black/60 hover:bg-gray-100'
                       }`}
                     >
-                      {rank}{t('horse.rankSuffix', { defaultValue: '' })}{rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : ''}
+                      {rank}{t('horse.rankSuffix', { defaultValue: '' })}
                     </button>
                   ))}
                 </div>

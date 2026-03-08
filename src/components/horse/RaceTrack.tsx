@@ -231,7 +231,7 @@ export default function RaceTrack({
         return (
           <div
             key={horse.name}
-            className={`relative flex items-center px-2 md:px-3 ${
+            className={`relative flex items-center pl-2 md:pl-3 ${
               isLeader ? 'animate-leader-glow' : ''
             }`}
             style={{
@@ -263,17 +263,6 @@ export default function RaceTrack({
               >
                 {horse.name}
               </span>
-              {/* Finish line */}
-              <div
-                className={`absolute top-0 bottom-0 w-3 md:w-4 z-[1] ${
-                  showFinishGlow ? 'animate-finish-line-pulse' : ''
-                }`}
-                style={{
-                  right: 0,
-                  background:
-                    'repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 0 0 / 8px 8px',
-                }}
-              />
 
               {/* Lane progress bar */}
               {raceState === 'racing' && (
@@ -355,6 +344,22 @@ export default function RaceTrack({
                   )}
               </div>
             </div>
+
+            {/* Name at rail end */}
+            <span className="shrink-0 mx-1.5 font-game text-[10px] md:text-xs font-bold text-white/70 truncate max-w-16 md:max-w-20 pointer-events-none select-none">
+              {horse.name}
+            </span>
+
+            {/* Finish line */}
+            <div
+              className={`shrink-0 self-stretch w-3 md:w-4 ${
+                showFinishGlow ? 'animate-finish-line-pulse' : ''
+              }`}
+              style={{
+                background:
+                  'repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 0 0 / 8px 8px',
+              }}
+            />
           </div>
         );
       })}
