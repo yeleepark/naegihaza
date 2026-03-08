@@ -2,6 +2,7 @@ import { locales } from '@/i18n/settings';
 import I18nProvider from '@/components/I18nProvider';
 import { Analytics } from "@vercel/analytics/next"
 import ServiceWorkerRegistration from '@/components/ServiceWorkerRegistration';
+import InstallPrompt from '@/components/InstallPrompt';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -46,6 +47,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         {children}
         <Analytics />
         <ServiceWorkerRegistration />
+        <InstallPrompt />
       </I18nProvider>
     </>
   );

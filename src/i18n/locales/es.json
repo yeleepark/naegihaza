@@ -136,6 +136,11 @@
       }
     }
   },
+  "install": {
+    "title": "Instalar App",
+    "description": "Agrega a la pantalla de inicio para una experiencia más rápida",
+    "button": "Instalar"
+  },
   "header": {
     "title": "JuegoAleatorio.zip",
     "backToList": "Volver a la lista"

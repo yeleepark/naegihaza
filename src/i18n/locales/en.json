@@ -136,6 +136,11 @@
       }
     }
   },
+  "install": {
+    "title": "Install App",
+    "description": "Add to home screen for a faster experience",
+    "button": "Install"
+  },
   "header": {
     "title": "RandomGame.zip",
     "backToList": "Back to list"

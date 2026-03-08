@@ -136,6 +136,11 @@
       }
     }
   },
+  "install": {
+    "title": "安装应用",
+    "description": "添加到主屏幕，体验更快速",
+    "button": "安装"
+  },
   "header": {
     "title": "随机游戏.zip",
     "backToList": "返回列表"

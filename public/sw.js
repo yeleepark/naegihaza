@@ -1,4 +1,4 @@
-const CACHE_NAME = 'freerandomgame-v1';
+const CACHE_NAME = 'freerandomgame-v2';
 
 const PRECACHE_URLS = [
   '/',
@@ -6,6 +6,7 @@ const PRECACHE_URLS = [
   '/en',
   '/zh',
   '/es',
+  '/offline.html',
 ];
 
 self.addEventListener('install', (event) => {
@@ -66,7 +67,7 @@ self.addEventListener('fetch', (event) => {
         return response;
       })
       .catch(() =>
-        caches.match(event.request).then((cached) => cached || caches.match('/'))
+        caches.match(event.request).then((cached) => cached || caches.match('/offline.html'))
       )
   );
 });

@@ -135,6 +135,11 @@
       }
     }
   },
+  "install": {
+    "title": "앱으로 설치하기",
+    "description": "홈 화면에 추가하면 더 빠르게 사용할 수 있어요",
+    "button": "설치"
+  },
   "header": {
     "title": "랜덤게임.zip",
     "backToList": "목록으로"
