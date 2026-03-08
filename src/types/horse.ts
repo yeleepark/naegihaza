@@ -19,4 +19,5 @@ export interface HorseResult {
   rankings: RankingEntry[];
   participants: string[];
   timestamp: Date;
+  winnerRank: number; // 당첨 순위 (1-based)
 }

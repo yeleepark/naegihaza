@@ -544,6 +544,8 @@
     "finalStretch": "最后冲刺！",
     "gap": "差距",
     "finished": "比赛结束！",
+    "winnerRank": "中奖名次",
+    "winner": "中奖",
     "result": {
       "title": "排名结果"
     },

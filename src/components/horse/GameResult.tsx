@@ -7,7 +7,7 @@ import Button from '@/components/ui/Button';
 import { HorseResult } from '@/types/horse';
 import { useTranslation } from 'react-i18next';
 import { useSound } from '@/hooks/useSound';
-import { Trophy, Medal } from 'lucide-react';
+import { Trophy } from 'lucide-react';
 
 type GameResultProps = {
   result: HorseResult;
@@ -83,117 +83,11 @@ function fireCelebration(winnerColor: string) {
   }, 800);
 }
 
-const PODIUM_CONFIG = [
-  {
-    rank: 2,
-    height: 80,
-    iconSize: 'w-7 h-7',
-    iconColor: 'text-gray-400 fill-gray-400',
-    nameClass: 'text-xs md:text-sm',
-    namePadding: 'px-2 py-1',
-    nameMaxW: 'max-w-[80px] md:max-w-[100px]',
-    platformW: 'w-20 md:w-24',
-    rankColor: 'text-white/60',
-    rankSize: 'text-lg',
-    delay: '0.4s',
-    bounce: false,
-    glow: false,
-  },
-  {
-    rank: 1,
-    height: 110,
-    iconSize: 'w-9 h-9',
-    iconColor: 'text-yellow-400 fill-yellow-400',
-    nameClass: 'text-sm md:text-base',
-    namePadding: 'px-3 py-1.5',
-    nameMaxW: 'max-w-[90px] md:max-w-[110px]',
-    platformW: 'w-24 md:w-28',
-    rankColor: 'text-yellow-400',
-    rankSize: 'text-2xl',
-    delay: '0.2s',
-    bounce: true,
-    glow: true,
-  },
-  {
-    rank: 3,
-    height: 55,
-    iconSize: 'w-7 h-7',
-    iconColor: 'text-amber-700 fill-amber-700',
-    nameClass: 'text-xs md:text-sm',
-    namePadding: 'px-2 py-1',
-    nameMaxW: 'max-w-[80px] md:max-w-[100px]',
-    platformW: 'w-20 md:w-24',
-    rankColor: 'text-white/60',
-    rankSize: 'text-lg',
-    delay: '0.6s',
-    bounce: false,
-    glow: false,
-  },
-] as const;
-
-function Podium({ rankings }: { rankings: HorseResult['rankings'] }) {
-  const first = rankings.find((r) => r.rank === 1);
-  if (!first) return null;
-
+function WinnerBadge({ label }: { label: string }) {
   return (
-    <div className="flex items-end justify-center gap-2 md:gap-3 mb-4">
-      {PODIUM_CONFIG.map((cfg) => {
-        const entry = rankings.find((r) => r.rank === cfg.rank);
-        if (!entry) return null;
-
-        return (
-          <div
-            key={cfg.rank}
-            className="flex flex-col items-center animate-podium-rise"
-            style={{ animationDelay: cfg.delay, animationFillMode: 'backwards' }}
-          >
-            <Medal
-              className={`${cfg.iconSize} ${cfg.iconColor} mb-1 ${cfg.bounce ? 'animate-winner-bounce' : ''}`}
-            />
-            <span
-              className={`block font-game ${cfg.nameClass} font-black text-white ${cfg.namePadding} rounded-t-lg border-2 border-black border-b-0 truncate ${cfg.nameMaxW} text-center`}
-              style={{ backgroundColor: entry.color }}
-            >
-              {entry.name}
-            </span>
-            <div
-              className={`${cfg.platformW} rounded-t-lg border-2 border-black border-b-0 ${cfg.glow ? 'animate-winner-glow' : ''} relative overflow-hidden`}
-              style={{
-                height: `${cfg.height}px`,
-                background: cfg.rank === 1
-                  ? 'linear-gradient(to bottom, #b45309, #92400e)'
-                  : cfg.rank === 2
-                    ? 'linear-gradient(to bottom, #6b7280, #4b5563)'
-                    : 'linear-gradient(to bottom, #92400e, #78350f)',
-                borderTopColor: cfg.rank === 1 ? '#fbbf24' : cfg.rank === 2 ? '#9ca3af' : '#92400e',
-              }}
-            >
-              <div className="flex items-center justify-center h-full relative z-[1]">
-                <span className={`font-game ${cfg.rankColor} ${cfg.rankSize} font-black`}>
-                  {cfg.rank}
-                </span>
-              </div>
-              {/* Sparkle particles for 1st place */}
-              {cfg.rank === 1 && (
-                <>
-                  {[0, 1, 2, 3].map((i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1.5 h-1.5 bg-yellow-300 rounded-full animate-sparkle-orbit"
-                      style={{
-                        top: '50%',
-                        left: '50%',
-                        animationDelay: `${i * 0.5}s`,
-                      }}
-                    />
-                  ))}
-                </>
-              )}
-            </div>
-          </div>
-        );
-      })}
-    </div>
+    <span className="inline-block font-game text-[10px] md:text-xs font-black text-black bg-yellow-400 px-1.5 py-0.5 rounded border border-yellow-600 animate-pulse shadow-[0_0_8px_rgba(250,204,21,0.6)]">
+      {label}
+    </span>
   );
 }
 
@@ -216,8 +110,6 @@ export default function GameResult({
     };
   }, [playBreakoutWin, result.rankings]);
 
-  const restRankings = result.rankings.filter((r) => r.rank > 3);
-
   return (
     <div className="flex items-center justify-center h-full relative">
       <Card className="max-w-md w-full relative z-10 animate-result-appear">
@@ -226,37 +118,34 @@ export default function GameResult({
             <Trophy className="w-7 h-7 text-yellow-500 fill-yellow-500" /> {t('horse.result.title')}
           </h2>
 
-          {/* Podium */}
-          <Podium rankings={result.rankings} />
-
-
-          {/* 4th place and below */}
-          {restRankings.length > 0 && (
-            <div className="space-y-1.5 mb-5">
-              {restRankings.map((entry, i) => (
-                <div
-                  key={entry.name}
-                  className="flex items-center gap-3 p-2.5 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] animate-rank-slide-in"
-                  style={{
-                    backgroundColor: `${entry.color}40`,
-                    animationDelay: `${0.8 + i * 0.15}s`,
-                    animationFillMode: 'backwards',
-                  }}
-                >
-                  <div className="w-8 text-center shrink-0">
-                    <span className="font-game text-base font-black text-black/60">
-                      {entry.rank}
-                    </span>
-                  </div>
-                  <div className="flex-1 text-left">
-                    <span className="font-game text-sm md:text-base font-black text-black/80 break-words">
-                      {entry.name}
-                    </span>
-                  </div>
+          {/* Rankings */}
+          <div className="space-y-1.5 mb-5">
+            {result.rankings.map((entry, i) => (
+              <div
+                key={entry.name}
+                className="flex items-center gap-3 p-2.5 rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] animate-rank-slide-in"
+                style={{
+                  backgroundColor: `${entry.color}40`,
+                  animationDelay: `${0.2 + i * 0.15}s`,
+                  animationFillMode: 'backwards',
+                }}
+              >
+                <div className="w-8 text-center shrink-0">
+                  <span className="font-game text-base font-black text-black/60">
+                    {entry.rank}
+                  </span>
                 </div>
-              ))}
-            </div>
-          )}
+                <div className="flex-1 text-left flex items-center gap-2">
+                  <span className="font-game text-sm md:text-base font-black text-black/80 break-words">
+                    {entry.name}
+                  </span>
+                  {entry.rank === result.winnerRank && (
+                    <WinnerBadge label={t('horse.winner')} />
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
 
           <div className="space-y-3">
             <Button

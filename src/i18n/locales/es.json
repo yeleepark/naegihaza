@@ -544,6 +544,8 @@
     "finalStretch": "¡Sprint final!",
     "gap": "Diferencia",
     "finished": "¡Carrera terminada!",
+    "winnerRank": "Rango ganador",
+    "winner": "Ganador",
     "result": {
       "title": "Clasificación"
     },

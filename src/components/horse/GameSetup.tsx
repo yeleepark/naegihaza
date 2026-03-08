@@ -10,13 +10,14 @@ import { parseNames, validateParticipantNames, MAX_PARTICIPANTS } from '@/utils/
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 type GameSetupProps = {
-  onStart: (names: string[]) => void;
+  onStart: (names: string[], winnerRank: number) => void;
 };
 
 export default function GameSetup({ onStart }: GameSetupProps) {
   const { t } = useTranslation();
   const [input, setInput] = useLocalStorage('participants');
   const [error, setError] = useState<string>('');
+  const [winnerRank, setWinnerRank] = useState(1);
 
   const tags = useMemo(() => parseNames(input), [input]);
 
@@ -45,7 +46,7 @@ export default function GameSetup({ onStart }: GameSetupProps) {
     }
 
     setError('');
-    onStart(names);
+    onStart(names, winnerRank);
   };
 
   return (
@@ -110,6 +111,30 @@ export default function GameSetup({ onStart }: GameSetupProps) {
                 {t('horse.minMax')}
               </p>
             </div>
+
+            {tags.length >= 2 && (
+              <div>
+                <label className="font-game block text-sm font-bold text-black mb-2">
+                  {t('horse.winnerRank')}
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {Array.from({ length: tags.length }, (_, i) => i + 1).map((rank) => (
+                    <button
+                      key={rank}
+                      type="button"
+                      onClick={() => setWinnerRank(rank)}
+                      className={`font-game text-sm font-bold px-3 py-1.5 rounded-lg border-2 border-black transition-all ${
+                        winnerRank === rank
+                          ? 'bg-yellow-400 text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                          : 'bg-white text-black/60 hover:bg-gray-100'
+                      }`}
+                    >
+                      {rank}{t('horse.rankSuffix', { defaultValue: '' })}{rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : ''}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <Button type="submit" variant="primary" className="w-full lowercase">
               {t('common.start')}

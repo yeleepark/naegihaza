@@ -13,6 +13,7 @@ export default function HorseGameClient() {
   const [gameState, setGameState] = useState<GameState>('setup');
   const [names, setNames] = useState<string[]>([]);
   const [result, setResult] = useState<HorseResult | null>(null);
+  const [winnerRank, setWinnerRank] = useState(1);
 
   const {
     horses,
@@ -28,6 +29,8 @@ export default function HorseGameClient() {
 
   const { initialized, sync, clear } = useGameURL(({ gameState: s, participants: p, params }) => {
     setNames(p);
+    const w = params.get('w');
+    if (w) setWinnerRank(parseInt(w, 10) || 1);
     if (s === 'result') {
       // Try to restore rankings from URL
       const r = params.get('r'); // rankings: name1:rank1,name2:rank2,...
@@ -43,10 +46,12 @@ export default function HorseGameClient() {
           color: colors[i] || '#ccc',
           rank: pair.rank,
         }));
+        const restoredWinnerRank = parseInt(w || '1', 10) || 1;
         const restoredResult: HorseResult = {
           rankings,
           participants: p,
           timestamp: new Date(),
+          winnerRank: restoredWinnerRank,
         };
         setResult(restoredResult);
         resetRace(p);
@@ -64,6 +69,7 @@ export default function HorseGameClient() {
   useEffect(() => {
     if (!initialized) return;
     const extra: Record<string, string> = {};
+    extra.w = String(winnerRank);
     if (result && gameState === 'result') {
       extra.r = result.rankings
         .map((e) => `${e.name}:${e.rank}`)
@@ -71,10 +77,11 @@ export default function HorseGameClient() {
       extra.c = result.rankings.map((e) => e.color).join(',');
     }
     sync(gameState, names, extra);
-  }, [initialized, gameState, names, result, sync]);
+  }, [initialized, gameState, names, result, winnerRank, sync]);
 
-  const handleStart = useCallback((inputNames: string[]) => {
+  const handleStart = useCallback((inputNames: string[], inputWinnerRank: number) => {
     setNames(inputNames);
+    setWinnerRank(inputWinnerRank);
     setResult(null);
     resetRace(inputNames);
     setGameState('racing');
@@ -85,10 +92,11 @@ export default function HorseGameClient() {
       rankings: [...finishOrder].sort((a, b) => a.rank - b.rank),
       participants: names,
       timestamp: new Date(),
+      winnerRank,
     };
     setResult(horseResult);
     setGameState('result');
-  }, [finishOrder, names]);
+  }, [finishOrder, names, winnerRank]);
 
   const handlePlayAgain = useCallback(() => {
     setResult(null);

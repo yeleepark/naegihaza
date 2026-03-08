@@ -543,6 +543,8 @@
     "finalStretch": "막판 스퍼트!",
     "gap": "차이",
     "finished": "레이스 종료!",
+    "winnerRank": "당첨 순위",
+    "winner": "당첨",
     "result": {
       "title": "순위 결과"
     },
