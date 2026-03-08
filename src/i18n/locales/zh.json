@@ -539,6 +539,10 @@
     "go": "出发！",
     "photoFinish": "终点冲刺!",
     "racing": "比赛进行中...",
+    "neckAndNeck": "不相上下！",
+    "overtake": "超越！",
+    "finalStretch": "最后冲刺！",
+    "gap": "差距",
     "finished": "比赛结束！",
     "result": {
       "title": "排名结果"

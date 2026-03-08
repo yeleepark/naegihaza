@@ -47,30 +47,41 @@ export function getHorseColor(index: number): string {
 
 export const RACE_CONFIG = {
   // Speed
-  BASE_SPEED: 0.22,
-  SPEED_VARIATION: 0.08,
-  MIN_SPEED: 0.13,
-  SMOOTHING: 0.08,
-  PROGRESS_MULTIPLIER: 0.06,
-  RANDOM_VARIATION: 0.14,
-  // Rubber-banding
-  RUBBER_BAND_THRESHOLD: 10,
-  RUBBER_BAND_INTENSITY: 0.04,
+  BASE_SPEED: 0.20,
+  SPEED_VARIATION: 0.12,
+  MIN_SPEED: 0.10,
+  SMOOTHING: 0.10,
+  PROGRESS_MULTIPLIER: 0.035,
+  RANDOM_VARIATION: 0.24,
+  // Rubber-banding (progressive — intensifies with race progress)
+  RUBBER_BAND_THRESHOLD: 5,
+  RUBBER_BAND_INTENSITY: 0.08,
+  RUBBER_BAND_PROGRESS_SCALE: 2.5, // max multiplier at 100% progress
+  // Leader drag — slight penalty for being in 1st
+  LEADER_DRAG: 0.022,
+  LEADER_DRAG_PROGRESS_MIN: 10, // only applies after this % progress
   // Phase thresholds
   PHASE_START: 3,
-  PHASE_EARLY: 40,
+  PHASE_EARLY: 35,
   PHASE_MID: 55,
-  PHASE_SECOND_WIND: 75,
+  PHASE_SECOND_WIND: 70,
+  PHASE_TENSION: 75,
   PHASE_FINAL_APPROACH: 90,
-  // Events
-  EVENT_BIG_BURST: { chance: 0.008, value: 0.3 },
-  EVENT_SMALL_BURST: { chance: 0.025, value: 0.15 },
-  EVENT_STUMBLE: { chance: 0.035, value: -0.05 },
-  EVENT_SPRINT: { chance: 0.015, value: 0.35 },
-  EVENT_FATIGUE: { chance: 0.03, value: -0.04 },
+  // Events — more frequent and impactful
+  EVENT_BIG_BURST: { chance: 0.02, value: 0.4 },
+  EVENT_SMALL_BURST: { chance: 0.04, value: 0.2 },
+  EVENT_STUMBLE: { chance: 0.04, value: -0.08 },
+  EVENT_SPRINT: { chance: 0.025, value: 0.5 },
+  EVENT_FATIGUE: { chance: 0.045, value: -0.07 },
+  // Mid-race drama events (40-65% progress)
+  EVENT_MID_SURGE: { chance: 0.025, value: 0.35 },
+  EVENT_MID_STUMBLE: { chance: 0.025, value: -0.10 },
+  // Tension zone events (75-90% progress)
+  EVENT_DRAMATIC_SURGE: { chance: 0.05, value: 0.65 },
+  EVENT_LEADER_STUMBLE: { chance: 0.06, value: -0.16 },
   // Photo finish
-  PHOTO_FINISH_PROGRESS: 75,
-  PHOTO_FINISH_GAP: 8,
+  PHOTO_FINISH_PROGRESS: 70,
+  PHOTO_FINISH_GAP: 15,
   // Timing
   COUNTDOWN_INTERVAL: 800,
   DELTA_CAP: 50,

@@ -539,6 +539,10 @@
     "go": "¡YA!",
     "photoFinish": "¡Foto Finish!",
     "racing": "Carrera en curso...",
+    "neckAndNeck": "¡Codo a codo!",
+    "overtake": "¡Adelantamiento!",
+    "finalStretch": "¡Sprint final!",
+    "gap": "Diferencia",
     "finished": "¡Carrera terminada!",
     "result": {
       "title": "Clasificación"

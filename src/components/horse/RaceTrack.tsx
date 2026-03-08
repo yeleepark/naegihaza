@@ -1,3 +1,5 @@
+'use client';
+
 import { Horse, RaceState } from '@/types/horse';
 import { Crown, Medal } from 'lucide-react';
 
@@ -190,9 +192,7 @@ export default function RaceTrack({
 
   return (
     <div
-      className={`flex-1 w-full flex flex-col justify-center rounded-2xl border-4 border-black overflow-hidden relative min-h-[60dvh] md:min-h-0 ${
-        isPhotoFinish && raceState === 'racing' ? 'animate-screen-shake' : ''
-      }`}
+      className="flex-1 w-full flex flex-col justify-center rounded-2xl border-4 border-black overflow-hidden relative min-h-[60dvh] md:min-h-0"
       style={{
         background: 'linear-gradient(to bottom, #065f46, #022c22)',
       }}
@@ -224,6 +224,9 @@ export default function RaceTrack({
         const isRacing = raceState === 'racing' && !isFinished;
         const isFlashing = finishFlashLane === horse.name;
         const showFinishGlow = horse.progress > 85 && raceState === 'racing';
+        // Catching up: fast horse that isn't leading
+        const isSurging = isRacing && !isLeader && horse.speed > 0.35 && horse.progress > 30;
+        const displayPos = Math.min(horse.progress, 95);
 
         return (
           <div
@@ -232,6 +235,7 @@ export default function RaceTrack({
               isLeader ? 'animate-leader-glow' : ''
             }`}
             style={{
+              zIndex: rank ? horses.length - rank + 1 : 0,
               height: `${100 / horses.length}%`,
               backgroundColor:
                 idx % 2 === 0
@@ -248,24 +252,24 @@ export default function RaceTrack({
               <div className="absolute inset-0 animate-finish-flash pointer-events-none z-10" />
             )}
 
-            {/* Name label */}
-            <div className="w-14 md:w-20 shrink-0 z-[2]">
+            {/* Track area */}
+            <div
+              className="relative flex-1 h-full flex items-center overflow-x-clip"
+              style={{ containerType: 'inline-size' }}
+            >
+              {/* Name label - overlay on track */}
               <span
-                className="block font-game text-[10px] md:text-xs font-bold text-white px-1.5 py-0.5 rounded border border-black/30 truncate"
-                style={{ backgroundColor: `${horse.color}cc` }}
+                className="absolute left-2 right-2 top-1/2 -translate-y-1/2 font-game text-[10px] md:text-xs font-bold text-white/50 z-[1] truncate pointer-events-none select-none"
               >
                 {horse.name}
               </span>
-            </div>
-
-            {/* Track area */}
-            <div className="relative flex-1 h-full flex items-center" style={{ containerType: 'inline-size' }}>
               {/* Finish line */}
               <div
-                className={`absolute right-0 top-0 bottom-0 w-3 md:w-4 z-[1] ${
+                className={`absolute top-0 bottom-0 w-3 md:w-4 z-[1] ${
                   showFinishGlow ? 'animate-finish-line-pulse' : ''
                 }`}
                 style={{
+                  right: 0,
                   background:
                     'repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 0 0 / 8px 8px',
                 }}
@@ -277,7 +281,7 @@ export default function RaceTrack({
                   <div
                     className="h-full rounded-r-full transition-all duration-100"
                     style={{
-                      width: `${Math.min(horse.progress, 100)}%`,
+                      width: `${Math.min(displayPos, 100)}%`,
                       backgroundColor: `${horse.color}40`,
                     }}
                   />
@@ -286,60 +290,69 @@ export default function RaceTrack({
 
               {/* Horse position */}
               <div
-                className="absolute flex items-center z-[2]"
+                className="z-[2]"
                 style={{
-                  left: 0,
-                  transform: `translateX(calc(${Math.min(horse.progress, 95)}cqw - 20px))`,
+                  transform: `translateX(calc(${displayPos}cqw - 20px))`,
                   willChange: 'transform',
                 }}
               >
-                {/* Speed lines */}
-                {isRacing && <SpeedLines speed={horse.speed} />}
+                  {/* Speed lines */}
+                  {isRacing && <SpeedLines speed={horse.speed} />}
 
-                {/* Dust particles */}
-                {isRacing && (
-                  <DustParticles color={horse.color} isRunning={isRacing} speed={horse.speed} />
-                )}
+                  {/* Dust particles */}
+                  {isRacing && (
+                    <DustParticles color={horse.color} isRunning={isRacing} speed={horse.speed} />
+                  )}
 
-                {/* SVG Horse */}
-                <SvgHorse
-                  color={horse.color}
-                  isRunning={isRacing}
-                  isLeader={isLeader}
-                  speed={horse.speed}
-                />
+                  {/* Surge glow when catching up */}
+                  {isSurging && (
+                    <div
+                      className="absolute -left-3 top-1/2 -translate-y-1/2 w-12 h-8 rounded-full animate-surge-glow pointer-events-none"
+                      style={{
+                        background: `radial-gradient(ellipse, ${horse.color}60 0%, transparent 70%)`,
+                      }}
+                    />
+                  )}
 
-                {/* Rank badge */}
-                {raceState === 'racing' && !isFinished && (
-                  <span
-                    className={`absolute -top-5 right-0 font-game text-[9px] md:text-[10px] font-black px-1 rounded ${
-                      horse.currentRank === 1
-                        ? 'bg-yellow-400 text-black animate-leader-pulse'
-                        : 'bg-black/50 text-white'
-                    }`}
-                  >
-                    {getRankLabel(horse.currentRank)}
-                  </span>
-                )}
+                  {/* SVG Horse */}
+                  <SvgHorse
+                    color={horse.color}
+                    isRunning={isRacing}
+                    isLeader={isLeader}
+                    speed={horse.speed}
+                  />
 
-                {/* Finish rank badge */}
-                {isFinished && rank && (
-                  <span className="absolute -top-5 right-0 animate-bounce-in">
-                    {rank <= 3 ? (
-                      <Medal
-                        className="w-4 h-4"
-                        style={{
-                          color: rank === 1 ? '#fbbf24' : rank === 2 ? '#9ca3af' : '#b45309',
-                          fill: rank === 1 ? '#fbbf24' : rank === 2 ? '#9ca3af' : '#b45309',
-                        }}
-                      />
-                    ) : (
-                      <span className="font-game text-[10px] font-black text-white bg-black/50 px-1 rounded">
-                        {rank}th
-                      </span>
-                    )}
-                  </span>
-                )}
+                  {/* Rank badge */}
+                  {raceState === 'racing' && !isFinished && (
+                    <span
+                      className={`absolute -top-5 right-0 font-game text-[9px] md:text-[10px] font-black px-1 rounded ${
+                        horse.currentRank === 1
+                          ? 'bg-yellow-400 text-black animate-leader-pulse'
+                          : 'bg-black/50 text-white'
+                      }`}
+                    >
+                      {getRankLabel(horse.currentRank)}
+                    </span>
+                  )}
+
+                  {/* Finish rank badge */}
+                  {isFinished && rank && (
+                    <span className="absolute -top-5 right-0 animate-bounce-in">
+                      {rank <= 3 ? (
+                        <Medal
+                          className="w-4 h-4"
+                          style={{
+                            color: rank === 1 ? '#fbbf24' : rank === 2 ? '#9ca3af' : '#b45309',
+                            fill: rank === 1 ? '#fbbf24' : rank === 2 ? '#9ca3af' : '#b45309',
+                          }}
+                        />
+                      ) : (
+                        <span className="font-game text-[10px] font-black text-white bg-black/50 px-1 rounded">
+                          {rank}th
+                        </span>
+                      )}
+                    </span>
+                  )}
               </div>
             </div>
           </div>

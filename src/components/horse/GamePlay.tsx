@@ -80,7 +80,7 @@ export default function GamePlay({
         getFinishRank={getFinishRank}
       />
 
-      <StatusBar raceState={raceState} leader={leader} horses={horses} />
+      <StatusBar raceState={raceState} leader={leader} horses={horses} leadChanges={leadChanges} />
     </div>
   );
 }

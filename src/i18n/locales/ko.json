@@ -538,6 +538,10 @@
     "go": "출발!",
     "photoFinish": "포토 피니시!",
     "racing": "레이스 진행 중...",
+    "neckAndNeck": "접전!",
+    "overtake": "역전!",
+    "finalStretch": "막판 스퍼트!",
+    "gap": "차이",
     "finished": "레이스 종료!",
     "result": {
       "title": "순위 결과"

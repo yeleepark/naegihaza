@@ -22,30 +22,48 @@ function computePhaseMult(p: number): number {
   if (p < RC.PHASE_START) {
     return 0.8 + (p / RC.PHASE_START) * 0.2;
   } else if (p < RC.PHASE_EARLY) {
-    return 0.95 + Math.random() * 0.1;
+    return 0.88 + Math.random() * 0.20;
   } else if (p < RC.PHASE_MID) {
-    return 0.85 + Math.random() * 0.15;
+    return 0.80 + Math.random() * 0.35;
   } else if (p < RC.PHASE_SECOND_WIND) {
-    return 0.85 + Math.random() * 0.4;
+    return 0.75 + Math.random() * 0.55;
+  } else if (p < RC.PHASE_TENSION) {
+    return 0.70 + Math.random() * 0.65;
   } else if (p < RC.PHASE_FINAL_APPROACH) {
-    return 0.8 + Math.random() * 0.5;
+    // Tension zone: wider variance = more dramatic swings
+    return 0.60 + Math.random() * 0.85;
   } else {
-    return 0.75 + Math.random() * 0.65;
+    // Final approach: explosive finish
+    return 0.65 + Math.random() * 0.90;
   }
 }
 
-function computeRubberBand(horseProgress: number, minProgress: number, spread: number): number {
+function computeRubberBand(horseProgress: number, minProgress: number, maxProgress: number, spread: number): number {
   if (spread <= RC.RUBBER_BAND_THRESHOLD) return 0;
   const normalizedPos = (horseProgress - minProgress) / spread;
-  return (0.5 - normalizedPos) * RC.RUBBER_BAND_INTENSITY;
+  // Progressive: rubber-banding intensifies as race progresses
+  const progressFactor = 1 + (maxProgress / 100) * RC.RUBBER_BAND_PROGRESS_SCALE;
+  return (0.5 - normalizedPos) * RC.RUBBER_BAND_INTENSITY * progressFactor;
 }
 
-function computeEvent(p: number): number {
+function computeEvent(p: number, isLeader: boolean): number {
   const roll = Math.random();
   if (p > 20 && p < 95) {
     if (roll < RC.EVENT_BIG_BURST.chance) return RC.EVENT_BIG_BURST.value;
     if (roll < RC.EVENT_SMALL_BURST.chance) return RC.EVENT_SMALL_BURST.value;
     if (roll < RC.EVENT_STUMBLE.chance) return RC.EVENT_STUMBLE.value;
+  }
+  // Mid-race drama events (40-65%)
+  if (p >= 40 && p < 65) {
+    const roll3 = Math.random();
+    if (!isLeader && roll3 < RC.EVENT_MID_SURGE.chance) return RC.EVENT_MID_SURGE.value;
+    if (isLeader && roll3 < RC.EVENT_MID_STUMBLE.chance) return RC.EVENT_MID_STUMBLE.value;
+  }
+  // Tension zone: dramatic events for catch-up drama
+  if (p >= RC.PHASE_TENSION && p < RC.PHASE_FINAL_APPROACH) {
+    const roll2 = Math.random();
+    if (!isLeader && roll2 < RC.EVENT_DRAMATIC_SURGE.chance) return RC.EVENT_DRAMATIC_SURGE.value;
+    if (isLeader && roll2 < RC.EVENT_LEADER_STUMBLE.chance) return RC.EVENT_LEADER_STUMBLE.value;
   }
   if (p >= RC.PHASE_FINAL_APPROACH) {
     if (roll < RC.EVENT_SPRINT.chance) return RC.EVENT_SPRINT.value;
@@ -59,6 +77,7 @@ function updateHorseProgress(
   index: number,
   spread: number,
   minProgress: number,
+  maxProgress: number,
   cappedDelta: number,
   baseSpeeds: number[],
   smoothedSpeeds: number[],
@@ -67,13 +86,17 @@ function updateHorseProgress(
 
   const base = baseSpeeds[index];
   const p = horse.progress;
+  const isLeader = p >= maxProgress - 0.5;
 
   const phaseMult = computePhaseMult(p);
-  const rubberBand = computeRubberBand(p, minProgress, spread);
+  const rubberBand = computeRubberBand(p, minProgress, maxProgress, spread);
   const variation = (Math.random() - 0.5) * RC.RANDOM_VARIATION;
-  const event = computeEvent(p);
+  const event = computeEvent(p, isLeader);
 
-  const targetSpeed = Math.max(RC.MIN_SPEED, (base + variation + rubberBand + event) * phaseMult);
+  // Leader drag: slight penalty for being in 1st place
+  const leaderDrag = isLeader && p > RC.LEADER_DRAG_PROGRESS_MIN ? -RC.LEADER_DRAG : 0;
+
+  const targetSpeed = Math.max(RC.MIN_SPEED, (base + variation + rubberBand + event + leaderDrag) * phaseMult);
 
   const prev = smoothedSpeeds[index];
   const speed = prev + (targetSpeed - prev) * RC.SMOOTHING;
@@ -198,7 +221,7 @@ export function useHorseRace(): UseHorseRaceReturn {
       allFinished = false;
 
       const newHorse = updateHorseProgress(
-        horse, i, spread, minProgress, cappedDelta,
+        horse, i, spread, minProgress, maxProgress, cappedDelta,
         baseSpeeds.current, smoothedSpeeds.current,
       );
 

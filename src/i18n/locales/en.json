@@ -539,6 +539,10 @@
     "go": "GO!",
     "photoFinish": "Photo Finish!",
     "racing": "Race in progress...",
+    "neckAndNeck": "Neck and neck!",
+    "overtake": "Overtake!",
+    "finalStretch": "Final stretch!",
+    "gap": "Gap",
     "finished": "Race finished!",
     "result": {
       "title": "Rankings"
