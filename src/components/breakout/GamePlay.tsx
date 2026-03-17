@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useBreakoutEngine } from '@/hooks/useBreakoutEngine';
 import { SPEED_MIN, SPEED_MAX, SPEED_STEP } from '@/lib/breakout-engine';
 import { useSound } from '@/hooks/useSound';
+import { vibrate } from '@/utils/vibrate';
 import { Volume2, VolumeX } from 'lucide-react';
 
 type Props = {
@@ -24,8 +25,8 @@ export default function GamePlay({ participants, onResult }: Props) {
     handleSpeedChange,
   } = useBreakoutEngine(participants, {
     onResult,
-    onBlockHit: playBlockBreak,
-    onWallHit: playWallBounce,
+    onBlockHit: () => { playBlockBreak(); vibrate(15); },
+    onWallHit: () => { playWallBounce(); vibrate(10); },
   });
   const { t } = useTranslation();
 

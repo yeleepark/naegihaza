@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { WheelSegment, SpinConfig, Participant } from '@/types/roulette';
 import RouletteScene from './RouletteScene';
 import { useSound } from '@/hooks/useSound';
+import { vibrate } from '@/utils/vibrate';
 import { Volume2, VolumeX } from 'lucide-react';
 
 type GameSpinningProps = {
@@ -34,6 +35,7 @@ export default function GameSpinning({
 
   const handleNearStop = useCallback(() => {
     setNearStop(true);
+    vibrate([30, 20, 30, 20, 50]);
   }, []);
 
   const handleSpinComplete = useCallback(() => {
@@ -48,6 +50,7 @@ export default function GameSpinning({
       zIndex: 30,
     });
 
+    vibrate([60, 40, 100]);
     setNearStop(false);
     onSpinComplete();
   }, [onSpinComplete]);

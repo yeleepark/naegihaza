@@ -7,6 +7,7 @@ import { MinePhase } from '@/hooks/useMineGame';
 import { GRID_COLS, GRID_ROWS, GRID_SIZE, MINE_COUNT } from '@/utils/mine';
 import { useTranslation } from 'react-i18next';
 import { useSound } from '@/hooks/useSound';
+import { vibrate } from '@/utils/vibrate';
 import { Volume2, VolumeX } from 'lucide-react';
 
 type Props = {
@@ -41,10 +42,11 @@ export default function GamePlay({
   const remainingCells = grid.filter((c) => !c.revealed).length;
   const isExploded = phase === 'revealing' && lastRevealWasMine;
 
-  // Safe reveal sound
+  // Safe reveal sound + vibration
   useEffect(() => {
     if (phase === 'revealing' && revealedCell !== null && !lastRevealWasMine) {
       playMineSafe();
+      vibrate(30);
     }
   }, [phase, revealedCell, lastRevealWasMine, playMineSafe]);
 
@@ -52,6 +54,7 @@ export default function GamePlay({
   useEffect(() => {
     if (phase === 'revealing' && revealedCell !== null && lastRevealWasMine) {
       playBombExplode();
+      vibrate([100, 50, 150, 50, 300]);
 
       const player = currentPlayerIndex >= 0 ? participants[currentPlayerIndex] : null;
       setExplodedPlayerName(player?.name ?? '');
@@ -254,7 +257,7 @@ export default function GamePlay({
                       key={cell.id}
                       type="button"
                       disabled={!isClickable}
-                      onClick={() => isClickable && onCellClick(cell.id)}
+                      onClick={() => { if (isClickable) { vibrate(15); onCellClick(cell.id); } }}
                       className={`
                         aspect-square flex items-center justify-center
                         transition-all duration-150

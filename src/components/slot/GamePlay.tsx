@@ -6,6 +6,7 @@ import { SlotResult } from '@/types/slot';
 import { useTranslation } from 'react-i18next';
 import { useSlotMachine } from '@/hooks/useSlotMachine';
 import { useSound } from '@/hooks/useSound';
+import { vibrate } from '@/utils/vibrate';
 import { Volume2, VolumeX } from 'lucide-react';
 
 const REEL_CELLS = 3;
@@ -33,7 +34,7 @@ export default function GamePlay({ participants, onComplete }: GamePlayProps) {
   const { spinning, stopped, nearStop, strip, offset, handleSpin } =
     useSlotMachine(participants, {
       onComplete,
-      onTick: playSlotTick,
+      onTick: () => { playSlotTick(); vibrate(10); },
     });
   const { t } = useTranslation();
 
@@ -178,7 +179,7 @@ export default function GamePlay({ participants, onComplete }: GamePlayProps) {
 
         {/* SPIN button */}
         <Button
-          onClick={() => { playSlotSpin(); handleSpin(); }}
+          onClick={() => { playSlotSpin(); vibrate(30); handleSpin(); }}
           variant="primary"
           disabled={spinning}
           className="w-full text-xl py-4 lowercase mt-5"

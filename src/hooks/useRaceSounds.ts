@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import confetti from 'canvas-confetti';
 import { RaceState, RankingEntry } from '@/types/horse';
 import { useSound } from '@/hooks/useSound';
+import { vibrate } from '@/utils/vibrate';
 import { RACE_CONFIG } from '@/utils/horse';
 
 type UseRaceSoundsParams = {
@@ -63,8 +64,10 @@ export function useRaceSounds({
     if (raceState === 'countdown') {
       if (countdown > 0) {
         playBombTick();
+        vibrate(30);
       } else if (countdown === 0) {
         playHorseStart();
+        vibrate([50, 30, 80]);
         setShowFlash(true);
         setTimeout(() => setShowFlash(false), 300);
       }
@@ -106,6 +109,7 @@ export function useRaceSounds({
       const newFinisher = finishOrder[finishOrder.length - 1];
       if (newFinisher.rank === 1) {
         playHorseFinish();
+        vibrate([80, 40, 120]);
         confetti({
           particleCount: 60,
           spread: 70,

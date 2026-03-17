@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button';
 import { BombParticipant } from '@/types/bomb';
 import { useTranslation } from 'react-i18next';
 import { useSound } from '@/hooks/useSound';
+import { vibrate } from '@/utils/vibrate';
 import { Volume2, VolumeX } from 'lucide-react';
 
 type Props = {
@@ -230,6 +231,7 @@ export default function GamePlay({
   useEffect(() => {
     if (currentHolder !== prevHolderRef.current && currentHolder >= 0 && isRunning) {
       playBombTick();
+      vibrate(20);
       setFlashHolder(currentHolder);
       const timer = setTimeout(() => setFlashHolder(null), 300);
       return () => clearTimeout(timer);
@@ -241,6 +243,7 @@ export default function GamePlay({
   useEffect(() => {
     if (exploded) {
       playBombExplode();
+      vibrate([100, 50, 150, 50, 300]);
       clearHeartbeat();
 
       // White flash
